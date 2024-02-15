@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("katex/dist/katex.min.css");
+@import url("@fortawesome/fontawesome-svg-core/styles.css");
+
+@layer base {
+  :root {
+    font-size: 16px;
+    font-family: sans-serif;
+    --text-color: 18 18 18;
+    --bg-color: 240 240 240;
+    @apply text-text bg-bg;
+    scroll-behavior: smooth;
+  }
+
+  h1 {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  table, td, th, input, button, select {
+    border: 1px solid rgb(var(--text-color));
+  }
+
+  td, th {
+    text-align: center;
+  }
+}
+
+@layer components {
+  .article {
+    @apply px-[25%] w-full flex flex-col gap-4 my-4;
+  }
+
+  .link-h {
+    scroll-margin-top: 1rem;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .link-h .link-icon {
+    font-size: 0.625em;
+    visibility: hidden;
+  }
+
+  .link-h:hover .link-icon {
+    visibility: visible;
+  }
+}
+
