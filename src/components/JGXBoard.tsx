@@ -3,6 +3,8 @@
 import JXG from "jsxgraph";
 import { useEffect, useId, useMemo } from "react";
 
+JXG.Options.text.useMathJax = true
+
 export type BoardProps = {
   id?: string
   bbox?: [number, number, number, number]
