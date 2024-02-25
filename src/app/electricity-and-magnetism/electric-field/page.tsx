@@ -162,6 +162,12 @@ export default async function Page() {
           \vec{E} &= \vec{E}_d \frac{\vec{C} - \vec{P}}{|\vec{C} - \vec{P}|} + \vec{E}_l \frac{\vec{B} - \vec{A}}{|\vec{B} - \vec{A}|}, \\
           dl &= dy, \\
           r &= \sqrt{y^2 + d^2}, \\
+          d\vec{E}_x &= \cos \alpha\ d |\vec{E}|, \\
+          d\vec{E}_y &= \sin \alpha\ d |\vec{E}|, \\
+          \cos \alpha &= \frac{d}{r} \\
+          &= \frac{d}{\sqrt{y^2 + d^2}}, \\
+          \sin \alpha &= \frac{y}{r} \\
+          &= \frac{y}{\sqrt{y^2 + d^2}},
         \end{align*}
       "/>
     </div>
