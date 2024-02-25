@@ -1,34 +1,34 @@
 "use client"
 
 import JXG from "jsxgraph";
-import { useEffect, useId, useMemo } from "react";
+import { useEffect, useRef } from "react";
 
 JXG.Options.text.useMathJax = true
 
 export type BoardProps = {
-  id?: string
   bbox?: [number, number, number, number]
   axis?: boolean
   offsetX?: number,
   offsetY?: number,
 }
 
+export type FixedInput = JXG.Input & { set(val: any): void }
+
 export function CustomJXGBoard({
-  id,
   bbox,
   axis,
   initFn,
 }: BoardProps & {
   initFn?: (board: JXG.Board) => void
 }) {
-  const generatedId = useId()
-  const jxgId = useMemo(() => !id ? generatedId : id, [id, generatedId])
+  const el = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const board = JXG.JSXGraph.initBoard(jxgId, {
+    const board = JXG.JSXGraph.initBoard(el.current!, {
       axis: axis ?? true,
       boundingBox: bbox ?? [-8, 4.5, 8, -4.5],
       showCopyright: false,
+      keepAspectRatio: true,
     })
 
     if (initFn) {
@@ -36,9 +36,9 @@ export function CustomJXGBoard({
     }
 
     return () => JXG.JSXGraph.freeBoard(board)
-  }, [jxgId, bbox, initFn, axis])
+  }, [bbox, initFn, axis])
 
   return (
-    <div className="w-full aspect-video" id={jxgId} />
+    <div className="w-full aspect-video" ref={el} />
   )
 }

@@ -2,6 +2,10 @@
 
 import { useEffect } from "react"
 
+declare const window: {
+  MathJax: any
+} & Window
+
 export default function MathJax() {
   useEffect(() => {
     window.MathJax = {
@@ -12,14 +16,7 @@ export default function MathJax() {
         fontCache: 'global'
       }
     }
-  })
-  
-  return (function () {
-    const script = document.createElement("script")
-    script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
-    script.async = true
-    script.id = "mathjax"
+  }, [])
 
-    document.head.appendChild(script)
-  })()
+  return <></>
 }

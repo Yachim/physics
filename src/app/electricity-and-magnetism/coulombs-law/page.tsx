@@ -1,15 +1,17 @@
-import { LinkH2 } from "@/components/LinkHeadings"
+import { LinkH2, LinkH3 } from "@/components/LinkHeadings"
 import { BlockMath, InlineMath } from "react-katex"
 import { ForceMagnitude, ForceVectors } from "./components"
 import { Metadata } from "next"
+import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Coulomb's law"
+  title: "Coulomb's Law"
 }
 
 export default async function Page() {
   return (
     <div className="article">
+      <Link href="/electricity-and-magnetism">Back</Link>
       <h1>Coulomb&apos;s Law</h1>
       <p>The force between two charges, <InlineMath math={String.raw`q_1, q_2`} /> at a distance <InlineMath math="r_{12}" /> is given by the Coulomb&apos;s law:</p>
       <BlockMath math={String.raw`\begin{equation}|\vec{F}_e| = k_e \frac{|q_1| |q_2|}{r^2},\end{equation}`} />
@@ -83,7 +85,7 @@ export default async function Page() {
         \end{align*}
       `} />
 
-      <LinkH2 id="magnitude-calculator">Magnitude Calculator</LinkH2>
+      <LinkH3 id="magnitude-calculator">Magnitude Calculator</LinkH3>
       <ForceMagnitude initialQ1={-2E-8} initialQ2={8E-8} initialR={0.1} />
 
       <LinkH2 id="charges-in-space">Charges in Space</LinkH2>
@@ -130,63 +132,119 @@ export default async function Page() {
         \end{align*}
       `} />
 
-      <LinkH2 id="forces-plot">Forces Plot</LinkH2>
+      <LinkH3 id="forces-plot">Plot of Forces</LinkH3>
       <ForceVectors />
 
-      <LinkH2 id="charges-with-gravity">Charges with Gravity</LinkH2>
+      <LinkH2 id="charge-density">Charge Density</LinkH2>
+      <p>Charge density is an amount of electric charge per unit of length, surface area or volume.</p>
+      <p>For a small change in length, <InlineMath math="dl" /> and a small change in charge <InlineMath math="dq" />, the linear charge density, <InlineMath math="\lambda" />, is equal to:</p>
+      <BlockMath math="\lambda = \frac{dq}{dl}." />
+      <p>For a small change in surface area, <InlineMath math="dS" /> and a small change in charge <InlineMath math="dq" />, the surface charge density, <InlineMath math="\sigma" />, is equal to:</p>
+      <BlockMath math="\sigma = \frac{dS}{dl}." />
+      <p>For a small change in volume, <InlineMath math="dV" /> and a small change in charge <InlineMath math="dq" />, the volume charge density, <InlineMath math="\rho" />, is equal to:</p>
+      <BlockMath math="\rho = \frac{dV}{dl}." />
+
+      <LinkH3 id="linear-density-example">Linear Charge Density</LinkH3>
+      <p>A long wire has a linear charge density of <InlineMath math="\lambda = 2\ Cm^{-1}" />. Find the total charge enclosed in a segment of the wire that is <InlineMath math="3\ m" /> long.</p>
+      <BlockMath math="
+        \begin{align*}
+          \lambda &= 2\ Cm^{-1}, \\
+          l &= 3 m, \\
+          dq &= \lambda\ dl, \\
+          q &= \int_0^l \lambda dl \\
+          &= \int_0^3 2 dl \\
+          &= 2 \cdot 3 \\
+          &= 6\ C.
+        \end{align*}
+      "/>
+
+      <LinkH3 id="surface-density-example">Surface Area Charge Density</LinkH3>
+      <p>A flat sheet has a surface charge density of <InlineMath math="\sigma = 5\ Cm^{-2}" />. Calculate the total charge on a circular region of the sheet with radius <InlineMath math="2\ m" />.</p>
+      <BlockMath math="
+        \begin{align*}
+          \sigma &= 5\ Cm^{-2}, \\
+          r &= 2\ m, \\
+          dq &= \sigma\ dS, \\
+          q &= \int_S \sigma dS, \\
+          &= \int_0^{2\pi} \int_0^2 5 r\ dr d\theta \\
+          &= 5 \int_0^{2\pi} \int_0^2 r\ dr d\theta \\
+          &= 5 \int_0^{2\pi} \left[\frac{1}{2} r^2\right]_0^2 d\theta \\
+          &= 10 \int_0^{2\pi} d\theta \\
+          &= 10 \cdot 2\pi \\
+          &= 20 \pi\ C.
+        \end{align*}
+      "/>
+
+      <LinkH3 id="volume-density-example">Volume Charge Density</LinkH3>
+      <p>Inside a cube with sides of length <InlineMath math="a = 4\ m" />, the volume charge density is given by <InlineMath math="\rho = 3\ Cm^{-3}" />. Find the total charge contained within the cube.</p>
+      <BlockMath math="
+        \begin{align*}
+          \rho &= 3\ Cm^{-3}, \\
+          a &= 4\ m, \\
+          dq &= \rho\ dV, \\
+          q &= \int_V \rho\ dV \\
+          &= 3 \int_0^4 \int_0^4 \int_0^4\ dx dy dz \\
+          &= 12 \int_0^4 \int_0^4\ dy dz \\
+          &= 48 \int_0^4 dz \\
+          &= 192\ C
+        \end{align*}
+      "/>
+
+      {/*<LinkH2 id="charges-with-gravity">Charges with Gravity</LinkH2>
 
       <LinkH2 id="motion-of-charged-particles">Motion of Charged Particles</LinkH2>
-      {/*
+      <p>Two charged particles are placed at a distance <InlineMath math="r_0" /> with zero initial velocity. How long does it take the particles to reach a distance of <InlineMath math="r" /> between them? What is the velocity at that moment?</p>
       <p>As per Newton's second law:</p>
       <BlockMath math={String.raw`
         \begin{align*}
-	  \vec{a} &= \frac{\vec{F}_e}{m} \\
-	  &= k_e \frac{q_1 q_2}{m} \frac{\hat{r}_{12}}{|\vec{r}_{12}|^2} \\
-	  &= k_e \frac{q_1 q_2}{m} \frac{\vec{r}_{12}}{|\vec{r}_{12}|^3} \\
-	  &= k_e \frac{q_1 q_2}{m} \frac{r_{12,x} \hat{x} + r_{12,y} \hat{y}}{(r_{12,x}^2 + r_{12,y}^2)^\frac{3}{2}} \\
-	  &= a_x \hat{x} + a_y \hat{y},
+          \frac{dv}{dt} &= \frac{F}{m}, \\
+          \frac{dv}{dr} v &= \frac{F}{m}, \\
+          v dv &= \frac{k |q_1||q_2|}{m} r^{-2} dr, \\
+          \int_0^{v} v dv &= \frac{k |q_1||q_2|}{m} \int_{r_0}^r r^{-2} dr, \\
+          \frac{1}{2} v^2 &= -\frac{k |q_1||q_2|}{m} \left(\frac{1}{r} - \frac{1}{r_0}\right), \\
+          v^2 &= \frac{2k |q_1||q_2|}{m} \frac{r - r_0}{r_0r}, \\
+          \frac{dr}{dt} &= \sqrt{\frac{2k |q_1||q_2|}{m} \frac{r - r_0}{r_0r}}, \\
+          &= \frac{C}{\sqrt{m}} \sqrt{\frac{r - r_0}{r}}, \\
+          C &= \sqrt{\frac{2k |q_1||q_2|}{r_0}}.
         \end{align*}
       `} />
-
-      <p>which implies:</p>
+      <p>This is the velocity. As for the time:</p>
       <BlockMath math={String.raw`
         \begin{align*}
-	  a_x &= \frac{d^2 r_{12,x}}{dt^2} = k_e \frac{q_1 q_2}{m} \frac{r_{12,x}}{(r_{12,x}^2 + r_{12,y}^2)^\frac{3}{2}}, \\
-	  a_y &= \frac{d^2 r_{12,y}}{dt^2} = k_e \frac{q_1 q_2}{m} \frac{r_{12,y}}{(r_{12,x}^2 + r_{12,y}^2)^\frac{3}{2}},
+          dt &= \frac{dr}{v}, \\
+          dt &= \frac{\sqrt{m}}{C} \sqrt{\frac{r}{r - r_0}} dr \\
+          t &= \frac{\sqrt{m}}{C} \int_{r_0}^r \sqrt{\frac{r}{r - r_0}} dr, \\
+          u &= \sqrt{r - r_0}, \\
+          r &= u^2 + r_0, \\
+          dr &= 2u\, du, \\
+          t &= \frac{\sqrt{m}}{C} \int_0^{\sqrt{r - r_0}} \frac{\sqrt{u^2 + r_0}}{u} 2u\, du \\
+          &= \frac{2\sqrt{m}}{C} \int_0^{\sqrt{r - r_0}} \sqrt{u^2 + r_0}\, du, \\
+          u &= \sqrt{r_0} \sinh \theta, \\
+          du &= \sqrt{r_0} \cosh \theta\, d\theta, \\
+          t &= \frac{2 r_0 \sqrt{m}}{C} \int_0^{\sinh^{-1} \sqrt{\frac{r - r_0}{r_0}}} \cosh^2 \theta\, d\theta \\
+          &= \frac{r_0 \sqrt{m}}{C} \int_0^{\sinh^{-1} \sqrt{\frac{r - r_0}{r_0}}} (\cosh 2 \theta + 1)\, d\theta \\
+          &= \frac{r_0 \sqrt{m}}{C} \left[\frac{\sinh 2 \theta}{2} + \theta\right]_0^{\sinh^{-1} \sqrt{\frac{r - r_0}{r_0}}} \\
+          &= \frac{r_0 \sqrt{m}}{C} \Big[\sinh \theta \cosh \theta + \theta\Big]_0^{\sinh^{-1} \sqrt{\frac{r - r_0}{r_0}}} \\
+          &= \frac{r_0 \sqrt{m}}{C} \left[\sqrt{\frac{r - r_0}{r_0}} \cosh \left(\sinh^{-1} \sqrt{\frac{r - r_0}{r_0}}\right) + \sinh^{-1} \sqrt{\frac{r - r_0}{r_0}}\right] \\
+          &= \frac{r_0 \sqrt{m}}{C} \left[\sqrt{\frac{r - r_0}{r_0}} \sqrt{\frac{r}{r_0}} + \sinh^{-1} \sqrt{\frac{r - r_0}{r_0}}\right] \\
+          &= \frac{\sqrt{m}}{C} \left[\sqrt{r} \sqrt{r - r_0} + r_0 \sinh^{-1} \sqrt{\frac{r - r_0}{r_0}}\right], \\
+          C &= \sqrt{\frac{2k |q_1||q_2|}{r_0}}.
         \end{align*}
       `} />
-
-      <p>or generally:</p>
-      <BlockMath math={String.raw`a_i = \frac{d^2 r_{12,i}}{dt^2} = k_e \frac{q_1 q_2}{m} \frac{r_{12,i}}{(\sum_j r_{12,j}^2)^\frac{3}{2}}`} />
-
-      <p>Let <InlineMath math="v_i = \frac{dr_{12,i}}{dt}"/>, then:</p>
-      <BlockMath math={String.raw`
-        \begin{align*}
-	  \frac{dv_i}{dt} &= k_e \frac{q_1 q_2}{m} \frac{r_{12,i}}{(\sum_j r_{12,j}^2)^\frac{3}{2}}, \\
-	  \sum_j \frac{dv_i}{dr_{12,j}} \frac{dr_{12,j}}{dt} &= k_e \frac{q_1 q_2}{m} \frac{r_{12,i}}{(\sum_j r_{12,j}^2)^\frac{3}{2}}, \\
-	  \frac{dv_i}{dr_{12,i}} v_i &= k_e \frac{q_1 q_2}{m} \frac{r_{12,i}}{(r_{12,i}^2 + \sum_{j \neq i} r_{12,j}^2)^\frac{3}{2}}
-        \end{align*}
-      `} />
+      <p>This is the time it takes the two particles to reach a distance <InlineMath math="r" /> between them.</p>
       */}
-
-      <p>Let <InlineMath math="a, v, r" /> be the magnitudes of the acceleration, velocity and distance between two charged particles. As per Newton's second law:</p>
-      {/*FIXME: r_0 = infinity => loss of generality?*/}
+      {/* FIXME: this is only true when assuming the other particle is not moving */}
+      {/*
+      <LinkH2 id="motion-animation">Animation of Motion</LinkH2>
+      <p>Numerically, we can solve for motion, e.g. Euler method:</p>
       <BlockMath math={String.raw`
         \begin{align*}
-	  a &= \frac{dv}{dt} \\
-	  &= \frac{|\vec{F}_e|}{m} \\
-	  &= k_e \frac{|q_1| |q_2|}{m} \frac{1}{r^2}, \\
-	  \frac{dv}{dt} &= \frac{dv}{dr} \frac{dr}{dt} = k_e \frac{|q_1| |q_2|}{m} \frac{1}{r^2}, \\
-	  \frac{dv}{dr} v &= k_e \frac{|q_1| |q_2|}{m} \frac{1}{r^2}, \\
-	  v\, dv &= k_e \frac{|q_1| |q_2|}{m} \frac{1}{r^2}\, dr, \\
-	  \int_{v_0}^v v\, dv &= k_e \frac{|q_1| |q_2|}{m} \int_{r_0}^r \frac{1}{r^2}\, dr, \\
-	  \left[\frac{1}{2} v^2\right]_{v_0}^v &= k_e \frac{|q_1| |q_2|}{m} \left[-\frac{1}{r}\right]_{r_0}^r, \\
-	  v^2 - v_0^2 &= 2 k_e \frac{|q_1| |q_2|}{m} \left(-\frac{1}{r} + \frac{1}{r_0}\right), \\
-	  v &= \pm \sqrt{2 k_e \frac{|q_1| |q_2|}{m} \left(-\frac{1}{r} + \frac{1}{r_0}\right) + v_0^2}, \\
-	  \vec{v} &= \mathrm{sgn}(q_1 q_2) \sqrt{2 k_e \frac{|q_1| |q_2|}{m} \left(-\frac{1}{|\vec{r}_{12}|} + \frac{1}{|\vec{r}_{12,0}|}\right) + v_0^2}\, \hat r_{12}. \\
+          r_{n + 1} &= r_n + h \frac{C}{\sqrt{m}} \sqrt{\frac{r_n - r_0}{r_n}}, \\
+          C &= \sqrt{\frac{2k |q_1||q_2|}{r_0}}.
         \end{align*}
       `} />
-      <p>Note: <InlineMath math="v_0"/> is not a vector. It is the magnitude of the initial velocity in the <InlineMath math={String.raw`\hat{r}`} /> direction.</p>
+      <ChargeMotion />
+      */}
     </div>
   )
 }

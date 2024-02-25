@@ -7,6 +7,11 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <Link href={`/electricity-and-magnetism/coulombs-law`}>Coulomb&apos;s Law</Link>
+    <div className="article">
+      <Link href="/">Back</Link>
+      <h1>Electricity and Magnetism</h1>
+      <Link href="/electricity-and-magnetism/coulombs-law">Coulomb&apos;s Law</Link>
+      <Link href="/electricity-and-magnetism/electric-field">Electric Field</Link>
+    </div>
   )
 }

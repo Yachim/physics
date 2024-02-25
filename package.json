@@ -6,12 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d out -t"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "gh-pages": "^6.1.1",
     "jsxgraph": "^1.7.0",
     "mathjs": "^12.3.2",
     "next": "14.1.0",

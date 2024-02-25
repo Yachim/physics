@@ -3,6 +3,7 @@
 @tailwind utilities;
 @import url("katex/dist/katex.min.css");
 @import url("@fortawesome/fontawesome-svg-core/styles.css");
+@import url("https://jsxgraph.org/distrib/jsxgraph.css");
 
 @layer base {
   :root {
