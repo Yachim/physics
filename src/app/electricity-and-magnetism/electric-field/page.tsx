@@ -18,17 +18,17 @@ export default async function Page() {
       <Link href="/electricity-and-magnetism">Back</Link>
       <h1>Electric Field</h1>
       <p>The electric field created by a charge, <InlineMath math="Q" />, acting on a charge <InlineMath math="q" />, is given by:</p>
-      <BlockMath math="|\vec{E}| = \frac{|\vec{F_e}|}{q} = k_e\frac{|Q|}{r^2}." />
+      <BlockMath math="|\boldsymbol{E}| = \frac{|\boldsymbol{F_e}|}{q} = k_e\frac{|Q|}{r^2}." />
       <p>Or in vector form:</p>
-      <BlockMath math="\vec{E} = \frac{\vec{F_e}}{q} = k_e\frac{Q}{r^2} \hat{r}," />
+      <BlockMath math="\boldsymbol{E} = \frac{\boldsymbol{F_e}}{q} = k_e\frac{Q}{r^2} \boldsymbol{\hat{r}}," />
       <p>where:</p>
       <BlockMath math="
         \begin{align*}
-          r &= |\vec{r}_q - \vec{r}_Q|, \\
-          \hat{r} &= \frac{\vec{r}_q - \vec{r}_Q}{r},
+          r &= |\boldsymbol{r}_q - \boldsymbol{r}_Q|, \\
+          \boldsymbol{\hat{r}} &= \frac{\boldsymbol{r}_q - \boldsymbol{r}_Q}{r},
         \end{align*}
       " />
-      <p>where <InlineMath math="\vec{r}_Q" /> is the position of the source charge and <InlineMath math="\vec{r}_q" /> is the position of the charge that the electric field acts on.</p>
+      <p>where <InlineMath math="\boldsymbol{r}_Q" /> is the position of the source charge and <InlineMath math="\boldsymbol{r}_q" /> is the position of the charge that the electric field acts on.</p>
 
       <LinkH2 id="electric-field-two-charges">Electric Field Created By Two Charges</LinkH2>
       <p>A <InlineMath math="10\ nC" /> charge is placed at the origin. A second <InlineMath math="-20\ nC" /> charge is placed <InlineMath math="50\ cm" /> to the right of the first charge. What is the magnitude and direction of the electric field <InlineMath math="20\ cm" /> above the first charge?</p>
@@ -36,25 +36,25 @@ export default async function Page() {
         \begin{align*}
           Q_1 &= 10^{-8}\ C, \\
           Q_2 &= -2 \cdot 10^{-8}\ C, \\
-          \vec{r}_1 &= \vec{0}, \\
-          \vec{r}_2 &= 0.5\ m\ \hat{x}, \\
-          \vec{r}_t &= 0.2\ m\ \hat{y}, \\[1.5ex]
-          \vec{r}_{t1} &= 0.2\ m\ \hat{y}, \\
-          |\vec{r}_{t1}| &= 0.2\ m, \\
-          \hat{r}_{t1} &= \hat{y}, \\[1.5ex]
-          \vec{r}_{t2} &= -0.5\ m\ \hat{x} + 0.2\ m\ \hat{y}, \\
-          |\vec{r}_{t2}| &= \frac{\sqrt{29}}{10}\ m, \\
-          \hat{r}_{t2} &= -\frac{5 \sqrt{29}}{29}\ \hat{x} + \frac{2 \sqrt{29}}{29}\ \hat{y}, \\[1.5ex]
-          \vec{E}_1 &= k_e \frac{Q_1}{|\vec{r}_{t1}|^2} \hat{r}_{t1} \\
-          &= 2250\ NC^{-1}\ \hat{y}, \\
-          \vec{E}_2 &= k_e \frac{Q_2}{|\vec{r}_{t2}|^2} \hat{r}_{t2} \\
-          &= -\frac{18000}{29}\ NC^{-1}\ \hat{r}_{t2} \\
-          &= \frac{90000 \sqrt{29}}{841}\ NC^{-1}\ \hat{x} - \frac{36000 \sqrt{29}}{841}\ NC^{-1}\ \hat{y}, \\
-          &\approx 576.3\ NC^{-1}\ \hat{x} - 230.52\ NC^{-1}\ \hat{y}, \\
-          \vec{E} &= \vec{E}_1 + \vec{E}_2 \\
-          &= \frac{90000 \sqrt{29}}{841}\ NC^{-1}\ \hat{x} + \left(2250 - \frac{36000 \sqrt{29}}{841}\right)\ NC^{-1}\ \hat{y}, \\
-          &\approx 576.3\ NC^{-1}\ \hat{x} + 2019.48\ NC^{-1}\ \hat{y}, \\
-          |\vec{E}| &\approx 2100.1\ NC^{-1}.
+          \boldsymbol{r}_1 &= \boldsymbol{0}, \\
+          \boldsymbol{r}_2 &= 0.5\ m\ \boldsymbol{\hat{x}}, \\
+          \boldsymbol{r}_t &= 0.2\ m\ \boldsymbol{\hat{y}}, \\[1.5ex]
+          \boldsymbol{r}_{t1} &= 0.2\ m\ \boldsymbol{\hat{y}}, \\
+          |\boldsymbol{r}_{t1}| &= 0.2\ m, \\
+          \boldsymbol{\hat{r}_{t1}} &= \boldsymbol{\hat{y}}, \\[1.5ex]
+          \boldsymbol{r}_{t2} &= -0.5\ m\ \boldsymbol{\hat{x}} + 0.2\ m\ \boldsymbol{\hat{y}}, \\
+          |\boldsymbol{r}_{t2}| &= \frac{\sqrt{29}}{10}\ m, \\
+          \boldsymbol{\hat{r}_{t2}} &= -\frac{5 \sqrt{29}}{29}\ \boldsymbol{\hat{x}} + \frac{2 \sqrt{29}}{29}\ \boldsymbol{\hat{y}}, \\[1.5ex]
+          \boldsymbol{E}_1 &= k_e \frac{Q_1}{|\boldsymbol{r}_{t1}|^2} \boldsymbol{\hat{r}_{t1}} \\
+          &= 2250\ NC^{-1}\ \boldsymbol{\hat{y}}, \\
+          \boldsymbol{E}_2 &= k_e \frac{Q_2}{|\boldsymbol{r}_{t2}|^2} \boldsymbol{\hat{r}_{t2}} \\
+          &= -\frac{18000}{29}\ NC^{-1}\ \boldsymbol{\hat{r}_{t2}} \\
+          &= \frac{90000 \sqrt{29}}{841}\ NC^{-1}\ \boldsymbol{\hat{x}} - \frac{36000 \sqrt{29}}{841}\ NC^{-1}\ \boldsymbol{\hat{y}}, \\
+          &\approx 576.3\ NC^{-1}\ \boldsymbol{\hat{x}} - 230.52\ NC^{-1}\ \boldsymbol{\hat{y}}, \\
+          \boldsymbol{E} &= \boldsymbol{E}_1 + \boldsymbol{E}_2 \\
+          &= \frac{90000 \sqrt{29}}{841}\ NC^{-1}\ \boldsymbol{\hat{x}} + \left(2250 - \frac{36000 \sqrt{29}}{841}\right)\ NC^{-1}\ \boldsymbol{\hat{y}}, \\
+          &\approx 576.3\ NC^{-1}\ \boldsymbol{\hat{x}} + 2019.48\ NC^{-1}\ \boldsymbol{\hat{y}}, \\
+          |\boldsymbol{E}| &\approx 2100.1\ NC^{-1}.
         \end{align*}
       "/>
 
@@ -78,51 +78,51 @@ export default async function Page() {
           &= \frac{\sqrt{d^2 + 4a^2}}{2}. \\
         \end{align*}
       "/>
-      <p>Let <InlineMath math="\vec{r_1}" /> be the position of the first charge, <InlineMath math="\vec{r_2}" /> the position of the second charge and <InlineMath math="\vec{r_t}" /> the at which the electric field is calculated:</p>
+      <p>Let <InlineMath math="\boldsymbol{r_1}" /> be the position of the first charge, <InlineMath math="\boldsymbol{r_2}" /> the position of the second charge and <InlineMath math="\boldsymbol{r_t}" /> the at which the electric field is calculated:</p>
       <BlockMath math="
         \begin{align*}
-          r &= |\vec{r_t} - \vec{r_1}| = |\vec{r_t} - \vec{r_2}|, \\
-          d &= |\vec{r_1} - \vec{r_2}|, \\
-          \hat{r}_{s1} &= \frac{\vec{r}_t - \vec{r}_1}{r}, \\
-          \hat{r}_{s2} &= \frac{\vec{r}_t - \vec{r}_2}{r}.
+          r &= |\boldsymbol{r_t} - \boldsymbol{r_1}| = |\boldsymbol{r_t} - \boldsymbol{r_2}|, \\
+          d &= |\boldsymbol{r_1} - \boldsymbol{r_2}|, \\
+          \boldsymbol{\hat{r}_{s1}} &= \frac{\boldsymbol{r}_t - \boldsymbol{r}_1}{r}, \\
+          \boldsymbol{\hat{r}_{s2}} &= \frac{\boldsymbol{r}_t - \boldsymbol{r}_2}{r}.
         \end{align*}
       "/>
 
-      <p>The electric field due to the first charge, <InlineMath math="\vec{E}_1" /> is equal to:</p>
+      <p>The electric field due to the first charge, <InlineMath math="\boldsymbol{E}_1" /> is equal to:</p>
       <BlockMath math="
         \begin{align*}
-          \vec{E}_1 &= k_e \frac{q}{r^2} \hat{r}_{s1} \\
-          &= k_e \frac{q}{r^3} (\vec{r}_t - \vec{r}_1).
+          \boldsymbol{E}_1 &= k_e \frac{q}{r^2} \boldsymbol{\hat{r}_{s1}} \\
+          &= k_e \frac{q}{r^3} (\boldsymbol{r}_t - \boldsymbol{r}_1).
         \end{align*}
       "/>
 
-      <p>The electric field due to the second charge, <InlineMath math="\vec{E}_2" /> is equal to:</p>
+      <p>The electric field due to the second charge, <InlineMath math="\boldsymbol{E}_2" /> is equal to:</p>
       <BlockMath math="
         \begin{align*}
-          \vec{E}_2 &= -k_e \frac{q}{r^2} \hat{r}_{s2} \\
-          &= -k_e \frac{q}{r^3} (\vec{r}_t - \vec{r}_2).
+          \boldsymbol{E}_2 &= -k_e \frac{q}{r^2} \boldsymbol{\hat{r}_{s2}} \\
+          &= -k_e \frac{q}{r^3} (\boldsymbol{r}_t - \boldsymbol{r}_2).
         \end{align*}
       "/>
 
-      <p>The total electric field, <InlineMath math="\vec{E}" /> is equal to:</p>
+      <p>The total electric field, <InlineMath math="\boldsymbol{E}" /> is equal to:</p>
       <BlockMath math="
         \begin{align*}
-          \vec{E} &= \vec{E}_1 + \vec{E}_2 \\
-          &= k_e \frac{q}{r^3} (\vec{r}_t - \vec{r}_1) - k_e \frac{q}{r^3} (\vec{r}_t - \vec{r}_2) \\
-          &= k_e \frac{q}{r^3} (\vec{r}_t - \vec{r}_1 - \vec{r}_t + \vec{r}_2) \\
-          &= k_e \frac{q}{r^3} (\vec{r}_2 - \vec{r}_1) \\
-          &= k_e \frac{q}{\left(\frac{\sqrt{d^2 + 4a^2}}{2}\right)^3} (\vec{r}_2 - \vec{r}_1) \\
-          &= \frac{8 k_e q}{(d^2 + 4a^2)^{\frac{3}{2}}} (\vec{r}_2 - \vec{r}_1).
+          \boldsymbol{E} &= \boldsymbol{E}_1 + \boldsymbol{E}_2 \\
+          &= k_e \frac{q}{r^3} (\boldsymbol{r}_t - \boldsymbol{r}_1) - k_e \frac{q}{r^3} (\boldsymbol{r}_t - \boldsymbol{r}_2) \\
+          &= k_e \frac{q}{r^3} (\boldsymbol{r}_t - \boldsymbol{r}_1 - \boldsymbol{r}_t + \boldsymbol{r}_2) \\
+          &= k_e \frac{q}{r^3} (\boldsymbol{r}_2 - \boldsymbol{r}_1) \\
+          &= k_e \frac{q}{\left(\frac{\sqrt{d^2 + 4a^2}}{2}\right)^3} (\boldsymbol{r}_2 - \boldsymbol{r}_1) \\
+          &= \frac{8 k_e q}{(d^2 + 4a^2)^{\frac{3}{2}}} (\boldsymbol{r}_2 - \boldsymbol{r}_1).
         \end{align*}
       "/>
 
-      <p>Transforming the coordinate system so that <InlineMath math="\vec{r}_1" /> is at the origin and <InlineMath math="\vec{r}_2" /> lies on the x axis, the magnitude of the electric field can be calculated in the original terms:</p>
+      <p>Transforming the coordinate system so that <InlineMath math="\boldsymbol{r}_1" /> is at the origin and <InlineMath math="\boldsymbol{r}_2" /> lies on the x axis, the magnitude of the electric field can be calculated in the original terms:</p>
       <BlockMath math="
         \begin{align*}
-          \vec{r}_2 &= d \hat{x}, \\
-          \vec{E} &= \frac{8 k_e q}{(d^2 + 4a^2)^{\frac{3}{2}}} d \hat{x} \\
-          &= \frac{8 k_e q d}{(d^2 + 4a^2)^{\frac{3}{2}}} \hat{x}, \\
-          |\vec{E}| &= \frac{8 k_e q d}{(d^2 + 4a^2)^{\frac{3}{2}}}. \\
+          \boldsymbol{r}_2 &= d \boldsymbol{\hat{x}}, \\
+          \boldsymbol{E} &= \frac{8 k_e q}{(d^2 + 4a^2)^{\frac{3}{2}}} d \boldsymbol{\hat{x}} \\
+          &= \frac{8 k_e q d}{(d^2 + 4a^2)^{\frac{3}{2}}} \boldsymbol{\hat{x}}, \\
+          |\boldsymbol{E}| &= \frac{8 k_e q d}{(d^2 + 4a^2)^{\frac{3}{2}}}. \\
         \end{align*}
       "/>
 
@@ -130,7 +130,7 @@ export default async function Page() {
       <ElectricDipolePlot />
 
       <LinkH2 id="line-charge">Line charge</LinkH2>
-      <p>A line has a <b>constant</b> charge density <InlineMath math="\lambda" />. Its ends are described by position vectors <InlineMath math="\vec{A}" /> and <InlineMath math="\vec{B}" />. Let <InlineMath math="\vec{P}" /> denote a point on the line such that the distance between <InlineMath math="\vec{P}" /> and <InlineMath math="\vec{A}" /> is equal to <InlineMath math="h" />. Let <InlineMath math="\vec{C}" /> denote a point such that the distance from it to <InlineMath math="\vec{P}" /> is equal to <InlineMath math="d" /> and the line formed by the vectors <InlineMath math="\vec{C}" /> and <InlineMath math="\vec{P}" /> is perpendicular to the line formed by the vectors <InlineMath math="\vec{A}" /> and <InlineMath math="\vec{B}" />. Determine the vector field at <InlineMath math="\vec{C}" /></p>
+      <p>A line has a <b>constant</b> charge density <InlineMath math="\lambda" />. Its ends are described by position vectors <InlineMath math="\boldsymbol{A}" /> and <InlineMath math="\boldsymbol{B}" />. Let <InlineMath math="\boldsymbol{P}" /> denote a point on the line such that the distance between <InlineMath math="\boldsymbol{P}" /> and <InlineMath math="\boldsymbol{A}" /> is equal to <InlineMath math="h" />. Let <InlineMath math="\boldsymbol{C}" /> denote a point such that the distance from it to <InlineMath math="\boldsymbol{P}" /> is equal to <InlineMath math="d" /> and the line formed by the vectors <InlineMath math="\boldsymbol{C}" /> and <InlineMath math="\boldsymbol{P}" /> is perpendicular to the line formed by the vectors <InlineMath math="\boldsymbol{A}" /> and <InlineMath math="\boldsymbol{B}" />. Determine the boldsymbol field at <InlineMath math="\boldsymbol{C}" /></p>
       <div className="w-full flex justify-center">
         <Image
           src={`${basePath}/assets/line-charge.svg`}
@@ -141,9 +141,9 @@ export default async function Page() {
       </div>
       <BlockMath math="
         \begin{align*}
-          l &= |\vec{B} - \vec{A}|, \\
-          d &= |\vec{C} - \vec{P}|, \\
-          h &= |\vec{P} - \vec{A}|, \\
+          l &= |\boldsymbol{B} - \boldsymbol{A}|, \\
+          d &= |\boldsymbol{C} - \boldsymbol{P}|, \\
+          h &= |\boldsymbol{P} - \boldsymbol{A}|, \\
           R &= \begin{bmatrix}
             \cos \left(-\frac{\pi}{2}\right) & -\sin \left(-\frac{\pi}{2}\right) \\
             \sin \left(-\frac{\pi}{2}\right) & \cos \left(-\frac{\pi}{2}\right)
@@ -152,31 +152,31 @@ export default async function Page() {
             0 & 1 \\
             -1 & 0
           \end{bmatrix}, \\
-          \vec{C} &= \vec{P} + d\, R\frac{\vec{B} - \vec{A}}{|\vec{B} - \vec{A}|} \\
-          &= \vec{P} + d\, \begin{bmatrix}
+          \boldsymbol{C} &= \boldsymbol{P} + d\, R\frac{\boldsymbol{B} - \boldsymbol{A}}{|\boldsymbol{B} - \boldsymbol{A}|} \\
+          &= \boldsymbol{P} + d\, \begin{bmatrix}
             0 & 1 \\
             -1 & 0
-          \end{bmatrix} \frac{\vec{B} - \vec{A}}{l}, \\
-          \vec{P} &= h\frac{\vec{B} - \vec{A}}{|\vec{B} - \vec{A}|} \\
-          &= h\frac{\vec{B} - \vec{A}}{l}, \\
-          \vec{C} - \vec{P} &= \vec{P} + d\, \begin{bmatrix}
+          \end{bmatrix} \frac{\boldsymbol{B} - \boldsymbol{A}}{l}, \\
+          \boldsymbol{P} &= h\frac{\boldsymbol{B} - \boldsymbol{A}}{|\boldsymbol{B} - \boldsymbol{A}|} \\
+          &= h\frac{\boldsymbol{B} - \boldsymbol{A}}{l}, \\
+          \boldsymbol{C} - \boldsymbol{P} &= \boldsymbol{P} + d\, \begin{bmatrix}
             0 & 1 \\
             -1 & 0
-          \end{bmatrix} \frac{\vec{B} - \vec{A}}{l} - \vec{P} \\
+          \end{bmatrix} \frac{\boldsymbol{B} - \boldsymbol{A}}{l} - \boldsymbol{P} \\
           &= d\, \begin{bmatrix}
             0 & 1 \\
             -1 & 0
-          \end{bmatrix} \frac{\vec{B} - \vec{A}}{l}, \\
-          \frac{\vec{C} - \vec{P}}{|\vec{C} - \vec{P}|} &= \frac{1}{d} d\, \begin{bmatrix}
+          \end{bmatrix} \frac{\boldsymbol{B} - \boldsymbol{A}}{l}, \\
+          \frac{\boldsymbol{C} - \boldsymbol{P}}{|\boldsymbol{C} - \boldsymbol{P}|} &= \frac{1}{d} d\, \begin{bmatrix}
             0 & 1 \\
             -1 & 0
-          \end{bmatrix} \frac{\vec{B} - \vec{A}}{l} \\
+          \end{bmatrix} \frac{\boldsymbol{B} - \boldsymbol{A}}{l} \\
           &= \begin{bmatrix}
             0 & 1 \\
             -1 & 0
-          \end{bmatrix} \frac{\vec{B} - \vec{A}}{l}, \\[3ex]
+          \end{bmatrix} \frac{\boldsymbol{B} - \boldsymbol{A}}{l}, \\[3ex]
           dq &= \lambda\ dl, \\
-          d|\vec{E}| &= k_e \frac{dq}{r^2}, \\
+          d|\boldsymbol{E}| &= k_e \frac{dq}{r^2}, \\
           &= k_e \lambda \frac{dl}{r^2}.
         \end{align*}
       "/>
@@ -192,15 +192,15 @@ export default async function Page() {
       </div>
       <BlockMath math="
         \begin{align*}
-          \vec{E} &= \vec{E}_d \frac{\vec{C} - \vec{P}}{|\vec{C} - \vec{P}|} + \vec{E}_l \frac{\vec{B} - \vec{A}}{|\vec{B} - \vec{A}|} \\
-          &= \vec{E}_d \begin{bmatrix}
+          \boldsymbol{E} &= \boldsymbol{E}_d \frac{\boldsymbol{C} - \boldsymbol{P}}{|\boldsymbol{C} - \boldsymbol{P}|} + \boldsymbol{E}_l \frac{\boldsymbol{B} - \boldsymbol{A}}{|\boldsymbol{B} - \boldsymbol{A}|} \\
+          &= \boldsymbol{E}_d \begin{bmatrix}
             0 & 1 \\
             -1 & 0
-          \end{bmatrix} \frac{\vec{B} - \vec{A}}{l} + \vec{E}_l \frac{\vec{B} - \vec{A}}{l}, \\
+          \end{bmatrix} \frac{\boldsymbol{B} - \boldsymbol{A}}{l} + \boldsymbol{E}_l \frac{\boldsymbol{B} - \boldsymbol{A}}{l}, \\
           dl &= dy, \\
           r &= \sqrt{y^2 + d^2}, \\
-          d\vec{E}_x &= \cos \alpha\ d |\vec{E}|, \\
-          d\vec{E}_y &= \sin \alpha\ d |\vec{E}|, \\
+          d\boldsymbol{E}_x &= \cos \alpha\ d |\boldsymbol{E}|, \\
+          d\boldsymbol{E}_y &= \sin \alpha\ d |\boldsymbol{E}|, \\
           \cos \alpha &= \frac{d}{r} \\
           &= \frac{d}{\sqrt{y^2 + d^2}}, \\
           \sin \alpha &= \frac{y}{r} \\

@@ -57,7 +57,7 @@ export function ForceMagnitude({ initialQ1, initialQ2, initialR }: {
         <BlockMath math={String.raw`
           \begin{align*}
             \epsilon_r &= ${epsilon} \\
-            |\vec{F}_e| &= ${toScientific(f)}\ N  ${chargeProduct === 0 ? "" : chargeProduct < 0 ? "&\\textrm{Attractive}" : "&\\textrm{Repulsive}"}.
+            |\boldsymbol{F}_e| &= ${toScientific(f)}\ N  ${chargeProduct === 0 ? "" : chargeProduct < 0 ? "&\\textrm{Attractive}" : "&\\textrm{Repulsive}"}.
           \end{align*}
         `} />
       </div>
@@ -190,7 +190,7 @@ export function ForceVectors(props: BoardProps) {
         const forceX = (force.toArray() as number[])[0]
         const forceY = (force.toArray() as number[])[1]
 
-        return String.raw`$\vec{F}_${index} = [${toScientific(forceX)},\ ${toScientific(forceY)}]$`
+        return String.raw`$\boldsymbol{F}_${index} = [${toScientific(forceX)},\ ${toScientific(forceY)}]$`
       }
 
       const label1 = board.create("text", [0.45, 0.30, () => getLabel(
@@ -224,7 +224,7 @@ export function ForceVectors(props: BoardProps) {
         index: number,
       ): string {
         const force = math.norm(calculateForce(target, charges)) as number
-        return String.raw`$|\vec{F}_${index}| = ${toScientific(force)}\ N$`
+        return String.raw`$|\boldsymbol{F}_${index}| = ${toScientific(force)}\ N$`
       }
 
       const magnitudeLabel1 = board.create("text", [0.45, 0.28, () => getMagnitudeLabel(

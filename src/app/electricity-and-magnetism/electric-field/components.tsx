@@ -44,8 +44,8 @@ export function TwoChargesElectricField(props: BoardProps) {
 
       const getTotalElectricField = (target = math.matrix([posPoint.X(), posPoint.Y()])) => sumVectorArray(data.map(([point, charge]) => getElectricField(point, +charge.Value(), target)))
 
-      const eText = board.create("text", [-0.75, 0.30, () => String.raw`$\vec{E} = [${toScientific2DVector(getTotalElectricField()).join(",\\ ")}]$`])
-      const eMagnitudeText = board.create("text", [-0.75, 0.25, () => String.raw`$|\vec{E}| = ${toScientific(math.norm(getTotalElectricField()) as number)}\ N C^{-1}$`])
+      const eText = board.create("text", [-0.75, 0.30, () => String.raw`$\boldsymbol{E} = [${toScientific2DVector(getTotalElectricField()).join(",\\ ")}]$`])
+      const eMagnitudeText = board.create("text", [-0.75, 0.25, () => String.raw`$|\boldsymbol{E}| = ${toScientific(math.norm(getTotalElectricField()) as number)}\ N C^{-1}$`])
 
       const resetButton = board.create("button", [-0.75, 0.2, "Reset", () => {
         data.forEach(([point, charge], i) => {
@@ -160,9 +160,9 @@ export function ElectricDipolePlot(props: BoardProps) {
         const x = toScientific((electricField.toArray() as number[])[0])
         const y = toScientific((electricField.toArray() as number[])[1])
 
-        return String.raw`$\vec{E} = [${x},\ ${y}]$`
+        return String.raw`$\boldsymbol{E} = [${x},\ ${y}]$`
       }])
-      const magnitudeLabel = board.create("text", [-0.7, 0.25, () => String.raw`$|\vec{E}| = ${toScientific(math.norm(getElectricField(+aInput.Value())) as number)}\ NC^{-1}$`])
+      const magnitudeLabel = board.create("text", [-0.7, 0.25, () => String.raw`$|\boldsymbol{E}| = ${toScientific(math.norm(getElectricField(+aInput.Value())) as number)}\ NC^{-1}$`])
 
       board.create("arrow", [
         targetPoint,

@@ -14,24 +14,24 @@ export default async function Page() {
       <Link href="/electricity-and-magnetism">Back</Link>
       <h1>Coulomb&apos;s Law</h1>
       <p>The force between two charges, <InlineMath math={String.raw`q_1, q_2`} /> at a distance <InlineMath math="r_{12}" /> is given by the Coulomb&apos;s law:</p>
-      <BlockMath math={String.raw`\begin{equation}|\vec{F}_e| = k_e \frac{|q_1| |q_2|}{r^2},\end{equation}`} />
+      <BlockMath math={String.raw`\begin{equation}|\boldsymbol{F}_e| = k_e \frac{|q_1| |q_2|}{r^2},\end{equation}`} />
       <p>where:</p>
       <BlockMath math={String.raw`\begin{equation}k_e = \frac{1}{4 \pi \epsilon_0} \approx 9 \cdot 10^9\ N m^2 C^{-2}.\end{equation}`} />
       <p>If the product <InlineMath math="q_1 q_2" /> is positive, the force is repulsive. If the product is negative, the force is attractive.</p>
       <p>Vector form:</p>
-      <BlockMath math={String.raw`\begin{equation}\vec{F}_e = k_e \frac{q_1 q_2}{|\vec{r}_{12}|^2} \hat{r}_{12},\end{equation}`} />
+      <BlockMath math={String.raw`\begin{equation}\boldsymbol{F}_e = k_e \frac{q_1 q_2}{|\boldsymbol{r}_{12}|^2} \boldsymbol{\hat{r}_{12}},\end{equation}`} />
       <p>where:</p>
       <BlockMath math={String.raw`
         \begin{align*}
-          \vec{r}_{12} &= \vec{r}_1 - \vec{r}_2, \\
-          \hat{r}_{12} &= \frac{\vec{r}_{12}}{|\vec{r}_{12}|}.
+          \boldsymbol{r}_{12} &= \boldsymbol{r}_1 - \boldsymbol{r}_2, \\
+          \boldsymbol{\hat{r}_{12}} &= \frac{\boldsymbol{r}_{12}}{|\boldsymbol{r}_{12}|}.
         \end{align*}
       `} />
       <p>In a non-vacuum environment, we have to use the relative permittivity, <InlineMath math="\epsilon_r" />:</p>
       <BlockMath math={String.raw`
         \begin{align}
-          |\vec{F}_e| &= \frac{k_e}{\epsilon_r} \frac{|q_1| |q_2|}{r^2}, \\
-          \vec{F}_e &= \frac{k_e}{\epsilon_r} \frac{q_1 q_2}{|\vec{r}_{12}|^2} \hat{r}_{12}.
+          |\boldsymbol{F}_e| &= \frac{k_e}{\epsilon_r} \frac{|q_1| |q_2|}{r^2}, \\
+          \boldsymbol{F}_e &= \frac{k_e}{\epsilon_r} \frac{q_1 q_2}{|\boldsymbol{r}_{12}|^2} \boldsymbol{\hat{r}_{12}}.
         \end{align}
       `} />
       <table className="mx-[20%]">
@@ -67,7 +67,7 @@ export default async function Page() {
           q_1 &= -2 \cdot 10^{-8}\ C, \\
           q_2 &= 8 \cdot 10^{-8}\ C, \\
           r &= 0.1\ m, \\
-          |\vec{F}_e| &= k_e \frac{|q_1| |q_2|}{r^2} \\
+          |\boldsymbol{F}_e| &= k_e \frac{|q_1| |q_2|}{r^2} \\
           &= 9 \cdot 10^9 \frac{2^{-8} \cdot 8^{-8}}{0.1^2} \\
           &= 1.44 \cdot 10^{-3}\ N.
         \end{align*}
@@ -79,7 +79,7 @@ export default async function Page() {
           q_2 &= 8 \cdot 10^{-8}\ C, \\
           r &= 0.1\ m, \\
           \epsilon_r &= 81.6, \\
-          |\vec{F}_e| &= \frac{k_e}{\epsilon_r} \frac{|q_1| |q_2|}{r^2} \\
+          |\boldsymbol{F}_e| &= \frac{k_e}{\epsilon_r} \frac{|q_1| |q_2|}{r^2} \\
           &= \frac{9 \cdot 10^9}{81.6} \frac{2^{-8} \cdot 8^{-8}}{0.1^2} \\
           &\approx 1.76 \cdot 10^{-5}\ N.
         \end{align*}
@@ -95,40 +95,40 @@ export default async function Page() {
           q_1 &= 10^{-8}\ C, \\
           q_2 &= -3 \cdot 10^{-8}\ C, \\
           q_3 &= 2 \cdot 10^{-8} \ C, \\
-          \vec{r}_1 &= \vec{0}, \\
-          \vec{r}_2 &= 0.2\ m\ \hat{x}, \\
-          \vec{r}_3 &= 0.2\ m\ \hat{x} + 0.15\ m\ \hat{y}, \\[1.5ex]
-          \vec{r}_{21} &= \vec{r}_2 - \vec{r}_1 \\
-          &= 0.2\ m\ \hat{x}, \\
-          |\vec{r}_{21}| &= 0.2\ m, \\
-          \hat{r}_{21} &= \hat{x}, \\[1.5ex]
-          \vec{r}_{23} &= \vec{r}_2 - \vec{r}_3 \\
-          &= -0.15\ m\ \hat{y}, \\
-          |\vec{r}_{23}| &= 0.15\ m, \\
-          \hat{r}_{23} &= -\hat{y}.
+          \boldsymbol{r}_1 &= \boldsymbol{0}, \\
+          \boldsymbol{r}_2 &= 0.2\ m\ \boldsymbol{\hat{x}}, \\
+          \boldsymbol{r}_3 &= 0.2\ m\ \boldsymbol{\hat{x}} + 0.15\ m\ \boldsymbol{\hat{y}}, \\[1.5ex]
+          \boldsymbol{r}_{21} &= \boldsymbol{r}_2 - \boldsymbol{r}_1 \\
+          &= 0.2\ m\ \boldsymbol{\hat{x}}, \\
+          |\boldsymbol{r}_{21}| &= 0.2\ m, \\
+          \boldsymbol{\hat{r}_{21}} &= \boldsymbol{\hat{x}}, \\[1.5ex]
+          \boldsymbol{r}_{23} &= \boldsymbol{r}_2 - \boldsymbol{r}_3 \\
+          &= -0.15\ m\ \boldsymbol{\hat{y}}, \\
+          |\boldsymbol{r}_{23}| &= 0.15\ m, \\
+          \boldsymbol{\hat{r}_{23}} &= -\boldsymbol{\hat{y}}.
         \end{align*}
       `} />
       <p>The force on second charge due to the first one:</p>
       <BlockMath math={String.raw`
         \begin{align*}
-          \vec{F}_{e1} &= k_e \frac{q_2 q_1}{|\vec{r}_{21}|^2} \hat{r}_{21} \\
-          &= 9 \cdot 10^9 \frac{-3 \cdot 10^{-8} \cdot 10^{-8}}{0.2^2} \hat{x} \\
-          &= -6.75 \cdot 10^{-5}\ m\ \hat{x}.
+          \boldsymbol{F}_{e1} &= k_e \frac{q_2 q_1}{|\boldsymbol{r}_{21}|^2} \boldsymbol{\hat{r}_{21}} \\
+          &= 9 \cdot 10^9 \frac{-3 \cdot 10^{-8} \cdot 10^{-8}}{0.2^2} \boldsymbol{\hat{x}} \\
+          &= -6.75 \cdot 10^{-5}\ m\ \boldsymbol{\hat{x}}.
         \end{align*}
       `} />
       <p>The force on second charge due to the third one:</p>
       <BlockMath math={String.raw`
         \begin{align*}
-          \vec{F}_{e3} &= k_e \frac{q_2 q_3}{|\vec{r}_{23}|^2} \hat{r}_{23} \\
-          &= 9 \cdot 10^9 \frac{- 3 \cdot 10^{-8} \cdot 2 \cdot 10^{-8}}{0.15^2} (- \hat{y}) \\
-          &= 2.4 \cdot 10^{-4}\ m\ \hat{y}.
+          \boldsymbol{F}_{e3} &= k_e \frac{q_2 q_3}{|\boldsymbol{r}_{23}|^2} \boldsymbol{\hat{r}_{23}} \\
+          &= 9 \cdot 10^9 \frac{- 3 \cdot 10^{-8} \cdot 2 \cdot 10^{-8}}{0.15^2} (- \boldsymbol{\hat{y}}) \\
+          &= 2.4 \cdot 10^{-4}\ m\ \boldsymbol{\hat{y}}.
         \end{align*}
       `} />
       <p>The total force is just sum of these two forces:</p>
       <BlockMath math={String.raw`
         \begin{align*}
-          \vec{F}_e &= \vec{F}_{e1} + \vec{F}_{e3} \\
-          &= -6.75 \cdot 10^{-5}\ m\ \hat{x} + 2.4 \cdot 10^{-4}\ m\ \hat{y}.
+          \boldsymbol{F}_e &= \boldsymbol{F}_{e1} + \boldsymbol{F}_{e3} \\
+          &= -6.75 \cdot 10^{-5}\ m\ \boldsymbol{\hat{x}} + 2.4 \cdot 10^{-4}\ m\ \boldsymbol{\hat{y}}.
         \end{align*}
       `} />
 
@@ -189,62 +189,6 @@ export default async function Page() {
           &= 192\ C
         \end{align*}
       "/>
-
-      {/*<LinkH2 id="charges-with-gravity">Charges with Gravity</LinkH2>
-
-      <LinkH2 id="motion-of-charged-particles">Motion of Charged Particles</LinkH2>
-      <p>Two charged particles are placed at a distance <InlineMath math="r_0" /> with zero initial velocity. How long does it take the particles to reach a distance of <InlineMath math="r" /> between them? What is the velocity at that moment?</p>
-      <p>As per Newton's second law:</p>
-      <BlockMath math={String.raw`
-        \begin{align*}
-          \frac{dv}{dt} &= \frac{F}{m}, \\
-          \frac{dv}{dr} v &= \frac{F}{m}, \\
-          v dv &= \frac{k |q_1||q_2|}{m} r^{-2} dr, \\
-          \int_0^{v} v dv &= \frac{k |q_1||q_2|}{m} \int_{r_0}^r r^{-2} dr, \\
-          \frac{1}{2} v^2 &= -\frac{k |q_1||q_2|}{m} \left(\frac{1}{r} - \frac{1}{r_0}\right), \\
-          v^2 &= \frac{2k |q_1||q_2|}{m} \frac{r - r_0}{r_0r}, \\
-          \frac{dr}{dt} &= \sqrt{\frac{2k |q_1||q_2|}{m} \frac{r - r_0}{r_0r}}, \\
-          &= \frac{C}{\sqrt{m}} \sqrt{\frac{r - r_0}{r}}, \\
-          C &= \sqrt{\frac{2k |q_1||q_2|}{r_0}}.
-        \end{align*}
-      `} />
-      <p>This is the velocity. As for the time:</p>
-      <BlockMath math={String.raw`
-        \begin{align*}
-          dt &= \frac{dr}{v}, \\
-          dt &= \frac{\sqrt{m}}{C} \sqrt{\frac{r}{r - r_0}} dr \\
-          t &= \frac{\sqrt{m}}{C} \int_{r_0}^r \sqrt{\frac{r}{r - r_0}} dr, \\
-          u &= \sqrt{r - r_0}, \\
-          r &= u^2 + r_0, \\
-          dr &= 2u\, du, \\
-          t &= \frac{\sqrt{m}}{C} \int_0^{\sqrt{r - r_0}} \frac{\sqrt{u^2 + r_0}}{u} 2u\, du \\
-          &= \frac{2\sqrt{m}}{C} \int_0^{\sqrt{r - r_0}} \sqrt{u^2 + r_0}\, du, \\
-          u &= \sqrt{r_0} \sinh \theta, \\
-          du &= \sqrt{r_0} \cosh \theta\, d\theta, \\
-          t &= \frac{2 r_0 \sqrt{m}}{C} \int_0^{\sinh^{-1} \sqrt{\frac{r - r_0}{r_0}}} \cosh^2 \theta\, d\theta \\
-          &= \frac{r_0 \sqrt{m}}{C} \int_0^{\sinh^{-1} \sqrt{\frac{r - r_0}{r_0}}} (\cosh 2 \theta + 1)\, d\theta \\
-          &= \frac{r_0 \sqrt{m}}{C} \left[\frac{\sinh 2 \theta}{2} + \theta\right]_0^{\sinh^{-1} \sqrt{\frac{r - r_0}{r_0}}} \\
-          &= \frac{r_0 \sqrt{m}}{C} \Big[\sinh \theta \cosh \theta + \theta\Big]_0^{\sinh^{-1} \sqrt{\frac{r - r_0}{r_0}}} \\
-          &= \frac{r_0 \sqrt{m}}{C} \left[\sqrt{\frac{r - r_0}{r_0}} \cosh \left(\sinh^{-1} \sqrt{\frac{r - r_0}{r_0}}\right) + \sinh^{-1} \sqrt{\frac{r - r_0}{r_0}}\right] \\
-          &= \frac{r_0 \sqrt{m}}{C} \left[\sqrt{\frac{r - r_0}{r_0}} \sqrt{\frac{r}{r_0}} + \sinh^{-1} \sqrt{\frac{r - r_0}{r_0}}\right] \\
-          &= \frac{\sqrt{m}}{C} \left[\sqrt{r} \sqrt{r - r_0} + r_0 \sinh^{-1} \sqrt{\frac{r - r_0}{r_0}}\right], \\
-          C &= \sqrt{\frac{2k |q_1||q_2|}{r_0}}.
-        \end{align*}
-      `} />
-      <p>This is the time it takes the two particles to reach a distance <InlineMath math="r" /> between them.</p>
-      */}
-      {/* FIXME: this is only true when assuming the other particle is not moving */}
-      {/*
-      <LinkH2 id="motion-animation">Animation of Motion</LinkH2>
-      <p>Numerically, we can solve for motion, e.g. Euler method:</p>
-      <BlockMath math={String.raw`
-        \begin{align*}
-          r_{n + 1} &= r_n + h \frac{C}{\sqrt{m}} \sqrt{\frac{r_n - r_0}{r_n}}, \\
-          C &= \sqrt{\frac{2k |q_1||q_2|}{r_0}}.
-        \end{align*}
-      `} />
-      <ChargeMotion />
-      */}
     </div>
   )
 }
