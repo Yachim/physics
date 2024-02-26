@@ -142,9 +142,42 @@ export default async function Page() {
       <BlockMath math="
         \begin{align*}
           l &= |\vec{B} - \vec{A}|, \\
+          d &= |\vec{C} - \vec{P}|, \\
+          h &= |\vec{P} - \vec{A}|, \\
+          R &= \begin{bmatrix}
+            \cos \left(-\frac{\pi}{2}\right) & -\sin \left(-\frac{\pi}{2}\right) \\
+            \sin \left(-\frac{\pi}{2}\right) & \cos \left(-\frac{\pi}{2}\right)
+          \end{bmatrix} \\
+          &= \begin{bmatrix}
+            0 & 1 \\
+            -1 & 0
+          \end{bmatrix}, \\
+          \vec{C} &= \vec{P} + d\, R\frac{\vec{B} - \vec{A}}{|\vec{B} - \vec{A}|} \\
+          &= \vec{P} + d\, \begin{bmatrix}
+            0 & 1 \\
+            -1 & 0
+          \end{bmatrix} \frac{\vec{B} - \vec{A}}{l}, \\
+          \vec{P} &= h\frac{\vec{B} - \vec{A}}{|\vec{B} - \vec{A}|} \\
+          &= h\frac{\vec{B} - \vec{A}}{l}, \\
+          \vec{C} - \vec{P} &= \vec{P} + d\, \begin{bmatrix}
+            0 & 1 \\
+            -1 & 0
+          \end{bmatrix} \frac{\vec{B} - \vec{A}}{l} - \vec{P} \\
+          &= d\, \begin{bmatrix}
+            0 & 1 \\
+            -1 & 0
+          \end{bmatrix} \frac{\vec{B} - \vec{A}}{l}, \\
+          \frac{\vec{C} - \vec{P}}{|\vec{C} - \vec{P}|} &= \frac{1}{d} d\, \begin{bmatrix}
+            0 & 1 \\
+            -1 & 0
+          \end{bmatrix} \frac{\vec{B} - \vec{A}}{l} \\
+          &= \begin{bmatrix}
+            0 & 1 \\
+            -1 & 0
+          \end{bmatrix} \frac{\vec{B} - \vec{A}}{l}, \\[3ex]
           dq &= \lambda\ dl, \\
           d|\vec{E}| &= k_e \frac{dq}{r^2}, \\
-          &= k_e \lambda \frac{dl}{r^2}. \\
+          &= k_e \lambda \frac{dl}{r^2}.
         \end{align*}
       "/>
 
@@ -159,7 +192,11 @@ export default async function Page() {
       </div>
       <BlockMath math="
         \begin{align*}
-          \vec{E} &= \vec{E}_d \frac{\vec{C} - \vec{P}}{|\vec{C} - \vec{P}|} + \vec{E}_l \frac{\vec{B} - \vec{A}}{|\vec{B} - \vec{A}|}, \\
+          \vec{E} &= \vec{E}_d \frac{\vec{C} - \vec{P}}{|\vec{C} - \vec{P}|} + \vec{E}_l \frac{\vec{B} - \vec{A}}{|\vec{B} - \vec{A}|} \\
+          &= \vec{E}_d \begin{bmatrix}
+            0 & 1 \\
+            -1 & 0
+          \end{bmatrix} \frac{\vec{B} - \vec{A}}{l} + \vec{E}_l \frac{\vec{B} - \vec{A}}{l}, \\
           dl &= dy, \\
           r &= \sqrt{y^2 + d^2}, \\
           d\vec{E}_x &= \cos \alpha\ d |\vec{E}|, \\
