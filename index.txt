@@ -1,4 +1,4 @@
-0:["1lGQSAcIkrYka6-qFj_lz",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",{"children":["__PAGE__",{},["$L1","$L2",null]]},[null,"$L3",null]],[[["$","link","0",{"rel":"stylesheet","href":"/physics/_next/static/css/1abdf2e16ad8dea9.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
+0:["_b4-fMbJc9q5lWs7fbIP8",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",{"children":["__PAGE__",{},["$L1","$L2",null]]},[null,"$L3",null]],[[["$","link","0",{"rel":"stylesheet","href":"/physics/_next/static/css/1abdf2e16ad8dea9.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
 5:I[5250,["250","static/chunks/250-95b7dcc7044029a7.js","931","static/chunks/app/page-1a694a13bc7ff89b.js"],""]
 6:I[5935,["185","static/chunks/app/layout-43bbfe70b87d76a7.js"],""]
 7:I[5738,["185","static/chunks/app/layout-43bbfe70b87d76a7.js"],""]
