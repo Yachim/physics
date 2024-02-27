@@ -2,7 +2,7 @@ import { LinkH2, LinkH3 } from "@/components/LinkHeadings"
 import { Metadata } from "next"
 import Link from "next/link"
 import { BlockMath, InlineMath } from "react-katex"
-import { ElectricDipolePlot, TwoChargesElectricField } from "./components"
+import { ElectricDipolePlot, TwoChargesElectricField, LineCharge } from "./components"
 import Image from "next/image"
 import getConfig from "next/config"
 
@@ -130,83 +130,103 @@ export default async function Page() {
       <ElectricDipolePlot />
 
       <LinkH2 id="line-charge">Line charge</LinkH2>
-      <p>A line has a <b>constant</b> charge density <InlineMath math="\lambda" />. Its ends are described by position vectors <InlineMath math="\boldsymbol{A}" /> and <InlineMath math="\boldsymbol{B}" />. Let <InlineMath math="\boldsymbol{P}" /> denote a point on the line such that the distance between <InlineMath math="\boldsymbol{P}" /> and <InlineMath math="\boldsymbol{A}" /> is equal to <InlineMath math="h" />. Let <InlineMath math="\boldsymbol{C}" /> denote a point such that the distance from it to <InlineMath math="\boldsymbol{P}" /> is equal to <InlineMath math="d" /> and the line formed by the vectors <InlineMath math="\boldsymbol{C}" /> and <InlineMath math="\boldsymbol{P}" /> is perpendicular to the line formed by the vectors <InlineMath math="\boldsymbol{A}" /> and <InlineMath math="\boldsymbol{B}" />. Determine the boldsymbol field at <InlineMath math="\boldsymbol{C}" /></p>
+      <p>A line has a <b>constant</b> charge density <InlineMath math="\lambda" />. Its ends lie in points <InlineMath math="A" /> and <InlineMath math="B" />. What is the electric field at point <InlineMath math="C" />?</p>
       <div className="w-full flex justify-center">
         <Image
           src={`${basePath}/assets/line-charge.svg`}
           width={700}
           height={700}
-          alt="Line charge illustration"
+          alt="Electric dipole illustration"
         />
       </div>
-      <BlockMath math="
-        \begin{align*}
-          l &= |\boldsymbol{B} - \boldsymbol{A}|, \\
-          d &= |\boldsymbol{C} - \boldsymbol{P}|, \\
-          h &= |\boldsymbol{P} - \boldsymbol{A}|, \\
-          R &= \begin{bmatrix}
-            \cos \left(-\frac{\pi}{2}\right) & -\sin \left(-\frac{\pi}{2}\right) \\
-            \sin \left(-\frac{\pi}{2}\right) & \cos \left(-\frac{\pi}{2}\right)
-          \end{bmatrix} \\
-          &= \begin{bmatrix}
-            0 & 1 \\
-            -1 & 0
-          \end{bmatrix}, \\
-          \boldsymbol{C} &= \boldsymbol{P} + d\, R\frac{\boldsymbol{B} - \boldsymbol{A}}{|\boldsymbol{B} - \boldsymbol{A}|} \\
-          &= \boldsymbol{P} + d\, \begin{bmatrix}
-            0 & 1 \\
-            -1 & 0
-          \end{bmatrix} \frac{\boldsymbol{B} - \boldsymbol{A}}{l}, \\
-          \boldsymbol{P} &= h\frac{\boldsymbol{B} - \boldsymbol{A}}{|\boldsymbol{B} - \boldsymbol{A}|} \\
-          &= h\frac{\boldsymbol{B} - \boldsymbol{A}}{l}, \\
-          \boldsymbol{C} - \boldsymbol{P} &= \boldsymbol{P} + d\, \begin{bmatrix}
-            0 & 1 \\
-            -1 & 0
-          \end{bmatrix} \frac{\boldsymbol{B} - \boldsymbol{A}}{l} - \boldsymbol{P} \\
-          &= d\, \begin{bmatrix}
-            0 & 1 \\
-            -1 & 0
-          \end{bmatrix} \frac{\boldsymbol{B} - \boldsymbol{A}}{l}, \\
-          \frac{\boldsymbol{C} - \boldsymbol{P}}{|\boldsymbol{C} - \boldsymbol{P}|} &= \frac{1}{d} d\, \begin{bmatrix}
-            0 & 1 \\
-            -1 & 0
-          \end{bmatrix} \frac{\boldsymbol{B} - \boldsymbol{A}}{l} \\
-          &= \begin{bmatrix}
-            0 & 1 \\
-            -1 & 0
-          \end{bmatrix} \frac{\boldsymbol{B} - \boldsymbol{A}}{l}, \\[3ex]
-          dq &= \lambda\ dl, \\
-          d|\boldsymbol{E}| &= k_e \frac{dq}{r^2}, \\
-          &= k_e \lambda \frac{dl}{r^2}.
-        \end{align*}
-      "/>
-
-      <p>Let&apos;s parametrize the length by <InlineMath math="y" />, then:</p>
+      <p>Let <InlineMath math="H" /> be the projection of <InlineMath math="C" /> onto the line, then:</p>
       <div className="w-full flex justify-center">
         <Image
           src={`${basePath}/assets/line-charge2.svg`}
           width={700}
           height={700}
-          alt="Line charge illustration 2"
+          alt="Electric dipole illustration"
         />
       </div>
       <BlockMath math="
         \begin{align*}
-          \boldsymbol{E} &= \boldsymbol{E}_d \frac{\boldsymbol{C} - \boldsymbol{P}}{|\boldsymbol{C} - \boldsymbol{P}|} + \boldsymbol{E}_l \frac{\boldsymbol{B} - \boldsymbol{A}}{|\boldsymbol{B} - \boldsymbol{A}|} \\
-          &= \boldsymbol{E}_d \begin{bmatrix}
-            0 & 1 \\
-            -1 & 0
-          \end{bmatrix} \frac{\boldsymbol{B} - \boldsymbol{A}}{l} + \boldsymbol{E}_l \frac{\boldsymbol{B} - \boldsymbol{A}}{l}, \\
-          dl &= dy, \\
-          r &= \sqrt{y^2 + d^2}, \\
-          d\boldsymbol{E}_x &= \cos \alpha\ d |\boldsymbol{E}|, \\
-          d\boldsymbol{E}_y &= \sin \alpha\ d |\boldsymbol{E}|, \\
-          \cos \alpha &= \frac{d}{r} \\
-          &= \frac{d}{\sqrt{y^2 + d^2}}, \\
-          \sin \alpha &= \frac{y}{r} \\
-          &= \frac{y}{\sqrt{y^2 + d^2}},
+	  \boldsymbol{l} &= B - A, \\
+	  l &= |\boldsymbol{l}|, \\
+	  \boldsymbol{h} &= H - A, \\
+	  h &= |\boldsymbol{h}|, \\
+	  \boldsymbol{s} &= C - H, \\
+	  s &= |\boldsymbol{s}|.
         \end{align*}
-      "/>
+      " />
+      <p>Let&apos;s transform the coordinate system so that <InlineMath math="H" /> lies in origin and the line is aligned with the y-axis:</p>
+      <BlockMath math="
+        \begin{align*}
+	  \boldsymbol{\hat{y}} &= \frac{\boldsymbol{l}}{l}, \\
+	  \boldsymbol{\hat{x}} &= \begin{bmatrix}
+	    \cos \left(-\frac{\pi}{2}\right) & -\sin \left(-\frac{\pi}{2}\right) \\
+	    \sin \left(-\frac{\pi}{2}\right) & \cos \left(-\frac{\pi}{2}\right)
+	  \end{bmatrix} \boldsymbol{\hat{y}} \\
+	  &= \begin{bmatrix}
+	    0 & 1 \\
+	    -1 & 0
+	  \end{bmatrix} \boldsymbol{\hat{y}}, \\
+	  h &= \boldsymbol{\hat{y}} \cdot (C - A), \quad h \in \mathbb{R}, \\
+	  \boldsymbol{h} &= h \boldsymbol{\hat{y}}, \\
+	  H &= A + \boldsymbol{h}.
+        \end{align*}
+      " />
+      <p>Let&apos;s parametrize the position on the line by <InlineMath math="y" />:</p>
+      <div className="w-full flex justify-center">
+        <Image
+          src={`${basePath}/assets/line-charge3.svg`}
+          width={700}
+          height={700}
+          alt="Electric dipole illustration"
+        />
+      </div>
+      <BlockMath math="
+        \begin{align*}
+	  \lambda &= \frac{dq}{dl} \implies dq = \lambda\ dl = \lambda\ dy, \\
+	  r &= \sqrt{y^2 + s^2}, \\
+	  d|\boldsymbol{E}| &= k_e \frac{dq}{r^2} \\
+	  &= k_e \lambda \frac{dy}{y^2 + s^2}, \\
+	  d E_x &= \cos \alpha\ d|\boldsymbol{E}|, \\
+	  d E_y &= \sin \alpha\ d|\boldsymbol{E}|, \\
+	  \cos \alpha &= \frac{s}{r}, \\
+	  \sin \alpha &= \frac{y}{r}, \\
+	  d E_x &= k_e \lambda s \frac{dy}{(y^2 + s^2)^{\frac{3}{2}}}, \\
+	  E_x &= k_e \lambda s \int_{-h}^{l - h} \frac{dy}{(y^2 + s^2)^{\frac{3}{2}}} \\
+	  &= \frac{k_e \lambda}{s} \left[\frac{y}{\sqrt{y^2 + s^2}}\right]_{-h}^{l - h} \\
+	  &= \frac{k_e \lambda}{s} \left[\frac{l - h}{\sqrt{(l - h)^2 + s^2}} + \frac{h}{\sqrt{h^2 + s^2}}\right], \\
+	  d E_y &= k_e \lambda \frac{y\ dy}{(y^2 + s^2)^{\frac{3}{2}}}, \\
+	  E_y &= k_e \lambda \int_{-h}^{l - h} \frac{y\ dy}{(y^2 + s^2)^{\frac{3}{2}}}, \\
+	  &= -k_e \lambda \left[\frac{1}{\sqrt{y^2 + s^2}}\right]_{-h}^{l - h} \\
+	  &= -k_e \lambda \left[\frac{1}{\sqrt{(l - h)^2 + s^2}} - \frac{1}{\sqrt{h^2 + s^2}}\right] \\
+	  &= k_e \lambda \left[\frac{1}{\sqrt{h^2 + s^2}} - \frac{1}{\sqrt{(l - h)^2 + s^2}}\right], \\
+	  \boldsymbol{E} &= \frac{k_e \lambda}{s} \left[\frac{l - h}{\sqrt{(l - h)^2 + s^2}} + \frac{h}{\sqrt{h^2 + s^2}}\right] \boldsymbol{\hat{x}}\\
+	  &+ k_e \lambda \left[\frac{1}{\sqrt{h^2 + s^2}} - \frac{1}{\sqrt{(l - h)^2 + s^2}}\right] \boldsymbol{\hat{y}}, \\
+        \end{align*}
+      " />
+      <p>where:</p>
+      <BlockMath math="
+        \begin{align*}
+	  \boldsymbol{l} &= B - A, \\
+	  l &= |\boldsymbol{l}|, \\
+	  h &= \boldsymbol{\hat{y}} \cdot (C - A), \quad h \in \mathbb{R}, \\
+	  \boldsymbol{h} &= h \boldsymbol{\hat{y}}, \\
+	  H &= A + \boldsymbol{h}, \\
+	  \boldsymbol{s} &= C - H, \\
+	  s &= |\boldsymbol{s}|, \\
+	  \boldsymbol{\hat{y}} &= \frac{\boldsymbol{l}}{l}, \\
+	  \boldsymbol{\hat{x}} &= \begin{bmatrix}
+	    0 & 1 \\
+	    -1 & 0
+	  \end{bmatrix} \boldsymbol{\hat{y}}, \\
+        \end{align*}
+      " />
+      <p>and <InlineMath math="H" /> lies at the origin.</p>
+      <LinkH3 id="line-charge-plot">Line Charge Plot</LinkH3>
+      <LineCharge />
     </div>
   )
 }

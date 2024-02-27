@@ -3,6 +3,7 @@
 import { BoardProps, CustomJXGBoard, FixedInput } from "@/components/JGXBoard";
 import { k } from "@/utils/constants";
 import { oddRoot, sumVectorArray, toScientific, toScientific2DVector } from "@/utils/misc";
+import { pointVector } from "@/utils/jxg";
 import * as math from "mathjs"
 
 export function TwoChargesElectricField(props: BoardProps) {
@@ -213,6 +214,98 @@ export function ElectricDipolePlot(props: BoardProps) {
           lastArrow: { type: 2 }
         })
       }
+    }} />
+  )
+}
+
+export function LineCharge(props: BoardProps) {
+  return (
+    <CustomJXGBoard {...props} bbox={props.bbox ?? [-16, 9, 16, -9]} initFn={(board: JXG.Board) => {
+      const a = board.create("point", [-8, -4], { name: "A" })
+      const b = board.create("point", [1, 3], { name: "B" })
+      const c = board.create("point", [3, -2], { name: "C" })
+      const lambdaInput = board.create("input", [-15, 8, 2, "$\\lambda =\\ $"])
+
+      function getLVec(): math.Matrix {
+        return math.subtract(pointVector(b), pointVector(a))
+      }
+
+      function getYHat(): math.Matrix {
+        const lVec = getLVec()
+	const lNorm = math.norm(lVec)
+
+	return math.divide(lVec, lNorm) as math.Matrix
+      }
+
+      function getH(): number {
+        const yHat = getYHat()
+	const cVec = pointVector(c)
+	const aVec = pointVector(a)
+
+	return math.multiply(yHat, math.transpose(math.subtract(cVec, aVec))).toArray()[0] as number
+      }
+
+      function getHVec(): math.Matrix {
+        const yHat = getYHat()
+	const h = getH()
+
+	return math.multiply(h, yHat)
+      }
+
+      function getXHat(): math.Matrix {
+        const yHat = getYHat()
+	return math.transpose(
+	  math.multiply(math.matrix([
+	    [0, -1],
+	    [1, 0],
+	  ]), math.transpose(yHat))
+	)
+      }
+
+      function getSVec(): math.Matrix {
+        const hVec = getHVec()
+	const aVec = pointVector(a)
+	const cVec = pointVector(c)
+
+	return math.chain(cVec).subtract(aVec).subtract(hVec).done() as math.Matrix
+      }
+
+      function getEVec(): math.Matrix {
+        const l = math.norm(getLVec()) as number
+        const s = math.norm(getSVec()) as number
+	const h = getH()
+	const lambda = +lambdaInput.Value()
+
+	const sqrt1 = Math.sqrt((l - h)**2 + s**2)
+	const sqrt2 = Math.sqrt(h**2 + s**2)
+
+	const x = k * lambda / s * ((l - h) / sqrt1 + h / sqrt2)
+	const y = k * lambda * (1 / sqrt2 - 1 / sqrt1)
+
+	const xHat = getXHat()
+	const yHat = getYHat()
+
+	return math.add(math.multiply(x, xHat), math.multiply(y, yHat))
+      }
+
+      const h = board.create("point", [
+        () => a.X() + (getHVec().toArray()[0] as number),
+        () => a.Y() + (getHVec().toArray()[1] as number),
+      ], { name: "H" })
+
+      const e = board.create("arrow", [
+        c,
+        [
+          () => c.X() + (getEVec().toArray()[0] as number),
+          () => c.Y() + (getEVec().toArray()[1] as number),
+	]
+      ], { 
+        name: "E",
+        color: "orange",
+        lastArrow: {
+	  type: 2,
+	},
+      })
     }} />
   )
 }

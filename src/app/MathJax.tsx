@@ -9,6 +9,7 @@ declare const window: {
 export default function MathJax() {
   useEffect(() => {
     window.MathJax = {
+      loader: {load: ['[tex]/ams']},
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']]
       },
