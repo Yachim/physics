@@ -161,15 +161,8 @@ export default async function Page() {
       <p>Let&apos;s transform the coordinate system so that <InlineMath math="H" /> lies in origin and the line is aligned with the y-axis:</p>
       <BlockMath math="
         \begin{align*}
+	  \boldsymbol{\hat{x}} &= \frac{\boldsymbol{s}}{s}, \\
 	  \boldsymbol{\hat{y}} &= \frac{\boldsymbol{l}}{l}, \\
-	  \boldsymbol{\hat{x}} &= \begin{bmatrix}
-	    \cos \left(-\frac{\pi}{2}\right) & -\sin \left(-\frac{\pi}{2}\right) \\
-	    \sin \left(-\frac{\pi}{2}\right) & \cos \left(-\frac{\pi}{2}\right)
-	  \end{bmatrix} \boldsymbol{\hat{y}} \\
-	  &= \begin{bmatrix}
-	    0 & 1 \\
-	    -1 & 0
-	  \end{bmatrix} \boldsymbol{\hat{y}}, \\
 	  h &= \boldsymbol{\hat{y}} \cdot (C - A), \quad h \in \mathbb{R}, \\
 	  \boldsymbol{h} &= h \boldsymbol{\hat{y}}, \\
 	  H &= A + \boldsymbol{h}.
@@ -217,11 +210,8 @@ export default async function Page() {
 	  H &= A + \boldsymbol{h}, \\
 	  \boldsymbol{s} &= C - H, \\
 	  s &= |\boldsymbol{s}|, \\
+	  \boldsymbol{\hat{x}} &= \frac{\boldsymbol{s}}{s}, \\
 	  \boldsymbol{\hat{y}} &= \frac{\boldsymbol{l}}{l}, \\
-	  \boldsymbol{\hat{x}} &= \begin{bmatrix}
-	    0 & 1 \\
-	    -1 & 0
-	  \end{bmatrix} \boldsymbol{\hat{y}}, \\
         \end{align*}
       " />
       <p>and <InlineMath math="H" /> lies at the origin.</p>

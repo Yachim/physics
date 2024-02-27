@@ -225,7 +225,13 @@ export function LineCharge(props: BoardProps) {
       const b = board.create("point", [1, 3], { name: "B" })
       const c = board.create("point", [3, -2], { name: "C" })
       const lambdaInput = board.create("input", [-15, 8, 2, "$\\lambda =\\ $"])
-      const scaleInput = board.create("input", [ -15, 7, 0.0000000005, "Scale: "])
+      const scaleInput = board.create("slider", [
+        [-15, 7],
+        [-5, 7],
+        [0, 3, 10]
+      ], {
+        suffixLabel: "Scale = "
+      })
 
       function getLVec(): math.Matrix {
         return math.subtract(pointVector(b), pointVector(a))
@@ -243,7 +249,7 @@ export function LineCharge(props: BoardProps) {
 	const cVec = pointVector(c)
 	const aVec = pointVector(a)
 
-	return math.multiply(yHat, math.transpose(math.subtract(cVec, aVec))) as number
+	return math.multiply(yHat, math.transpose(math.subtract(cVec, aVec))) as unknown as number
       }
 
       function getHVec(): math.Matrix {
@@ -254,8 +260,7 @@ export function LineCharge(props: BoardProps) {
       }
 
       function getXHat(): math.Matrix {
-        const yHat = getYHat().toArray()
-	return math.matrix([yHat[1], -yHat[0]])
+        return math.subtract(pointVector(c), math.add(pointVector(a), getHVec()))
       }
 
       function getSVec(): math.Matrix {
@@ -284,16 +289,20 @@ export function LineCharge(props: BoardProps) {
 	return math.add(math.multiply(x, xHat), math.multiply(y, yHat))
       }
 
-      const h = board.create("point", [
-        () => a.X() + (getHVec().toArray()[0] as number),
-        () => a.Y() + (getHVec().toArray()[1] as number),
-      ], { name: "H" })
+      const label = board.create("text", [-15, 6, () => {
+        const electricField = getEVec()
+        const x = toScientific((electricField.toArray() as number[])[0])
+        const y = toScientific((electricField.toArray() as number[])[1])
+
+        return String.raw`$\boldsymbol{E} = [${x},\ ${y}]$`
+      }])
+      const magnitudeLabel = board.create("text", [-15, 5, () => String.raw`$|\boldsymbol{E}| = ${toScientific(math.norm(getEVec()) as number)}\ NC^{-1}$`])
 
       const e = board.create("arrow", [
         c,
         [
-          () => c.X() + (getEVec().toArray()[0] as number) * (+scaleInput.Value()),
-          () => c.Y() + (getEVec().toArray()[1] as number) * (+scaleInput.Value()),
+          () => c.X() + (getEVec().toArray()[0] as number) / (math.norm(getEVec()) as number) * (+scaleInput.Value()),
+          () => c.Y() + (getEVec().toArray()[1] as number) / (math.norm(getEVec()) as number) * (+scaleInput.Value()),
 	]
       ], { 
         name: "E",
