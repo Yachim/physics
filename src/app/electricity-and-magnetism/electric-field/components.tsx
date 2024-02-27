@@ -225,6 +225,7 @@ export function LineCharge(props: BoardProps) {
       const b = board.create("point", [1, 3], { name: "B" })
       const c = board.create("point", [3, -2], { name: "C" })
       const lambdaInput = board.create("input", [-15, 8, 2, "$\\lambda =\\ $"])
+      const scaleInput = board.create("input", [ -15, 7, 0.0000000005, "Scale: "])
 
       function getLVec(): math.Matrix {
         return math.subtract(pointVector(b), pointVector(a))
@@ -242,7 +243,7 @@ export function LineCharge(props: BoardProps) {
 	const cVec = pointVector(c)
 	const aVec = pointVector(a)
 
-	return math.multiply(yHat, math.transpose(math.subtract(cVec, aVec))).toArray()[0] as number
+	return math.multiply(yHat, math.transpose(math.subtract(cVec, aVec))) as number
       }
 
       function getHVec(): math.Matrix {
@@ -253,13 +254,8 @@ export function LineCharge(props: BoardProps) {
       }
 
       function getXHat(): math.Matrix {
-        const yHat = getYHat()
-	return math.transpose(
-	  math.multiply(math.matrix([
-	    [0, -1],
-	    [1, 0],
-	  ]), math.transpose(yHat))
-	)
+        const yHat = getYHat().toArray()
+	return math.matrix([yHat[1], -yHat[0]])
       }
 
       function getSVec(): math.Matrix {
@@ -296,8 +292,8 @@ export function LineCharge(props: BoardProps) {
       const e = board.create("arrow", [
         c,
         [
-          () => c.X() + (getEVec().toArray()[0] as number),
-          () => c.Y() + (getEVec().toArray()[1] as number),
+          () => c.X() + (getEVec().toArray()[0] as number) * (+scaleInput.Value()),
+          () => c.Y() + (getEVec().toArray()[1] as number) * (+scaleInput.Value()),
 	]
       ], { 
         name: "E",
