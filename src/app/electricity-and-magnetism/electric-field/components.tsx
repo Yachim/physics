@@ -240,24 +240,24 @@ export function LineCharge(props: BoardProps) {
 
       function getYHat(): math.Matrix {
         const lVec = getLVec()
-	const lNorm = math.norm(lVec)
+        const lNorm = math.norm(lVec)
 
-	return math.divide(lVec, lNorm) as math.Matrix
+        return math.divide(lVec, lNorm) as math.Matrix
       }
 
       function getH(): number {
         const yHat = getYHat()
-	const cVec = pointVector(c)
-	const aVec = pointVector(a)
+        const cVec = pointVector(c)
+        const aVec = pointVector(a)
 
-	return math.multiply(yHat, math.transpose(math.subtract(cVec, aVec))) as unknown as number
+        return math.multiply(yHat, math.transpose(math.subtract(cVec, aVec))) as unknown as number
       }
 
       function getHVec(): math.Matrix {
         const yHat = getYHat()
-	const h = getH()
+        const h = getH()
 
-	return math.multiply(h, yHat)
+        return math.multiply(h, yHat)
       }
 
       function getXHat(): math.Matrix {
@@ -266,61 +266,51 @@ export function LineCharge(props: BoardProps) {
 
       function getSVec(): math.Matrix {
         const hVec = getHVec()
-	const aVec = pointVector(a)
-	const cVec = pointVector(c)
+        const aVec = pointVector(a)
+        const cVec = pointVector(c)
 
-	return math.chain(cVec).subtract(aVec).subtract(hVec).done() as math.Matrix
+        return math.chain(cVec).subtract(aVec).subtract(hVec).done() as math.Matrix
       }
 
       function getEVec(): math.Matrix {
         const l = math.norm(getLVec()) as number
         const s = math.norm(getSVec()) as number
-	const h = getH()
-	const lambda = +lambdaInput.Value()
+        const h = getH()
+        const lambda = +lambdaInput.Value()
 
-	const inverseSqrt1 = 1 / Math.sqrt((l - h)**2 + s**2)
-	const inverseSqrt2 = 1 / Math.sqrt(h**2 + s**2)
+        const inverseSqrt1 = 1 / Math.sqrt((l - h) ** 2 + s ** 2)
+        const inverseSqrt2 = 1 / Math.sqrt(h ** 2 + s ** 2)
 
-	const x = k * lambda / s * ((l - h) * inverseSqrt1 + h * inverseSqrt2)
-	let y = k * lambda
+        const x = k * lambda / s * ((l - h) * inverseSqrt1 + h * inverseSqrt2)
+        let y = k * lambda * (inverseSqrt1 - inverseSqrt2)
 
-	if (h < 0) {
-	  y *= (inverseSqrt2 - inverseSqrt1)
-	}
-	else if (h < l) {
-	  y *= (2 / s - inverseSqrt2 - inverseSqrt1)
-	}
-	else {
-	  y *= (inverseSqrt1 - inverseSqrt2)
-	}
+        const xHat = getXHat()
+        const yHat = getYHat()
 
-	const xHat = getXHat()
-	const yHat = getYHat()
-
-	return math.add(math.multiply(x, xHat), math.multiply(y, yHat))
+        return math.add(math.multiply(x, xHat), math.multiply(y, yHat))
       }
 
-      const label = board.create("text", [-15, 6, () => {
+      board.create("text", [-15, 6, () => {
         const electricField = getEVec()
         const x = toScientific((electricField.toArray() as number[])[0])
         const y = toScientific((electricField.toArray() as number[])[1])
 
         return String.raw`$\boldsymbol{E} = [${x},\ ${y}]$`
       }])
-      const magnitudeLabel = board.create("text", [-15, 5, () => String.raw`$|\boldsymbol{E}| = ${toScientific(math.norm(getEVec()) as number)}\ NC^{-1}$`])
+      board.create("text", [-15, 5, () => String.raw`$|\boldsymbol{E}| = ${toScientific(math.norm(getEVec()) as number)}\ NC^{-1}$`])
 
-      const e = board.create("arrow", [
+      board.create("arrow", [
         c,
         [
           () => c.X() + (getEVec().toArray()[0] as number) / (math.norm(getEVec()) as number) * (+scaleInput.Value()),
           () => c.Y() + (getEVec().toArray()[1] as number) / (math.norm(getEVec()) as number) * (+scaleInput.Value()),
-	]
-      ], { 
+        ]
+      ], {
         name: "E",
         color: "orange",
         lastArrow: {
-	  type: 2,
-	},
+          type: 2,
+        },
       })
     }} />
   )

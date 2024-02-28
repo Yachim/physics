@@ -16,18 +16,18 @@ export default async function Page() {
     <div className="article">
       <Link href="/electricity-and-magnetism">Back</Link>
       <h1>Gauss&apos;s Law</h1>
-      <p></p>
+      <p>By Gauss&apos;s Law, the electric flux through a closed surface is equal to the total charge enclosed within that surface divided by the permittivity:</p>
       <BlockMath math="
         \begin{align*}
-	  \Phi_E &= \frac{Q}{\epsilon_0}, \\
-	  \nabla \cdot \boldsymbol{E} &= \frac{\rho}{\epsilon_0 \epsilon_r},
+	        \Phi_E &= \frac{Q}{\epsilon_0}, \\
+	        \boldsymbol{\nabla} \cdot \boldsymbol{E} &= \frac{\rho}{\epsilon_0 \epsilon_r},
         \end{align*}
       " />
       <p>where:</p>
       <BlockMath math="
         \begin{align*}
           \Phi_E &= \oiint_S \boldsymbol{E} \cdot d \boldsymbol{A}, \\
-	  \epsilon_0 &\approx 8.85 \cdot 10^{-12}\ Fm^{-1}.
+	        \epsilon_0 &\approx 8.85 \cdot 10^{-12}\ Fm^{-1}.
         \end{align*}
       " />
     </div>
