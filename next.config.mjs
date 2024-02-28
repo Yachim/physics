@@ -1,4 +1,4 @@
-const basePath = "/physics"
+const basePath = ""
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
