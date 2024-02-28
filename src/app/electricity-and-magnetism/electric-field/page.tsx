@@ -192,14 +192,67 @@ export default async function Page() {
 	  &= \frac{k_e \lambda}{s} \left[\frac{y}{\sqrt{y^2 + s^2}}\right]_{-h}^{l - h} \\
 	  &= \frac{k_e \lambda}{s} \left[\frac{l - h}{\sqrt{(l - h)^2 + s^2}} + \frac{h}{\sqrt{h^2 + s^2}}\right], \\
 	  d E_y &= k_e \lambda \frac{y\ dy}{(y^2 + s^2)^{\frac{3}{2}}}, \\
-	  E_y &= k_e \lambda \int_{-h}^{l - h} \frac{y\ dy}{(y^2 + s^2)^{\frac{3}{2}}}, \\
-	  &= -k_e \lambda \left[\frac{1}{\sqrt{y^2 + s^2}}\right]_{-h}^{l - h} \\
-	  &= -k_e \lambda \left[\frac{1}{\sqrt{(l - h)^2 + s^2}} - \frac{1}{\sqrt{h^2 + s^2}}\right] \\
-	  &= k_e \lambda \left[\frac{1}{\sqrt{h^2 + s^2}} - \frac{1}{\sqrt{(l - h)^2 + s^2}}\right], \\
-	  \boldsymbol{E} &= \frac{k_e \lambda}{s} \left[\frac{l - h}{\sqrt{(l - h)^2 + s^2}} + \frac{h}{\sqrt{h^2 + s^2}}\right] \boldsymbol{\hat{x}}\\
-	  &+ k_e \lambda \left[\frac{1}{\sqrt{h^2 + s^2}} - \frac{1}{\sqrt{(l - h)^2 + s^2}}\right] \boldsymbol{\hat{y}}, \\
+	  E_y &= k_e \lambda \int_{-h}^{l - h} \frac{|y|\ dy}{(y^2 + s^2)^{\frac{3}{2}}}. \\
         \end{align*}
       " />
+      <p><InlineMath math="H" /> can be at three positions:</p>
+      <div className="w-full flex justify-center">
+        <Image
+          src={`${basePath}/assets/line-charge4.svg`}
+          width={700}
+          height={700}
+          alt="Electric dipole illustration"
+        />
+      </div>
+
+      <p>This splits <InlineMath math="y" /> into three cases. Let <InlineMath math="k" /> be a natural number or zero. For <InlineMath math="h = h_1" />:</p>
+      <BlockMath math="
+        \begin{align*}
+	  h &= -k, \\
+	  y &\in [-h,\ l - h] \\
+	  &= [k,\ l + k], \\
+	  &\implies y \geq 0, \\
+	  &\implies |y| = y, \\
+	  E_y &= k_e \lambda \int_{-h}^{l - h} \frac{y\ dy}{(y^2 + s^2)^{\frac{3}{2}}} \\
+	  &= -k_e \lambda \int_{l - h}^{-h} \frac{y\ dy}{(y^2 + s^2)^{\frac{3}{2}}} \\
+	  &= k_e \lambda \left[\frac{1}{\sqrt{y^2 + s^2}}\right]_{l - h}^{-h} \\
+	  &= k_e \lambda \left[\frac{1}{\sqrt{h^2 + s^2}} - \frac{1}{\sqrt{(l - h)^2 + s^2}}\right].
+        \end{align*}
+      " />
+
+      <p>For <InlineMath math="h = h_3" />:</p>
+      <BlockMath math="
+        \begin{align*}
+	  h &= k > l, \\
+	  y &\in [-h,\ l - h] \\
+	  &= [-k,\ l - k], \\
+	  &\implies y \leq 0, \\
+	  &\implies |y| = -y, \\
+	  E_y &= -k_e \lambda \int_{-h}^{l - h} \frac{y\ dy}{(y^2 + s^2)^{\frac{3}{2}}} \\
+	  &= k_e \lambda \left[\frac{1}{\sqrt{y^2 + s^2}}\right]_{-h}^{l - h} \\
+	  &= k_e \lambda \left[\frac{1}{\sqrt{(l - h)^2 + s^2}} - \frac{1}{\sqrt{h^2 + s^2}}\right].
+        \end{align*}
+      " />
+
+      <p>Finally, for <InlineMath math="h = h_2" />:</p>
+      <BlockMath math="
+	\begin{align*}
+	  h &= k, \\
+	  y &\in [-k,\ l - k], \\
+          |y| &= \left\{\begin{aligned}
+	    &y & y &> 0, \\
+	    -&y & y &< 0,
+	  \end{aligned}\right. \\
+          E_y &= -k_e \lambda \int_{-h}^0 \frac{y\ dy}{(y^2 + s^2)^{\frac{3}{2}}} + k_e \lambda \int_0^{l - h} \frac{y\ dy}{(y^2 + s^2)^{\frac{3}{2}}} \\
+          &= -k_e \lambda \int_{-h}^0 \frac{y\ dy}{(y^2 + s^2)^{\frac{3}{2}}} - k_e \lambda \int_{l - h}^0 \frac{y\ dy}{(y^2 + s^2)^{\frac{3}{2}}} \\
+          &= k_e \lambda \left[\frac{1}{\sqrt{y^2 + s^2}}\right]_{-h}^0 + k_e \lambda \left[\frac{1}{\sqrt{y^2 + s^2}}\right]_{l - h}^0 \\
+          &= k_e \lambda \left(\frac{1}{s} - \frac{1}{\sqrt{h^2 + s^2}} + \frac{1}{s} - \frac{1}{\sqrt{(l - h)^2 + s^2}}\right) \\
+          &= k_e \lambda \left(\frac{2}{s} - \frac{1}{\sqrt{h^2 + s^2}} - \frac{1}{\sqrt{(l - h)^2 + s^2}}\right).
+	\end{align*}
+      " />
+
+      <p>Putting it all together, the electric field vector is equal to:</p>
+      <BlockMath math="\boldsymbol{E} = E_x \boldsymbol{\hat{x}} + E_y \boldsymbol{\hat{y}}" />
       <p>where:</p>
       <BlockMath math="
         \begin{align*}
@@ -210,6 +263,12 @@ export default async function Page() {
 	  H &= A + \boldsymbol{h}, \\
 	  \boldsymbol{s} &= C - H, \\
 	  s &= |\boldsymbol{s}|, \\
+	  E_x &= \frac{k_e \lambda}{s} \left(\frac{l - h}{\sqrt{(l - h)^2 + s^2}} + \frac{h}{\sqrt{h^2 + s^2}}\right), \\
+	  E_y &= \left\{\begin{aligned}
+	    &k_e \lambda \left(\frac{1}{\sqrt{h^2 + s^2}} - \frac{1}{\sqrt{(l - h)^2 + s^2}}\right) & &h < 0, \\
+            &k_e \lambda \left(\frac{2}{s} - \frac{1}{\sqrt{h^2 + s^2}} - \frac{1}{\sqrt{(l - h)^2 + s^2}}\right) & 0 <\ &h < l,  \\
+	    &k_e \lambda \left(\frac{1}{\sqrt{(l - h)^2 + s^2}} - \frac{1}{\sqrt{h^2 + s^2}}\right) & &h > l, 
+	  \end{aligned}\right. \\
 	  \boldsymbol{\hat{x}} &= \frac{\boldsymbol{s}}{s}, \\
 	  \boldsymbol{\hat{y}} &= \frac{\boldsymbol{l}}{l}, \\
         \end{align*}

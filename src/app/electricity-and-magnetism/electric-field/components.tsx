@@ -223,6 +223,7 @@ export function LineCharge(props: BoardProps) {
     <CustomJXGBoard {...props} bbox={props.bbox ?? [-16, 9, 16, -9]} initFn={(board: JXG.Board) => {
       const a = board.create("point", [-8, -4], { name: "A" })
       const b = board.create("point", [1, 3], { name: "B" })
+      board.create("segment", [a, b])
       const c = board.create("point", [3, -2], { name: "C" })
       const lambdaInput = board.create("input", [-15, 8, 2, "$\\lambda =\\ $"])
       const scaleInput = board.create("slider", [
@@ -277,11 +278,21 @@ export function LineCharge(props: BoardProps) {
 	const h = getH()
 	const lambda = +lambdaInput.Value()
 
-	const sqrt1 = Math.sqrt((l - h)**2 + s**2)
-	const sqrt2 = Math.sqrt(h**2 + s**2)
+	const inverseSqrt1 = 1 / Math.sqrt((l - h)**2 + s**2)
+	const inverseSqrt2 = 1 / Math.sqrt(h**2 + s**2)
 
-	const x = k * lambda / s * ((l - h) / sqrt1 + h / sqrt2)
-	const y = k * lambda * (1 / sqrt2 - 1 / sqrt1)
+	const x = k * lambda / s * ((l - h) * inverseSqrt1 + h * inverseSqrt2)
+	let y = k * lambda
+
+	if (h < 0) {
+	  y *= (inverseSqrt2 - inverseSqrt1)
+	}
+	else if (h < l) {
+	  y *= (2 / s - inverseSqrt2 - inverseSqrt1)
+	}
+	else {
+	  y *= (inverseSqrt1 - inverseSqrt2)
+	}
 
 	const xHat = getXHat()
 	const yHat = getYHat()
