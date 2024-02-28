@@ -57,7 +57,7 @@ export function ForceMagnitude({ initialQ1, initialQ2, initialR }: {
         <BlockMath math={String.raw`
           \begin{align*}
             \epsilon_r &= ${epsilon} \\
-            |\boldsymbol{F}_e| &= ${toScientific(f)}\ N  ${chargeProduct === 0 ? "" : chargeProduct < 0 ? "&\\textrm{Attractive}" : "&\\textrm{Repulsive}"}.
+            F_e &= ${toScientific(f)}\ N  ${chargeProduct === 0 ? "" : chargeProduct < 0 ? "&\\textrm{Attractive}" : "&\\textrm{Repulsive}"}.
           \end{align*}
         `} />
       </div>
@@ -224,7 +224,7 @@ export function ForceVectors(props: BoardProps) {
         index: number,
       ): string {
         const force = math.norm(calculateForce(target, charges)) as number
-        return String.raw`$|\boldsymbol{F}_${index}| = ${toScientific(force)}\ N$`
+        return String.raw`$F_${index} = ${toScientific(force)}\ N$`
       }
 
       const magnitudeLabel1 = board.create("text", [0.45, 0.28, () => getMagnitudeLabel(

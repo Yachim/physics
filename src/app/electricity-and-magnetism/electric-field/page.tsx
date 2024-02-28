@@ -2,7 +2,7 @@ import { LinkH2, LinkH3 } from "@/components/LinkHeadings"
 import { Metadata } from "next"
 import Link from "next/link"
 import { BlockMath, InlineMath } from "react-katex"
-import { ElectricDipolePlot, TwoChargesElectricField, LineCharge } from "./components"
+import { ElectricDipolePlot, TwoChargesElectricField, LineCharge, InfiniteLineCharge } from "./components"
 import Image from "next/image"
 import getConfig from "next/config"
 
@@ -18,7 +18,7 @@ export default async function Page() {
       <Link href="/electricity-and-magnetism">Back</Link>
       <h1>Electric Field</h1>
       <p>The electric field created by a charge, <InlineMath math="Q" />, acting on a charge <InlineMath math="q" />, is given by:</p>
-      <BlockMath math="|\boldsymbol{E}| = \frac{|\boldsymbol{F_e}|}{q} = k_e\frac{|Q|}{r^2}." />
+      <BlockMath math="E = \frac{F_e}{q} = k_e\frac{|Q|}{r^2}." />
       <p>Or in vector form:</p>
       <BlockMath math="\boldsymbol{E} = \frac{\boldsymbol{F_e}}{q} = k_e\frac{Q}{r^2} \boldsymbol{\hat{r}}," />
       <p>where:</p>
@@ -40,21 +40,21 @@ export default async function Page() {
           \boldsymbol{r}_2 &= 0.5\ m\ \boldsymbol{\hat{x}}, \\
           \boldsymbol{r}_t &= 0.2\ m\ \boldsymbol{\hat{y}}, \\[1.5ex]
           \boldsymbol{r}_{t1} &= 0.2\ m\ \boldsymbol{\hat{y}}, \\
-          |\boldsymbol{r}_{t1}| &= 0.2\ m, \\
+          r_{t1} &= 0.2\ m, \\
           \boldsymbol{\hat{r}_{t1}} &= \boldsymbol{\hat{y}}, \\[1.5ex]
           \boldsymbol{r}_{t2} &= -0.5\ m\ \boldsymbol{\hat{x}} + 0.2\ m\ \boldsymbol{\hat{y}}, \\
-          |\boldsymbol{r}_{t2}| &= \frac{\sqrt{29}}{10}\ m, \\
+          r_{t2} &= \frac{\sqrt{29}}{10}\ m, \\
           \boldsymbol{\hat{r}_{t2}} &= -\frac{5 \sqrt{29}}{29}\ \boldsymbol{\hat{x}} + \frac{2 \sqrt{29}}{29}\ \boldsymbol{\hat{y}}, \\[1.5ex]
-          \boldsymbol{E}_1 &= k_e \frac{Q_1}{|\boldsymbol{r}_{t1}|^2} \boldsymbol{\hat{r}_{t1}} \\
+          \boldsymbol{E}_1 &= k_e \frac{Q_1}{r_{t1}^2} \boldsymbol{\hat{r}_{t1}} \\
           &= 2250\ NC^{-1}\ \boldsymbol{\hat{y}}, \\
-          \boldsymbol{E}_2 &= k_e \frac{Q_2}{|\boldsymbol{r}_{t2}|^2} \boldsymbol{\hat{r}_{t2}} \\
+          \boldsymbol{E}_2 &= k_e \frac{Q_2}{r_{t2}^2} \boldsymbol{\hat{r}_{t2}} \\
           &= -\frac{18000}{29}\ NC^{-1}\ \boldsymbol{\hat{r}_{t2}} \\
           &= \frac{90000 \sqrt{29}}{841}\ NC^{-1}\ \boldsymbol{\hat{x}} - \frac{36000 \sqrt{29}}{841}\ NC^{-1}\ \boldsymbol{\hat{y}}, \\
           &\approx 576.3\ NC^{-1}\ \boldsymbol{\hat{x}} - 230.52\ NC^{-1}\ \boldsymbol{\hat{y}}, \\
           \boldsymbol{E} &= \boldsymbol{E}_1 + \boldsymbol{E}_2 \\
           &= \frac{90000 \sqrt{29}}{841}\ NC^{-1}\ \boldsymbol{\hat{x}} + \left(2250 - \frac{36000 \sqrt{29}}{841}\right)\ NC^{-1}\ \boldsymbol{\hat{y}}, \\
           &\approx 576.3\ NC^{-1}\ \boldsymbol{\hat{x}} + 2019.48\ NC^{-1}\ \boldsymbol{\hat{y}}, \\
-          |\boldsymbol{E}| &\approx 2100.1\ NC^{-1}.
+          E &\approx 2100.1\ NC^{-1}.
         \end{align*}
       "/>
 
@@ -122,7 +122,7 @@ export default async function Page() {
           \boldsymbol{r}_2 &= d \boldsymbol{\hat{x}}, \\
           \boldsymbol{E} &= \frac{8 k_e q}{(d^2 + 4a^2)^{\frac{3}{2}}} d \boldsymbol{\hat{x}} \\
           &= \frac{8 k_e q d}{(d^2 + 4a^2)^{\frac{3}{2}}} \boldsymbol{\hat{x}}, \\
-          |\boldsymbol{E}| &= \frac{8 k_e q d}{(d^2 + 4a^2)^{\frac{3}{2}}}. \\
+          E &= \frac{8 k_e q d}{(d^2 + 4a^2)^{\frac{3}{2}}}. \\
         \end{align*}
       "/>
 
@@ -151,11 +151,8 @@ export default async function Page() {
       <BlockMath math="
         \begin{align*}
 	        \boldsymbol{l} &= B - A, \\
-	        l &= |\boldsymbol{l}|, \\
 	        \boldsymbol{h} &= H - A, \\
-	        h &= |\boldsymbol{h}|, \\
 	        \boldsymbol{s} &= C - H, \\
-	        s &= |\boldsymbol{s}|.
         \end{align*}
       " />
       <p>Let&apos;s transform the coordinate system so that <InlineMath math="H" /> lies in origin and the line is aligned with the y-axis:</p>
@@ -181,10 +178,10 @@ export default async function Page() {
         \begin{align*}
 	        \lambda &= \frac{dq}{dl} \implies dq = \lambda\ dl = \lambda\ dy, \\
 	        r &= \sqrt{y^2 + s^2}, \\
-	        d|\boldsymbol{E}| &= k_e \frac{dq}{r^2} \\
+	        dE &= k_e \frac{dq}{r^2} \\
 	        &= k_e \lambda \frac{dy}{y^2 + s^2}, \\
-	        d E_x &= \cos \alpha_1\ d|\boldsymbol{E}|, \\
-	        d E_y &= \sin \alpha_1\ d|\boldsymbol{E}|, \\
+	        d E_x &= \cos \alpha_1\ dE, \\
+	        d E_y &= \sin \alpha_1\ dE, \\
 	        \cos \alpha_1 &= \frac{s}{r}, \\
 	        \sin \alpha_1 &= -\sin \alpha_2 = -\frac{y}{r}, \\
 	        d E_x &= k_e \lambda s \frac{dy}{(y^2 + s^2)^{\frac{3}{2}}}, \\
@@ -205,12 +202,10 @@ export default async function Page() {
       <BlockMath math="
         \begin{align*}
 	        \boldsymbol{l} &= B - A, \\
-	        l &= |\boldsymbol{l}|, \\
-	        h &= \boldsymbol{\hat{y}} \cdot (C - A), \quad h \in \mathbb{R}, \\
+	        h_y &= \boldsymbol{\hat{y}} \cdot (C - A), \quad h \in \mathbb{R}, \\
 	        \boldsymbol{h} &= h \boldsymbol{\hat{y}}, \\
 	        H &= A + \boldsymbol{h}, \\
 	        \boldsymbol{s} &= C - H, \\
-	        s &= |\boldsymbol{s}|, \\
 	        E_x &= \frac{k_e \lambda}{s} \left(\frac{l - h}{\sqrt{(l - h)^2 + s^2}} + \frac{h}{\sqrt{h^2 + s^2}}\right), \\
 	        E_y &= k_e \lambda \left(\frac{1}{\sqrt{(l - h)^2 + s^2}} - \frac{1}{\sqrt{h^2 + s^2}}\right), \\
 	        \boldsymbol{\hat{x}} &= \frac{\boldsymbol{s}}{s}, \\
@@ -220,6 +215,30 @@ export default async function Page() {
       <p>and <InlineMath math="H" /> lies at the origin.</p>
       <LinkH3 id="line-charge-plot">Line Charge Plot</LinkH3>
       <LineCharge />
+
+      <LinkH2 id="infinite-line-charge">Infinite Line Charge</LinkH2>
+      <p>Let <InlineMath math="l \to \infty" /> and <InlineMath math="h = \frac{l}{2}" />. Since the point <InlineMath math="C" /> would be at the center of the line, the <InlineMath math="y" /> component of the electric field vanishes:</p>
+      <BlockMath math="
+        \begin{align*}
+	        E_y &= k_e \lambda \left(\frac{1}{\sqrt{\left(l - \frac{l}{2}\right)^2 + s^2}} - \frac{1}{\sqrt{\left(\frac{l}{2}\right)^2 + s^2}}\right) \\
+	        &= k_e \lambda \left(\frac{1}{\sqrt{\left(\frac{l}{2}\right)^2 + s^2}} - \frac{1}{\sqrt{\left(\frac{l}{2}\right)^2 + s^2}}\right) \\
+	        &= 0.
+        \end{align*}
+      " />
+
+      <p>Taking the limit of <InlineMath math="E_x" />:</p>
+      <BlockMath math="
+        \begin{align*}
+	        E_x &= \frac{k_e \lambda}{s} \lim_{l \to \infty} \left(\frac{l - \frac{l}{2}}{\sqrt{\left(l - \frac{l}{2}\right)^2 + s^2}} + \frac{\frac{l}{2}}{\sqrt{\left(\frac{l}{2}\right)^2 + s^2}}\right) \\
+	        &= \frac{k_e \lambda}{s} \lim_{l \to \infty} \left(\frac{\frac{l}{2}}{\sqrt{\left(\frac{l}{2}\right)^2 + s^2}} + \frac{\frac{l}{2}}{\sqrt{\left(\frac{l}{2}\right)^2 + s^2}}\right) \\
+	        &= \frac{k_e \lambda}{s} \lim_{l \to \infty} \left(\frac{l}{\sqrt{\frac{l^2 + 4s^2}{4}}}\right) \\
+	        &= \frac{2 k_e \lambda}{s} \lim_{l \to \infty} \left(\frac{1}{\sqrt{1 + 4\frac{s^2}{l^2}}}\right) \\
+	        &= \frac{2 k_e \lambda}{s}.
+        \end{align*}
+      " />
+
+      <LinkH3 id="infinite-line-charge-plot">Infinite Line Charge Plot</LinkH3>
+      <InfiniteLineCharge />
     </div>
   )
 }

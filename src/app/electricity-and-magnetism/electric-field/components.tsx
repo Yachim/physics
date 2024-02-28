@@ -46,7 +46,7 @@ export function TwoChargesElectricField(props: BoardProps) {
       const getTotalElectricField = (target = math.matrix([posPoint.X(), posPoint.Y()])) => sumVectorArray(data.map(([point, charge]) => getElectricField(point, +charge.Value(), target)))
 
       const eText = board.create("text", [-0.75, 0.30, () => String.raw`$\boldsymbol{E} = [${toScientific2DVector(getTotalElectricField()).join(",\\ ")}]$`])
-      const eMagnitudeText = board.create("text", [-0.75, 0.25, () => String.raw`$|\boldsymbol{E}| = ${toScientific(math.norm(getTotalElectricField()) as number)}\ N C^{-1}$`])
+      const eMagnitudeText = board.create("text", [-0.75, 0.25, () => String.raw`$E = ${toScientific(math.norm(getTotalElectricField()) as number)}\ N C^{-1}$`])
 
       const resetButton = board.create("button", [-0.75, 0.2, "Reset", () => {
         data.forEach(([point, charge], i) => {
@@ -163,7 +163,7 @@ export function ElectricDipolePlot(props: BoardProps) {
 
         return String.raw`$\boldsymbol{E} = [${x},\ ${y}]$`
       }])
-      const magnitudeLabel = board.create("text", [-0.7, 0.25, () => String.raw`$|\boldsymbol{E}| = ${toScientific(math.norm(getElectricField(+aInput.Value())) as number)}\ NC^{-1}$`])
+      const magnitudeLabel = board.create("text", [-0.7, 0.25, () => String.raw`$E = ${toScientific(math.norm(getElectricField(+aInput.Value())) as number)}\ NC^{-1}$`])
 
       board.create("arrow", [
         targetPoint,
@@ -261,7 +261,10 @@ export function LineCharge(props: BoardProps) {
       }
 
       function getXHat(): math.Matrix {
-        return math.subtract(pointVector(c), math.add(pointVector(a), getHVec()))
+        const vec = math.subtract(pointVector(c), math.add(pointVector(a), getHVec()))
+        const vecNorm = math.norm(vec)
+
+        return math.divide(vec, vecNorm) as math.Matrix
       }
 
       function getSVec(): math.Matrix {
@@ -297,7 +300,101 @@ export function LineCharge(props: BoardProps) {
 
         return String.raw`$\boldsymbol{E} = [${x},\ ${y}]$`
       }])
-      board.create("text", [-15, 5, () => String.raw`$|\boldsymbol{E}| = ${toScientific(math.norm(getEVec()) as number)}\ NC^{-1}$`])
+      board.create("text", [-15, 5, () => String.raw`$E = ${toScientific(math.norm(getEVec()) as number)}\ NC^{-1}$`])
+
+      board.create("arrow", [
+        c,
+        [
+          () => c.X() + (getEVec().toArray()[0] as number) / (math.norm(getEVec()) as number) * (+scaleInput.Value()),
+          () => c.Y() + (getEVec().toArray()[1] as number) / (math.norm(getEVec()) as number) * (+scaleInput.Value()),
+        ]
+      ], {
+        name: "E",
+        color: "orange",
+        lastArrow: {
+          type: 2,
+        },
+      })
+    }} />
+  )
+}
+
+export function InfiniteLineCharge(props: BoardProps) {
+  return (
+    <CustomJXGBoard {...props} bbox={props.bbox ?? [-16, 9, 16, -9]} initFn={(board: JXG.Board) => {
+      const a = board.create("point", [-8, -4], { name: "A" })
+      const b = board.create("point", [1, 3], { name: "B" })
+      board.create("line", [a, b])
+      const c = board.create("point", [3, -2], { name: "C" })
+      const lambdaInput = board.create("input", [-15, 8, 2, "$\\lambda =\\ $"])
+      const scaleInput = board.create("slider", [
+        [-15, 7],
+        [-5, 7],
+        [0, 3, 10]
+      ], {
+        suffixLabel: "Scale = "
+      })
+
+      function getLVec(): math.Matrix {
+        return math.subtract(pointVector(b), pointVector(a))
+      }
+
+      function getYHat(): math.Matrix {
+        const lVec = getLVec()
+        const lNorm = math.norm(lVec)
+
+        return math.divide(lVec, lNorm) as math.Matrix
+      }
+
+      function getH(): number {
+        const yHat = getYHat()
+        const cVec = pointVector(c)
+        const aVec = pointVector(a)
+
+        return math.multiply(yHat, math.transpose(math.subtract(cVec, aVec))) as unknown as number
+      }
+
+      function getHVec(): math.Matrix {
+        const yHat = getYHat()
+        const h = getH()
+
+        return math.multiply(h, yHat)
+      }
+
+      function getXHat(): math.Matrix {
+        const vec = math.subtract(pointVector(c), math.add(pointVector(a), getHVec()))
+        const vecNorm = math.norm(vec)
+
+        return math.divide(vec, vecNorm) as math.Matrix
+      }
+
+      function getSVec(): math.Matrix {
+        const hVec = getHVec()
+        const aVec = pointVector(a)
+        const cVec = pointVector(c)
+
+        return math.chain(cVec).subtract(aVec).subtract(hVec).done() as math.Matrix
+      }
+
+      function getEVec(): math.Matrix {
+        const s = math.norm(getSVec()) as number
+        const lambda = +lambdaInput.Value()
+
+        const x = (2 * k * lambda) / s
+
+        const xHat = getXHat()
+
+        return math.multiply(x, xHat)
+      }
+
+      board.create("text", [-15, 6, () => {
+        const electricField = getEVec()
+        const x = toScientific((electricField.toArray())[0] as number)
+        const y = toScientific((electricField.toArray())[1] as number)
+
+        return String.raw`$\boldsymbol{E} = [${x},\ ${y}]$`
+      }])
+      board.create("text", [-15, 5, () => String.raw`$E = ${toScientific(math.norm(getEVec()) as number)}\ NC^{-1}$`])
 
       board.create("arrow", [
         c,

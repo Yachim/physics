@@ -14,24 +14,24 @@ export default async function Page() {
       <Link href="/electricity-and-magnetism">Back</Link>
       <h1>Coulomb&apos;s Law</h1>
       <p>The force between two charges, <InlineMath math={String.raw`q_1, q_2`} /> at a distance <InlineMath math="r_{12}" /> is given by the Coulomb&apos;s law:</p>
-      <BlockMath math={String.raw`\begin{equation}|\boldsymbol{F}_e| = k_e \frac{|q_1| |q_2|}{r^2},\end{equation}`} />
+      <BlockMath math={String.raw`\begin{equation}F_e = k_e \frac{|q_1| |q_2|}{r^2},\end{equation}`} />
       <p>where:</p>
       <BlockMath math={String.raw`\begin{equation}k_e = \frac{1}{4 \pi \epsilon_0} \approx 9 \cdot 10^9\ N m^2 C^{-2}.\end{equation}`} />
       <p>If the product <InlineMath math="q_1 q_2" /> is positive, the force is repulsive. If the product is negative, the force is attractive.</p>
       <p>Vector form:</p>
-      <BlockMath math={String.raw`\begin{equation}\boldsymbol{F}_e = k_e \frac{q_1 q_2}{|\boldsymbol{r}_{12}|^2} \boldsymbol{\hat{r}_{12}},\end{equation}`} />
+      <BlockMath math={String.raw`\begin{equation}\boldsymbol{F}_e = k_e \frac{q_1 q_2}{r_{12}^2} \boldsymbol{\hat{r}_{12}},\end{equation}`} />
       <p>where:</p>
       <BlockMath math={String.raw`
         \begin{align*}
           \boldsymbol{r}_{12} &= \boldsymbol{r}_1 - \boldsymbol{r}_2, \\
-          \boldsymbol{\hat{r}_{12}} &= \frac{\boldsymbol{r}_{12}}{|\boldsymbol{r}_{12}|}.
+          \boldsymbol{\hat{r}_{12}} &= \frac{\boldsymbol{r}_{12}}{r_{12}}.
         \end{align*}
       `} />
       <p>In a non-vacuum environment, we have to use the relative permittivity, <InlineMath math="\epsilon_r" />:</p>
       <BlockMath math={String.raw`
         \begin{align}
-          |\boldsymbol{F}_e| &= \frac{k_e}{\epsilon_r} \frac{|q_1| |q_2|}{r^2}, \\
-          \boldsymbol{F}_e &= \frac{k_e}{\epsilon_r} \frac{q_1 q_2}{|\boldsymbol{r}_{12}|^2} \boldsymbol{\hat{r}_{12}}.
+          F_e &= \frac{k_e}{\epsilon_r} \frac{|q_1| |q_2|}{r^2}, \\
+          \boldsymbol{F}_e &= \frac{k_e}{\epsilon_r} \frac{q_1 q_2}{r_{12}^2} \boldsymbol{\hat{r}_{12}}.
         \end{align}
       `} />
       <table className="mx-[20%]">
@@ -67,7 +67,7 @@ export default async function Page() {
           q_1 &= -2 \cdot 10^{-8}\ C, \\
           q_2 &= 8 \cdot 10^{-8}\ C, \\
           r &= 0.1\ m, \\
-          |\boldsymbol{F}_e| &= k_e \frac{|q_1| |q_2|}{r^2} \\
+          F_e &= k_e \frac{|q_1| |q_2|}{r^2} \\
           &= 9 \cdot 10^9 \frac{2^{-8} \cdot 8^{-8}}{0.1^2} \\
           &= 1.44 \cdot 10^{-3}\ N.
         \end{align*}
@@ -79,7 +79,7 @@ export default async function Page() {
           q_2 &= 8 \cdot 10^{-8}\ C, \\
           r &= 0.1\ m, \\
           \epsilon_r &= 81.6, \\
-          |\boldsymbol{F}_e| &= \frac{k_e}{\epsilon_r} \frac{|q_1| |q_2|}{r^2} \\
+          F_e &= \frac{k_e}{\epsilon_r} \frac{|q_1| |q_2|}{r^2} \\
           &= \frac{9 \cdot 10^9}{81.6} \frac{2^{-8} \cdot 8^{-8}}{0.1^2} \\
           &\approx 1.76 \cdot 10^{-5}\ N.
         \end{align*}
@@ -100,18 +100,18 @@ export default async function Page() {
           \boldsymbol{r}_3 &= 0.2\ m\ \boldsymbol{\hat{x}} + 0.15\ m\ \boldsymbol{\hat{y}}, \\[1.5ex]
           \boldsymbol{r}_{21} &= \boldsymbol{r}_2 - \boldsymbol{r}_1 \\
           &= 0.2\ m\ \boldsymbol{\hat{x}}, \\
-          |\boldsymbol{r}_{21}| &= 0.2\ m, \\
+          r_{21} &= 0.2\ m, \\
           \boldsymbol{\hat{r}_{21}} &= \boldsymbol{\hat{x}}, \\[1.5ex]
           \boldsymbol{r}_{23} &= \boldsymbol{r}_2 - \boldsymbol{r}_3 \\
           &= -0.15\ m\ \boldsymbol{\hat{y}}, \\
-          |\boldsymbol{r}_{23}| &= 0.15\ m, \\
+          r_{23} &= 0.15\ m, \\
           \boldsymbol{\hat{r}_{23}} &= -\boldsymbol{\hat{y}}.
         \end{align*}
       `} />
       <p>The force on second charge due to the first one:</p>
       <BlockMath math={String.raw`
         \begin{align*}
-          \boldsymbol{F}_{e1} &= k_e \frac{q_2 q_1}{|\boldsymbol{r}_{21}|^2} \boldsymbol{\hat{r}_{21}} \\
+          \boldsymbol{F}_{e1} &= k_e \frac{q_2 q_1}{r_{21}^2} \boldsymbol{\hat{r}_{21}} \\
           &= 9 \cdot 10^9 \frac{-3 \cdot 10^{-8} \cdot 10^{-8}}{0.2^2} \boldsymbol{\hat{x}} \\
           &= -6.75 \cdot 10^{-5}\ m\ \boldsymbol{\hat{x}}.
         \end{align*}
@@ -119,7 +119,7 @@ export default async function Page() {
       <p>The force on second charge due to the third one:</p>
       <BlockMath math={String.raw`
         \begin{align*}
-          \boldsymbol{F}_{e3} &= k_e \frac{q_2 q_3}{|\boldsymbol{r}_{23}|^2} \boldsymbol{\hat{r}_{23}} \\
+          \boldsymbol{F}_{e3} &= k_e \frac{q_2 q_3}{r_{23}^2} \boldsymbol{\hat{r}_{23}} \\
           &= 9 \cdot 10^9 \frac{- 3 \cdot 10^{-8} \cdot 2 \cdot 10^{-8}}{0.15^2} (- \boldsymbol{\hat{y}}) \\
           &= 2.4 \cdot 10^{-4}\ m\ \boldsymbol{\hat{y}}.
         \end{align*}
@@ -140,55 +140,18 @@ export default async function Page() {
       <p>For a small change in length, <InlineMath math="dl" /> and a small change in charge <InlineMath math="dq" />, the linear charge density, <InlineMath math="\lambda" />, is equal to:</p>
       <BlockMath math="\lambda = \frac{dq}{dl}." />
       <p>For a small change in surface area, <InlineMath math="dS" /> and a small change in charge <InlineMath math="dq" />, the surface charge density, <InlineMath math="\sigma" />, is equal to:</p>
-      <BlockMath math="\sigma = \frac{dS}{dl}." />
+      <BlockMath math="\sigma = \frac{dq}{dS}." />
       <p>For a small change in volume, <InlineMath math="dV" /> and a small change in charge <InlineMath math="dq" />, the volume charge density, <InlineMath math="\rho" />, is equal to:</p>
-      <BlockMath math="\rho = \frac{dV}{dl}." />
+      <BlockMath math="\rho = \frac{dq}{dV}." />
 
-      <LinkH3 id="linear-density-example">Linear Charge Density</LinkH3>
-      <p>A long wire has a linear charge density of <InlineMath math="\lambda = 2\ Cm^{-1}" />. Find the total charge enclosed in a segment of the wire that is <InlineMath math="3\ m" /> long.</p>
+      <p>For constant charge densities, the equations simplify to:</p>
       <BlockMath math="
         \begin{align*}
-          \lambda &= 2\ Cm^{-1}, \\
-          l &= 3 m, \\
-          dq &= \lambda\ dl, \\
-          q &= \int_0^l \lambda dl \\
-          &= \int_0^3 2 dl \\
-          &= 2 \cdot 3 \\
-          &= 6\ C.
+          \lambda &= \frac{q}{l}, \\
+          \sigma &= \frac{q}{S}, \\
+          \rho &= \frac{q}{V}.
         \end{align*}
-      "/>
-
-      <LinkH3 id="surface-density-example">Surface Area Charge Density</LinkH3>
-      <p>A flat sheet has a surface charge density of <InlineMath math="\sigma = 5\ Cm^{-2}" />. Calculate the total charge on a circular region of the sheet with radius <InlineMath math="2\ m" />.</p>
-      <BlockMath math="
-        \begin{align*}
-          \sigma &= 5\ Cm^{-2}, \\
-          r &= 2\ m, \\
-          dq &= \sigma\ dS, \\
-          q &= \int_S \sigma dS, \\
-          &= \int_0^{2\pi} \int_0^2 5 r\ dr d\theta \\
-          &= 5 \int_0^{2\pi} \int_0^2 r\ dr d\theta \\
-          &= 5 \int_0^{2\pi} \left[\frac{1}{2} r^2\right]_0^2 d\theta \\
-          &= 10 \int_0^{2\pi} d\theta \\
-          &= 10 \cdot 2\pi \\
-          &= 20 \pi\ C.
-        \end{align*}
-      "/>
-
-      <LinkH3 id="volume-density-example">Volume Charge Density</LinkH3>
-      <p>Inside a cube with sides of length <InlineMath math="a = 4\ m" />, the volume charge density is given by <InlineMath math="\rho = 3\ Cm^{-3}" />. Find the total charge contained within the cube.</p>
-      <BlockMath math="
-        \begin{align*}
-          \rho &= 3\ Cm^{-3}, \\
-          a &= 4\ m, \\
-          dq &= \rho\ dV, \\
-          q &= \int_V \rho\ dV \\
-          &= 3 \int_0^4 \int_0^4 \int_0^4\ dx dy dz \\
-          &= 12 \int_0^4 \int_0^4\ dy dz \\
-          &= 48 \int_0^4 dz \\
-          &= 192\ C
-        \end{align*}
-      "/>
+      " />
     </div>
   )
 }
