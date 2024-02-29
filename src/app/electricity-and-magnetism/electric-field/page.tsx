@@ -65,7 +65,7 @@ export default async function Page() {
       <p>Two opposite charges with magnitude <InlineMath math="q" /> are placed at a distance <InlineMath math="d" /> from each other. Calculate the electric field at the distance <InlineMath math="a" /> from the midpoint. This point is at a distance <InlineMath math="r" /> from both charges:</p>
       <div className="w-full flex justify-center">
         <Image
-          src={`${basePath}/assets/electric-dipole.svg`}
+          src={`${basePath}/assets/electric-field/electric-dipole.svg`}
           width={700}
           height={700}
           alt="Electric dipole illustration"
@@ -133,7 +133,7 @@ export default async function Page() {
       <p>A line has a <b>constant</b> linear charge density <InlineMath math="\lambda" />. Its ends lie in points <InlineMath math="A" /> and <InlineMath math="B" />. What is the electric field at point <InlineMath math="C" />?</p>
       <div className="w-full flex justify-center">
         <Image
-          src={`${basePath}/assets/line-charge.svg`}
+          src={`${basePath}/assets/electric-field/line-charge.svg`}
           width={700}
           height={700}
           alt="Line charge illustration"
@@ -142,7 +142,7 @@ export default async function Page() {
       <p>Let <InlineMath math="H" /> be the projection of <InlineMath math="C" /> onto the line, then:</p>
       <div className="w-full flex justify-center">
         <Image
-          src={`${basePath}/assets/line-charge2.svg`}
+          src={`${basePath}/assets/electric-field/line-charge2.svg`}
           width={700}
           height={700}
           alt="Line charge illustration 2"
@@ -168,7 +168,7 @@ export default async function Page() {
       <p>Let&apos;s parametrize the position on the line by <InlineMath math="y" />:</p>
       <div className="w-full flex justify-center">
         <Image
-          src={`${basePath}/assets/line-charge3.svg`}
+          src={`${basePath}/assets/electric-field/line-charge3.svg`}
           width={700}
           height={700}
           alt="Line charge illustration 3"

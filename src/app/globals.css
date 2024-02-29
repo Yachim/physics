@@ -43,6 +43,10 @@
   a:not(.link-h a) {
     text-decoration: underline;
   }
+
+  a:not(.link-h a):hover {
+    opacity: 0.7;
+  }
 }
 
 @layer components {

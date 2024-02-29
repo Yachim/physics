@@ -2,7 +2,7 @@
 
 import { BoardProps, CustomJXGBoard, FixedInput } from "@/components/JGXBoard";
 import { k } from "@/utils/constants";
-import { oddRoot, sumVectorArray, toScientific, toScientific2DVector } from "@/utils/misc";
+import { sumVectorArray, toScientific, toScientific2DVector } from "@/utils/misc";
 import { pointVector } from "@/utils/jxg";
 import * as math from "mathjs"
 
@@ -45,7 +45,7 @@ export function TwoChargesElectricField(props: BoardProps) {
 
       const getTotalElectricField = (target = math.matrix([posPoint.X(), posPoint.Y()])) => sumVectorArray(data.map(([point, charge]) => getElectricField(point, +charge.Value(), target)))
 
-      const eText = board.create("text", [-0.75, 0.30, () => String.raw`$\boldsymbol{E} = [${toScientific2DVector(getTotalElectricField()).join(",\\ ")}]$`])
+      const eText = board.create("text", [-0.75, 0.30, () => String.raw`$\boldsymbol{E} = ${toScientific2DVector(getTotalElectricField())}$`])
       const eMagnitudeText = board.create("text", [-0.75, 0.25, () => String.raw`$E = ${toScientific(math.norm(getTotalElectricField()) as number)}\ N C^{-1}$`])
 
       const resetButton = board.create("button", [-0.75, 0.2, "Reset", () => {
@@ -295,10 +295,8 @@ export function LineCharge(props: BoardProps) {
 
       board.create("text", [-15, 6, () => {
         const electricField = getEVec()
-        const x = toScientific((electricField.toArray() as number[])[0])
-        const y = toScientific((electricField.toArray() as number[])[1])
 
-        return String.raw`$\boldsymbol{E} = [${x},\ ${y}]$`
+        return String.raw`$\boldsymbol{E} = ${toScientific2DVector(electricField)}$`
       }])
       board.create("text", [-15, 5, () => String.raw`$E = ${toScientific(math.norm(getEVec()) as number)}\ NC^{-1}$`])
 
@@ -389,10 +387,8 @@ export function InfiniteLineCharge(props: BoardProps) {
 
       board.create("text", [-15, 6, () => {
         const electricField = getEVec()
-        const x = toScientific((electricField.toArray())[0] as number)
-        const y = toScientific((electricField.toArray())[1] as number)
 
-        return String.raw`$\boldsymbol{E} = [${x},\ ${y}]$`
+        return String.raw`$\boldsymbol{E} = ${toScientific2DVector(electricField)}$`
       }])
       board.create("text", [-15, 5, () => String.raw`$E = ${toScientific(math.norm(getEVec()) as number)}\ NC^{-1}$`])
 

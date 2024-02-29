@@ -19,14 +19,11 @@ export function sumVectorArray(arr: math.Matrix[], initial = math.matrix([0, 0])
   return arr.reduce((total, n) => math.add(total, n), initial)
 }
 
-export function toScientific2DVector(vec: math.Matrix): [string, string] {
+export function toScientific2DVector(vec: math.Matrix): string {
   const x = (vec.toArray() as number[])[0]
   const y = (vec.toArray() as number[])[1]
 
-  return [
-    toScientific(x),
-    toScientific(y),
-  ]
+  return `[${toScientific(x)}, ${toScientific(y)}]`
 }
 
 export function oddRoot(num: number, e = 3) {

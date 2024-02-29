@@ -2,7 +2,7 @@
 
 import * as math from "mathjs"
 import { BoardProps, CustomJXGBoard, FixedInput } from "@/components/JGXBoard";
-import { coulombsLawForceMagnitude, coulombsLawForceVector, eulerStepCoulombsLawMotionDiff } from "@/utils/calculations";
+import { coulombsLawForceMagnitude, coulombsLawForceVector } from "@/utils/calculations";
 import { PermitivittyMaterial, permitivitty } from "@/utils/constants";
 import { toScientific } from "@/utils/misc";
 import { capitalize } from "jsxgraph";
