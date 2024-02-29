@@ -35,6 +35,14 @@
   td, th {
     text-align: center;
   }
+
+  a {
+    cursor: pointer;
+  }
+
+  a:not(.link-h a) {
+    text-decoration: underline;
+  }
 }
 
 @layer components {

@@ -130,13 +130,13 @@ export default async function Page() {
       <ElectricDipolePlot />
 
       <LinkH2 id="line-charge">Line charge</LinkH2>
-      <p>A line has a <b>constant</b> charge density <InlineMath math="\lambda" />. Its ends lie in points <InlineMath math="A" /> and <InlineMath math="B" />. What is the electric field at point <InlineMath math="C" />?</p>
+      <p>A line has a <b>constant</b> linear charge density <InlineMath math="\lambda" />. Its ends lie in points <InlineMath math="A" /> and <InlineMath math="B" />. What is the electric field at point <InlineMath math="C" />?</p>
       <div className="w-full flex justify-center">
         <Image
           src={`${basePath}/assets/line-charge.svg`}
           width={700}
           height={700}
-          alt="Electric dipole illustration"
+          alt="Line charge illustration"
         />
       </div>
       <p>Let <InlineMath math="H" /> be the projection of <InlineMath math="C" /> onto the line, then:</p>
@@ -145,7 +145,7 @@ export default async function Page() {
           src={`${basePath}/assets/line-charge2.svg`}
           width={700}
           height={700}
-          alt="Electric dipole illustration"
+          alt="Line charge illustration 2"
         />
       </div>
       <BlockMath math="
@@ -171,7 +171,7 @@ export default async function Page() {
           src={`${basePath}/assets/line-charge3.svg`}
           width={700}
           height={700}
-          alt="Electric dipole illustration"
+          alt="Line charge illustration 3"
         />
       </div>
       <BlockMath math="
