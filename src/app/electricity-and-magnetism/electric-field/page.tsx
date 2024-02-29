@@ -160,8 +160,8 @@ export default async function Page() {
         \begin{align*}
 	        \boldsymbol{\hat{x}} &= \frac{\boldsymbol{s}}{s}, \\
 	        \boldsymbol{\hat{y}} &= \frac{\boldsymbol{l}}{l}, \\
-	        h &= \boldsymbol{\hat{y}} \cdot (C - A), \quad h \in \mathbb{R}, \\
-	        \boldsymbol{h} &= h \boldsymbol{\hat{y}}, \\
+	        h_y &= \boldsymbol{\hat{y}} \cdot (C - A), \\
+	        \boldsymbol{h} &= h_y \boldsymbol{\hat{y}}, \\
 	        H &= A + \boldsymbol{h}.
         \end{align*}
       " />
@@ -185,14 +185,14 @@ export default async function Page() {
 	        \cos \alpha_1 &= \frac{s}{r}, \\
 	        \sin \alpha_1 &= -\sin \alpha_2 = -\frac{y}{r}, \\
 	        d E_x &= k_e \lambda s \frac{dy}{(y^2 + s^2)^{\frac{3}{2}}}, \\
-	        E_x &= k_e \lambda s \int_{-h}^{l - h} \frac{dy}{(y^2 + s^2)^{\frac{3}{2}}} \\
-	        &= \frac{k_e \lambda}{s} \left[\frac{y}{\sqrt{y^2 + s^2}}\right]_{-h}^{l - h} \\
-	        &= \frac{k_e \lambda}{s} \left[\frac{l - h}{\sqrt{(l - h)^2 + s^2}} + \frac{h}{\sqrt{h^2 + s^2}}\right], \\
+	        E_x &= k_e \lambda s \int_{-h_y}^{l - h_y} \frac{dy}{(y^2 + s^2)^{\frac{3}{2}}} \\
+	        &= \frac{k_e \lambda}{s} \left[\frac{y}{\sqrt{y^2 + s^2}}\right]_{-h_y}^{l - h_y} \\
+	        &= \frac{k_e \lambda}{s} \left[\frac{l - h_y}{\sqrt{(l - h_y)^2 + s^2}} + \frac{h_y}{\sqrt{h_y^2 + s^2}}\right], \\
 	        d E_y &= k_e \lambda \frac{y\ dy}{(y^2 + s^2)^{\frac{3}{2}}}, \\
-	        E_y &= -k_e \lambda \int_{-h}^{l - h} \frac{y\ dy}{(y^2 + s^2)^{\frac{3}{2}}} \\
-	        &= k_e \lambda \left[\frac{1}{\sqrt{y^2 + s^2}}\right]_{-h}^{l - h} \\
-	        &= k_e \lambda \left[\frac{1}{\sqrt{y^2 + s^2}}\right]_{-h}^{l - h} \\
-	        &= k_e \lambda \left[\frac{1}{\sqrt{(l - h)^2 + s^2}} - \frac{1}{\sqrt{h^2 + s^2}}\right]. \\
+	        E_y &= -k_e \lambda \int_{-h_y}^{l - h_y} \frac{y\ dy}{(y^2 + s^2)^{\frac{3}{2}}} \\
+	        &= k_e \lambda \left[\frac{1}{\sqrt{y^2 + s^2}}\right]_{-h_y}^{l - h_y} \\
+	        &= k_e \lambda \left[\frac{1}{\sqrt{y^2 + s^2}}\right]_{-h_y}^{l - h_y} \\
+	        &= k_e \lambda \left[\frac{1}{\sqrt{(l - h_y)^2 + s^2}} - \frac{1}{\sqrt{h_y^2 + s^2}}\right]. \\
         \end{align*}
       " />
 
@@ -202,12 +202,12 @@ export default async function Page() {
       <BlockMath math="
         \begin{align*}
 	        \boldsymbol{l} &= B - A, \\
-	        h_y &= \boldsymbol{\hat{y}} \cdot (C - A), \quad h \in \mathbb{R}, \\
-	        \boldsymbol{h} &= h \boldsymbol{\hat{y}}, \\
+	        h_y &= \boldsymbol{\hat{y}} \cdot (C - A), \\
+	        \boldsymbol{h} &= h_y \boldsymbol{\hat{y}}, \\
 	        H &= A + \boldsymbol{h}, \\
 	        \boldsymbol{s} &= C - H, \\
-	        E_x &= \frac{k_e \lambda}{s} \left(\frac{l - h}{\sqrt{(l - h)^2 + s^2}} + \frac{h}{\sqrt{h^2 + s^2}}\right), \\
-	        E_y &= k_e \lambda \left(\frac{1}{\sqrt{(l - h)^2 + s^2}} - \frac{1}{\sqrt{h^2 + s^2}}\right), \\
+	        E_x &= \frac{k_e \lambda}{s} \left(\frac{l - h_y}{\sqrt{(l - h_y)^2 + s^2}} + \frac{h_y}{\sqrt{h_y^2 + s^2}}\right), \\
+	        E_y &= k_e \lambda \left(\frac{1}{\sqrt{(l - h_y)^2 + s^2}} - \frac{1}{\sqrt{h_y^2 + s^2}}\right), \\
 	        \boldsymbol{\hat{x}} &= \frac{\boldsymbol{s}}{s}, \\
 	        \boldsymbol{\hat{y}} &= \frac{\boldsymbol{l}}{l}, \\
         \end{align*}
@@ -217,7 +217,7 @@ export default async function Page() {
       <LineCharge />
 
       <LinkH2 id="infinite-line-charge">Infinite Line Charge</LinkH2>
-      <p>Let <InlineMath math="l \to \infty" /> and <InlineMath math="h = \frac{l}{2}" />. Since the point <InlineMath math="C" /> would be at the center of the line, the <InlineMath math="y" /> component of the electric field vanishes:</p>
+      <p>Let <InlineMath math="l \to \infty" /> and <InlineMath math="h_y = \frac{l}{2}" />. Since the point <InlineMath math="C" /> would be at the center of the line, the <InlineMath math="y" /> component of the electric field vanishes:</p>
       <BlockMath math="
         \begin{align*}
 	        E_y &= k_e \lambda \left(\frac{1}{\sqrt{\left(l - \frac{l}{2}\right)^2 + s^2}} - \frac{1}{\sqrt{\left(\frac{l}{2}\right)^2 + s^2}}\right) \\
