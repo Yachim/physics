@@ -20,14 +20,13 @@ export default async function Page() {
       <p>By Gauss&apos;s Law, the electric flux through a closed surface is equal to the total charge enclosed within that surface divided by the permittivity:</p>
       <BlockMath math="
         \begin{align*}
-	        \Phi_E &= \frac{Q}{\epsilon_0}, \\
-	        \boldsymbol{\nabla} \cdot \boldsymbol{E} &= \frac{\rho}{\epsilon_0 \epsilon_r},
+          \Phi_E &= \oiint_S \boldsymbol{E} \cdot d \boldsymbol{A} = \frac{Q}{\epsilon_0}, & &\mathrm{Integral\ form}\\
+	        \boldsymbol{\nabla} \cdot \boldsymbol{E} &= \frac{\rho}{\epsilon_0 \epsilon_r}, & &\mathrm{Differential\ form}
         \end{align*}
       " />
       <p>where:</p>
       <BlockMath math="
         \begin{align*}
-          \Phi_E &= \oiint_S \boldsymbol{E} \cdot d \boldsymbol{A}, \\
 	        \epsilon_0 &\approx 8.85 \cdot 10^{-12}\ Fm^{-1}, \\
 	  k_e &= \frac{1}{4 \pi \epsilon_0} \implies \epsilon_0 = \frac{1}{4 \pi k_e},
         \end{align*}
