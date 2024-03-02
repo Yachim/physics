@@ -1,0 +1,105 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="1507" height="863">
+  <defs>
+    <clipPath id="kMWinOXZSiEI">
+      <path fill="none" stroke="none" d=" M 0 0 L 1507 0 L 1507 863 L 0 863 L 0 0 Z" />
+    </clipPath>
+  </defs>
+  <g transform="scale(1,1)" clip-path="url(#kMWinOXZSiEI)">
+    <g>
+      <rect fill="rgb(255,255,255,0)" stroke="none" x="0" y="0" width="1507" height="863"
+        fill-opacity="1" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 453.4999999999998 868 L 453.4999999999998 -5" stroke-opacity="0.6980392156862745"
+        stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2.5" />
+      <text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="461"
+        y="24" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">+</text>
+      <text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="461"
+        y="24" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1"
+        stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3">+</text>
+      <text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="461"
+        y="24" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">+</text>
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 1053.4999999999995 868 L 1053.4999999999995 -5" stroke-opacity="0.6980392156862745"
+        stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2.5" />
+      <text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="1037"
+        y="24" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">-</text>
+      <text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="1037"
+        y="24" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1"
+        stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3">-</text>
+      <text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="1037"
+        y="24" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">-</text>
+      <text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="753"
+        y="447" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">s</text>
+      <text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="753"
+        y="447" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1"
+        stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3">s</text>
+      <text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="753"
+        y="447" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">s</text>
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 453.4999999999998 431.5 L 1053.4999999999995 431.5"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="rgb(0,0,0)" stroke="none" paint-order="stroke fill markers"
+        d=" M 879.9999999999995 288 L 863.1212835241485 292.70865481085974 L 864.6041901976138 295.31652516764365 L 802.8821222193891 330.4133873513401 C 802.282002624561 330.7546318268306 802.0721428758492 331.51775818578244 802.4133873513397 332.11787778061057 C 802.643721927885 332.52294893246625 803.0662673509124 332.75021634751647 803.5011556995316 332.75021634751647 C 803.7105616147059 332.75021634751647 803.9228293376378 332.69752254760505 804.1178777806102 332.5866126486599 L 865.8399457588349 297.4897504649635 L 867.3228524323002 300.0976208217474 L 879.9999999999995 288 Z"
+        fill-opacity="0.6980392156862745" />
+      <path fill="rgb(0,0,0)" stroke="none" paint-order="stroke fill markers"
+        d=" M 486.4999999999998 427.25 L 486.4999999999998 430.25 L 453.4999999999998 430.25 C 452.8096440627113 430.25 452.2499999999998 430.8096440627115 452.2499999999998 431.5 C 452.2499999999998 432.1903559372885 452.8096440627113 432.75 453.4999999999998 432.75 L 486.4999999999998 432.75 L 486.4999999999998 435.75 L 503.4999999999998 431.5 L 486.4999999999998 427.25 Z"
+        fill-opacity="0.2" />
+      <path fill="rgb(0,0,0)" stroke="none" paint-order="stroke fill markers"
+        d=" M 486.4999999999998 427.25 L 486.4999999999998 430.25 L 453.4999999999998 430.25 C 452.8096440627113 430.25 452.2499999999998 430.8096440627115 452.2499999999998 431.5 C 452.2499999999998 432.1903559372885 452.8096440627113 432.75 453.4999999999998 432.75 L 486.4999999999998 432.75 L 486.4999999999998 435.75 L 503.4999999999998 431.5 L 486.4999999999998 427.25 Z"
+        fill-opacity="0.6980392156862745" />
+      <path fill="rgb(21,101,192)" stroke="none" paint-order="stroke fill markers"
+        d=" M 808.4999999999997 331.5 C 808.4999999999997 334.26142374915395 806.2614237491537 336.5 803.4999999999997 336.5 C 800.7385762508457 336.5 798.4999999999997 334.26142374915395 798.4999999999997 331.5 C 798.4999999999997 328.73857625084605 800.7385762508457 326.5 803.4999999999997 326.5 C 806.2614237491537 326.5 808.4999999999997 328.73857625084605 808.4999999999997 331.5 Z"
+        fill-opacity="1" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 808.4999999999997 331.5 C 808.4999999999997 334.26142374915395 806.2614237491537 336.5 803.4999999999997 336.5 C 800.7385762508457 336.5 798.4999999999997 334.26142374915395 798.4999999999997 331.5 C 798.4999999999997 328.73857625084605 800.7385762508457 326.5 803.4999999999997 326.5 C 806.2614237491537 326.5 808.4999999999997 328.73857625084605 808.4999999999997 331.5 Z"
+        stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" />
+      <text fill="rgb(21,101,192)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="799"
+        y="355" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">A</text>
+      <text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="799"
+        y="355" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1"
+        stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3">A</text>
+      <text fill="rgb(21,101,192)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="799"
+        y="355" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">A</text>
+      <path fill="rgb(21,101,192)" stroke="none" paint-order="stroke fill markers"
+        d=" M 884.9999999999995 288 C 884.9999999999995 290.76142374915395 882.7614237491536 293 879.9999999999995 293 C 877.2385762508455 293 874.9999999999995 290.76142374915395 874.9999999999995 288 C 874.9999999999995 285.23857625084605 877.2385762508455 283 879.9999999999995 283 C 882.7614237491536 283 884.9999999999995 285.23857625084605 884.9999999999995 288 Z"
+        fill-opacity="1" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 884.9999999999995 288 C 884.9999999999995 290.76142374915395 882.7614237491536 293 879.9999999999995 293 C 877.2385762508455 293 874.9999999999995 290.76142374915395 874.9999999999995 288 C 874.9999999999995 285.23857625084605 877.2385762508455 283 879.9999999999995 283 C 882.7614237491536 283 884.9999999999995 285.23857625084605 884.9999999999995 288 Z"
+        stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" />
+      <text fill="rgb(21,101,192)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="877"
+        y="310" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">B</text>
+      <text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="877"
+        y="310" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1"
+        stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3">B</text>
+      <text fill="rgb(21,101,192)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="877"
+        y="310" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">B</text>
+      <g transform="scale(19,19)">
+        <g transform="translate(24.736842105263158,23.74663157894737)">
+          <path fill="rgb(0,0,0)" stroke="none" paint-order="stroke fill markers"
+            d=" M 0.281 -0.6940000000000001 L 0.422 -0.527 L 0.361 -0.527 L 0.249 -0.65 L 0.138 -0.527 L 0.077 -0.527 L 0.218 -0.6940000000000001 L 0.281 -0.6940000000000001 Z" />
+        </g>
+        <g transform="translate(24.75634210526316,23.74663157894737)">
+          <path fill="rgb(0,0,0)" stroke="none" paint-order="stroke fill markers"
+            d=" M 0.26 -0.229 L 0.46 0 L 0.377 0 L 0.227 -0.188 L 0.082 0 L 0 0 L 0.194 -0.229 L 0.006 -0.444 L 0.089 -0.444 L 0.227 -0.279 L 0.361 -0.444 L 0.443 -0.444 L 0.26 -0.229 Z" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
