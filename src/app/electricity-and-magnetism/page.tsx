@@ -13,7 +13,7 @@ export default async function Page() {
       <Link href="/electricity-and-magnetism/coulombs-law">Coulomb&apos;s Law</Link>
       <Link href="/electricity-and-magnetism/electric-field">Electric Field</Link>
       <Link href="/electricity-and-magnetism/gauss-law">Gauss&apos;s Law</Link>
-      <Link href="/electricity-and-magnetism/electric-potential">Electric Potential</Link>
+      <Link href="/electricity-and-magnetism/electric-potential-and-voltage">Electric Potential and Voltage</Link>
     </div>
   )
 }

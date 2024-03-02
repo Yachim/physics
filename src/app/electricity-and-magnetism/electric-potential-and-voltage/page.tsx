@@ -5,14 +5,14 @@ import { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Electric Potential"
+  title: "Electric Potential and Voltage"
 }
 
 export default async function Page() {
   return (
     <div className="article">
       <Link href="/electricity-and-magnetism">Back</Link>
-      <h1>Electric Potential</h1>
+      <h1>Electric Potential and Voltage</h1>
       <p></p>
     </div>
   )
