@@ -1,0 +1,58 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="1171" height="863">
+  <defs>
+    <clipPath id="ouCKktknLXPt">
+      <path fill="none" stroke="none" d=" M 0 0 L 1171 0 L 1171 863 L 0 863 L 0 0 Z" />
+    </clipPath>
+  </defs>
+  <g transform="scale(1,1)" clip-path="url(#ouCKktknLXPt)">
+    <g>
+      <rect fill="rgb(255,255,255,0)" stroke="none" x="0" y="0" width="1171" height="863"
+        fill-opacity="1" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 75.834208786663 431.58878705376605 L 311.05728487756295 431.58878705376605"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 467.8726689381629 431.58878705376605 L 703.0957450290629 431.58878705376605"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 859.9111290896627 431.58878705376605 L 1095.1342051805627 431.58878705376605"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 311.05728487756295 400.2257102416461 L 311.05728487756295 462.951863865886"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 311.05728487756295 462.951863865886 L 467.8726689381629 462.951863865886"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 467.8726689381629 462.951863865886 L 467.8726689381629 400.2257102416461"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 467.8726689381629 400.2257102416461 L 311.05728487756295 400.2257102416461"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 703.0957450290629 400.2257102416461 L 703.0957450290629 462.951863865886"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 703.0957450290629 462.951863865886 L 859.9111290896627 462.951863865886"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 859.9111290896627 462.951863865886 L 859.9111290896627 400.2257102416461"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 859.9111290896627 400.2257102416461 L 703.0957450290629 400.2257102416461"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+    </g>
+  </g>
+</svg>

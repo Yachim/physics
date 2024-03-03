@@ -16,6 +16,7 @@ export default async function Page() {
       <Link href="/electricity-and-magnetism/voltage">Voltage</Link>
       <Link href="/electricity-and-magnetism/electric-potential">Electric Potential</Link>
       <Link href="/electricity-and-magnetism/capacitors">Capacitors</Link>
+      <Link href="/electricity-and-magnetism/resistivity-resistance-conductivity-conductance">Resistivity, Resistance, Conductivity, Conductance</Link>
     </div>
   )
 }

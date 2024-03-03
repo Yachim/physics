@@ -31,13 +31,13 @@ export default async function Page() {
           src={`${basePath}/assets/capacitors/parallel.svg`}
           width={350}
           height={350}
-          alt="Radial potential illustration"
+          alt="Parallel resistors illustration"
         />
         <Image
           src={`${basePath}/assets/capacitors/series.svg`}
           width={350}
           height={350}
-          alt="Radial potential illustration"
+          alt="Serial resistors illustration"
         />
       </div>
       <p>The first is parallel and the second is serial. For parallel, the total capacitance is equal to:</p>

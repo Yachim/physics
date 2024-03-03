@@ -1,11 +1,8 @@
 "use client"
 
-import Canvas from "@/components/canvas"
-import { capitalize, sumArray } from "@/utils/misc"
-import { faArrowDown, faArrowUp, faPlus } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useEffect, useRef, useState } from "react"
-import { InlineMath } from "react-katex"
+import { capitalize, sumArray, toScientific } from "@/utils/misc"
+import { useCallback, useState } from "react"
+import { BlockMath, InlineMath } from "react-katex"
 
 type ConnectionType = "parallel" | "serial"
 
@@ -13,46 +10,48 @@ export function CapacitanceCalculator() {
   const [type, setType] = useState<ConnectionType>("parallel")
   const [condensators, setCondensators] = useState<number[]>([0])
 
-  function getOtherType(current = type): ConnectionType {
-    return current === "parallel" ? "serial" : "parallel"
-  }
+  const getOtherType: (current?: ConnectionType) => ConnectionType = useCallback((current = type) =>
+    current === "parallel" ? "serial" : "parallel"
+    , [type])
 
-  function calculateParallelCapacitance() {
-    return sumArray(condensators)
-  }
+  const calculateParallelCapacitance = useCallback(() =>
+    sumArray(condensators)
+    , [condensators])
 
-  function calculateSerialCapacitance() {
-    return 1 / sumArray(condensators.map(val => 1 / val))
-  }
+  const calculateSerialCapacitance = useCallback(() =>
+    1 / sumArray(condensators.map(val => 1 / val))
+    , [condensators])
 
-  function calculateCapacitance() {
-    return type === "parallel" ? calculateParallelCapacitance() : calculateSerialCapacitance()
-  }
+  const calculateCapacitance = useCallback(() =>
+    type === "parallel" ? calculateParallelCapacitance() : calculateSerialCapacitance()
+    , [type, calculateSerialCapacitance, calculateParallelCapacitance])
 
   return (
-    <div className="w-full flex flex-col gap-2 items-start">
-      <p className="flex gap-2">
-        {capitalize(type)} connection
-        <button onClick={() => setType(getOtherType)}>Switch to {getOtherType()}</button>
-      </p>
+    <div className="w-full flex justify-center">
+      <div className=" flex flex-col gap-2">
+        <p className="flex gap-2">
+          {capitalize(type)} connection
+          <button onClick={() => setType(getOtherType)}>Switch to {getOtherType()}</button>
+        </p>
 
-      <p><InlineMath math={String.raw`C = ${calculateCapacitance()}`} /></p>
+        <BlockMath math={String.raw`C = ${toScientific(calculateCapacitance())}\ F`} />
 
-      {condensators.map((val, i) =>
-        <label key={i} className="flex gap-2">
-          <InlineMath math={String.raw`C_${i + 1} = `} />
-          <input type="number" value={val} onChange={e => setCondensators(prev => {
-            prev[i] = +e.target.value
-            return [...prev]
-          })} />
-          <button onClick={() => setCondensators(prev => {
-            prev.splice(i)
-            return [...prev]
-          })}>Remove</button>
-        </label>
-      )}
+        {condensators.map((val, i) =>
+          <label key={i} className="flex gap-2">
+            <InlineMath math={String.raw`C_${i + 1} = `} />
+            <input type="number" value={val} onChange={e => setCondensators(prev => {
+              prev[i] = +e.target.value
+              return [...prev]
+            })} />
+            <button onClick={() => setCondensators(prev => {
+              prev.splice(i)
+              return [...prev]
+            })}>Remove</button>
+          </label>
+        )}
 
-      <button onClick={() => setCondensators(prev => [...prev, 0])}>Add condensator</button>
+        <button onClick={() => setCondensators(prev => [...prev, 0])}>Add condensator</button>
+      </div>
     </div>
   )
 }

@@ -10,3 +10,13 @@ export const permitivitty = {
 } as const
 
 export type PermitivittyMaterial = keyof typeof permitivitty
+
+export const resistivity = {
+  silver: 1.59e-8,
+  copper: 1.68e-8,
+  gold: 2.44e-8,
+  aluminium: 2.65e-8,
+  zinc: 5.9e-8,
+} as const
+
+export type ResistivityMaterial = keyof typeof resistivity
