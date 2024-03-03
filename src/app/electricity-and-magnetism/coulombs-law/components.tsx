@@ -9,9 +9,6 @@ import { capitalize } from "jsxgraph";
 import { useMemo, useState } from "react";
 import { BlockMath, InlineMath } from "react-katex";
 
-const fps = 25
-const refreshInterval = 1 / fps
-
 export function ForceMagnitude({ initialQ1, initialQ2, initialR }: {
   initialQ1: number
   initialQ2: number

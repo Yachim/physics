@@ -1,0 +1,70 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="1114" height="863">
+  <defs>
+    <clipPath id="JyBvPuXQxUFo">
+      <path fill="none" stroke="none" d=" M 0 0 L 1114 0 L 1114 863 L 0 863 L 0 0 Z" />
+    </clipPath>
+  </defs>
+  <g transform="scale(1,1)" clip-path="url(#JyBvPuXQxUFo)">
+    <g>
+      <rect fill="rgb(255,255,255,0)" stroke="none" x="0" y="0" width="1114" height="863"
+        fill-opacity="1" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 1010.9894181536965 431.78542544551374 L 596.6532385345561 431.78542544551374"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 513.7860026107279 431.78542544551374 L 99.44982299158755 431.78542544551374"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 513.7860026107279 680.3871332169983 L 265.18429483924365 680.3871332169983"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 596.6532385345561 680.3871332169983 L 845.2549463060403 680.3871332169983"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 845.2549463060403 680.3871332169983 L 845.2549463060403 183.18371767402917"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 845.2549463060403 183.18371767402917 L 596.6532385345561 183.18371767402917"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 513.7860026107279 183.18371767402917 L 265.18429483924365 183.18371767402917"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 265.18429483924365 183.18371767402917 L 265.18429483924365 680.3871332169983"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 513.7860026107279 348.9181895216856 L 513.7860026107279 514.6526613693419"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 596.6532385345561 348.9181895216856 L 596.6532385345561 514.6526613693419"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 596.6532385345561 597.5198972931701 L 596.6532385345561 763.2543691408265"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 513.7860026107279 597.5198972931701 L 513.7860026107279 763.2543691408265"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 513.7860026107279 100.31648175020098 L 513.7860026107279 266.05095359785736"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 596.6532385345561 100.31648175020098 L 596.6532385345561 266.05095359785736"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+    </g>
+  </g>
+</svg>

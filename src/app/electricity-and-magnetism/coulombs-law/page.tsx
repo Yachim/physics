@@ -27,6 +27,7 @@ export default async function Page() {
           \boldsymbol{\hat{r}_{12}} &= \frac{\boldsymbol{r}_{12}}{r_{12}}.
         \end{align*}
       `} />
+      <p>The unit of charge is coulomb (<InlineMath math="C" />)</p>
       <p>In a non-vacuum environment, we have to use the relative permittivity, <InlineMath math="\epsilon_r" />:</p>
       <BlockMath math={String.raw`
         \begin{align}
@@ -59,8 +60,8 @@ export default async function Page() {
         </tbody>
       </table>
 
-      <p>The smallest charge, the elementary charge <InlineMath math="e"/> is equal to:</p>
-      <BlockMath math="e \approx 1.602 \cdot 10^{-19}\ C."/>
+      <p>The smallest charge, the elementary charge <InlineMath math="e" /> is equal to:</p>
+      <BlockMath math="e \approx 1.602 \cdot 10^{-19}\ C." />
 
       <LinkH2 id="magnitude-of-force-between-two-charged-balls">Magnitude of Force Between Two Charged Balls</LinkH2>
       <p>Two balls carrying charges <InlineMath math="q_1 = -20\ nC" /> and <InlineMath math="q_2 = 80\ nC" /> are placed at a distance of <InlineMath math="r_{12} = 10\ cm" /> apart. What is the magnitude of the force they act on each other? What is the magnitude of the force if they are placed in water?</p>

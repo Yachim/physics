@@ -30,6 +30,8 @@ export default async function Page() {
       " />
       <p>where <InlineMath math="\boldsymbol{r}_Q" /> is the position of the source charge and <InlineMath math="\boldsymbol{r}_q" /> is the position of the charge that the electric field acts on.</p>
 
+      <p>The unit of electric field is newton per coulomb (<InlineMath math="NC^{-1}" />).</p>
+
       <LinkH2 id="electric-field-two-charges">Electric Field Created By Two Charges</LinkH2>
       <p>A <InlineMath math="10\ nC" /> charge is placed at the origin. A second <InlineMath math="-20\ nC" /> charge is placed <InlineMath math="50\ cm" /> to the right of the first charge. What is the magnitude and direction of the electric field <InlineMath math="20\ cm" /> above the first charge?</p>
       <BlockMath math="

@@ -34,6 +34,8 @@ export default async function Page() {
         \end{align*}
       "/>
 
+      <p>The unit of electric potential is volt (<InlineMath math="V" />).</p>
+
       <p>or if the electric field is not variable:</p>
       <BlockMath math="
         \begin{align*}

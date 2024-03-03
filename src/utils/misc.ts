@@ -29,3 +29,7 @@ export function toScientific2DVector(vec: math.Matrix): string {
 export function oddRoot(num: number, e = 3) {
   return Math.sign(num) * Math.abs(num) ** (1 / e)
 }
+
+export function capitalize(s: string) {
+  return s.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
+}

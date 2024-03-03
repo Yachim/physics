@@ -20,6 +20,8 @@ export default async function Page() {
       <p>The electric potential is the potential energy per unit charge. When we put into an electric field a charge of value <InlineMath math="q" />, the electric potential is equal to:</p>
       <BlockMath math="\varphi = \frac{E_p}{q}." />
 
+      <p>The unit of electric potential is volt (<InlineMath math="V" />).</p>
+
       <p>The voltage can be defined as the difference in potential energies:</p>
       <BlockMath math="
         \begin{align*}

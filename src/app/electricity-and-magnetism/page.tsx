@@ -15,6 +15,7 @@ export default async function Page() {
       <Link href="/electricity-and-magnetism/gauss-law">Gauss&apos;s Law</Link>
       <Link href="/electricity-and-magnetism/voltage">Voltage</Link>
       <Link href="/electricity-and-magnetism/electric-potential">Electric Potential</Link>
+      <Link href="/electricity-and-magnetism/capacitors">Capacitors</Link>
     </div>
   )
 }
