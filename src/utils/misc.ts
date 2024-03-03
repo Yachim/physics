@@ -8,7 +8,13 @@ export function toScientific(num: number) {
   let exponent = Math.floor(Math.log10(Math.abs(num)))
   let coefficient = num / Math.pow(10, exponent)
 
-  return `${coefficient.toFixed(2)} \\cdot 10^{${exponent}}`
+  let exponentPart = String.raw` \cdot 10^{${exponent}}`
+
+  if (exponent === 0) {
+    exponentPart = ""
+  }
+
+  return String.raw`${coefficient.toFixed(2)}${exponentPart}`
 }
 
 export function sumArray(arr: number[], initial = 0): number {
