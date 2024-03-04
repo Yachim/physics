@@ -4,8 +4,7 @@ import * as math from "mathjs"
 import { BoardProps, CustomJXGBoard, FixedInput } from "@/components/JGXBoard";
 import { coulombsLawForceMagnitude, coulombsLawForceVector } from "@/utils/calculations";
 import { PermitivittyMaterial, permitivitty } from "@/utils/constants";
-import { toScientific } from "@/utils/misc";
-import { capitalize } from "jsxgraph";
+import { toScientific, capitalize } from "@/utils/misc";
 import { useMemo, useState } from "react";
 import { BlockMath, InlineMath } from "react-katex";
 
