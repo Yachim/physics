@@ -31,7 +31,7 @@ export function WorkBetweenPotentials() {
       <input value={phi2} onChange={e => setPhi2(+e.target.value)} className="justify-self-start" type="number" />
 
       <div className="col-span-2 flex flex-col items-center">
-        <BlockMath math={String.raw`W = ${toScientific(q * (phi2 - phi1))}\ J.`} />
+        <BlockMath math={String.raw`W_{ext} = ${toScientific(q * (phi2 - phi1))}\ J.`} />
       </div>
     </div>
   )
@@ -44,7 +44,7 @@ export function RadialPotential(props: BoardProps) {
       board.create("point", [() => 0, () => 0], { name: "Q" })
       const point = board.create("point", [0.06 / Math.SQRT2, 0.06 / Math.SQRT2])
 
-      board.create("text", [-0.15, 0.07, () => String.raw`$\varphi = ${k * (+chargeInput.Value()) / (math.norm(pointVector(point)) as number)}$`])
+      board.create("text", [-0.15, 0.07, () => String.raw`$\varphi = ${toScientific(k * (+chargeInput.Value()) / (math.norm(pointVector(point)) as number))}\ V$`])
     }} />
   )
 }

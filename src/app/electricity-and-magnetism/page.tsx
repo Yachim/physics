@@ -17,9 +17,8 @@ export default async function Page() {
         Electric Field
       </Link>
       <Link href="/electricity-and-magnetism/gauss-law">Gauss&apos;s Law</Link>
-      <Link href="/electricity-and-magnetism/voltage">Voltage</Link>
-      <Link href="/electricity-and-magnetism/electric-potential">
-        Electric Potential
+      <Link href="/electricity-and-magnetism/electric-potential-and-voltage">
+        Electric Potential and Voltage
       </Link>
       <Link href="/electricity-and-magnetism/capacitors">Capacitors</Link>
       <Link href="/electricity-and-magnetism/resistivity-resistance-conductivity-conductance">
