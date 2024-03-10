@@ -69,7 +69,7 @@ export default async function Page() {
           &= \frac{2 k_e \lambda}{s}, \\
         \end{align*}
       " />
-      <p>The vector is pointing in the direction perpendicular to the line. This is identical to the equation derived in the electric field section.</p>
+      <p>The vector is pointing in the direction perpendicular to the line. This is identical to the equation derived in the electric field section with the <Link href="/electricity-and-magnetism/electric-field#infinite-line-charge">infinite line charge</Link>.</p>
 
       <LinkH2 id="spherical-conductor">Spherical conductor</LinkH2>
       <p>A spherical conductor of radius <InlineMath math="r_c" /> has a <b>constant</b> surface area charge density <InlineMath math="\sigma" />. What is the electric field at a point outside the sphere at a distance <InlineMath math="r" /> from the center of the sphere?</p>
@@ -105,6 +105,90 @@ export default async function Page() {
 
       <LinkH3 id="spherical-conductor-plot">Spherical Conductor Plot</LinkH3>
       <SphericalConductor />
+
+      <LinkH2 id="infinite-plane">Infinite Plane</LinkH2>
+      <p>A plane has a uniform charge density <InlineMath math="\sigma" />. What is the electric field anywhere in space?</p>
+      <div className="w-full flex justify-center">
+        <Image
+          src={`${basePath}/assets/gauss-law/plane.svg`}
+          width={700}
+          height={700}
+          alt="Infinite plane illustration"
+        />
+      </div>
+
+      <p>The plane divides the space into two sectors, <InlineMath math="z < 0" /> and <InlineMath math="z > 0" /> and <InlineMath math="\boldsymbol{E_1} = -\boldsymbol{E_2}" />. Both vector fields have the same magnitude.</p>
+
+      <p>We construct a cylinder:</p>
+      <div className="w-full flex justify-center">
+        <Image
+          src={`${basePath}/assets/gauss-law/plane2.png`}
+          width={700}
+          height={700}
+          alt="Infinite plane cylinder illustration"
+          unoptimized
+        />
+      </div>
+      <p>Where <InlineMath math="A = A_1 = A_2" />.</p>
+
+      <p>Then the total electric flux is equal to:</p>
+      <BlockMath math="
+        \begin{align*}
+          \Phi_E &= \oiint_S \boldsymbol{E} \cdot d\boldsymbol{A} \\
+          &= \iint_{S_1} \boldsymbol{E_1} \cdot d\boldsymbol{A_1}
+          + \iint_{S_2} \boldsymbol{E_2} \cdot d\boldsymbol{A_2}
+          + \iint_{S_3} \boldsymbol{E_3} \cdot d\boldsymbol{A_3}
+          + \iint_{S_4} \boldsymbol{E_4} \cdot d\boldsymbol{A_4} \\
+          &= E_1 A_1 + E_2 A_2 \\
+          &= 2 E A.
+        \end{align*}
+      "/>
+
+      <p>Since the charge density is constant, the total charge is equal to:</p>
+      <BlockMath math="Q = \sigma A" />
+
+      <p>Using Gauss&apos;s law:</p>
+      <BlockMath math="
+        \begin{align*}
+          2 E A &= \frac{\sigma A}{\epsilon_0}, \\
+          E &= \frac{\sigma}{2 \epsilon_0}, \\
+          \boldsymbol{E} &= \begin{cases}
+            \ \ \ \frac{\sigma}{2 \epsilon_0}\boldsymbol{\hat{z}} & z > 0, \\
+            -\frac{\sigma}{2 \epsilon_0}\boldsymbol{\hat{z}} & z < 0.
+          \end{cases}
+        \end{align*}
+      "/>
+
+      <LinkH2 id="two-parallel-infinite-planes">Two Parallel Infinite Planes</LinkH2>
+      <p>Two parallel infinite planes at a distance <InlineMath math="d" />. The planes have opposite charge densities with equal magnitude <InlineMath math="\sigma" />. What is the electric field anywhere in space?</p>
+      <div className="w-full flex justify-center">
+        <Image
+          src={`${basePath}/assets/gauss-law/parallel-planes.png`}
+          width={700}
+          height={700}
+          alt="Parallel planes illustration"
+          unoptimized
+        />
+      </div>
+
+      <p>The electric field is the sum of electric fields caused by each plane:</p>
+      <BlockMath math="
+        \begin{align*}
+          \boldsymbol{E} &= \boldsymbol{E_+} + \boldsymbol{E_-}, \\
+          \boldsymbol{E_+} &= \begin{cases}
+            \ \ \ \frac{\sigma}{2 \epsilon_0}\boldsymbol{\hat{z}} & z > \frac{d}{2}, \\
+            -\frac{\sigma}{2 \epsilon_0}\boldsymbol{\hat{z}} & z < \frac{d}{2},
+          \end{cases} \\
+          \boldsymbol{E_-} &= \begin{cases}
+            -\frac{\sigma}{2 \epsilon_0}\boldsymbol{\hat{z}} & z > -\frac{d}{2}, \\
+            \ \ \ \frac{\sigma}{2 \epsilon_0}\boldsymbol{\hat{z}} & z < -\frac{d}{2},
+          \end{cases} \\
+          \boldsymbol{E} &= \begin{cases}
+            \ \ \ \boldsymbol{0} & \ \ \ z > \frac{d}{2}\ \textrm{or}\ z < -\frac{d}{2}, \\
+            -\frac{\sigma}{\epsilon_0}\boldsymbol{\hat{z}} & -\frac{d}{2} < z < \frac{d}{2}.
+          \end{cases}
+        \end{align*}"
+      />
     </div>
   )
 }

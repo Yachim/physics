@@ -1,0 +1,66 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="1524" height="863">
+  <defs>
+    <clipPath id="CHilqgMoTuUC">
+      <path fill="none" stroke="none" d=" M 0 0 L 1524 0 L 1524 863 L 0 863 L 0 0 Z" />
+    </clipPath>
+  </defs>
+  <g transform="scale(1,1)" clip-path="url(#CHilqgMoTuUC)">
+    <g>
+      <rect fill="rgb(255,255,255,0)" stroke="none" x="0" y="0" width="1524" height="863"
+        fill-opacity="1" />
+      <path fill="none" stroke="rgb(0,255,0)" paint-order="fill stroke markers"
+        d=" M -5 431.50424825422215 L 1529 431.50424825422215" stroke-opacity="0.2"
+        stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="7" />
+      <path fill="none" stroke="rgb(0,255,0)" paint-order="fill stroke markers"
+        d=" M -5 431.50424825422215 L 1529 431.50424825422215" stroke-opacity="0.6980392156862745"
+        stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="rgb(0,0,0)" stroke="none" paint-order="stroke fill markers"
+        d=" M 760.3094943666874 261.752473254396 L 756.0594943666874 278.752473254396 L 759.0594943666874 278.752473254396 L 759.0594943666874 431.50424825422215 C 759.0594943666874 432.1946041915106 759.619138429399 432.75424825422215 760.3094943666874 432.75424825422215 C 760.9998503039759 432.75424825422215 761.5594943666874 432.1946041915106 761.5594943666874 431.50424825422215 L 761.5594943666874 278.752473254396 L 764.5594943666874 278.752473254396 L 760.3094943666874 261.752473254396 Z"
+        fill-opacity="0.6980392156862745" />
+      <text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="766"
+        y="352" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">E</text>
+      <text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="766"
+        y="352" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1"
+        stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3">E</text>
+      <text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="766"
+        y="352" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">E</text>
+      <text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="14px" font-style="normal" font-weight="normal" text-decoration="normal" x="777"
+        y="359" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">1</text>
+      <text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif"
+        font-size="14px" font-style="normal" font-weight="normal" text-decoration="normal" x="777"
+        y="359" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1"
+        stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3">1</text>
+      <text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="14px" font-style="normal" font-weight="normal" text-decoration="normal" x="777"
+        y="359" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">1</text>
+      <path fill="rgb(0,0,0)" stroke="none" paint-order="stroke fill markers"
+        d=" M 760.3094943666874 430.25424825422215 C 759.619138429399 430.25424825422215 759.0594943666874 430.8138923169337 759.0594943666874 431.50424825422215 L 759.0594943666874 584.2560232540483 L 756.0594943666874 584.2560232540483 L 760.3094943666874 601.2560232540483 L 764.5594943666874 584.2560232540483 L 761.5594943666874 584.2560232540483 L 761.5594943666874 431.50424825422215 C 761.5594943666874 430.8138923169337 760.9998503039759 430.25424825422215 760.3094943666874 430.25424825422215 Z"
+        fill-opacity="0.6980392156862745" />
+      <text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="766"
+        y="522" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">E</text>
+      <text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="766"
+        y="522" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1"
+        stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3">E</text>
+      <text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="766"
+        y="522" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">E</text>
+      <text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="14px" font-style="normal" font-weight="normal" text-decoration="normal" x="777"
+        y="529" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">2</text>
+      <text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif"
+        font-size="14px" font-style="normal" font-weight="normal" text-decoration="normal" x="777"
+        y="529" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1"
+        stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3">2</text>
+      <text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="14px" font-style="normal" font-weight="normal" text-decoration="normal" x="777"
+        y="529" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">2</text>
+    </g>
+  </g>
+</svg>
