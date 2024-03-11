@@ -71,14 +71,21 @@ export default async function Page() {
         \end{align*}
       " />
 
-      <p>It is also the work per unit charge:</p>
+      <p>It is also the line integral of electric field:</p>
       <BlockMath math="
         \begin{align*}
           U &= k_e Q \left(\int_{\infty}^{r_2} -\frac{1}{t^2} dt - \int_{\infty}^{r_1} -\frac{1}{t^2} dt\right) \\
           &= k_e Q \left(\int_{\infty}^{r_2} -\frac{1}{t^2} dt + \int_{r_1}^{\infty} -\frac{1}{t^2} dt\right) \\
           &= k_e Q \int_{r_1}^{r_2} -\frac{1}{t^2} dt \\
-          &= - \int_C \boldsymbol{E} \cdot d\boldsymbol{s} \\
-          &= -\frac{1}{q} \int_C \boldsymbol{F_e} \cdot d\boldsymbol{s} \\
+          &= - \int_C \boldsymbol{E} \cdot d\boldsymbol{s}, \\
+        \end{align*}
+      " />
+          
+
+      <p>or work per unit charge:</p>
+      <BlockMath math="
+        \begin{align*}
+          U &= -\frac{1}{q} \int_C \boldsymbol{F_e} \cdot d\boldsymbol{s} \\
           &= -\frac{W}{q} \\
           &= \frac{W_{ext}}{q},
         \end{align*}
