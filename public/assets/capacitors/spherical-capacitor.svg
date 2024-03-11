@@ -1,0 +1,68 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="1524" height="863">
+  <defs>
+    <clipPath id="IUqcSwAHuZQg">
+      <path fill="none" stroke="none" d=" M 0 0 L 1524 0 L 1524 863 L 0 863 L 0 0 Z" />
+    </clipPath>
+  </defs>
+  <g transform="scale(1,1)" clip-path="url(#IUqcSwAHuZQg)">
+    <g>
+      <rect fill="rgb(255,255,255,0)" stroke="none" x="0" y="0" width="1524" height="863"
+        fill-opacity="1" />
+      <path fill="rgb(0,255,0)" stroke="none" paint-order="stroke fill markers"
+        d=" M 920.0011748907053 429.38684627790906 C 920.0011748907053 515.5488520828949 850.1530684639416 585.3969585096586 763.9910626589558 585.3969585096586 C 677.8290568539701 585.3969585096586 607.9809504272064 515.5488520828949 607.9809504272064 429.38684627790906 C 607.9809504272064 343.2248404729233 677.8290568539701 273.3767340461595 763.9910626589558 273.3767340461595 C 850.1530684639416 273.3767340461595 920.0011748907053 343.2248404729233 920.0011748907053 429.38684627790906 Z"
+        fill-opacity="0.1568627450980392" />
+      <path fill="none" stroke="rgb(0,255,0)" paint-order="fill stroke markers"
+        d=" M 920.0011748907053 429.38684627790906 C 920.0011748907053 515.5488520828949 850.1530684639416 585.3969585096586 763.9910626589558 585.3969585096586 C 677.8290568539701 585.3969585096586 607.9809504272064 515.5488520828949 607.9809504272064 429.38684627790906 C 607.9809504272064 343.2248404729233 677.8290568539701 273.3767340461595 763.9910626589558 273.3767340461595 C 850.1530684639416 273.3767340461595 920.0011748907053 343.2248404729233 920.0011748907053 429.38684627790906 Z"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(255,0,0)" paint-order="fill stroke markers"
+        d=" M 1076.0112871224549 429.3868462779091 C 1076.0112871224549 601.7108578878806 936.3150742689274 741.4070707414082 763.9910626589559 741.4070707414082 C 591.6670510489844 741.4070707414082 451.97083819545696 601.7108578878806 451.97083819545696 429.3868462779091 C 451.97083819545696 257.0628346679375 591.6670510489844 117.36662181441 763.9910626589559 117.36662181441 C 936.3150742689274 117.36662181441 1076.0112871224549 257.0628346679375 1076.0112871224549 429.3868462779091 Z"
+        stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" stroke-width="2.5" />
+      <path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers"
+        d=" M 993.5163301578834 429.3868462779091 C 993.5163301578834 556.1501512184003 890.754367599447 658.9121137768368 763.9910626589559 658.9121137768368 C 637.2277577184648 658.9121137768368 534.4657951600284 556.1501512184003 534.4657951600284 429.3868462779091 C 534.4657951600284 302.6235413374179 637.2277577184648 199.86157877898145 763.9910626589559 199.86157877898145 C 890.754367599447 199.86157877898145 993.5163301578834 302.6235413374179 993.5163301578834 429.3868462779091 Z"
+        stroke-opacity="0.6980392156862745" stroke-linejoin="round" stroke-miterlimit="10"
+        stroke-width="2.5" stroke-dasharray="10.5,8" />
+      <path fill="rgb(0,255,0)" stroke="none" paint-order="stroke fill markers"
+        d=" M 901.9881536980365 356.6135133645762 L 884.9685055831646 360.7841341871805 L 886.3679020428998 363.4377523866358 L 886.3679020428999 363.4377523866358 L 763.407980800733 428.28117202813604 C 762.7973337743027 428.6031992463356 762.5633611909833 429.3592811097018 762.8853884091828 429.96992813613207 C 763.1093421442876 430.3946024328088 763.5432265376121 430.63709802305465 763.9921277182225 430.63709802305465 C 764.1887098485774 430.63709802305465 764.3881717874253 430.590594010777 764.5741445171789 430.4925205276822 L 887.5340657593458 365.64910088618194 L 887.5340657593459 365.64910088618194 L 888.9334622190811 368.30271908563725 L 901.9881536980365 356.6135133645762 Z"
+        fill-opacity="0.6980392156862745" />
+      <text fill="rgb(0,255,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="824"
+        y="385" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">a</text>
+      <text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="824"
+        y="385" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1"
+        stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3">a</text>
+      <text fill="rgb(0,255,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="824"
+        y="385" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">a</text>
+      <path fill="rgb(255,0,0)" stroke="none" paint-order="stroke fill markers"
+        d=" M 763.9910626589559 117.36662181441 L 759.7410626589559 134.36662181441 L 762.7410626589559 134.36662181441 L 762.7410626589559 429.3868462779091 C 762.7410626589559 430.0772022151976 763.3007067216674 430.6368462779091 763.9910626589559 430.6368462779091 C 764.6814185962444 430.6368462779091 765.2410626589559 430.0772022151976 765.2410626589559 429.3868462779091 L 765.2410626589559 134.36662181441 L 768.2410626589559 134.36662181441 L 763.9910626589559 117.36662181441 Z"
+        fill-opacity="0.6980392156862745" />
+      <text fill="rgb(255,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="769"
+        y="268" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">b</text>
+      <text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="769"
+        y="268" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1"
+        stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3">b</text>
+      <text fill="rgb(255,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="769"
+        y="268" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">b</text>
+      <path fill="rgb(0,0,0)" stroke="none" paint-order="stroke fill markers"
+        d=" M 553.8997342455931 336.95588747100936 L 567.7488456865053 347.6920232887602 L 568.9569605029797 344.9460337421277 L 568.9569605029798 344.9460337421277 L 763.4876814854249 430.531008589006 C 763.651433315144 430.60305220328377 763.8222851169046 430.6371607910711 763.9903985484319 430.6371607910711 C 764.4710195367616 430.63716079107104 764.9292588388374 430.358379017471 765.1352249700528 429.8902274514401 C 765.413234715546 429.2583240556902 765.1263472282369 428.52069371230533 764.4944438324869 428.24268396681225 L 569.9637228500418 342.657709119934 L 569.9637228500416 342.657709119934 L 571.171837666516 339.9117195733014 L 553.8997342455931 336.95588747100936 Z"
+        fill-opacity="0.6980392156862745" />
+      <text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="661"
+        y="374" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">r</text>
+      <text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="661"
+        y="374" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1"
+        stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3">r</text>
+      <text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif"
+        font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="661"
+        y="374" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1">r</text>
+    </g>
+  </g>
+</svg>
