@@ -11,7 +11,7 @@ layout {
   }
   tab focus=true {
     pane borderless=true focus=true {
-      command "nvim"
+      command "code"
       args "."
     }
   }

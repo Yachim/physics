@@ -169,6 +169,66 @@ export default async function Page() {
         \end{align*}
       "/>
 
+      <LinkH2 id="potential-energy">Potential Energy of a Capacitor</LinkH2>
+      <p>Capacitors can be used to store energy. Consider a capacitor with initial charge equal to zero. The potential energy is the external work done to charge the capacitor is given by:</p>
+      <BlockMath math="
+        \begin{align*}
+          E_p &= W_{ext} = \int_0^Q |U| dq \\
+          &= \int_0^Q \frac{q}{C} dq \\
+          &= \frac{Q^2}{2 C} \\
+          &= \frac{1}{2} C |U|^2,
+        \end{align*}
+      "/>
+      <p>where <InlineMath math="Q"/> charge after the charging process and <InlineMath math="C"/> is the capacitance.</p>
+
+      <p>Consider a parallel plate capacitor, where <InlineMath math="C = A \epsilon_0/d"/> and <InlineMath math="|U| = Ed"/> then the potential energy is equal to:</p>
+      <BlockMath math="
+        \begin{align*}
+          E_p &= \frac{1}{2} \frac{A \epsilon_0}{d} E^2 d^2 \\
+          &= \frac{1}{2} \epsilon_0 E^2 Ad \\
+          &= \frac{1}{2} \epsilon_0 E^2 V,
+        \end{align*}
+      "/>
+      <p>where <InlineMath math="V"/> is the volume.</p>
+
+      <p>The energy density is the energy per unit volume:</p>
+      <BlockMath math="e_p = \frac{1}{2} \epsilon_0 E^2"/>
+
+      <p>For example, consider a spherical conductor of radius <InlineMath math="a"/>. As derived with <Link href="/electricity-and-magnetism/gauss-law#spherical-conductor">Gauss&apos;s law</Link>, the electric field outside is equal to:</p>
+      <BlockMath math="
+        \begin{align*}
+          E &= \frac{a^2 \sigma}{r^2 \epsilon_0} \\
+          &= \frac{4 \pi r_c^2 \sigma}{4 \pi r^2 \epsilon_0} \\
+          &= \frac{Q}{4 \pi r^2 \epsilon_0}.
+        \end{align*}
+      "/>
+
+      <p>Then the energy density is equal to:</p>
+      <BlockMath math="e_p = \frac{Q^2}{32 \pi^2 r^4 \epsilon_0}."/>
+
+      <p>The potential energy is equal to:</p>
+      <BlockMath math="
+        \begin{align*}
+          E_p &= \iiint_V dV \\
+          &= \int_0^{2\pi} \int_0^{\pi} \int_a^{\infty} \frac{Q^2}{32 \pi^2 r^4 \epsilon_0} r^2 \sin \theta\ dr\ d\theta\ d\phi \\
+          &= \frac{Q^2}{32 \pi^2 \epsilon_0} \int_0^{2\pi} d\phi \int_0^{\pi} \sin \theta\ d\theta\ \int_{\infty}^a -\frac{1}{r^2} dr \\
+          &= \frac{Q^2}{32 \pi^2 \epsilon_0} 4 \pi \left[\frac{1}{r}\right]_{\infty}^a \\
+          &= \frac{Q^2}{8 \pi \epsilon_0 a}.
+        \end{align*}
+      "/>
+
+      <p>The electric potential at the shell is <InlineMath math="\varphi = \frac{Q}{4 \pi \epsilon_0 a}"/>. The potential energy can be simplified to:</p>
+      <BlockMath math="E_p = \frac{1}{2} Q \varphi. "/>
+
+      <p>We can arrive at the same potential energy by calculating the external work required to charge the capacitor:</p>
+      <BlockMath math="
+        \begin{align*}
+          E_p &= W_{ext} = \int_0^Q \varphi\ dq \\
+          &= \int_0^Q \frac{q}{4 \pi \epsilon_0 a}\ dq \\
+          &= \frac{Q^2}{8 \pi \epsilon_0 a}.
+        \end{align*}
+      "/>
+
       <LinkH2 id="total-capacitance">Total Capacitance</LinkH2>
       <p>There are two ways to connect capacitors:</p>
       <div className="w-full flex justify-center gap-20">
