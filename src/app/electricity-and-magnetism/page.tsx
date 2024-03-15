@@ -21,7 +21,7 @@ export default async function Page() {
         Electric Potential and Voltage
       </Link>
       <Link href="/electricity-and-magnetism/capacitors">Capacitors</Link>
-      <Link href="/electricity-and-magnetism/dielectrics-and-polarizatoin">Dielectrics and Polarization</Link>
+      <Link href="/electricity-and-magnetism/dielectrics-and-polarization">Dielectrics and Polarization</Link>
       <Link href="/electricity-and-magnetism/resistivity-resistance-conductivity-conductance">
         Resistivity, Resistance, Conductivity, Conductance
       </Link>
