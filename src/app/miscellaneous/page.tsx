@@ -11,6 +11,7 @@ export default async function Page() {
       <Link href="/">Back</Link>
       <h1>Miscellaneous</h1>
       <Link href="/miscellaneous/flow-curves">Flow Curves</Link>
+      <Link href="/miscellaneous/natural-units">Natural Units</Link>
     </div>
   )
 }
