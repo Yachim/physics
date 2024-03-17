@@ -247,6 +247,56 @@ export default async function Page() {
       <p>wher\epsilone <InlineMath math="\boldsymbol{D} = \kappa_e \epsilon_0 \boldsymbol{E}" /> is called the dielectric displacement vector.</p>
 
       <LinkH2 id="capacitance-with-dielectrics">Capacitance with Dielectrics</LinkH2>
+      <p>Consider a parallel plate capacitor with the plates having a distance <InlineMath math="d"/> between them and a dielectric of thickness <InlineMath math="s"/> and dielectric constant <InlineMath math="\kappa_e"/> inserted between them:</p>
+      <div className="w-full flex justify-center">
+        <Image
+          src={`${basePath}/assets/dielectrics/capacitance-with-dielectrics.svg`}
+          width={700}
+          height={700}
+          alt="Gauss law for dielectrics"
+        />
+      </div>
+
+      <p>The voltage is equal to:</p>
+      <BlockMath math="
+        \begin{align*}
+          U &= -\int_+^- \boldsymbol{E} \cdot d\boldsymbol{l} \\
+          &= -\int_0^d E\ dl \\
+          &= -E_0 (d - s) - E_D s \\
+          &= -\frac{\sigma}{\epsilon_0} (d - s) - \frac{\sigma}{\epsilon_0 \kappa_e} s \\
+          &= -\frac{\sigma}{\epsilon_0} \left(d - s + \frac{s}{\kappa_e}\right) \\
+          &= -\frac{\sigma}{\epsilon_0} \left[d - s\left(1 - \frac{1}{\kappa_e}\right)\right] \\
+          &= -\frac{Q}{A \epsilon_0} \left[d - s\left(1 - \frac{1}{\kappa_e}\right)\right] < 0, \\
+          |U| &= \frac{Q}{A \epsilon_0} \left[d - s\left(1 - \frac{1}{\kappa_e}\right)\right].
+        \end{align*}
+      "/>
+
+      <p>The capacitance is equal to:</p>
+      <BlockMath math="
+        \begin{align*}
+          C &= \frac{Q}{|U|} \\
+          &= \frac{A \epsilon_0}{d - s\left(1 - \frac{1}{\kappa_e}\right)}.
+        \end{align*}
+      "/>
+
+      <p>It could be useful to check the following limits:</p>
+      <ol>
+        <li>
+          <p><InlineMath math="s"/> approaching zero:</p>
+          <BlockMath math="\lim_{s \to 0} C = \frac{A \epsilon_0}{d},"/>
+          <p>this is identical to the case <Link href="/electricity-and-magnetism/capacitors#two-planes-capacitance">without dielectric</Link>.</p>
+        </li>
+        <li>
+          <p>dielectric constant approaching zero:</p>
+          <BlockMath math="\lim_{\kappa_e \to 1} C = \frac{A \epsilon_0}{d},"/>
+          <p>this is also identical to the case without dielectric.</p>
+        </li>
+        <li>
+          <p><InlineMath math="s"/> approaching <InlineMath math="d"/> - filled with dielectric:</p>
+          <BlockMath math="\lim_{s \to d} C = \frac{A \epsilon_0 \kappa_e}{d} = \kappa_e C_0,"/>
+          <p>this is identical to the <Link href="#">first equation</Link>.</p>
+        </li>
+      </ol>
     </div>
   )
 }
