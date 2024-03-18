@@ -39,3 +39,11 @@ export function oddRoot(num: number, e = 3) {
 export function capitalize(s: string) {
   return s.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
 }
+
+export function matrixToLatex(matrix: math.Matrix): string {
+  const [_, cols] = matrix.size()
+  return "\\begin{bmatrix}" + matrix.toArray().map(row => {
+    if (cols === 1) return row
+    return (row as math.MathNumericType[]).join(" & ")
+  }).join("\\\\ \r \n") + "\\end{bmatrix}"
+}
