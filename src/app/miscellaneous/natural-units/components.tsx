@@ -2,9 +2,10 @@
 
 import { capitalize } from "@/utils/misc"
 import * as math from "mathjs"
-import { useEffect, useMemo, useState } from "react"
+import { useMemo, useState } from "react"
 import { InlineMath } from "react-katex"
 import { geometrizedBackwardMatrix, geometrizedForwardMatrix } from "./matrices"
+import { useSearchParams } from "next/navigation"
 
 const units = {
     geometrized: {
@@ -25,7 +26,13 @@ type UnitSystem = keyof typeof units
 const siUnits = ["s", "m", "kg", "A", "K", "cd", "mol"]
 
 export default function UnitConverter() {
-    const [system, setSystem] = useState<UnitSystem>("geometrized")
+    const searchParams = useSearchParams()
+    let initialUnitSystem = searchParams.get("system") ?? ""
+    if (!Object.keys(units).includes(initialUnitSystem)) {
+        initialUnitSystem = "geometrized"
+    }
+
+    const [system, setSystem] = useState<UnitSystem>(initialUnitSystem as UnitSystem)
     const [conversion, setConversion] = useState<"f" | "b">("f")
 
     const matrix = useMemo(() => units[system][conversion], [system, conversion])

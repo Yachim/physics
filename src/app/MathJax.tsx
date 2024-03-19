@@ -11,7 +11,7 @@ export default function MathJax() {
     window.MathJax = {
       loader: {load: ['[tex]/ams']},
       tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
       },
       svg: {
         fontCache: 'global'
