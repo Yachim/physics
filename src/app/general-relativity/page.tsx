@@ -26,6 +26,7 @@ export default async function Home() {
       <p>Notation partial derivative with respect to spacetime component:</p>
       <BlockMath math="\frac{\partial v^{\mu}}{\partial x^{\nu}} = \partial_{\nu} v^{\mu} = v^{\mu}{}_{,\nu}." />
       
+      <LinkH2 id="chapters">Chapters</LinkH2>
       <Link href="/general-relativity/schwarzschild">Schwarzschild Metric</Link>
     </div>
   )
