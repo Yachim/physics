@@ -52,6 +52,10 @@
     list-style-type: bullets;
     @apply ml-6 flex flex-col gap-4;
   }
+
+  label {
+    @apply flex gap-2;
+  }
 }
 
 @layer components {

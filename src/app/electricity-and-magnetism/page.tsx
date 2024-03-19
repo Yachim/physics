@@ -10,25 +10,13 @@ export default async function Page() {
     <div className="article">
       <Link href="/">Back</Link>
       <h1>Electricity and Magnetism</h1>
-      <Link href="/electricity-and-magnetism/coulombs-law">
-        Coulomb&apos;s Law
-      </Link>
-      <Link href="/electricity-and-magnetism/electric-field">
-        Electric Field
-      </Link>
+      <Link href="/electricity-and-magnetism/coulombs-law">Coulomb&apos;s Law</Link>
+      <Link href="/electricity-and-magnetism/electric-field">Electric Field</Link>
       <Link href="/electricity-and-magnetism/gauss-law">Gauss&apos;s Law</Link>
-      <Link href="/electricity-and-magnetism/electric-potential-and-voltage">
-        Electric Potential and Voltage
-      </Link>
+      <Link href="/electricity-and-magnetism/electric-potential-and-voltage">Electric Potential and Voltage</Link>
       <Link href="/electricity-and-magnetism/capacitors">Capacitors</Link>
       <Link href="/electricity-and-magnetism/dielectrics-and-polarization">Dielectrics and Polarization</Link>
-      <Link href="/electricity-and-magnetism/resistivity-resistance-conductivity-conductance">
-        Resistivity, Resistance, Conductivity, Conductance
-      </Link>
-      <Link href="/electricity-and-magnetism/electric-current">
-        Electric Current
-      </Link>
-      <Link href="/electricity-and-magnetism/ohms-law">Ohm&apos;s Law</Link>
+      <Link href="/electricity-and-magnetism/electric-current-and-ohms-law">Electric Current and Ohm&apos;s Law</Link>
     </div>
   );
 }

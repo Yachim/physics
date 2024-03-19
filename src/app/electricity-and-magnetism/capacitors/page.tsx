@@ -209,7 +209,7 @@ export default async function Page() {
       <p>The potential energy is equal to:</p>
       <BlockMath math="
         \begin{align*}
-          E_p &= \iiint_V dV \\
+          E_p &= \iiint_V e_p\ dV \\
           &= \int_0^{2\pi} \int_0^{\pi} \int_a^{\infty} \frac{Q^2}{32 \pi^2 r^4 \epsilon_0} r^2 \sin \theta\ dr\ d\theta\ d\phi \\
           &= \frac{Q^2}{32 \pi^2 \epsilon_0} \int_0^{2\pi} d\phi \int_0^{\pi} \sin \theta\ d\theta\ \int_{\infty}^a -\frac{1}{r^2} dr \\
           &= \frac{Q^2}{32 \pi^2 \epsilon_0} 4 \pi \left[\frac{1}{r}\right]_{\infty}^a \\
