@@ -6,11 +6,7 @@ import { useEffect, useMemo, useState } from "react"
 import { InlineMath } from "react-katex"
 import { geometrizedBackwardMatrix, geometrizedForwardMatrix } from "./matrices"
 
-const units: Record<string, {
-    f: math.Matrix
-    b: math.Matrix
-    units: [string, string, string, string, string, string, string]
-}> = {
+const units = {
     geometrized: {
         f: geometrizedForwardMatrix,
         b: geometrizedBackwardMatrix,
@@ -54,7 +50,7 @@ export default function UnitConverter() {
         <div className="flex flex-col items-center gap-2">
             <label className="flex gap-2">
                 System:
-                <select>
+                <select  value={system} onChange={e => setSystem(e.target.value as UnitSystem)}>
                     {Object.keys(units).map((el, i) => 
                         <option value={el} key={i}>{capitalize(el)}</option>
                     )}
