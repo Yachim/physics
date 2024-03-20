@@ -91,7 +91,7 @@ export default async function Home() {
 
         <p>The inverse metric is equal to:</p>
         <BlockMath math="
-          g_{\mu\nu} = \begin{bmatrix}
+          g^{\mu\nu} = \begin{bmatrix}
             -\frac{1}{A(r)} & 0 & 0 & 0 \\
             0 & \frac{1}{B(r)} & 0 & 0 \\
             0 & 0 & \frac{1}{r^2} & 0 \\
@@ -105,6 +105,93 @@ export default async function Home() {
 
         <p>The inverse metric is diagonal, so the equation simplifies:</p>
         <BlockMath math="\Gamma^{\lambda}{}_{\mu\sigma} = \frac{1}{2} g^{\lambda\lambda} (g_{\lambda\mu,\sigma} + g_{\lambda\sigma,\mu} - g_{\mu\sigma,\lambda})," />
+
+        <p>Splitting the equation, for the time coordinate, we have:</p>
+        <BlockMath math="
+          \begin{align*}
+            \Gamma^0{}_{\mu\sigma} &= -\frac{1}{2 A(r)} (g_{0\mu,\sigma} + g_{0\sigma,\mu} - g_{\mu\sigma,0}) \\
+            &= -\frac{1}{2A(r)} (g_{0\mu,\sigma} + g_{0\sigma,\mu}), \\
+            \Gamma^0{}_{0\sigma} = \Gamma^0{}_{\sigma0} &= -\frac{1}{2A(r)} g_{00,\sigma} \\
+            &= -\frac{1}{2A(r)} g_{00,\sigma}, \\
+            \Gamma^0{}_{\mu\nu} &= \begin{bmatrix}
+              0 & \frac{A'(r)}{2A(r)} & 0 & 0 \\
+              \frac{A'(r)}{2A(r)} & 0 & 0 & 0 \\
+              0 & 0 & 0 & 0 \\
+              0 & 0 & 0 & 0
+            \end{bmatrix}
+          \end{align*}
+        " />
+
+        <p>for the <InlineMath math="r" /> coordinate, we have:</p>
+        <BlockMath math="
+          \begin{align*}
+            \Gamma^1{}_{\mu\sigma} &= \frac{1}{2 B(r)} (g_{1\mu,\sigma} + g_{1\sigma,\mu} - g_{\mu\sigma,1}), \\
+            \Gamma^1{}_{0\sigma} = \Gamma^1{}_{\sigma0} &= -\frac{1}{2 B(r)} g^{11} g_{0\sigma,1}, \\
+            \Gamma^1{}_{1\sigma} = \Gamma^1{}_{\sigma1} &= \frac{1}{2 B(r)} g_{11,\sigma}, \\
+            \Gamma^1{}_{2\sigma} = \Gamma^1{}_{\sigma2} &= -\frac{1}{2 B(r)} g_{2\sigma,1}, \\
+            \Gamma^1{}_{3\sigma} = \Gamma^1{}_{\sigma3} &= -\frac{1}{2 B(r)} g_{3\sigma,1}, \\
+            \Gamma^1{}_{\mu\nu} &= \begin{bmatrix}
+              \frac{A'(r)}{2 B(r)} & 0 & 0 & 0 \\
+              0 & \frac{B'(r)}{2 B(r)} & 0 & 0 \\
+              0 & 0 & -\frac{r}{B(r)} & 0 \\
+              0 & 0 & 0 & -\frac{r \sin^2 \theta}{B(r)}
+            \end{bmatrix}
+          \end{align*}
+        " />
+
+        <p>for the <InlineMath math="\theta" /> coordinate, we have:</p>
+        <BlockMath math="
+          \begin{align*}
+            \Gamma^2{}_{\mu\sigma} &= \frac{1}{2 r^2} (g_{2\mu,\sigma} + g_{2\sigma,\mu} - g_{\mu\sigma,2}), \\
+            \Gamma^2{}_{0\sigma} = \Gamma^2{}_{\sigma0} &= -\frac{1}{2 r^2} g_{0\sigma,2}, \\
+            \Gamma^2{}_{1\sigma} = \Gamma^2{}_{\sigma1} &= \frac{1}{2 r^2} (g_{2\sigma,1} - g_{1\sigma,2}), \\
+            &= \begin{cases}
+              -\frac{1}{2 r^2} g_{11,2} & \sigma = 1, \\
+              \frac{1}{2 r^2} g_{22,1} & \sigma = 2, \\
+            \end{cases} \\
+            \Gamma^2{}_{2\sigma} = \Gamma^2{}_{\sigma2} &= \frac{1}{2 r^2} g_{22,\sigma}, \\
+            \Gamma^2{}_{3\sigma} = \Gamma^2{}_{\sigma3} &= -\frac{1}{2 r^2} g_{3\sigma,2}, \\
+            \Gamma^2{}_{\mu\sigma} &= \begin{bmatrix}
+              0 & 0 & 0 & 0 \\
+              0 & 0 & \frac{1}{r} & 0 \\
+              0 & \frac{1}{r} & 0 & 0 \\
+              0 & 0 & 0 & -\sin \theta \cos \theta
+            \end{bmatrix}
+          \end{align*}
+        " />
+
+        <p>and finally, for the coordinate <InlineMath math="\phi" />:</p>
+        <BlockMath math="
+          \begin{align*}
+            \Gamma^3{}_{\mu\sigma} &= \frac{1}{2 r^2 \sin^2 \theta} (g_{3\mu,\sigma} + g_{3\sigma,\mu} - g_{\mu\sigma,3}) \\
+            &= \frac{1}{2 r^2 \sin^2 \theta} (g_{3\mu,\sigma} + g_{3\sigma,\mu}), \\
+            \Gamma^3{}_{0\sigma} = \Gamma^3{}_{\sigma0} &= 0, \\
+            \Gamma^3{}_{1\sigma} = \Gamma^3{}_{\sigma1} &= \frac{1}{2 r^2 \sin^2 \theta} g_{3\sigma,1}, \\
+            \Gamma^3{}_{2\sigma} = \Gamma^3{}_{\sigma2} &= \frac{1}{2 r^2 \sin^2 \theta} g_{3\sigma,2} \\
+            \Gamma^3{}_{3\sigma} = \Gamma^3{}_{\sigma3} &= \frac{1}{2 r^2 \sin^2 \theta} g_{33,\sigma} \\
+            \Gamma^3{}_{\mu\sigma} &= \begin{bmatrix}
+              0 & 0 & 0 & 0 \\
+              0 & 0 & 0 & \frac{1}{r} \\
+              0 & 0 & 0 & \cot \theta \\
+              0 & \frac{1}{r} & \cot \theta & 0
+            \end{bmatrix}
+          \end{align*}
+        " />
+
+        <LinkH2 id="ricci-and-riemann-tensor">Ricci and Riemann Tensor</LinkH2>
+        <p>The Riemann tensor is equal to:</p>
+        <BlockMath math="R^{\rho}{}_{\mu\sigma\nu} = \Gamma^{\rho}{}_{\nu\mu,\sigma} - \Gamma^{\rho}{}_{\sigma\mu,\nu} + \Gamma^{\rho}{}_{\sigma\lambda} \Gamma^{\lambda}{}_{\nu\mu} - \Gamma^{\rho}{}_{\nu\lambda}\Gamma^{\lambda}{}_{\sigma\mu}." />
+
+        <p>The Ricci tensor is equal to zero:</p>
+        <BlockMath math="R_{\mu\nu} = R^{\rho}{}_{\mu\rho\nu} = \Gamma^{\rho}{}_{\nu\mu,\rho} - \Gamma^{\rho}{}_{\rho\mu,\nu} + \Gamma^{\rho}{}_{\rho\lambda} \Gamma^{\lambda}{}_{\nu\mu} - \Gamma^{\rho}{}_{\nu\lambda} \Gamma^{\lambda}{}_{\rho\mu} = 0." />
+
+        <p>The <InlineMath math="R_{00}" /> is equal to:</p>
+        <BlockMath math="
+          \begin{align*}
+            R_{00} &= \Gamma^{\rho}{}_{00,\rho} - \Gamma^{\rho}{}_{\rho0,0} + \Gamma^{\rho}{}_{\rho\lambda} \Gamma^{\lambda}{}_{00} - \Gamma^{\rho}{}_{0\lambda} \Gamma^{\lambda}{}_{\rho0} \\
+            &= \Gamma^1{}_{00,1} + \Gamma^{\rho}{}_{\rho1} \Gamma^1{}_{00} - \Gamma^{\rho}{}_{00} \Gamma^0{}_{\rho0} - \Gamma^{\rho}{}_{01} \Gamma^1{}_{\rho0} \\
+          \end{align*}
+        " />
     </div>
   )
 }
