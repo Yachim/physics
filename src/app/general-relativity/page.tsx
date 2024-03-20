@@ -23,7 +23,7 @@ export default async function Home() {
       <p>Einstein summation convention is employed:</p>
       <BlockMath math="v^i e_i = \sum_i v^i e_i." />
 
-      <p>Notation partial derivative with respect to spacetime component:</p>
+      <p>Partial derivative with respect to spacetime component notation:</p>
       <BlockMath math="\frac{\partial v^{\mu}}{\partial x^{\nu}} = \partial_{\nu} v^{\mu} = v^{\mu}{}_{,\nu}." />
       
       <LinkH2 id="chapters">Chapters</LinkH2>
