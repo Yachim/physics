@@ -2,7 +2,7 @@
 
 import { capitalize } from "@/utils/misc"
 import * as math from "mathjs"
-import { useMemo, useState } from "react"
+import { Suspense, useMemo, useState } from "react"
 import { InlineMath } from "react-katex"
 import { geometrizedBackwardMatrix, geometrizedForwardMatrix } from "./matrices"
 import { useSearchParams } from "next/navigation"
@@ -25,7 +25,7 @@ const units = {
 type UnitSystem = keyof typeof units
 const siUnits = ["s", "m", "kg", "A", "K", "cd", "mol"]
 
-export default function UnitConverter() {
+function UnitConverterInner() {
     const searchParams = useSearchParams()
     let initialUnitSystem = searchParams.get("system") ?? ""
     if (!Object.keys(units).includes(initialUnitSystem)) {
@@ -69,8 +69,8 @@ export default function UnitConverter() {
             </p>
             <div className="flex gap-2">
                 {values.map((el, i) => 
-                    <label className="flex gap-1">
-                        <input className="w-20" type="number" value={el} key={i} onChange={e => setValues(prev => {
+                    <label className="flex gap-1" key={i}>
+                        <input className="w-20" type="number" value={el} onChange={e => setValues(prev => {
                             prev[i] = +e.target.value
                             return [...prev]
                         })} />
@@ -80,5 +80,13 @@ export default function UnitConverter() {
             </div>
             <p>Units: <InlineMath math={result === "" ? "1" : result}/></p>
         </div>
+    )
+}
+
+export function UnitConverter() {
+    return (
+        <Suspense>
+            <UnitConverterInner/>
+        </Suspense>
     )
 }

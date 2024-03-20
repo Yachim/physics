@@ -1,7 +1,7 @@
 import { LinkH2 } from "@/components/LinkHeadings";
 import Link from "next/link";
 import { BlockMath, InlineMath } from "react-katex";
-import UnitConverter from "./components";
+import { UnitConverter } from "./components";
 import { Metadata } from "next";
 import { matrixToLatex } from "@/utils/misc";
 import { geometrizedBackwardMatrix, geometrizedForwardMatrix } from "./matrices";

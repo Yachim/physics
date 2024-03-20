@@ -13,7 +13,7 @@ export function ResistanceCalculator() {
     const [diameter, setDiameter] = useState(2e-3)
 
     const {rho: rho0, alpha} = useMemo(() => data[material], [material])
-    const rho = useMemo(() => rho0 * (1 + alpha * (temperature - 20)), [temperature, rho0])
+    const rho = useMemo(() => rho0 * (1 + alpha * (temperature - 20)), [alpha, temperature, rho0])
     const area = useMemo(() => diameter ** 2 / 4 * Math.PI, [diameter])
     const resistance = useMemo(() => rho * length / area, [rho, length, area])
 

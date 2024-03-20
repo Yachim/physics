@@ -125,7 +125,7 @@ export default async function Page() {
 
       <p>implying <InlineMath math="U = \frac{J l}{\sigma}"/>, where <InlineMath math="J = \frac{I}{A}"/>:</p>
       <BlockMath math="U = \frac{I l}{A \sigma} = RI,"/>
-      <p>where <InlineMath math="R = \frac{l}{\sigma A}"/> is the resistance of the conductor. The equation <InlineMath math="U = IR"/> is the "macroscopic" version of the Ohm&apos;s law. The unit of resistance is ohm (<InlineMath math="\Omega"/>).</p>
+      <p>where <InlineMath math="R = \frac{l}{\sigma A}"/> is the resistance of the conductor. The equation <InlineMath math="U = IR"/> is the &quot;macroscopic&quot; version of the Ohm&apos;s law. The unit of resistance is ohm (<InlineMath math="\Omega"/>).</p>
 
       <p>The resistivity <InlineMath math="\rho"/> of a material is the reciprocal of conductivity:</p>
       <BlockMath math="\rho = \frac{1}{\sigma} = \frac{m_e}{n e^2 \tau}."/>
