@@ -6,7 +6,7 @@ export default async function Home() {
   return (
     <div className="article">
       <LinkH2 id="notation">Notation</LinkH2>
-      <p>Arbitrary vectors are written in bold undercase letters (e.g. <InlineMath math="\boldsymbol{a}, \boldsymbol{v}" />). Unless stated otherwise, magnitudes of vectors are written as normal undercase letters (e.g. <InlineMath math="a, v" />). Physical quantities, like force (<InlineMath math="\boldsymbol{F}" />) are used by standard conventions. Matricies are written in bold uppercase letters (e.g. <InlineMath math="\boldsymbol{R}" />). Points are written in normal uppercase letters (e.g. <InlineMath math="P" />).</p>
+      <p>Arbitrary vectors are written in bold undercase letters (e.g. <InlineMath math="\boldsymbol{a}, \boldsymbol{v}" />). Unless stated otherwise, magnitudes of vectors are written as normal undercase letters (e.g. <InlineMath math="a, v" />). Physical quantities, like force (<InlineMath math="\boldsymbol{F}" />) are used by standard conventions. Matricies are written in bold uppercase letters (e.g. <InlineMath math="\boldsymbol{R}" />). Points are written in normal uppercase letters (e.g. <InlineMath math="P" />). When working with tensors, they are denoted by normal font with indices (e.g. <InlineMath math="R^{\rho}{}_{\mu\sigma\nu}, g_{\mu\nu}"/>)</p>
 
       <LinkH2 id="chapters">Chapters</LinkH2>
       <Link href="/electricity-and-magnetism">Electricity and Magnetism</Link>

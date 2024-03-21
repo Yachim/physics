@@ -4,8 +4,8 @@ import { BlockMath, InlineMath } from "react-katex";
 import { UnitConverter } from "./components";
 import { Metadata } from "next";
 import { matrixToLatex } from "@/utils/misc";
-import { geometrizedBackwardMatrix, geometrizedForwardMatrix } from "./matrices";
 import { Suspense } from "react";
+import { geometrizedBackwardMatrix, geometrizedForwardMatrix } from "@/utils/units";
 
 export const metadata: Metadata = {
   title: "Natural Units"

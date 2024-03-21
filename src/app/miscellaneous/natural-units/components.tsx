@@ -1,43 +1,9 @@
 "use client"
 
-import * as math from "mathjs"
 import { useMemo, useState } from "react"
 import { InlineMath } from "react-katex"
-import { geometrizedBackwardMatrix, geometrizedForwardMatrix } from "./matrices"
 import { useSearchParams } from "next/navigation"
-
-const units = {
-    geometrized: {
-        name: "Geometrized",
-        f: geometrizedForwardMatrix,
-        b: geometrizedBackwardMatrix,
-        units: [
-            "c",
-            "G", 
-            "kg",
-            "A",
-            "K",
-            "cd",
-            "mol"
-        ]
-    },
-    geometrizedMass: {
-        name: "Geometrized with Mass",
-        f: geometrizedForwardMatrix,
-        b: geometrizedBackwardMatrix,
-        units: [
-            "c",
-            "G", 
-            "M",
-            "A",
-            "K",
-            "cd",
-            "mol"
-        ]
-    }
-} as const
-type UnitSystem = keyof typeof units
-const siUnits = ["s", "m", "kg", "A", "K", "cd", "mol"]
+import { UnitSystem, UnitType, getFactor, siUnits, units } from "@/utils/units"
 
 export function UnitConverter() {
     const searchParams = useSearchParams()
@@ -49,12 +15,9 @@ export function UnitConverter() {
     const [system, setSystem] = useState<UnitSystem>(initialUnitSystem as UnitSystem)
     const [conversion, setConversion] = useState<"f" | "b">("f")
 
-    const matrix = useMemo(() => units[system][conversion], [system, conversion])
+    const [values, setValues] = useState<UnitType>([0, 0, 0, 0, 0, 0, 0])
 
-    const [values, setValues] = useState<[number, number, number, number, number, number, number]>([0, 0, 0, 0, 0, 0, 0])
-    const vector = useMemo(() => math.transpose(math.matrix(values)), [values])
-
-    const resultArray = useMemo(() => math.transpose(math.multiply(matrix, vector)).toArray() as unknown as number[], [matrix, vector])
+    const resultArray = useMemo(() => getFactor(system, values, conversion), [system, values, conversion])
     const result = useMemo(() => resultArray.map((el, i) => {
         if (el === 0) return ""
         let res = siUnits[i]

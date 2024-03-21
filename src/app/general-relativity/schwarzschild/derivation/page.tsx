@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { BlockMath, InlineMath } from "react-katex";
 import { LinkH2 } from "@/components/LinkHeadings";
+import { SchwarzschildRadiusCalculator } from "./components";
 
 export const metadata: Metadata = {
   title: "Derivation of the Schwarzschild Metric"
@@ -466,11 +467,14 @@ export default async function Home() {
         \end{align*}
       " />
 
+      <LinkH2 id="schwrzschild-radius-calculator">Schwarzschild Radius Calculator</LinkH2>
+      <SchwarzschildRadiusCalculator/>
+
       <LinkH2 id="simplifying-geodesic-equations">Simplifying the Geodesic Equations</LinkH2>
-      <p>We can simplify the geodesic equation by setting <InlineMath math="\theta = \frac{\pi}{2}"/> to be constant (<InlineMath math="\frac{d\theta}{d\lambda} = \frac{d^2\theta}{d\lambda^2} = d\theta = 0"/> ). The metric and christoffel symbols simplify to:</p>
+      <p>We can simplify the geodesic equation by setting <InlineMath math="\theta = x^2 = \frac{\pi}{2}"/> to be constant (<InlineMath math="\frac{dx^2}{d\lambda} = \frac{d^2x^2}{d\lambda^2} = dx^2 = 0"/> ). The metric and christoffel symbols simplify to:</p>
       <BlockMath math="
         \begin{align*}
-          ds^2 &= -\left(1 - \frac{r_s}{r}\right) dt^2 + \left(1 - \frac{r_s}{r}\right) dt^2 + r^2 d\phi^2, \\
+          ds^2 &= -\left(1 - \frac{r_s}{r}\right) (dx^0)^2 + \left(1 - \frac{r_s}{r}\right) (dx^1)^2 + r^2 (dx^3)^2, \\
           \Gamma^0{}_{\mu\nu} &= \begin{bmatrix}
             0 & \frac{r_s}{2r (r - r_s)} & 0 & 0 \\
             \frac{r_s}{2r (r - r_s)} & 0 & 0 & 0 \\
@@ -501,7 +505,7 @@ export default async function Home() {
       <p>The general geodesic equations are as follows:</p>
       <BlockMath math="\frac{d^2 x^{\sigma}}{d\lambda^2} + \Gamma^{\sigma}{}_{\mu\nu} \frac{dx^{\mu}}{d\lambda} \frac{dx^{\nu}}{d\lambda} = 0."/>
 
-      <p>Substituting into equation for <InlineMath math="\sigma = 2"/> (<InlineMath math="x^2 = \theta"/>):</p>
+      <p>Substituting into equation for <InlineMath math="\sigma = 2"/>:</p>
       <BlockMath math="
         \begin{align*}
           \frac{d^2 x^2}{d\lambda^2} + \Gamma^2{}_{\mu\nu} \frac{dx^{\mu}}{d\lambda} \frac{dx^{\nu}}{d\lambda} &= 0, \\
@@ -524,9 +528,12 @@ export default async function Home() {
         \begin{align*}
           \frac{d^2 x^0}{d\lambda^2} + \frac{2}{r(r - 2)} \frac{dx^0}{d\lambda} \frac{dx^1}{d\lambda} = 0, \\
           \frac{d^2 x^1}{d\lambda^2} + \frac{r - 2}{r^3} \left(\frac{dx^0}{d\lambda}\right)^2 - \frac{1}{r(r - 2)} \left(\frac{dx^1}{d\lambda}\right)^2 - (r - 2) \left(\frac{dx^3}{d\lambda}\right)^2 = 0, \\
-          \frac{d^2 x^3}{d\lambda^2} + \frac{2}{r} \frac{dx^1}{d\lambda} \frac{dx^3}{d\lambda} = 0.
+          \frac{d^2 x^3}{d\lambda^2} + \frac{2}{r} \frac{dx^1}{d\lambda} \frac{dx^3}{d\lambda} = 0,
         \end{align*}
       "/>
+
+      <p>and the metric:</p>
+      <BlockMath math="ds^2 = -\left(1 - \frac{2}{r}\right) (dx^0)^2 + \left(1 - \frac{2}{r}\right) (dx^1)^2 + r^2 (dx^3)^2." />
     </div>
   )
 }

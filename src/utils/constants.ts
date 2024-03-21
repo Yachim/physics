@@ -10,3 +10,7 @@ export const permitivitty = {
 } as const
 
 export type PermitivittyMaterial = keyof typeof permitivitty
+
+export const c = 299_792_458
+
+export const G = 6.67430e-11
