@@ -12,7 +12,7 @@ export default async function Home() {
     <div className="article">
       <Link href="/general-relativity/schwarzschild">Back</Link>
       <h1>Derivation of the Schwarzschild Metric</h1>
-      <p>The coordinates used are <InlineMath math="(t, r, \theta, \phi)" />, where <InlineMath math="\theta" /> is the colatitude and <InlineMath math="\phi" /> is the longitude. The <InlineMath math="r" /> coordinate will be explained later.</p>
+      <p>The coordinates used are <InlineMath math="(t, r, \theta, \phi)" />, where <InlineMath math="\theta" /> is the colatitude and <InlineMath math="\phi" /> is the longitude. The <InlineMath math="r" /> coordinate will be explained in the <Link href="/general-relativity/schwarzschild\coordinates-interpretation">next section</Link>.</p>
       <p>The general Einstein field equations are given by:</p>
       <BlockMath math="R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} - \Lambda g_{\mu\nu} = 8 \pi T_{\mu\nu}." />
 
@@ -20,10 +20,9 @@ export default async function Home() {
       <p>The metric is static - independent of the time coordinate:</p>
       <BlockMath math="g_{\mu\nu,t} = 0." />
 
-      <p>The solution is vacuum (and zero cosmological constant):</p>
+      <p>The solution is vacuum (<InlineMath math="T_{\mu\nu} = 0" />) and with zero cosmological constant:</p>
       <BlockMath math="
         \begin{align*}
-          T_{\mu\nu} = 0, \\[1.5ex]
           R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} = 0, \\
           R_{\mu\nu} g^{\mu\nu} - \frac{1}{2} R g_{\mu\nu} g^{\mu\nu} = 0, \\
           R - \frac{1}{2} R \delta^{\mu}_{\mu} = 0, \\
@@ -339,30 +338,195 @@ export default async function Home() {
 
       <LinkH2 id="solving-for-c">Solving for <InlineMath math="C"/></LinkH2>
       <p>The geodesic equations are given by:</p>
-      <BlockMath math="\frac{d^2 x^{\sigma}}{d\tau^2} + \Gamma^{\sigma}_{\mu\nu} \frac{dx^{\mu}}{d\tau} \frac{dx^{\nu}}{d\tau} = 0."/>
+      <BlockMath math="\frac{d^2 x^{\sigma}}{d\tau^2} + \Gamma^{\sigma}{}_{\mu\nu} \frac{dx^{\mu}}{d\tau} \frac{dx^{\nu}}{d\tau} = 0."/>
 
       <p>We will make it match to Newtonian gravity:</p>
       <BlockMath math="
         \begin{align*}
           \tau &\to t, \\
           \frac{dx^0}{d\tau} = \frac{dt}{d\tau} &\to 1, \\
-          \frac{dx^i}{d\tau} &\to 0.
+          \frac{dx^i}{d\tau} &\to 0, \\
+          g_{\mu\nu} \to \eta_{\mu\nu} + h_{\mu\nu},
         \end{align*}
       "/>
 
-      <p>Substituting into the geodesic equation:</p>
+      <p>where <InlineMath math="h_{\mu\nu}"/> is some error due to weak gravity and <InlineMath math="\eta_{\mu\nu}"/> is the Minkowski metric in cartesian coordinates:</p>
       <BlockMath math="
         \begin{align*}
-          \frac{d^2 x^{\sigma}}{dt^2} + \Gamma^{\sigma}_{00} \left(\frac{dx^0}{dt}\right)^2 &= 0, \\
-          \frac{d^2 x^1}{dt^2} - \frac{C (r + C)}{2r^3} &= 0, \\
-          \frac{d^2 x^1}{dt^2} = \frac{C (r + C)}{2r^3} &= -\frac{1}{r^2}, \\
-          \frac{C (r + C)}{2r^3} &= -\frac{1}{r^2}, \\
-          C (r + C) &= -2r, \\
-          C^2 + Cr + 2r &= 0, \\
-          C &= \frac{-r \pm \sqrt{r^2 - 8r}}{2}
+          \eta_{\mu\nu} &= \begin{bmatrix}
+            -1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 1
+          \end{bmatrix} \\
+          h_{\mu\nu} &\to 0.
         \end{align*}
       "/>
 
+      <p>Substituting into the geodesic equation (considering only space coordinates):</p>
+      <BlockMath math="
+        \begin{align*}
+          \frac{d^2 x^i}{dt^2} + \Gamma^i{}_{00} \left(\frac{dx^0}{dt}\right)^2 &= 0, \\
+          \frac{d^2 x^i}{dt^2} &= -\Gamma^i{}_{00},
+        \end{align*}
+      "/>
+
+      <p><InlineMath math="\frac{d^2 x^i}{dt^2}"/> should match Newtonian gravitation:</p>
+      <BlockMath math="\frac{d^2 x^i}{dt^2} = -\frac{\partial \varphi}{\partial x^i},"/>
+
+      <p>implying:</p>
+      <BlockMath math="\Gamma^i{}_{00} = \frac{\partial \varphi}{\partial x^i}."/>
+
+      <p>Solving for <InlineMath math="\Gamma^i{}_{00}"/>:</p>
+      <BlockMath math="
+        \begin{align*}
+          \Gamma^i{}_{00} &= \frac{1}{2} g^{i\kappa} (g_{\kappa0,0} + g_{\kappa0,0} - g_{00,\kappa}) \qquad \textrm{the metric is diagonal and time independent} \\
+          &= -\frac{1}{2} g^{ii} g_{00,i} \\
+          &= -\frac{1}{2} (\eta^{ii} + h^{ii}) (\eta_{00,i} + h_{00,i}) \\
+          &= -\frac{1}{2} h_{00,i} \\
+          &= -\frac{1}{2} \frac{\partial h_{00}}{\partial x^i} = \frac{\partial \varphi}{\partial x^i}
+        \end{align*}
+      "/>
+
+      <p>Solving for <InlineMath math="h_{00}"/>:</p>
+      <BlockMath math="
+        \begin{align*}
+          -\frac{1}{2} \frac{\partial h_{00}}{\partial x^i} &= \frac{\partial \varphi}{\partial x^i}, \\
+          \frac{\partial h_{00}}{\partial x^i} &= -2 \frac{\partial \varphi}{\partial x^i}, \\
+          \frac{\partial h_{00}}{\partial x^i} &= -2 \frac{\partial \varphi}{\partial x^i}, \\
+          h_{00} &= -2 \varphi + \varphi_0, \\
+          h_{00} &= \frac{2M}{r} + \varphi_0,
+        \end{align*}
+      "/>
+
+      <p>The <InlineMath math="g_{00}"/> is equal to:</p>
+      <BlockMath math="g_{00} = -1 + \frac{2}{r} + \varphi_0."/>
+
+      <p>As <InlineMath math="r \to \infty"/>, the <InlineMath math="g_{00}"/> component should reduce to <InlineMath math="-1"/>:</p>
+      <BlockMath math="
+        \begin{align*}
+          \lim_{r \to \infty} g_{00} &= \lim_{r \to \infty} -1 + \frac{2M}{r} + \varphi_0 \\
+          &= -1 + \varphi_0 = -1,
+        \end{align*}
+      "/>
+
+      <p>implying <InlineMath math="\varphi_0 = 0"/>. The <InlineMath math="g_{00}"/> component is equal to:</p>
+      <BlockMath math="
+        \begin{align*}
+          g_{00} &= -1 + \frac{2M}{r} \\
+          &= -\left(1 - \frac{2M}{r}\right),
+        \end{align*}
+      "/>
+      <p><InlineMath math="g_{00}"/> is the same in cartesian and spherical coordinates.</p>
+
+      <p>Solving for <InlineMath math="C"/>:</p>
+      <BlockMath math="
+        \begin{align*}
+          g_{00} = -\left(1 - \frac{2M}{r}\right) &= -\left(1 + \frac{C}{r}\right), \\
+          \frac{2M}{r} &= -\frac{C}{r}, \\
+          C &= -2M = -r_s,
+        \end{align*}
+      "/>
+      <p><InlineMath math="r_s = C = 2M"/> is called the Schwarzschild radius. It is the radius of the event horizon of a black hole. In SI units this is equal to:</p>
+      <BlockMath math="r_s = \frac{2GM}{c^2}."/>
+
+      <p>I will modify the units such that <InlineMath math="M = 1"/> - <Link href="/miscellaneous/natural-units?system=geometrizedMass#unit-converter">unit converter</Link>. The metric and christoffel symbols are equal to:</p>
+      <BlockMath math="
+        \begin{align*} \\
+          g_{\mu\nu} &= \begin{bmatrix}
+            -\left(1 - \frac{r_s}{r}\right) & 0 & 0 & 0 \\
+            0 & \left(1 - \frac{r_s}{r}\right)^{-1} & 0 & 0 \\
+            0 & 0 & r^2 & 0 \\
+            0 & 0 & 0 & r^2 \sin^2 \theta
+          \end{bmatrix} \\
+          \Gamma^0{}_{\mu\nu} &= \begin{bmatrix}
+            0 & \frac{r_s}{2r (r - r_s)} & 0 & 0 \\
+            \frac{r_s}{2r (r - r_s)} & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0
+          \end{bmatrix} \\
+          \Gamma^1{}_{\mu\nu} &= \begin{bmatrix}
+            \frac{r_s (r - r_s)}{2r^3} & 0 & 0 & 0 \\
+            0 & -\frac{r_s}{2 r (r - r_s)} & 0 & 0 \\
+            0 & 0 & -(r - r_s) & 0 \\
+            0 & 0 & 0 & -\sin^2 \theta (r - r_s)
+          \end{bmatrix} \\
+          \Gamma^2{}_{\mu\sigma} &= \begin{bmatrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & \frac{1}{r} & 0 \\
+            0 & \frac{1}{r} & 0 & 0 \\
+            0 & 0 & 0 & -\sin \theta \cos \theta
+          \end{bmatrix} \\
+          \Gamma^3{}_{\mu\sigma} &= \begin{bmatrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & \frac{1}{r} \\
+            0 & 0 & 0 & \cot \theta \\
+            0 & \frac{1}{r} & \cot \theta & 0
+          \end{bmatrix}
+        \end{align*}
+      " />
+
+      <LinkH2 id="simplifying-geodesic-equations">Simplifying the Geodesic Equations</LinkH2>
+      <p>We can simplify the geodesic equation by setting <InlineMath math="\theta = \frac{\pi}{2}"/> to be constant (<InlineMath math="\frac{d\theta}{d\lambda} = \frac{d^2\theta}{d\lambda^2} = d\theta = 0"/> ). The metric and christoffel symbols simplify to:</p>
+      <BlockMath math="
+        \begin{align*}
+          ds^2 &= -\left(1 - \frac{r_s}{r}\right) dt^2 + \left(1 - \frac{r_s}{r}\right) dt^2 + r^2 d\phi^2, \\
+          \Gamma^0{}_{\mu\nu} &= \begin{bmatrix}
+            0 & \frac{r_s}{2r (r - r_s)} & 0 & 0 \\
+            \frac{r_s}{2r (r - r_s)} & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0
+          \end{bmatrix} \\
+          \Gamma^1{}_{\mu\nu} &= \begin{bmatrix}
+            \frac{r_s (r - r_s)}{2r^3} & 0 & 0 & 0 \\
+            0 & -\frac{r_s}{2 r (r - r_s)} & 0 & 0 \\
+            0 & 0 & -(r - r_s) & 0 \\
+            0 & 0 & 0 & -(r - r_s)
+          \end{bmatrix} \\
+          \Gamma^2{}_{\mu\sigma} &= \begin{bmatrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & \frac{1}{r} & 0 \\
+            0 & \frac{1}{r} & 0 & 0 \\
+            0 & 0 & 0 & 0
+          \end{bmatrix} \\
+          \Gamma^3{}_{\mu\sigma} &= \begin{bmatrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & \frac{1}{r} \\
+            0 & 0 & 0 & 0 \\
+            0 & \frac{1}{r} & 0 & 0
+          \end{bmatrix}
+        \end{align*}
+      "/>
+
+      <p>The general geodesic equations are as follows:</p>
+      <BlockMath math="\frac{d^2 x^{\sigma}}{d\lambda^2} + \Gamma^{\sigma}{}_{\mu\nu} \frac{dx^{\mu}}{d\lambda} \frac{dx^{\nu}}{d\lambda} = 0."/>
+
+      <p>Substituting into equation for <InlineMath math="\sigma = 2"/> (<InlineMath math="x^2 = \theta"/>):</p>
+      <BlockMath math="
+        \begin{align*}
+          \frac{d^2 x^2}{d\lambda^2} + \Gamma^2{}_{\mu\nu} \frac{dx^{\mu}}{d\lambda} \frac{dx^{\nu}}{d\lambda} &= 0, \\
+          \frac{2}{r} \frac{dx^1}{d\lambda} \frac{dx^2}{d\lambda} &= 0, \\
+          \frac{2}{r} \frac{dx^1}{d\lambda} \cdot 0 &= 0, \\
+          0 &= 0,
+        \end{align*}
+      "/>
+      <p>meaning it is a valid solution. The geodesic equations are in the form:</p>
+      <BlockMath math="
+        \begin{align*}
+          \frac{d^2 x^0}{d\lambda^2} + \frac{r_s}{r(r - r_s)} \frac{dx^0}{d\lambda} \frac{dx^1}{d\lambda} = 0, \\
+          \frac{d^2 x^1}{d\lambda^2} + \frac{r_s(r - r_s)}{2r^3} \left(\frac{dx^0}{d\lambda}\right)^2 - \frac{r_s}{2r(r - r_s)} \left(\frac{dx^1}{d\lambda}\right)^2 - (r - r_s) \left(\frac{dx^3}{d\lambda}\right)^2 = 0, \\
+          \frac{d^2 x^3}{d\lambda^2} + \frac{2}{r} \frac{dx^1}{d\lambda} \frac{dx^3}{d\lambda} = 0,
+        \end{align*}
+      "/>
+
+      <p>or when using the geometrized units where <InlineMath math="M = 1"/> (<InlineMath math="r_s = 2"/>):</p>
+      <BlockMath math="
+        \begin{align*}
+          \frac{d^2 x^0}{d\lambda^2} + \frac{2}{r(r - 2)} \frac{dx^0}{d\lambda} \frac{dx^1}{d\lambda} = 0, \\
+          \frac{d^2 x^1}{d\lambda^2} + \frac{r - 2}{r^3} \left(\frac{dx^0}{d\lambda}\right)^2 - \frac{1}{r(r - 2)} \left(\frac{dx^1}{d\lambda}\right)^2 - (r - 2) \left(\frac{dx^3}{d\lambda}\right)^2 = 0, \\
+          \frac{d^2 x^3}{d\lambda^2} + \frac{2}{r} \frac{dx^1}{d\lambda} \frac{dx^3}{d\lambda} = 0.
+        \end{align*}
+      "/>
     </div>
   )
 }

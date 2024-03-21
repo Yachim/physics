@@ -1,14 +1,14 @@
 "use client"
 
-import { capitalize } from "@/utils/misc"
 import * as math from "mathjs"
-import { Suspense, useMemo, useState } from "react"
+import { useMemo, useState } from "react"
 import { InlineMath } from "react-katex"
 import { geometrizedBackwardMatrix, geometrizedForwardMatrix } from "./matrices"
 import { useSearchParams } from "next/navigation"
 
 const units = {
     geometrized: {
+        name: "Geometrized",
         f: geometrizedForwardMatrix,
         b: geometrizedBackwardMatrix,
         units: [
@@ -20,12 +20,26 @@ const units = {
             "cd",
             "mol"
         ]
+    },
+    geometrizedMass: {
+        name: "Geometrized with Mass",
+        f: geometrizedForwardMatrix,
+        b: geometrizedBackwardMatrix,
+        units: [
+            "c",
+            "G", 
+            "M",
+            "A",
+            "K",
+            "cd",
+            "mol"
+        ]
     }
 } as const
 type UnitSystem = keyof typeof units
 const siUnits = ["s", "m", "kg", "A", "K", "cd", "mol"]
 
-function UnitConverterInner() {
+export function UnitConverter() {
     const searchParams = useSearchParams()
     let initialUnitSystem = searchParams.get("system") ?? ""
     if (!Object.keys(units).includes(initialUnitSystem)) {
@@ -59,12 +73,12 @@ function UnitConverterInner() {
                 System:
                 <select  value={system} onChange={e => setSystem(e.target.value as UnitSystem)}>
                     {Object.keys(units).map((el, i) => 
-                        <option value={el} key={i}>{capitalize(el)}</option>
+                        <option value={el} key={i}>{units[el as UnitSystem].name}</option>
                     )}
                 </select>
             </label>
             <p className="flex gap-2">
-                Conversion: {`SI ${conversion === "f" ? "→" : "←"} ${capitalize(system)}`}
+                Conversion: {`SI ${conversion === "f" ? "→" : "←"} ${units[system].name}`}
                 <button onClick={() => setConversion(prev => prev === "f" ? "b" : "f")}>Switch</button>
             </p>
             <div className="flex gap-2">
@@ -74,19 +88,11 @@ function UnitConverterInner() {
                             prev[i] = +e.target.value
                             return [...prev]
                         })} />
-                        <InlineMath math={conversion === "f" ? siUnits[i] : units[system].units[i]}/>
+                        <InlineMath math={(conversion === "f" ? siUnits[i] : units[system].units[i]) + "^x"}/>
                     </label>
                 )}
             </div>
             <p>Units: <InlineMath math={result === "" ? "1" : result}/></p>
         </div>
-    )
-}
-
-export function UnitConverter() {
-    return (
-        <Suspense>
-            <UnitConverterInner/>
-        </Suspense>
     )
 }

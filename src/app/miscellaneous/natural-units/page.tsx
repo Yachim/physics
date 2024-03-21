@@ -5,6 +5,7 @@ import { UnitConverter } from "./components";
 import { Metadata } from "next";
 import { matrixToLatex } from "@/utils/misc";
 import { geometrizedBackwardMatrix, geometrizedForwardMatrix } from "./matrices";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Natural Units"
@@ -25,8 +26,14 @@ export default async function Home() {
         \end{align*}
       `}/>
 
+      <LinkH2 id="geometrized-units">Geometrized Units with Mass</LinkH2>
+      <p>The columns represent <InlineMath math="c, G, M, A, K, cd, mol"/>. The mass <InlineMath math="M = 1"/>.</p>
+
       <LinkH2 id="unit-converter">Unit Converter</LinkH2>
-      <UnitConverter/>
+      <p>To convert values, set the calculator to forward transformation (SI &rarr; [system]). To convert from the selected system to SI, multiply by the units and to convert from SI to the selected system divide by the units.</p>
+      <Suspense>
+        <UnitConverter/>
+      </Suspense>
     </div>
   )
 }
