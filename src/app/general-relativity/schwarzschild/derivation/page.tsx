@@ -13,9 +13,9 @@ export default async function Home() {
     <div className="article">
       <Link href="/general-relativity/schwarzschild">Back</Link>
       <h1>Derivation of the Schwarzschild Metric</h1>
-      <p>The coordinates used are <InlineMath math="(t, r, \theta, \phi)" />, where <InlineMath math="\theta" /> is the colatitude and <InlineMath math="\phi" /> is the longitude. The <InlineMath math="r" /> coordinate will be explained in the <Link href="/general-relativity/schwarzschild\coordinates-interpretation">next section</Link>.</p>
+      <p>The coordinates used are <InlineMath math="(t, r, \theta, \phi)" />, where <InlineMath math="\theta" /> is the colatitude and <InlineMath math="\phi" /> is the longitude. The <InlineMath math="r" /> coordinate will be explained in the <Link href="/general-relativity/schwarzschild/coordinates-interpretation#proper-length-radius">next section</Link>.</p>
       <p>The general Einstein field equations are given by:</p>
-      <BlockMath math="R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} - \Lambda g_{\mu\nu} = 8 \pi T_{\mu\nu}." />
+      <BlockMath math="R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} + \Lambda g_{\mu\nu} = 8 \pi T_{\mu\nu}." />
 
       <LinkH2 id="assumptions">Assumptions</LinkH2>
       <p>The metric is static - independent of the time coordinate:</p>

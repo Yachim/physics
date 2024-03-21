@@ -64,7 +64,7 @@ export default async function Home() {
       <LinkH3 id="time-dilation-calculator">Time Dilation Calculator</LinkH3>
       <TimeDilationCalculator/>
 
-      <LinkH2 id="proper-length-straight-line-from-center">Proper Length - Radius</LinkH2>
+      <LinkH2 id="proper-length-radius">Proper Length - Radius</LinkH2>
       <p>For proper length, we will take <InlineMath math="t, \theta, \phi" /> to be constant. The path will be a straight line from the center. The metric simplifies:</p>
       <BlockMath math="ds^2 = \left(1 - \frac{2}{r}\right)^{-1} dr^2." />
 
@@ -102,7 +102,7 @@ export default async function Home() {
 
       <p>The magnitude of <InlineMath math="r" /> is smaller than the proper length.</p>
 
-      <LinkH3 id="radius-proper-length">Proper Length of Radius</LinkH3>
+      <LinkH3 id="proper-length-radius-calculator">Proper Length Radius Calculator</LinkH3>
       <PerpendicularDistanceCalculator/>
 
       <LinkH2 id="proper-length-circumference">Proper Length - Circumference</LinkH2>
