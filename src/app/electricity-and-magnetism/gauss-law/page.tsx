@@ -28,7 +28,7 @@ export default async function Page() {
       <BlockMath math="
         \begin{align*}
 	        \epsilon_0 &\approx 8.85 \cdot 10^{-12}\ Fm^{-1}, \\
-	  k_e &= \frac{1}{4 \pi \epsilon_0} \implies \epsilon_0 = \frac{1}{4 \pi k_e},
+          k_e &= \frac{1}{4 \pi \epsilon_0} \implies \epsilon_0 = \frac{1}{4 \pi k_e},
         \end{align*}
       " />
       <p>and where <InlineMath math="A" /> is the surface area of the closed surface.</p>

@@ -345,13 +345,13 @@ export default async function Home() {
       <BlockMath math="
         \begin{align*}
           \tau &\to t, \\
-          \frac{dx^0}{d\tau} = \frac{dt}{d\tau} &\to 1, \\
+          \frac{dt}{d\tau} &\to 1, \\
           \frac{dx^i}{d\tau} &\to 0, \\
-          g_{\mu\nu} \to \eta_{\mu\nu} + h_{\mu\nu},
+          g_{\mu\nu} &\to \eta_{\mu\nu} + h_{\mu\nu},
         \end{align*}
       "/>
 
-      <p>where <InlineMath math="h_{\mu\nu}"/> is some error due to weak gravity and <InlineMath math="\eta_{\mu\nu}"/> is the Minkowski metric in cartesian coordinates:</p>
+      <p>where <InlineMath math="h_{\mu\nu}"/> is some error due to the weak gravity and <InlineMath math="\eta_{\mu\nu}"/> is the Minkowski metric in cartesian coordinates:</p>
       <BlockMath math="
         \begin{align*}
           \eta_{\mu\nu} &= \begin{bmatrix}
@@ -364,10 +364,10 @@ export default async function Home() {
         \end{align*}
       "/>
 
-      <p>Substituting into the geodesic equation (considering only space coordinates):</p>
+      <p>Substituting into the geodesic equation (considering only space coordinates - <InlineMath math="\frac{d^2 t}{dt^2} = 0" />):</p>
       <BlockMath math="
         \begin{align*}
-          \frac{d^2 x^i}{dt^2} + \Gamma^i{}_{00} \left(\frac{dx^0}{dt}\right)^2 &= 0, \\
+          \frac{d^2 x^i}{dt^2} + \Gamma^i{}_{00} \left(\frac{dt}{dt}\right)^2 &= 0, \\
           \frac{d^2 x^i}{dt^2} &= -\Gamma^i{}_{00},
         \end{align*}
       "/>
@@ -471,10 +471,10 @@ export default async function Home() {
       <SchwarzschildRadiusCalculator/>
 
       <LinkH2 id="simplifying-geodesic-equations">Simplifying the Geodesic Equations</LinkH2>
-      <p>We can simplify the geodesic equation by setting <InlineMath math="\theta = x^2 = \frac{\pi}{2}"/> to be constant (<InlineMath math="\frac{dx^2}{d\lambda} = \frac{d^2x^2}{d\lambda^2} = dx^2 = 0"/> ). The metric and christoffel symbols simplify to:</p>
+      <p>We can simplify the geodesic equation by setting <InlineMath math="\theta = \frac{\pi}{2}"/> to be constant (<InlineMath math="\frac{d\theta}{d\lambda} = \frac{d^2\theta}{d\lambda^2} = d\theta = 0"/> ). The metric and christoffel symbols simplify to:</p>
       <BlockMath math="
         \begin{align*}
-          ds^2 &= -\left(1 - \frac{r_s}{r}\right) (dx^0)^2 + \left(1 - \frac{r_s}{r}\right) (dx^1)^2 + r^2 (dx^3)^2, \\
+          ds^2 &= -\left(1 - \frac{r_s}{r}\right) dt^2 + \left(1 - \frac{r_s}{r}\right)^{-1} dr^2 + r^2 d\phi^2, \\
           \Gamma^0{}_{\mu\nu} &= \begin{bmatrix}
             0 & \frac{r_s}{2r (r - r_s)} & 0 & 0 \\
             \frac{r_s}{2r (r - r_s)} & 0 & 0 & 0 \\
@@ -508,32 +508,32 @@ export default async function Home() {
       <p>Substituting into equation for <InlineMath math="\sigma = 2"/>:</p>
       <BlockMath math="
         \begin{align*}
-          \frac{d^2 x^2}{d\lambda^2} + \Gamma^2{}_{\mu\nu} \frac{dx^{\mu}}{d\lambda} \frac{dx^{\nu}}{d\lambda} &= 0, \\
-          \frac{2}{r} \frac{dx^1}{d\lambda} \frac{dx^2}{d\lambda} &= 0, \\
-          \frac{2}{r} \frac{dx^1}{d\lambda} \cdot 0 &= 0, \\
+          \frac{d^2 \theta}{d\lambda^2} + \Gamma^2{}_{\mu\nu} \frac{dx^{\mu}}{d\lambda} \frac{dx^{\nu}}{d\lambda} &= 0, \\
+          \frac{2}{r} \frac{dr}{d\lambda} \frac{d\theta}{d\lambda} &= 0, \\
+          \frac{2}{r} \frac{dr}{d\lambda} \cdot 0 &= 0, \\
           0 &= 0,
         \end{align*}
       "/>
       <p>meaning it is a valid solution. The geodesic equations are in the form:</p>
       <BlockMath math="
         \begin{align*}
-          \frac{d^2 x^0}{d\lambda^2} + \frac{r_s}{r(r - r_s)} \frac{dx^0}{d\lambda} \frac{dx^1}{d\lambda} = 0, \\
-          \frac{d^2 x^1}{d\lambda^2} + \frac{r_s(r - r_s)}{2r^3} \left(\frac{dx^0}{d\lambda}\right)^2 - \frac{r_s}{2r(r - r_s)} \left(\frac{dx^1}{d\lambda}\right)^2 - (r - r_s) \left(\frac{dx^3}{d\lambda}\right)^2 = 0, \\
-          \frac{d^2 x^3}{d\lambda^2} + \frac{2}{r} \frac{dx^1}{d\lambda} \frac{dx^3}{d\lambda} = 0,
+          \frac{d^2 t}{d\lambda^2} + \frac{r_s}{r(r - r_s)} \frac{dt}{d\lambda} \frac{dr}{d\lambda} = 0, \\
+          \frac{d^2 r}{d\lambda^2} + \frac{r_s(r - r_s)}{2r^3} \left(\frac{dt}{d\lambda}\right)^2 - \frac{r_s}{2r(r - r_s)} \left(\frac{dr}{d\lambda}\right)^2 - (r - r_s) \left(\frac{d\phi}{d\lambda}\right)^2 = 0, \\
+          \frac{d^2 \phi}{d\lambda^2} + \frac{2}{r} \frac{dr}{d\lambda} \frac{d\phi}{d\lambda} = 0,
         \end{align*}
       "/>
 
       <p>or when using the geometrized units where <InlineMath math="M = 1"/> (<InlineMath math="r_s = 2"/>):</p>
       <BlockMath math="
         \begin{align*}
-          \frac{d^2 x^0}{d\lambda^2} + \frac{2}{r(r - 2)} \frac{dx^0}{d\lambda} \frac{dx^1}{d\lambda} = 0, \\
-          \frac{d^2 x^1}{d\lambda^2} + \frac{r - 2}{r^3} \left(\frac{dx^0}{d\lambda}\right)^2 - \frac{1}{r(r - 2)} \left(\frac{dx^1}{d\lambda}\right)^2 - (r - 2) \left(\frac{dx^3}{d\lambda}\right)^2 = 0, \\
-          \frac{d^2 x^3}{d\lambda^2} + \frac{2}{r} \frac{dx^1}{d\lambda} \frac{dx^3}{d\lambda} = 0,
+          \frac{d^2 t}{d\lambda^2} + \frac{2}{r(r - 2)} \frac{dt}{d\lambda} \frac{dr}{d\lambda} = 0, \\
+          \frac{d^2 r}{d\lambda^2} + \frac{r - 2}{r^3} \left(\frac{dt}{d\lambda}\right)^2 - \frac{1}{r(r - 2)} \left(\frac{dr}{d\lambda}\right)^2 - (r - 2) \left(\frac{d\phi}{d\lambda}\right)^2 = 0, \\
+          \frac{d^2 \phi}{d\lambda^2} + \frac{2}{r} \frac{dr}{d\lambda} \frac{d\phi}{d\lambda} = 0,
         \end{align*}
       "/>
 
       <p>and the metric:</p>
-      <BlockMath math="ds^2 = -\left(1 - \frac{2}{r}\right) (dx^0)^2 + \left(1 - \frac{2}{r}\right) (dx^1)^2 + r^2 (dx^3)^2." />
+      <BlockMath math="ds^2 = -\left(1 - \frac{2}{r}\right) dt^2 + \left(1 - \frac{2}{r}\right)^{-1} dr^2 + r^2 d\phi^2." />
     </div>
   )
 }
