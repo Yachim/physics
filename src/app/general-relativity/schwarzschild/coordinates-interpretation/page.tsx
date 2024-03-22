@@ -169,6 +169,24 @@ export default async function Home() {
         />
       </div>
       <p>here, <InlineMath math="r_0 = 2"/> and <InlineMath math="z_0 = 0"/>.</p>
+
+      <LinkH2 id="singularities">Singularities</LinkH2>
+      <p>There are two singularities. The first one is in the <InlineMath math="g_{11}" /> component when <InlineMath math="r \to r_s^+" />:</p>
+      <BlockMath math="
+        \begin{align*}
+          \lim_{r \to r_s^+} g_{11} &= \lim_{r \to 2^+} \left(1 - \frac{2}{r}\right)^{-1} \\
+          &= \lim_{r \to 2^+} \frac{r}{r - 2} = \infty,
+        \end{align*}
+      " />
+
+      <p>this is a coordinate singularity. We can get rid of it by changing coordinates. The other singularity is in the <InlineMath math="g_{00}" /> copmonent as <InlineMath math="r \to 0^+" />:</p>
+      <BlockMath math="
+        \begin{align*}
+          \lim_{r \to 0^+} g_{00} &= \lim_{r \to 0^+} - \left(1 - \frac{2}{r}\right) \\
+          &= \lim_{r \to 0^+} \frac{2 - r}{r} = \infty,
+        \end{align*}
+      " />
+      <p>this, unfortunately, is a true singularity and at this point, general relativity stops making sense.</p>
     </div>
   )
 }
