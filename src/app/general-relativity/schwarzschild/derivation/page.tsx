@@ -45,7 +45,7 @@ export default async function Home() {
         \end{bmatrix}
       " />
 
-      <p>The spacetime is spherically symmetric, meaning it is invariant under rotations and mirroring. Taking the mirror image for the coordinate <InlineMath math="\sigma \neq 1" /> (<InlineMath math="r" /> cannot be negative) means:</p>
+      <p>The spacetime is spherically symmetric, meaning it is invariant under rotations, mirroring and time reversals. Taking the mirror image for the coordinate <InlineMath math="\sigma \neq 1" /> (<InlineMath math="r" /> cannot be negative) means:</p>
       <BlockMath math="\tilde{x}^{\sigma} = -x^{\sigma}," />
       <p>and the metric is transformed as follows (where <InlineMath math="\mu \neq \sigma" />):</p>
       <BlockMath math="
@@ -56,8 +56,8 @@ export default async function Home() {
         \end{align*}
       " />
 
-      <p>Since the metric is symmetrical, this implies:</p>
-      <BlockMath math="g_{\mu\sigma} = g_{\sigma\mu} = 0," />
+      <p>Since the metric is invariant under this transformation, this implies:</p>
+      <BlockMath math="g_{\mu\sigma} = 0, \qquad \sigma \neq \mu," />
 
       <p>thus, the metric is diagonalized:</p>
       <BlockMath math="
@@ -72,7 +72,7 @@ export default async function Home() {
       <p>When <InlineMath math="\theta" /> and <InlineMath math="\phi" /> are constant, <InlineMath math="g_{00}" /> and <InlineMath math="g_{11}" /> should only depend on <InlineMath math="r" /> (by symmetry):</p>
       <BlockMath math="
         g_{\mu\nu} = \begin{bmatrix}
-          A(r) & 0 & 0 & 0 \\
+          -A(r) & 0 & 0 & 0 \\
           0 & B(r) & 0 & 0 \\
           0 & 0 & g_{22} & 0 \\
           0 & 0 & 0 & g_{33}
@@ -204,7 +204,7 @@ export default async function Home() {
           &= \Gamma^1{}_{00,1} + \Gamma^1{}_{11} \Gamma^1{}_{00} + \Gamma^2{}_{21} \Gamma^1{}_{00} + \Gamma^3{}_{31} \Gamma^1{}_{00} - \Gamma^1{}_{00} \Gamma^0{}_{10} \\
           &= \frac{2 A''(r) B(r) - 2 A'(r) B'(r)}{4 (B(r))^2} + \frac{B'(r)}{2 B(r)} \frac{A'(r)}{2 B(r)} + \frac{1}{r} \frac{A'(r)}{2 B(r)} + \frac{1}{r} \frac{A'(r)}{2 B(r)} - \frac{A'(r)}{2 B(r)} \frac{A'(r)}{2 A(r)} \\
           &= \frac{A''(r) B(r)}{2 (B(r))^2} - \frac{A'(r) B'(r)}{2 (B(r))^2} + \frac{A'(r) B'(r)}{4 (B(r))^2} + \frac{A'(r)}{r B(r)} - \frac{(A'(r))^2}{4 A(r) B(r)} \\
-          &= 0, \qquad \cdot 4r A(r) (B(r))^2 \\
+          &= 0, \qquad \cdot 4r A(r) (B(r))^2, \\
           0 &= 2r A(r) A''(r) B(r) - 2r A(r) A'(r) B'(r) + r A(r) A'(r) B'(r) + 4 A(r) B(r) A'(r) - r B(r) (A'(r))^2 \\
           &= 2r A(r) A''(r) B(r) - r A(r) A'(r) B'(r) + 4 A(r) B(r) A'(r) - r B(r) (A'(r))^2.
         \end{align*}
@@ -224,7 +224,7 @@ export default async function Home() {
           &- \frac{A'(r)}{2 A(r)} \frac{A'(r)}{2 A(r)} - \frac{1}{r} \frac{1}{r} - \frac{1}{r} \frac{1}{r} \\
           &= -\frac{A''(r)}{2 A(r)} + \frac{(A'(r))^2}{2 (A(r))^2} + \frac{A'(r) B'(r)}{4 A(r) B(r)} + \frac{B'(r)}{r B(r)} - \frac{(A'(r))^2}{4 (A(r))^2} \\
           &= -\frac{A''(r)}{2 A(r)} + \frac{(A'(r))^2}{4 (A(r))^2} + \frac{A'(r) B'(r)}{4 A(r) B(r)} + \frac{B'(r)}{r B(r)} \\
-          &= 0, \qquad \cdot 4r (A(r))^2 B(r) \\
+          &= 0, \qquad \cdot 4r (A(r))^2 B(r), \\
           0 &= -2r A(r) B(r) A''(r) + r B(r) (A'(r))^2 + r A(r) A'(r) B'(r) + 4 (A(r))^2 B'(r).
         \end{align*}
       " />
@@ -241,7 +241,7 @@ export default async function Home() {
           &- \frac{-r}{B(r)} \frac{1}{r} - \frac{1}{r} \frac{-r}{B(r)} - \cot^2 \theta \\
           &= -\frac{1}{B(r)} + \frac{r B'(r)}{(B(r))^2} - \frac{r A'(r)}{2 A(r) B(r)} - \frac{r B'(r)}{2 (B(r))^2} - \frac{2}{B(r)} + \frac{2}{B(r)} + 1 \\
           &= -\frac{1}{B(r)} + \frac{r B'(r)}{2 (B(r))^2} - \frac{r A'(r)}{2 A(r) B(r)} + 1 \\
-          &= 0, \qquad \cdot 2 A(r) (B(r))^2 \\
+          &= 0, \qquad \cdot 2 A(r) (B(r))^2, \\
           0 &= -2 A(r) B(r) + r A(r) B'(r) - r B(r) A'(r) + 2 A(r) (B(r))^2 \\
         \end{align*}
       " />
@@ -260,7 +260,7 @@ export default async function Home() {
       "/>
       <p>implying:</p>
       <BlockMath math="A(r) B(r) = C,"/>
-      <p>where <InlineMath math="C"/> is an arbitrary constant. As <InlineMath math="r \to \infty"/>, <InlineMath math="-A(r) = -1 \iff A(r) = 1"/> and <InlineMath math="B(r) = 1"/> since <InlineMath math="C"/> is constant everywhere, the following applies:</p>
+      <p>where <InlineMath math="C"/> is an arbitrary constant. As <InlineMath math="r \to \infty"/>, <InlineMath math="-A(r) \to -1 \iff A(r) \to 1"/> and <InlineMath math="B(r) \to 1"/> since <InlineMath math="C"/> is constant everywhere, the following applies:</p>
       <BlockMath math="
         \begin{align*}
           \lim_{r \to \infty} A(r) B(r) &= 1 \cdot 1 = 1, \\            
@@ -467,7 +467,7 @@ export default async function Home() {
         \end{align*}
       " />
 
-      <LinkH2 id="schwrzschild-radius-calculator">Schwarzschild Radius Calculator</LinkH2>
+      <LinkH2 id="schwarzschild-radius-calculator">Schwarzschild Radius Calculator</LinkH2>
       <SchwarzschildRadiusCalculator/>
 
       <LinkH2 id="simplifying-geodesic-equations">Simplifying the Geodesic Equations</LinkH2>

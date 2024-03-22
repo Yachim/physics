@@ -100,7 +100,17 @@ export default async function Home() {
         \end{align*}
       " />
 
-      <p>The magnitude of <InlineMath math="r" /> is smaller than the proper length.</p>
+      <p>The magnitude of <InlineMath math="r" /> is smaller than the proper length. Below is a plot of the proper length:</p>
+      <div className="w-full flex justify-center">
+        <Image
+          src={`${basePath}/assets/general-relativity/schwarzschild/proper-length.svg`}
+          width={350}
+          height={350}
+          alt="Proper length plot"
+        />
+      </div>
+
+      <p>The function is approximately linear at a distance further away from the object.</p>
 
       <LinkH3 id="proper-length-radius-calculator">Proper Length Radius Calculator</LinkH3>
       <PerpendicularDistanceCalculator/>
@@ -119,7 +129,7 @@ export default async function Home() {
         \end{align*}
       " />
 
-      <p>The <InlineMath math="r" /> coordinate accurately gives the proper length of the circumference. But for the distance from the center the distance is longer the closer an observer is to the object.</p>
+      <p>The <InlineMath math="r" /> coordinate accurately gives the proper length of the circumference. But for the distance from the center the proper length is longer the closer an observer is to the object.</p>
 
       <LinkH2 id="flamms-paraboloid">Flamm&apos;s Paraboloid</LinkH2>
       <p>We will take constant <InlineMath math="t, \theta" />. The metric is in the form:</p>
@@ -158,6 +168,7 @@ export default async function Home() {
           unoptimized
         />
       </div>
+      <p>here, <InlineMath math="r_0 = 2"/> and <InlineMath math="z_0 = 0"/>.</p>
     </div>
   )
 }
