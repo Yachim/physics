@@ -8,7 +8,7 @@ import * as math from "mathjs"
 
 export function SphericalConductor(props: BoardProps) {
   return (
-    <CustomJXGBoard {...props} bbox={props.bbox ?? [-16, 9, 16, -9]} initFn={(board: JXG.Board) => {
+    <CustomJXGBoard id="spherical-conductor" {...props} bbox={props.bbox ?? [-16, 9, 16, -9]} initFn={(board: JXG.Board) => {
       const radiusInput = board.create("input", [-15, 8, 1, "$r_c =\\ $"])
       const sigmaInput = board.create("input", [-15, 7, 2e-5, "$\\sigma =\\ $"])
       const point = board.create("point", [5 / Math.SQRT2, 5 / Math.SQRT2], { name: "" })

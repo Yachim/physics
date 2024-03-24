@@ -6,7 +6,7 @@ import * as math from "mathjs"
 
 export function TangentVectorField(props: BoardProps & { flowCurve: boolean }) {
   return (
-    <CustomJXGBoard axis={false} bbox={[-32, 18, 32, -18]} {...props} initFn={(board: JXG.Board) => {
+    <CustomJXGBoard id="tangent-vector-field" axis={false} bbox={[-32, 18, 32, -18]} {...props} initFn={(board: JXG.Board) => {
       const scaleInput = board.create("slider", [
         [-30, 17.5],
         [-15, 17.5],
@@ -67,7 +67,7 @@ export function TangentVectorField(props: BoardProps & { flowCurve: boolean }) {
 
 export function InverseSquareLawVectorField(props: BoardProps & { flowCurve: boolean }) {
   return (
-    <CustomJXGBoard axis={false} bbox={[-32, 18, 32, -18]} {...props} initFn={(board: JXG.Board) => {
+    <CustomJXGBoard id="inverse-square-law" axis={false} bbox={[-32, 18, 32, -18]} {...props} initFn={(board: JXG.Board) => {
       const scaleInput = board.create("slider", [
         [-30, 17.5],
         [-15, 17.5],
@@ -168,7 +168,7 @@ export function InverseSquareLawVectorField(props: BoardProps & { flowCurve: boo
 
 export function InverseSquareLawTwoVectorField(props: BoardProps & { flowCurve: boolean }) {
   return (
-    <CustomJXGBoard axis={false} bbox={[-32, 18, 32, -18]} {...props} initFn={(board: JXG.Board) => {
+    <CustomJXGBoard id="inverse-square-law-two" axis={false} bbox={[-32, 18, 32, -18]} {...props} initFn={(board: JXG.Board) => {
       const scaleInput = board.create("slider", [
         [-30, 17.5],
         [-15, 17.5],

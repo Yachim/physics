@@ -39,7 +39,7 @@ export function WorkBetweenPotentials() {
 
 export function RadialPotential(props: BoardProps) {
   return (
-    <CustomJXGBoard {...props} bbox={props.bbox ?? [-0.16, 0.09, 0.16, -0.09]} initFn={(board: JXG.Board) => {
+    <CustomJXGBoard id="radial-potential" {...props} bbox={props.bbox ?? [-0.16, 0.09, 0.16, -0.09]} initFn={(board: JXG.Board) => {
       const chargeInput = board.create("input", [-0.15, 0.08, 30e-9, "$Q =\\ $"])
       board.create("point", [() => 0, () => 0], { name: "Q" })
       const point = board.create("point", [0.06 / Math.SQRT2, 0.06 / Math.SQRT2])

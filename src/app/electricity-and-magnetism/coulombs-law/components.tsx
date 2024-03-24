@@ -63,7 +63,7 @@ export function ForceMagnitude({ initialQ1, initialQ2, initialR }: {
 
 export function ForceVectors(props: BoardProps) {
   return (
-    <CustomJXGBoard {...props} bbox={props.bbox ?? [-0.02, 0.34, 0.6, -0.02]} initFn={(board: JXG.Board) => {
+    <CustomJXGBoard id="force-vectors" {...props} bbox={props.bbox ?? [-0.02, 0.34, 0.6, -0.02]} initFn={(board: JXG.Board) => {
       // x, y, charge
       const initialData = [
         [0, 0, 1E-8],

@@ -273,8 +273,33 @@ export default async function Home() {
           0 &= - \mathcal{E}^2 + \left(\frac{dr}{d\lambda}\right)^2 + \frac{r - 2}{r} \frac{\mathcal{L}^2}{r^2} - \frac{r - 2}{r} \epsilon, \\
           0 &= - \mathcal{E}^2 + \left(\frac{dr}{d\lambda}\right)^2 - \left(1 - \frac{2}{r}\right) \left(\frac{\mathcal{L}^2}{r^2} - \epsilon\right), \\
           \mathcal{E}^2 &= \left(\frac{dr}{d\lambda}\right)^2 - \left(1 - \frac{2}{r}\right) \left(\frac{\mathcal{L}^2}{r^2} - \epsilon\right), \\
-          &= \left(\frac{dr}{d\lambda}\right)^2 - \left(\frac{\mathcal{L}^2}{r^2} - \frac{2\mathcal{L}}{r^3} + \frac{2}{r} \epsilon - \epsilon\right), \\
-          &= \left(\frac{dr}{d\lambda}\right)^2 - \frac{\mathcal{L}^2}{r^2} + \frac{2\mathcal{L}}{r^3} - \frac{2}{r} \epsilon + \epsilon,
+          &= \left(\frac{dr}{d\lambda}\right)^2 - \left(\frac{\mathcal{L}^2}{r^2} - \frac{2\mathcal{L}^2}{r^3} + \frac{2}{r} \epsilon - \epsilon\right), \\
+          &= \left(\frac{dr}{d\lambda}\right)^2 - \frac{\mathcal{L}^2}{r^2} + \frac{2\mathcal{L}^2}{r^3} - \frac{2}{r} \epsilon + \epsilon,
+        \end{align*}
+      " />
+
+      <LinkH4 id="timelike-geodesics">Timelike Geodesics</LinkH4>
+      <p>For timelike geodesics, <InlineMath math="\lambda = \tau" /> and <InlineMath math="\epsilon = -1" />:</p>
+      <BlockMath math="
+        \begin{align*}
+          \mathcal{E}^2 &= \left(\frac{dr}{d\tau}\right)^2 - \frac{\mathcal{L}^2}{r^2} + \frac{2\mathcal{L}^2}{r^3} + \frac{2}{r} - 1, \\
+          \left(\frac{E}{m}\right)^2 &= \left(\frac{dr}{d\tau}\right)^2 - \frac{L^2}{m^2 r^2} + \frac{2 L^2}{m^2 r^3} + \frac{2}{r} - 1, \\
+          \frac{1}{2} m \left(\frac{E}{m}\right)^2 &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \frac{L^2}{2 m r^2} + \frac{L^2}{m r^3} + \frac{m}{r} - \frac{m}{2}, \\
+          \frac{1}{2} \left(\frac{E^2}{m} + m\right) &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \frac{L^2}{2 m r^2} + \frac{L^2}{m r^3} + \frac{m}{r} \\
+          &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \left(\frac{L^2}{2 m r^2} - \frac{m}{r} - \frac{L^2}{m r^3}\right).
+        \end{align*}
+      " />
+
+      <p>Comparing with the newtonian potential equation, we can see the difference on the left side and the difference between potentials on the right side:</p>
+      <BlockMath math="
+        \begin{align*}
+          E &= \frac{1}{2} m \left(\frac{dr}{dt}\right)^2 + \left(\frac{L^2}{2 m r^2} - \frac{m}{r}\right), \\
+        \end{align*}
+      " />
+
+      <p>Converting to SI units:</p>
+      <BlockMath math="
+        \begin{align*}
         \end{align*}
       " />
     </div>
