@@ -5,16 +5,24 @@ export function toScientific(num: number) {
     return "0"
   }
 
+  if (num === 1) {
+    return "1"
+  }
+
   let exponent = Math.floor(Math.log10(Math.abs(num)))
-  let coefficient = num / Math.pow(10, exponent)
+  let coefficient = Math.floor(num / Math.pow(10, exponent) * 100) / 100
 
   let exponentPart = String.raw` \cdot 10^{${exponent}}`
+
+  if (exponent === 1) {
+    return String.raw`${coefficient * 10}`
+  }
 
   if (exponent === 0) {
     exponentPart = ""
   }
 
-  return String.raw`${coefficient.toFixed(2)}${exponentPart}`
+  return String.raw`${coefficient}${exponentPart}`
 }
 
 export function sumArray(arr: number[], initial = 0): number {

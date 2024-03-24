@@ -186,7 +186,7 @@ export default async function Home() {
           &= \lim_{r \to 0^+} \frac{2 - r}{r} = \infty,
         \end{align*}
       " />
-      <p>this, unfortunately, is a true singularity and at this point, general relativity stops making sense.</p>
+      <p>this, unfortunately, is a true singularity and at this point general relativity stops making sense.</p>
     </div>
   )
 }

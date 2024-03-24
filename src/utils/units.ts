@@ -74,7 +74,10 @@ export function addExtraConst(index: number, value: number, extraConsts = defaul
 export const velocityUnitSI: UnitType = [-1, 1, 0, 0, 0, 0, 0] 
 export const lengthUnitSI: UnitType = [0, 1, 0, 0, 0, 0, 0] 
 export const timeUnitSI: UnitType = [1, 0, 0, 0, 0, 0, 0] 
+export const frequencyUnitSI: UnitType = [-1, 0, 0, 0, 0, 0, 0] 
 export const massUnitSI: UnitType = [0, 0, 1, 0, 0, 0, 0] 
+export const energyUnitSI: UnitType = [-2, 2, 1, 0, 0, 0, 0] 
+export const angularMomentumUnitSI: UnitType = [-1, 2, 1, 0, 0, 0, 0] 
 
 export function getFactor(
     system: UnitSystem,
@@ -90,12 +93,12 @@ export function getFactor(
 
 export function convert(
     value: number,
-    unit: UnitType,
+    siUnit: UnitType,
     system: UnitSystem,
     direction: "f" | "b",
     extraConsts: UnitTypeNull = [null, null, null, null, null, null, null]
 ): number {
-    let factor = getFactor(system, unit, "f").reduce((total, el, i) => {
+    let factor = getFactor(system, siUnit, "f").reduce((total, el, i) => {
         let constant = extraConsts[i] ?? units[system].consts[i]
 
         return total * constant ** el
@@ -107,11 +110,11 @@ export function convert(
 
 export function fromSI(
     value: number,
-    unit: UnitType,
+    siUnit: UnitType,
     system: UnitSystem,
     extraConsts: UnitTypeNull = [null, null, null, null, null, null, null]
 ): number {
-    return convert(value, unit, system, "f", extraConsts)        
+    return convert(value, siUnit, system, "f", extraConsts)        
 }
 
 export function toSI(
@@ -120,6 +123,5 @@ export function toSI(
     system: UnitSystem,
     extraConsts: UnitTypeNull = [null, null, null, null, null, null, null]
 ): number {
-    const naturalUnit = getFactor(system, siUnit, "f")
     return convert(value, siUnit, system, "b", extraConsts)        
 }

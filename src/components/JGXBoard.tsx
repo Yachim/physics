@@ -15,16 +15,19 @@ export type BoardProps = {
 export type FixedInput = JXG.Input & { set(val: any): void }
 
 export function CustomJXGBoard({
+  id,
   bbox,
   axis,
   initFn,
 }: BoardProps & {
+  id: string
   initFn?: (board: JXG.Board) => void
 }) {
   const el = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const board = JXG.JSXGraph.initBoard(el.current!, {
+    const board = JXG.JSXGraph.initBoard(id, {
+      renderer: "canvas",
       axis: axis ?? true,
       boundingBox: bbox ?? [-8, 4.5, 8, -4.5],
       showCopyright: false,
@@ -36,9 +39,9 @@ export function CustomJXGBoard({
     }
 
     return () => JXG.JSXGraph.freeBoard(board)
-  }, [bbox, initFn, axis])
+  }, [bbox, initFn, axis, id])
 
   return (
-    <div className="w-full aspect-video" ref={el} />
+    <div className="w-full aspect-video" id={id} />
   )
 }
