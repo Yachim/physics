@@ -209,7 +209,7 @@ export default async function Home() {
         \end{align*}
       " />
 
-      <p>Every orbit has one or two points where <InlineMath math="\frac{dr}{dt} = 0" /> (or everywhere for circular orbit). We can solve for these:</p>
+      <p>Every orbit has two points where <InlineMath math="\frac{dr}{dt} = 0" /> (or everywhere for circular orbit). We can solve for these:</p>
       <BlockMath math="
         \begin{align*}
           E &= \frac{L^2}{2 m r^2} - \frac{m}{r}, \\
@@ -222,7 +222,7 @@ export default async function Home() {
         \end{align*}
       " />
 
-      <p>If the discriminant <InlineMath math="D" /> is equal to zero, the orbit is either circular. Otherwise the orbit is elliptic, parabolic or hyperbolic. Solving for energy when <InlineMath math="D = 0" />:</p>
+      <p>If the discriminant <InlineMath math="D" /> is equal to zero, the orbit is circular. Otherwise the orbit is elliptic, parabolic or hyperbolic. Solving for energy when <InlineMath math="D = 0" />:</p>
       <BlockMath math="
         \begin{align*}
           0 &= m^2 + 2\frac{E L^2}{m}, \\
@@ -246,6 +246,14 @@ export default async function Home() {
           v_{perp} &= \pm \frac{1}{\sqrt{r}}.
         \end{align*}
       " />
+
+      <p>The equations of motion can be derived from angular momentum and energy:</p>
+      <BlockMath math="
+        \begin{align*}
+          \frac{d\phi}{dt}(r) &= \frac{m r}{L}, \\
+          \frac{dr}{dt}(r) &=  \sqrt{\frac{2}{m}(E - U_{eff}(r))},
+        \end{align*}
+      "/>
 
       <LinkH4 id="newtonian-orbit-predictor">Newtonian Orbit Predictor</LinkH4>
       <p>Note: these are only approximations.</p>
@@ -286,9 +294,11 @@ export default async function Home() {
           \left(\frac{E}{m}\right)^2 &= \left(\frac{dr}{d\tau}\right)^2 - \frac{L^2}{m^2 r^2} + \frac{2 L^2}{m^2 r^3} + \frac{2}{r} - 1, \\
           \frac{1}{2} m \left(\frac{E}{m}\right)^2 &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \frac{L^2}{2 m r^2} + \frac{L^2}{m r^3} + \frac{m}{r} - \frac{m}{2}, \\
           \frac{1}{2} \left(\frac{E^2}{m} + m\right) &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \frac{L^2}{2 m r^2} + \frac{L^2}{m r^3} + \frac{m}{r} \\
-          &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \left(\frac{L^2}{2 m r^2} - \frac{m}{r} - \frac{L^2}{m r^3}\right).
+          &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \left(\frac{L^2}{2 m r^2} - \frac{m}{r} - \frac{L^2}{m r^3}\right), \\
+          \mathscr{E} &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \left(\frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}\right),
         \end{align*}
       " />
+      <p>where <InlineMath math="\mathscr{E} = \frac{1}{2} \left(\frac{E^2}{m} + m\right) = \frac{1}{2} \left(m \mathcal{E}^2 + m\right)"/>, <InlineMath math="\mathcal{E} = \frac{E}{m}"/> and <InlineMath math="\mathcal{L} = \frac{L}{m}"/>.</p>
 
       <p>Comparing with the newtonian potential equation, we can see the difference on the left side and the difference between potentials on the right side:</p>
       <BlockMath math="
@@ -297,11 +307,8 @@ export default async function Home() {
         \end{align*}
       " />
 
-      <p>Converting to SI units:</p>
-      <BlockMath math="
-        \begin{align*}
-        \end{align*}
-      " />
+      {/* FIXME: why does it vanish? */}
+      <p>we see that they are almost identical apart from the sign of the potential (due to the sign convention) and the extra term in the potential. The last extra term vanishes at low speeds.</p>
     </div>
   )
 }

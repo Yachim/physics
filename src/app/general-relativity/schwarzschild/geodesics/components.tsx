@@ -2,9 +2,12 @@
 
 import Canvas from "@/components/canvas"
 import { toScientific } from "@/utils/misc"
-import { addExtraConst, angularMomentumUnitSI, energyUnitSI, frequencyUnitSI, fromSI, lengthUnitSI, massUnitSI, toSI, velocityUnitSI } from "@/utils/units"
-import { useCallback, useMemo, useState } from "react"
+import { addExtraConst, angularMomentumUnitSI, energyUnitSI, frequencyUnitSI, fromSI, lengthUnitSI, massUnitSI, timeUnitSI, toSI, velocityUnitSI } from "@/utils/units"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { BlockMath, InlineMath } from "react-katex"
+
+const freq = 30
+const timeInterval = 1/freq
 
 export function NewtonianOrbitPredictor() {
     const [bigM, setBigM] = useState(1.97e30)
@@ -32,7 +35,6 @@ export function NewtonianOrbitPredictor() {
     const eSI = useMemo(() => toSI(eGeo, energyUnitSI, "geometrizedMass", addExtraConst(2, bigM)), [eGeo, bigM])
 
     const sqrtD = useMemo(() => Math.sqrt(mGeo ** 2 + 2 * eGeo * (lGeo ** 2) / mGeo), [mGeo, eGeo, lGeo])
-    console.log(sqrtD)
     const r1Geo = useMemo(() => - (mGeo - sqrtD) / (2 * eGeo), [mGeo, sqrtD])
     const r2Geo = useMemo(() => - (mGeo + sqrtD) / (2 * eGeo), [mGeo, sqrtD])
 
@@ -40,28 +42,75 @@ export function NewtonianOrbitPredictor() {
     const r2SI = useMemo(() => toSI(r2Geo, lengthUnitSI, "geometrizedMass", addExtraConst(2, bigM)), [r2Geo, bigM])
 
     // ellipse variables
-    const aGeo = useMemo(() => Math.abs(r1Geo + r2Geo) / 2, [r1Geo, r2Geo])
+    const aGeo = useMemo(() => (r1Geo + r2Geo) / 2, [r1Geo, r2Geo])
     const cGeo = useMemo(() => aGeo - r1Geo, [aGeo, r1Geo])
     const bGeo = useMemo(() => Math.sqrt(aGeo ** 2 - cGeo ** 2), [aGeo, cGeo])
 
     const aSI = useMemo(() => toSI(aGeo, lengthUnitSI, "geometrizedMass", addExtraConst(2, bigM)), [aGeo, bigM])
     const cSI = useMemo(() => toSI(cGeo, lengthUnitSI, "geometrizedMass", addExtraConst(2, bigM)), [cGeo, bigM])
 
+    /*
+    const [playing, setPlaying] = useState(false)
+
+    const getAngularVelocity = useCallback((r: number) => lGeo / (mGeo * r ** 2), [lGeo, mGeo])
+    const getRadialVelocity = useCallback((r: number) => Math.sqrt(Math.abs((2 / mGeo) * (eGeo - uEff(r)))), [mGeo, eGeo, uEff])
+
+    const [timeScale, setTimeScale] = useState(1)
+
+    const [rGeo, setRGeo] = useState(r1Geo)
+    useEffect(() => {
+        if (playing) return;
+
+        setRGeo(r1Geo)
+    }, [playing, r1Geo])
+
+    const [phi, setPhi] = useState(0)
+    const [tGeo, setTGeo] = useState(0)
+
+    useEffect(() => {
+        if (playing) return;
+
+        setPhi(0)        
+        setTGeo(0)
+    }, [playing])
+
+    useEffect(() => {
+        if (!playing) return;
+
+        const interval = setInterval(() => {
+            setRGeo(prevR => {
+                setPhi(prevPhi => {
+                    return prevPhi + getAngularVelocity(prevR) * timeInterval * timeScale
+                })
+                setTGeo(prev => prev + timeInterval * timeScale)
+
+                console.log(getRadialVelocity(prevR))
+                return prevR + getRadialVelocity(prevR) * timeInterval * timeScale
+            })
+        }, timeInterval)
+
+        return () => clearInterval(interval)
+    }, [playing, timeScale, aGeo, bGeo])
+
+    const rSI = toSI(rGeo, lengthUnitSI, "geometrizedMass", addExtraConst(2, bigM))
+    const tSI = toSI(tGeo, timeUnitSI, "geometrizedMass", addExtraConst(2, bigM))
+    */
+
     return (
         <div className="grid gap-2 grid-cols-[auto_auto]">
-            <label className="justify-self-end gap-0"><InlineMath math="M (kg)" />:</label>
+            <label className="justify-self-end gap-0"><InlineMath math="M\ (kg)" />:</label>
             <input className="justify-self-start" type="number" value={bigM} onChange={e => setBigM(+e.target.value)}/>
 
-            <label className="justify-self-end gap-0"><InlineMath math="m (kg)" />:</label>
+            <label className="justify-self-end gap-0"><InlineMath math="m\ (kg)" />:</label>
             <input className="justify-self-start" type="number" value={m} onChange={e => setM(+e.target.value)}/>
 
-            <label className="justify-self-end gap-0"><InlineMath math="r_0 (m)" />:</label>
+            <label className="justify-self-end gap-0"><InlineMath math="r_0\ (m)" />:</label>
             <input className="justify-self-start" type="number" value={r0} onChange={e => setR0(+e.target.value)}/>
 
-            <label className="justify-self-end gap-0"><InlineMath math="v_0 (m\ s^{-1})" />:</label>
+            <label className="justify-self-end gap-0"><InlineMath math="v_0\ (m\ s^{-1})" />:</label>
             <input className="justify-self-start" type="number" value={v0} onChange={e => setV0(+e.target.value)}/>
 
-            <label className="justify-self-end gap-0"><InlineMath math={speedType === "angular" ? "\\omega_0 (s^{-1})" : "v_{perp0} (m\\ s^{-1})"} />:</label>
+            <label className="justify-self-end gap-0"><InlineMath math={speedType === "angular" ? "\\omega_0\\ (s^{-1})" : "v_{perp0}\\ (m\\ s^{-1})"} />:</label>
             <div className="flex gap-2">
                 <input 
                     className="justify-self-start" 
@@ -85,6 +134,19 @@ export function NewtonianOrbitPredictor() {
                 <p className="text-lg">Ellipse Data</p>
                 <p>Semi-major axis: <InlineMath math={`${toScientific(aSI)}\ m`} /></p>
                 <p>Distance of star from center: <InlineMath math={`${toScientific(cSI)}\ m`} /></p>
+                {/*
+                <label className="flex gap-2">
+                    <span>Time scale (<InlineMath math="s"/>):</span>
+                    <input type="number" value={timeScale} onChange={e => setTimeScale(+e.target.value)} />
+                </label>
+                <button onClick={() => setPlaying(prev => !prev)}>{playing ? "Stop" : "Play"}</button>
+                <BlockMath math={String.raw`
+                    \begin{align*}
+                        r &= ${toScientific(rSI)}\ m, \\
+                        t &= ${toScientific(tSI)}\ s, \\
+                    \end{align*}
+                `} />
+                */}
                 <Canvas width={800} height={450} draw={(ctx: CanvasRenderingContext2D) => {
                     const width = ctx.canvas.width
                     const height = ctx.canvas.height
@@ -99,20 +161,35 @@ export function NewtonianOrbitPredictor() {
                         ellipseHeight = ellipseWidth * (bGeo / aGeo);
                     }
 
+                    const ellipseA = ellipseWidth / 2
+                    const ellipseB = ellipseHeight / 2
+
+                    const ratio = ellipseA / aGeo
+
                     ctx.beginPath();
-                    ctx.ellipse(centerX, centerY, ellipseWidth / 2, ellipseHeight / 2, 0, 0, 2 * Math.PI)
+                    ctx.ellipse(centerX, centerY, ellipseA, ellipseB, 0, 0, 2 * Math.PI)
                     ctx.strokeStyle = 'lightblue'
                     ctx.lineWidth = 2
                     ctx.stroke()
 
-                    const distanceFromCenter = cGeo / aGeo * ellipseHeight / 2
-                    const dotX = centerX + distanceFromCenter
-                    const dotY = centerY
+                    const distanceFromCenter = cGeo * ratio
+                    const starX = centerX + distanceFromCenter
+                    const starY = centerY
                     const dotRadius = 5
                     ctx.beginPath()
-                    ctx.arc(dotX, dotY, dotRadius, 0, 2 * Math.PI)
+                    ctx.arc(starX, starY, dotRadius, 0, 2 * Math.PI)
                     ctx.fillStyle = 'orange'
                     ctx.fill()
+
+                    /*
+                    const planetX = starX + rGeo * Math.cos(phi) * ratio
+                    const planetY = starY + rGeo * Math.sin(phi) * ratio
+                    const planetRadius = 3
+                    ctx.beginPath()
+                    ctx.arc(planetX, planetY, planetRadius, 0, 2 * Math.PI)
+                    ctx.fillStyle = 'blue'
+                    ctx.fill()
+                    */
                 }}/>
             </div>
         </div>
