@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import { BlockMath, InlineMath } from "react-katex";
-import { LinkH2, LinkH3, LinkH4 } from "@/components/LinkHeadings";
+import { LinkH2, LinkH3, LinkH4, LinkH5 } from "@/components/LinkHeadings";
 import Image from "next/image";
 import getConfig from "next/config";
-import { NewtonianOrbitPredictor } from "./components";
+import { NewtonianOrbitPredictor, SchwarzschildOrbitPredictor } from "./components";
 
 export const metadata: Metadata = {
   title: "Geodesics"
@@ -150,8 +150,8 @@ export default async function Home() {
       <p>Taking the limit as <InlineMath math="r \to \infty" /> for <InlineMath math="\mathcal{E}" />, we recover time component of 4-momentum in flat space (taking <InlineMath math="\lambda = \tau" />):</p>
       <BlockMath math="
         \begin{align*}
-          \lim_{r \to \infty} \frac{E}{m} &= \lim_{r \to \infty} \frac{dt}{d\lambda} \left(1 - \frac{2}{r}\right) \\
-          &= \frac{dt}{d\lambda} \\
+          \lim_{r \to \infty} \frac{E}{m} &= \lim_{r \to \infty} \frac{dt}{d\tau} \left(1 - \frac{2}{r}\right) \\
+          &= \frac{dt}{d\tau} \\
           &= \gamma, \\
           E &\to \gamma m.
         \end{align*}
@@ -247,16 +247,7 @@ export default async function Home() {
         \end{align*}
       " />
 
-      <p>The equations of motion can be derived from angular momentum and energy:</p>
-      <BlockMath math="
-        \begin{align*}
-          \frac{d\phi}{dt}(r) &= \frac{m r}{L}, \\
-          \frac{dr}{dt}(r) &=  \sqrt{\frac{2}{m}(E - U_{eff}(r))},
-        \end{align*}
-      "/>
-
       <LinkH4 id="newtonian-orbit-predictor">Newtonian Orbit Predictor</LinkH4>
-      <p>Note: these are only approximations.</p>
       <NewtonianOrbitPredictor/>
       
       <LinkH3 id="relativistic-orbits">Relativistic Orbits</LinkH3>
@@ -295,10 +286,11 @@ export default async function Home() {
           \frac{1}{2} m \left(\frac{E}{m}\right)^2 &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \frac{L^2}{2 m r^2} + \frac{L^2}{m r^3} + \frac{m}{r} - \frac{m}{2}, \\
           \frac{1}{2} \left(\frac{E^2}{m} + m\right) &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \frac{L^2}{2 m r^2} + \frac{L^2}{m r^3} + \frac{m}{r} \\
           &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \left(\frac{L^2}{2 m r^2} - \frac{m}{r} - \frac{L^2}{m r^3}\right), \\
-          \mathscr{E} &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \left(\frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}\right),
+          \mathscr{E} &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \left(\frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}\right), \\
+          &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - U_{eff}(r),
         \end{align*}
       " />
-      <p>where <InlineMath math="\mathscr{E} = \frac{1}{2} \left(\frac{E^2}{m} + m\right) = \frac{1}{2} \left(m \mathcal{E}^2 + m\right)"/>, <InlineMath math="\mathcal{E} = \frac{E}{m}"/> and <InlineMath math="\mathcal{L} = \frac{L}{m}"/>.</p>
+      <p>where <InlineMath math="\mathscr{E} = \frac{1}{2} \left(\frac{E^2}{m} + m\right) = \frac{1}{2} \left(m \mathcal{E}^2 + m\right)"/>, <InlineMath math="\mathcal{E} = \frac{E}{m}"/>, <InlineMath math="\mathcal{L} = \frac{L}{m} = r^2 \frac{d\phi}{d\tau}"/> and <InlineMath math="U_{eff}(r) = \frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}"/>.</p>
 
       <p>Comparing with the newtonian potential equation, we can see the difference on the left side and the difference between potentials on the right side:</p>
       <BlockMath math="
@@ -307,8 +299,61 @@ export default async function Home() {
         \end{align*}
       " />
 
-      {/* FIXME: why does it vanish? */}
-      <p>we see that they are almost identical apart from the sign of the potential (due to the sign convention) and the extra term in the potential. The last extra term vanishes at low speeds.</p>
+      <p>we see that they are almost identical apart from the sign of the potential (due to the sign convention) and the extra term in the potential. The last extra term vanishes at further distances.</p>
+      
+      {/* FIXME: negative sign? */}
+      <p>Below is a plot of the effective potential energy where <InlineMath math="m = 1"/> using geometrized units. Red curve is for <InlineMath math="\mathcal{L} = 2"/>, orange for <InlineMath math="\mathcal{L} = 10"/>, green for <InlineMath math="\mathcal{L} = 15"/> and blue for <InlineMath math="\mathcal{L} = 20"/>:</p>
+      <div className="w-full flex justify-center">
+        <Image
+          src={`${basePath}/assets/general-relativity/schwarzschild/schwarzschild-potentials.svg`}
+          width={500}
+          height={500}
+          alt="Schwarzschild potentials"
+        />
+      </div>
+
+      <p>I will use the green line where <InlineMath math="\mathcal{L} = 15"/>. We can start with two energies:</p>
+      <div className="w-full flex justify-center">
+        <Image
+          src={`${basePath}/assets/general-relativity/schwarzschild/schwarzschild-potentials2.svg`}
+          width={500}
+          height={500}
+          alt="Schwarzschild potential with energies"
+        />
+      </div>
+      <p>for <InlineMath math="E_1"/>, there are two distances - <InlineMath math="r_1"/> and <InlineMath math="r_2"/>. If the distance is <InlineMath math="r_1"/>, the body falls into the other body. If the distance is <InlineMath math="r_2"/>, the body flies away towards infinity. <InlineMath math="E_2"/> is <b>unstable</b> circular orbit. If we change the total energy by even a small amount, then the body either falls into the other body or flies away towards infinity.</p>
+
+      <p>There are also two other energy levels that cannot be seen on the image above:</p>
+      <div className="w-full flex justify-center">
+        <Image
+          src={`${basePath}/assets/general-relativity/schwarzschild/schwarzschild-potentials3.svg`}
+          width={500}
+          height={500}
+          alt="Schwarzschild potential with energies 2"
+        />
+      </div>
+      
+      <p><InlineMath math="E_3"/> shows the energy level of <b>stable</b> circular orbit and <InlineMath math="E_4"/> shown the energy level of elliptical orbit.</p>
+
+      <p>Similarly, the constants of motion can be given by the initial distance <InlineMath math="r_0"/>, intial radial velocity <InlineMath math="v_0"/> and the initial angular velocity <InlineMath math="\omega_0"/>.:</p>
+      <BlockMath math="
+        \begin{align*}
+          \mathcal{L} &= r_0^2 \omega_0, \\
+          \mathscr{E} &= \frac{1}{2} m v_0^2 - U_{eff}(r_0),
+        \end{align*}
+      " />
+      <p>where <InlineMath math="U_{eff}(r) = \frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}"/>. Setting <InlineMath math="\frac{dt}{d\tau} = 0"/>, we can solve for extramal distances:</p>
+      <BlockMath math="
+        \begin{align*}
+          \mathscr{E} &= - \left(\frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}\right), \\
+          0 &= \mathscr{E} + \frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}, \\
+          0 &= r^3 \mathscr{E} + r \frac{m \mathcal{L}^2}{2} - r^2 m - m \mathcal{L}^2,
+        \end{align*}
+      "/>
+      <p>this can be solved by the cubic equation.</p>
+
+      <LinkH5 id="schwarzschild-orbit-predictor">Schwarzschild Orbit Predictor</LinkH5>
+      <SchwarzschildOrbitPredictor/>
     </div>
   )
 }
