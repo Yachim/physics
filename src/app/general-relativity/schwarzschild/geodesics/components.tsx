@@ -1,6 +1,7 @@
 "use client"
 
 import Canvas from "@/components/canvas"
+import { solveCubic } from "@/utils/calculations"
 import { toScientific } from "@/utils/misc"
 import { addExtraConst, angularMomentumUnitSI, energyUnitSI, frequencyUnitSI, fromSI, lengthUnitSI, massUnitSI, timeUnitSI, toSI, velocityUnitSI } from "@/utils/units"
 import { useCallback, useEffect, useMemo, useState } from "react"
@@ -158,12 +159,11 @@ export function SchwarzschildOrbitPredictor() {
     const lSI = useMemo(() => toSI(lGeo, [-1, 2, 0, 0, 0, 0, 0], "geometrizedMass", addExtraConst(2, bigM)), [lGeo, bigM])
     const eSI = useMemo(() => toSI(eGeo, energyUnitSI, "geometrizedMass", addExtraConst(2, bigM)), [eGeo, bigM])
 
-    const sqrtD = useMemo(() => Math.sqrt(mGeo ** 2 + 2 * eGeo * (lGeo ** 2) / mGeo), [mGeo, eGeo, lGeo])
-    const r1Geo = useMemo(() => - (mGeo - sqrtD) / (2 * eGeo), [mGeo, sqrtD])
-    const r2Geo = useMemo(() => - (mGeo + sqrtD) / (2 * eGeo), [mGeo, sqrtD])
+    const [r1Geo, r2Geo, r3Geo] = useMemo(() => solveCubic(eGeo, -mGeo, mGeo * lGeo ** 2 / 2, -mGeo * lGeo ** 2), [eGeo, mGeo, lGeo])
 
     const r1SI = useMemo(() => toSI(r1Geo, lengthUnitSI, "geometrizedMass", addExtraConst(2, bigM)), [r1Geo, bigM])
     const r2SI = useMemo(() => toSI(r2Geo, lengthUnitSI, "geometrizedMass", addExtraConst(2, bigM)), [r2Geo, bigM])
+    const r3SI = useMemo(() => toSI(r3Geo, lengthUnitSI, "geometrizedMass", addExtraConst(2, bigM)), [r3Geo, bigM])
 
     // ellipse variables
     const aGeo = useMemo(() => (r1Geo + r2Geo) / 2, [r1Geo, r2Geo])
@@ -204,7 +204,8 @@ export function SchwarzschildOrbitPredictor() {
                         L &= ${toScientific(lSI)}\ kg\ m^2\ s^{-1}, \\
                         E &= ${toScientific(eSI)}\ J, \\
                         r_1 &= ${toScientific(r1SI)}\ m, \\
-                        r_2 &= ${toScientific(r2SI)}\ m.
+                        r_2 &= ${toScientific(r2SI)}\ m, \\
+                        r_3 &= ${toScientific(r3SI)}\ m.
                     \end{align*}
                 `} />
 

@@ -27,7 +27,7 @@ export default async function Home() {
         \end{align*}
       "/>
 
-      <LinkH2 id="lightlike-geodesics">Lightlike Geodesics</LinkH2>
+      <LinkH2 id="incoming-lightlike-geodesics">Incoming Lightlike Geodesics</LinkH2>
       <p>For incoming lightlike geodesics, we will take <InlineMath math="\theta, \phi" /> to be constant. The metric and geodesic equations simplify:</p>
       <BlockMath math="
         \begin{align*}
@@ -222,17 +222,15 @@ export default async function Home() {
         \end{align*}
       " />
 
-      <p>If the discriminant <InlineMath math="D" /> is equal to zero, the orbit is circular. Otherwise the orbit is elliptic, parabolic or hyperbolic. Solving for energy when <InlineMath math="D = 0" />:</p>
+      <p>If the radial velocity <InlineMath math="\frac{dr}{dt}" /> is zero everywhere, we have circular orbit. The energy is equal to the effective potential energy:</p>
+      <BlockMath math="E = \frac{L^2}{2 m r^2} - \frac{m}{r}," />
+      <p>this has to stay constant, taking the derivative:</p>
+      <BlockMath math="\frac{d}{dt} \left(\frac{L^2}{2 m r^2} - \frac{m}{r}\right) = - \frac{L^2}{m r^3} + \frac{m}{r^2} = 0," />
+      <p>and solving for <InlineMath math="r" />:</p>
       <BlockMath math="
         \begin{align*}
-          0 &= m^2 + 2\frac{E L^2}{m}, \\
-          2\frac{E L^2}{m} &= -m^2, \\
-          E &= -\frac{m^3}{2L^2}, \\
-        \end{align*}
-      " />
-      <p>and substituting into the equation for <InlineMath math="r" />:</p>
-      <BlockMath math="
-        \begin{align*}
+          - \frac{L^2}{m r^3} + \frac{m}{r^2} &= 0, \\
+          r m^2 - L^2 &= 0,
           r &= \frac{L^2}{m^2},
         \end{align*}
       " />
@@ -256,9 +254,9 @@ export default async function Home() {
       <p>where <InlineMath math="\epsilon" /> is:</p>
       <BlockMath math="
         \begin{align*}
-          \epsilon &< 0, & &\textrm{for time-like geodesics}, \\
+          \epsilon &< 0, & &\textrm{for time-like geodesics (\(\lambda = \tau\))}, \\
           \epsilon &= 0, & &\textrm{for light-like geodesics}, \\
-          \epsilon &> 0, & &\textrm{for space-like geodesics},
+          \epsilon &> 0, & &\textrm{for space-like geodesics (\(\lambda = L_0\))},
         \end{align*}
       " />
       <p>but I will not be considering space-like geodesics.</p>
@@ -333,7 +331,7 @@ export default async function Home() {
         />
       </div>
       
-      <p><InlineMath math="E_3"/> shows the energy level of <b>stable</b> circular orbit and <InlineMath math="E_4"/> shown the energy level of elliptical orbit.</p>
+      <p><InlineMath math="E_3"/> shows the energy level of <b>stable</b> circular orbit and <InlineMath math="E_4"/> shows the energy level of elliptical orbit.</p>
 
       <p>Similarly, the constants of motion can be given by the initial distance <InlineMath math="r_0"/>, intial radial velocity <InlineMath math="v_0"/> and the initial angular velocity <InlineMath math="\omega_0"/>.:</p>
       <BlockMath math="
@@ -347,13 +345,74 @@ export default async function Home() {
         \begin{align*}
           \mathscr{E} &= - \left(\frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}\right), \\
           0 &= \mathscr{E} + \frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}, \\
-          0 &= r^3 \mathscr{E} + r \frac{m \mathcal{L}^2}{2} - r^2 m - m \mathcal{L}^2,
+          0 &= r^3 \mathscr{E} - r^2 m + r \frac{m \mathcal{L}^2}{2} - m \mathcal{L}^2,
         \end{align*}
       "/>
       <p>this can be solved by the cubic equation.</p>
-
-      <LinkH5 id="schwarzschild-orbit-predictor">Schwarzschild Orbit Predictor</LinkH5>
+      <p>For circular orbits <InlineMath math="\frac{dr}{d\tau} = 0" /> and the energy is equal to the effective potential energy. We can solve for the radius by taking the derivative (since the potential stays constant):</p>
+      {/* TODO: prove that in a limit case (c -> inf) that the newton equation is retrieved  */}
+      <BlockMath math="
+        \begin{align*}
+          \mathscr{E} &= - \left(\frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}\right), \\
+          0 &= - \frac{d}{dr}\left(- \frac{m \mathcal{L}^2}{r^3} + \frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r}\right) \\
+          &= - \left(3 \frac{m \mathcal{L}^2}{r^4} - \frac{m \mathcal{L}^2}{r^3} + \frac{m}{r^2}\right), \\
+          0 &= 3\frac{m \mathcal{L}^2}{r^4} - \frac{m \mathcal{L}^2}{r^3} + \frac{m}{r^2}, \\
+          0 &= r^2 m - r m \mathcal{L}^2 + 3 m \mathcal{L}^2, \\
+          D &= \left(-m \mathcal{L}^2\right)^2 - 4 (m) (3 m \mathcal{L}^2) \\
+          &= m^2 \mathcal{L}^4 - 12 m^2 \mathcal{L}^2, \\
+          r &= \frac{-(-m \mathcal{L}^2) \pm \sqrt{m^2 \mathcal{L}^4 - 12 m^2 \mathcal{L}^2}}{2m} \\
+          &= \frac{m \mathcal{L}^2 \pm m\sqrt{\mathcal{L}^4 - 12 \mathcal{L}^2}}{2m} \\
+          &= \frac{\mathcal{L}^2 \pm \sqrt{\mathcal{L}^4 - 12 \mathcal{L}^2}}{2},
+        \end{align*}
+      "/>
+      <p>where <InlineMath math="-" /> is the unstable orbit and <InlineMath math="+" /> is the stable orbit.</p>
+      <p>The stable and unstable orbits can converge when discriminant is zero:</p>
+      <BlockMath math="
+        \begin{align*}
+          D &= m^2 \mathcal{L}^4 - 12 m^2 \mathcal{L}^2 = 0, \\
+           m^2 \mathcal{L}^4 &= 12 m^2 \mathcal{L}^2, \\
+           \mathcal{L}^2 &= 12,
+        \end{align*}
+      "/>
+      <p>substituting into the equation for <InlineMath math="r" />:</p>
+      <BlockMath math="
+        \begin{align*}
+          r &= \frac{\mathcal{L}^2 \pm \sqrt{\mathcal{L}^4 - 12 \mathcal{L}^2}}{2} \\
+          &= \frac{\mathcal{L}^2}{2} \\
+          &= \frac{12}{2} \\
+          &= 6 \\
+          &= 3 r_s,
+        \end{align*}
+      "/>
+      <p>this is the inner most stable circular orbit.</p>
+      {/* FIXME: not working */}
+      <LinkH5 id="schwarzschild-orbit-predictor">Schwarzschild Orbit Predictor (Work in Progress)</LinkH5>
       <SchwarzschildOrbitPredictor/>
+
+      <LinkH4 id="lightlike-geodesics">Lightlike Geodesics</LinkH4>
+      <p>For lightlike geodesics, <InlineMath math="\epsilon = 0" />:</p>
+      <BlockMath math="
+        \begin{align*}
+          \mathcal{E}^2 &= \left(\frac{dr}{d\lambda}\right)^2 - \frac{\mathcal{L}^2}{r^2} + \frac{2\mathcal{L}^2}{r^3} - \frac{2}{r} \epsilon + \epsilon \\
+          &= \left(\frac{dr}{d\lambda}\right)^2 - \frac{\mathcal{L}^2}{r^2} + \frac{2\mathcal{L}^2}{r^3}.
+        \end{align*}
+      " />
+
+      <p>Consider circular orbits (<InlineMath math="\frac{dr}{d\lambda}" />):</p>
+      <BlockMath math="\mathcal{E}^2 = -\frac{\mathcal{L}^2}{r^2} + \frac{2\mathcal{L}^2}{r^3}," />
+      <p>the right side is constant. Taking the derivative:</p>
+      <BlockMath math="\frac{d}{d\lambda} \left(-\frac{\mathcal{L}^2}{r^2} + \frac{2\mathcal{L}^2}{r^3}\right) = 2\frac{\mathcal{L}^2}{r^3} - 3 \frac{2\mathcal{L}^2}{r^4} = 0," />
+      <p>and solving for <InlineMath math="r" />:</p>
+      <BlockMath math="
+        \begin{align*}
+          2\frac{\mathcal{L}^2}{r^3} - 3 \frac{2\mathcal{L}^2}{r^4} &= 0, \\
+          2r \mathcal{L}^2 - 6\mathcal{L}^2 &= 0, \\
+          r - 3 &= 0, \\
+          r &= 3 \\
+          &= \frac{3}{2} r_s, \\
+        \end{align*}
+      " />
+      <p>this is the radius of the photon sphere. Light rays at this distance orbit the body in circles.</p>
     </div>
   )
 }
