@@ -268,10 +268,10 @@ export default async function Home() {
           \epsilon &= -\frac{r}{r - 2} \mathcal{E}^2 + \frac{r}{r - 2} \left(\frac{dr}{d\lambda}\right)^2 + \frac{\mathcal{L}^2}{r^2}, \\
           0 &= -\frac{r}{r - 2} \mathcal{E}^2 + \frac{r}{r - 2} \left(\frac{dr}{d\lambda}\right)^2 + \frac{\mathcal{L}^2}{r^2} - \epsilon, \\
           0 &= - \mathcal{E}^2 + \left(\frac{dr}{d\lambda}\right)^2 + \frac{r - 2}{r} \frac{\mathcal{L}^2}{r^2} - \frac{r - 2}{r} \epsilon, \\
-          0 &= - \mathcal{E}^2 + \left(\frac{dr}{d\lambda}\right)^2 - \left(1 - \frac{2}{r}\right) \left(\frac{\mathcal{L}^2}{r^2} - \epsilon\right), \\
-          \mathcal{E}^2 &= \left(\frac{dr}{d\lambda}\right)^2 - \left(1 - \frac{2}{r}\right) \left(\frac{\mathcal{L}^2}{r^2} - \epsilon\right), \\
-          &= \left(\frac{dr}{d\lambda}\right)^2 - \left(\frac{\mathcal{L}^2}{r^2} - \frac{2\mathcal{L}^2}{r^3} + \frac{2}{r} \epsilon - \epsilon\right), \\
-          &= \left(\frac{dr}{d\lambda}\right)^2 - \frac{\mathcal{L}^2}{r^2} + \frac{2\mathcal{L}^2}{r^3} - \frac{2}{r} \epsilon + \epsilon,
+          0 &= - \mathcal{E}^2 + \left(\frac{dr}{d\lambda}\right)^2 + \left(1 - \frac{2}{r}\right) \left(\frac{\mathcal{L}^2}{r^2} - \epsilon\right), \\
+          \mathcal{E}^2 &= \left(\frac{dr}{d\lambda}\right)^2 + \left(1 - \frac{2}{r}\right) \left(\frac{\mathcal{L}^2}{r^2} - \epsilon\right), \\
+          &= \left(\frac{dr}{d\lambda}\right)^2 + \left(\frac{\mathcal{L}^2}{r^2} - \frac{2\mathcal{L}^2}{r^3} + \frac{2}{r} \epsilon - \epsilon\right), \\
+          &= \left(\frac{dr}{d\lambda}\right)^2 + \frac{\mathcal{L}^2}{r^2} - \frac{2\mathcal{L}^2}{r^3} + \frac{2}{r} \epsilon - \epsilon,
         \end{align*}
       " />
 
@@ -279,13 +279,13 @@ export default async function Home() {
       <p>For timelike geodesics, <InlineMath math="\lambda = \tau" /> and <InlineMath math="\epsilon = -1" />:</p>
       <BlockMath math="
         \begin{align*}
-          \mathcal{E}^2 &= \left(\frac{dr}{d\tau}\right)^2 - \frac{\mathcal{L}^2}{r^2} + \frac{2\mathcal{L}^2}{r^3} + \frac{2}{r} - 1, \\
-          \left(\frac{E}{m}\right)^2 &= \left(\frac{dr}{d\tau}\right)^2 - \frac{L^2}{m^2 r^2} + \frac{2 L^2}{m^2 r^3} + \frac{2}{r} - 1, \\
-          \frac{1}{2} m \left(\frac{E}{m}\right)^2 &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \frac{L^2}{2 m r^2} + \frac{L^2}{m r^3} + \frac{m}{r} - \frac{m}{2}, \\
-          \frac{1}{2} \left(\frac{E^2}{m} + m\right) &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \frac{L^2}{2 m r^2} + \frac{L^2}{m r^3} + \frac{m}{r} \\
-          &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \left(\frac{L^2}{2 m r^2} - \frac{m}{r} - \frac{L^2}{m r^3}\right), \\
-          \mathscr{E} &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - \left(\frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}\right), \\
-          &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 - U_{eff}(r),
+          \mathcal{E}^2 &= \left(\frac{dr}{d\tau}\right)^2 + \frac{\mathcal{L}^2}{r^2} - \frac{2\mathcal{L}^2}{r^3} - \frac{2}{r} + 1, \\
+          \left(\frac{E}{m}\right)^2 &= \left(\frac{dr}{d\tau}\right)^2 + \frac{L^2}{m^2 r^2} - \frac{2 L^2}{m^2 r^3} - \frac{2}{r} + 1, \\
+          \frac{1}{2} m \left(\frac{E}{m}\right)^2 &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 + \frac{L^2}{2 m r^2} - \frac{L^2}{m r^3} - \frac{m}{r} + \frac{m}{2}, \\
+          \frac{1}{2} \left(\frac{E^2}{m} - m\right) &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 + \frac{L^2}{2 m r^2} - \frac{L^2}{m r^3} - \frac{m}{r} \\
+          &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 + \left(\frac{L^2}{2 m r^2} - \frac{m}{r} - \frac{L^2}{m r^3}\right), \\
+          \mathscr{E} &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 + \left(\frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}\right), \\
+          &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 + U_{eff}(r),
         \end{align*}
       " />
       <p>where <InlineMath math="\mathscr{E} = \frac{1}{2} \left(\frac{E^2}{m} + m\right) = \frac{1}{2} \left(m \mathcal{E}^2 + m\right)"/>, <InlineMath math="\mathcal{E} = \frac{E}{m}"/>, <InlineMath math="\mathcal{L} = \frac{L}{m} = r^2 \frac{d\phi}{d\tau}"/> and <InlineMath math="U_{eff}(r) = \frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}"/>.</p>
@@ -293,13 +293,14 @@ export default async function Home() {
       <p>Comparing with the newtonian potential equation, we can see the difference on the left side and the difference between potentials on the right side:</p>
       <BlockMath math="
         \begin{align*}
+          \mathscr{E} &= \frac{1}{2} m \left(\frac{dr}{d\tau}\right)^2 + \left(\frac{L^2}{2 m r^2} - \frac{m}{r} - \frac{L^2}{m r^3}\right), \\
           E &= \frac{1}{2} m \left(\frac{dr}{dt}\right)^2 + \left(\frac{L^2}{2 m r^2} - \frac{m}{r}\right), \\
         \end{align*}
       " />
 
-      <p>we see that they are almost identical apart from the sign of the potential (due to the sign convention) and the extra term in the potential. The last extra term vanishes at further distances.</p>
+      {/* TODO: prove that it vanishes at low speeds */}
+      <p>we see that the right sides are almost identical apart from the extra term in the potential. The last extra term vanishes at further distances.</p>
       
-      {/* FIXME: negative sign? */}
       <p>Below is a plot of the effective potential energy where <InlineMath math="m = 1"/> using geometrized units. Red curve is for <InlineMath math="\mathcal{L} = 2"/>, orange for <InlineMath math="\mathcal{L} = 10"/>, green for <InlineMath math="\mathcal{L} = 15"/> and blue for <InlineMath math="\mathcal{L} = 20"/>:</p>
       <div className="w-full flex justify-center">
         <Image
@@ -337,15 +338,15 @@ export default async function Home() {
       <BlockMath math="
         \begin{align*}
           \mathcal{L} &= r_0^2 \omega_0, \\
-          \mathscr{E} &= \frac{1}{2} m v_0^2 - U_{eff}(r_0),
+          \mathscr{E} &= \frac{1}{2} m v_0^2 + U_{eff}(r_0),
         \end{align*}
       " />
       <p>where <InlineMath math="U_{eff}(r) = \frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}"/>. Setting <InlineMath math="\frac{dt}{d\tau} = 0"/>, we can solve for extramal distances:</p>
       <BlockMath math="
         \begin{align*}
-          \mathscr{E} &= - \left(\frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}\right), \\
-          0 &= \mathscr{E} + \frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}, \\
-          0 &= r^3 \mathscr{E} - r^2 m + r \frac{m \mathcal{L}^2}{2} - m \mathcal{L}^2,
+          \mathscr{E} &= \frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}, \\
+          0 &= - \mathscr{E} - \frac{m}{r} + \frac{m \mathcal{L}^2}{2 r^2} - \frac{m \mathcal{L}^2}{r^3}, \\
+          0 &= - r^3 \mathscr{E} - r^2 m + r \frac{m \mathcal{L}^2}{2} - m \mathcal{L}^2, \\
         \end{align*}
       "/>
       <p>this can be solved by the cubic equation.</p>
@@ -353,10 +354,9 @@ export default async function Home() {
       {/* TODO: prove that in a limit case (c -> inf) that the newton equation is retrieved  */}
       <BlockMath math="
         \begin{align*}
-          \mathscr{E} &= - \left(\frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}\right), \\
-          0 &= - \frac{d}{dr}\left(- \frac{m \mathcal{L}^2}{r^3} + \frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r}\right) \\
-          &= - \left(3 \frac{m \mathcal{L}^2}{r^4} - \frac{m \mathcal{L}^2}{r^3} + \frac{m}{r^2}\right), \\
-          0 &= 3\frac{m \mathcal{L}^2}{r^4} - \frac{m \mathcal{L}^2}{r^3} + \frac{m}{r^2}, \\
+          \mathscr{E} &= \frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}, \\
+          0 &= \frac{d}{dr}\left(- \frac{m \mathcal{L}^2}{r^3} + \frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r}\right) \\
+          &= 3 \frac{m \mathcal{L}^2}{r^4} - \frac{m \mathcal{L}^2}{r^3} + \frac{m}{r^2}, \\
           0 &= r^2 m - r m \mathcal{L}^2 + 3 m \mathcal{L}^2, \\
           D &= \left(-m \mathcal{L}^2\right)^2 - 4 (m) (3 m \mathcal{L}^2) \\
           &= m^2 \mathcal{L}^4 - 12 m^2 \mathcal{L}^2, \\
@@ -393,18 +393,19 @@ export default async function Home() {
       <p>For lightlike geodesics, <InlineMath math="\epsilon = 0" />:</p>
       <BlockMath math="
         \begin{align*}
-          \mathcal{E}^2 &= \left(\frac{dr}{d\lambda}\right)^2 - \frac{\mathcal{L}^2}{r^2} + \frac{2\mathcal{L}^2}{r^3} - \frac{2}{r} \epsilon + \epsilon \\
-          &= \left(\frac{dr}{d\lambda}\right)^2 - \frac{\mathcal{L}^2}{r^2} + \frac{2\mathcal{L}^2}{r^3}.
+          \mathcal{E}^2 &= \left(\frac{dr}{d\lambda}\right)^2 + \frac{\mathcal{L}^2}{r^2} - \frac{2\mathcal{L}^2}{r^3} + \frac{2}{r} \epsilon - \epsilon \\
+          &= \left(\frac{dr}{d\lambda}\right)^2 + \frac{\mathcal{L}^2}{r^2} - \frac{2\mathcal{L}^2}{r^3}.
         \end{align*}
       " />
 
       <p>Consider circular orbits (<InlineMath math="\frac{dr}{d\lambda}" />):</p>
-      <BlockMath math="\mathcal{E}^2 = -\frac{\mathcal{L}^2}{r^2} + \frac{2\mathcal{L}^2}{r^3}," />
+      <BlockMath math="\mathcal{E}^2 = \frac{\mathcal{L}^2}{r^2} - \frac{2\mathcal{L}^2}{r^3}," />
       <p>the right side is constant. Taking the derivative:</p>
-      <BlockMath math="\frac{d}{d\lambda} \left(-\frac{\mathcal{L}^2}{r^2} + \frac{2\mathcal{L}^2}{r^3}\right) = 2\frac{\mathcal{L}^2}{r^3} - 3 \frac{2\mathcal{L}^2}{r^4} = 0," />
+      <BlockMath math="\frac{d}{d\lambda} \left(\frac{\mathcal{L}^2}{r^2} - \frac{2\mathcal{L}^2}{r^3}\right) = -2\frac{\mathcal{L}^2}{r^3} + 3 \frac{2\mathcal{L}^2}{r^4} = 0," />
       <p>and solving for <InlineMath math="r" />:</p>
       <BlockMath math="
         \begin{align*}
+          -2\frac{\mathcal{L}^2}{r^3} + 3 \frac{2\mathcal{L}^2}{r^4} &= 0, \\
           2\frac{\mathcal{L}^2}{r^3} - 3 \frac{2\mathcal{L}^2}{r^4} &= 0, \\
           2r \mathcal{L}^2 - 6\mathcal{L}^2 &= 0, \\
           r - 3 &= 0, \\

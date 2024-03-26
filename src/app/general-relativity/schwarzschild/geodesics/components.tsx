@@ -33,8 +33,8 @@ export function NewtonianOrbitPredictor() {
     const eSI = useMemo(() => toSI(eGeo, energyUnitSI, "geometrizedMass", addExtraConst(2, bigM)), [eGeo, bigM])
 
     const sqrtD = useMemo(() => Math.sqrt(mGeo ** 2 + 2 * eGeo * (lGeo ** 2) / mGeo), [mGeo, eGeo, lGeo])
-    const r1Geo = useMemo(() => - (mGeo - sqrtD) / (2 * eGeo), [mGeo, sqrtD])
-    const r2Geo = useMemo(() => - (mGeo + sqrtD) / (2 * eGeo), [mGeo, sqrtD])
+    const r1Geo = useMemo(() => - (mGeo - sqrtD) / (2 * eGeo), [mGeo, sqrtD, eGeo])
+    const r2Geo = useMemo(() => - (mGeo + sqrtD) / (2 * eGeo), [mGeo, sqrtD, eGeo])
 
     const r1SI = useMemo(() => toSI(r1Geo, lengthUnitSI, "geometrizedMass", addExtraConst(2, bigM)), [r1Geo, bigM])
     const r2SI = useMemo(() => toSI(r2Geo, lengthUnitSI, "geometrizedMass", addExtraConst(2, bigM)), [r2Geo, bigM])
@@ -154,12 +154,12 @@ export function SchwarzschildOrbitPredictor() {
         (mGeo * lGeo ** 2) / (2 * r ** 2) - mGeo / r - (mGeo * lGeo ** 2) / (r ** 3)
     , [lGeo, mGeo])
 
-    const eGeo = useMemo(() => 0.5 * mGeo * (v0Geo ** 2) - uEff(r0Geo), [mGeo, v0Geo, r0Geo, uEff])
+    const eGeo = useMemo(() => 0.5 * mGeo * (v0Geo ** 2) + uEff(r0Geo), [mGeo, v0Geo, r0Geo, uEff])
 
     const lSI = useMemo(() => toSI(lGeo, [-1, 2, 0, 0, 0, 0, 0], "geometrizedMass", addExtraConst(2, bigM)), [lGeo, bigM])
     const eSI = useMemo(() => toSI(eGeo, energyUnitSI, "geometrizedMass", addExtraConst(2, bigM)), [eGeo, bigM])
 
-    const [r1Geo, r2Geo, r3Geo] = useMemo(() => solveCubic(eGeo, -mGeo, mGeo * lGeo ** 2 / 2, -mGeo * lGeo ** 2), [eGeo, mGeo, lGeo])
+    const [r1Geo, r2Geo, r3Geo] = useMemo(() => solveCubic(-eGeo, -mGeo, mGeo * lGeo ** 2 / 2, -mGeo * lGeo ** 2), [eGeo, mGeo, lGeo])
 
     const r1SI = useMemo(() => toSI(r1Geo, lengthUnitSI, "geometrizedMass", addExtraConst(2, bigM)), [r1Geo, bigM])
     const r2SI = useMemo(() => toSI(r2Geo, lengthUnitSI, "geometrizedMass", addExtraConst(2, bigM)), [r2Geo, bigM])
