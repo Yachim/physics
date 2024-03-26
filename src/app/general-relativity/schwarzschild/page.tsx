@@ -18,7 +18,7 @@ export default async function Home() {
       <Link href="/general-relativity/schwarzschild/derivation">Derivation of the Schwarzschild Metric</Link>
       <Link href="/general-relativity/schwarzschild/coordinates-interpretation">Interpretation of the Schwarzschild Coordinates</Link>
       <Link href="/general-relativity/schwarzschild/geodesics">Geodesics</Link>
-      <Link href="/general-relativity/schwarzschild/perihelion-advance">Perihelion Advance</Link>
+      <Link href="/general-relativity/schwarzschild/perihelion-shift">Perihelion Shift</Link>
       <Link href="/general-relativity/schwarzschild/gravitational-lensing">Gravitational Lensing</Link>
     </div>
   )
