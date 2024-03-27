@@ -9,7 +9,7 @@ export function OrbitalPrecessionCalculator() {
     const [bigM, setBigM] = useState(1.97e30)
     const [r0, setR0] = useState(46e9)
     const [omega0, setOmega0] = useState(1.5e-6)
-    const [vPerp0, setVPerp0] = useState(69800)
+    const [vPerp0, setVPerp0] = useState(58970)
     const [speedType, setSpeedType] = useState<"perp" | "angular">("perp")
 
     const r0Geo = useMemo(() => fromSI(r0, lengthUnitSI, "geometrizedMass", addExtraConst(2, bigM)), [r0, bigM])
