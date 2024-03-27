@@ -3,12 +3,16 @@ import { Metadata } from "next";
 import { BlockMath, InlineMath } from "react-katex";
 import { LinkH2 } from "@/components/LinkHeadings";
 import { OrbitalPrecessionCalculator } from "./components";
+import Image from "next/image";
+import getConfig from "next/config";
 
 export const metadata: Metadata = {
   title: "Perihelion Shift"
 }
 
 export default async function Home() {
+  const { publicRuntimeConfig: { basePath } } = getConfig()
+
   return (
     <div className="article">
         <Link href="/general-relativity/schwarzschild">Back</Link>
@@ -75,12 +79,62 @@ export default async function Home() {
         " />
 
         {/* TODO: fully derive */}
-        <p>If the right side would be equal to one, we will get the equation of ellipse centered at focus:</p>
+        <p>If the right side would be equal to one:</p>
         <BlockMath math="
           \begin{align*}
             \frac{d^2 w}{d\phi^2} + w &= 1, \\
-            w(\phi) &= 1 + e \cos (\phi + \phi_0) = \frac{\mathcal{L^2}}{r}, \\
-            r(\phi) &= \frac{\mathcal{L}^2}{1 + e \cos (\phi + \phi_0)},
+            w(\phi) &= 1 + A \sin (\phi + \phi_0) + B \cos (\phi + \phi_0), \qquad \textrm{taking \(\phi_0 = 0\)}, \\
+            w(\phi) &= 1 + A \sin \phi + B \cos \phi, \\
+            w'(\phi) &= A \cos \phi - B \sin \phi,
+          \end{align*}
+        " />
+        <p>This will become an equation for ellipse with the coordinate system centered at a focus:</p>
+        <div className="w-full flex justify-center">
+          <Image
+            src={`${basePath}/assets/general-relativity/schwarzschild/ellipse.svg`}
+            width={700}
+            height={700}
+            alt="Ellipse plot"
+          />
+        </div>
+        <p>When <InlineMath math="\phi = 0"/>, then <InlineMath math="r = a - c \iff w = \frac{\mathcal{L}^2}{a - c}"/> and <InlineMath math="w' = 0"/> (closest approach). Substituting:</p>
+        <BlockMath math="
+          \begin{align*}
+            \frac{\mathcal{L}^2}{a - c} &= 1 + A \sin 0 + B \cos 0 \\
+            &= 1 + B, \\
+            B &= \frac{\mathcal{L}^2}{a - c} - 1, \\
+            0 &= A \cos 0 - B \sin 0 \\
+            &= A, \\
+            w(\phi) &= 1 + \left(\frac{\mathcal{L}^2}{a - c} - 1\right) \cos \phi, \\
+          \end{align*}
+        " />
+
+        <p>Keppler&apos; second law states that in a given time interval, an orbiting body sweeps out equal areas <InlineMath math="dA"/>, where area of the whole ellipse <InlineMath math="A = \pi a b"/>:</p>
+        <div className="w-full flex justify-center">
+          <Image
+            src={`${basePath}/assets/general-relativity/schwarzschild/ellipse2.svg`}
+            width={700}
+            height={700}
+            alt="Ellipse plot"
+          />
+        </div>
+        <p>The area is a triangle with base <InlineMath math="r"/> and height <InlineMath math="r\ d\phi"/>. Thus <InlineMath math="dA"/> is equal to:</p>
+        <BlockMath math="
+          \begin{align*}
+            dA &= \frac{r^2}{2}\ d\phi, \\
+            \frac{dA}{dt} &= \frac{r^2}{2}\ \frac{d\phi}{dt} \\
+            &= \frac{\mathcal{L}}{2}, \\
+            \int_0^T \frac{dA}{dt} dt &= \int_0^T \frac{\mathcal{L}}{2} dt, \\
+            A(T) &= \frac{\mathcal{L}}{2} T, \\
+            \pi a b &= \frac{\mathcal{L}}{2} T, \\
+            \mathcal{L} &= \frac{2 \pi a b}{T}.
+          \end{align*}
+        "/>
+        
+        <BlockMath math="
+          \begin{align*}
+            w(\phi) &= 1 + e \cos \phi = \frac{\mathcal{L^2}}{r}, \\
+            r(\phi) &= \frac{\mathcal{L}^2}{1 + e \cos \phi},
           \end{align*}
         " />
         <p>where <InlineMath math="e"/> is the eccentricity of the ellipse.</p>
@@ -96,11 +150,10 @@ export default async function Home() {
             \left[\frac{d^2 w_0}{d\phi^2} + \alpha \frac{d^2}{d\phi^2} \left(\sum_{i = 1}^{\infty} w_i \alpha^{i - 1}\right)\right] + \left(w_0 + \alpha \sum_{i = 1}^{\infty} w_i \alpha^{i - 1}\right) &= 1 + \alpha \left(\sum_{i = 0}^{\infty} w_i \alpha^i\right)^2, \\[5ex]
             \frac{d^2 w_0}{d\phi^2} + w_0 &= 1, \\
             \frac{d^2}{d\phi^2} \left(\sum_{i = 1}^{\infty} w_i \alpha^{i - 1}\right) + \sum_{i = 1}^{\infty} w_i \alpha^{i - 1} &= \left(\sum_{i = 0}^{\infty} w_i \alpha^i\right)^2,\\[5ex]
-            w_0(\phi) &= 1 + e \cos (\phi + \phi_0), \\
-            &= 1 + e \cos \phi, \qquad \textrm{taking \(\phi_0 = 0\),} \\
+            w_0(\phi) &= 1 + e \cos \phi.
           \end{align*}
         " />
-        <p>for the second equation, we will assume <InlineMath math="\alpha << 1"/>, so that the higher order terms will vanish:</p>
+        <p>For the second equation, we will assume <InlineMath math="\alpha << 1"/>, so that the higher order terms will vanish:</p>
         <BlockMath math="
           \begin{align*}
             \frac{d^2 w_1}{d\phi^2} + w_1 &= w_0^2 = (1 + e \cos \phi)^2, \\
