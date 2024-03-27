@@ -21,6 +21,7 @@ export function OrbitalPrecessionCalculator() {
     const deltaPhi = useMemo(() => 2 * Math.PI * alpha, [alpha])
 
     const [period, setPeriod] = useState(88)
+    // deltaPhi is dimensionless
     const deltaPhiCentury = useMemo(() => deltaPhi / period * 365 * 100, [deltaPhi, period])
     const deltaPhiArcsecCentury = useMemo(() => deltaPhiCentury * 180 / Math.PI * 3600, [deltaPhiCentury])
 

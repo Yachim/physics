@@ -78,7 +78,6 @@ export default async function Home() {
           \end{align*}
         " />
 
-        {/* TODO: fully derive */}
         <p>If the right side would be equal to one:</p>
         <BlockMath math="
           \begin{align*}
@@ -115,7 +114,7 @@ export default async function Home() {
             w(\phi) &= 1 + e \cos \phi, \\
           \end{align*}
         " />
-        <p>however, I wasn't able to prove their equivalence. My guess is that with <InlineMath math="e" /> is a more general solution for any ellipse and my solution with <InlineMath math="\left(\frac{\mathcal{L}^2}{a - c} - 1\right)" /> is a solution for a specific ellipse determined by the initial conditions. We will see this term won't matter in the end. I will use <InlineMath math="\mathcal{A}" /> for the constant:</p>
+        <p>however, I was not able to prove their equivalence. My guess is that with <InlineMath math="e" /> is a more general solution for any ellipse and my solution with <InlineMath math="\left(\frac{\mathcal{L}^2}{a - c} - 1\right)" /> is a solution for a specific ellipse determined by the initial conditions. We will see this term will not matter in the end. I will use <InlineMath math="\mathcal{A}" /> for the constant:</p>
         <BlockMath math="
           \begin{gather*}
             w(\phi) = 1 + \mathcal{A} \cos \phi, \\
@@ -184,33 +183,33 @@ export default async function Home() {
             &= 1 + \alpha \left(1 + \frac{\mathcal{A}^2}{2}\right) + \mathcal{A} (\cos \phi + \alpha \phi \sin \phi) - \alpha \frac{\mathcal{A}^2}{6} \cos 2\phi \\
           \end{align*}
         " />
-        <p>the linear term in <InlineMath math="\cos \phi + \alpha \phi \sin \phi" /> causes the shift of the perihelion. Since <InlineMath math="\alpha << 1" />, then we may approximate:</p>
+
+        <p>the linear term in <InlineMath math="\cos \phi + \alpha \phi \sin \phi" /> causes the shift of the perihelion. We can use the small angle approximation (<InlineMath math="\alpha << 1" />) to rewrite it:</p>
         <BlockMath math="
           \begin{align*}
             \sin \alpha \phi &= \alpha \phi, \\
-            \cos \alpha \phi &= 1,
+            \cos \alpha \phi &= 1, \\[2ex]
+            \cos \phi + \alpha \phi \sin \phi &= \cos \phi \cos \alpha \phi + \sin \alpha \phi \sin \phi \\
+            &= \cos (\phi + \alpha \phi), \\[2ex]
+            w(\phi) &= 1 + \alpha \left(1 + \frac{\mathcal{A}^2}{2}\right) + \mathcal{A} \cos \phi (1 + \alpha) - \alpha \frac{\mathcal{A}^2}{6} \cos 2\phi.
           \end{align*}
         " />
 
-        <p>and calculate the period of <InlineMath math="\cos \phi + \alpha \phi \sin \phi" />:</p>
+        <p>To calculate the (approximate) period we set <InlineMath math="\phi (1 + \alpha) = 2\pi" />:</p>
         <BlockMath math="
           \begin{align*}
-            \cos \phi + \alpha \phi \sin \phi &= (\cos \phi \cos \alpha \phi) + (\sin \alpha \phi \sin \phi) \\
-            &= \cos (\phi - \alpha \phi) \\
-            &= \cos \phi (1 - \alpha), \\
-            2 \pi &= \phi (1 - \alpha), \\
-            \phi &= \frac{2 \pi}{1 - \alpha} \\
-            &= \frac{2 \pi (1 + \alpha)}{1 - \alpha^2},
+            \phi &= \frac{2\pi}{1 + \alpha} \\
+            &= \frac{2\pi (1 - \alpha)}{1 - \alpha^2},
           \end{align*}
         " />
-        <p>again, since <InlineMath math="\alpha << 1" />, <InlineMath math="\alpha^2" /> vanishes:</p>
+        <p>and since we are assuming <InlineMath math="\alpha << 1" />, <InlineMath math="\alpha^2 \to 0" /> and we can write:</p>
         <BlockMath math="
           \begin{align*}
-            \phi &= 2 \pi + 2 \pi \alpha, \\
-            \Delta \phi &= 2 \pi \alpha,
+            \phi &= 2\pi (1 - \alpha) \\
+            &= 2\pi - 2 \pi \alpha, \\
+            \Delta \phi &= 2 \pi \alpha.
           \end{align*}
         " />
-        <p>where <InlineMath math="\Delta \phi" /> is the perihelion shift per orbital period and <InlineMath math="\alpha = \frac{3}{\mathcal{L}^2}" />.</p>
 
         <LinkH2 id="orbital-precession-calculator">Orbital Precession Calculator</LinkH2>
         <OrbitalPrecessionCalculator/>
