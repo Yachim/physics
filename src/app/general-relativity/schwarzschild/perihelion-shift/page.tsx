@@ -108,39 +108,22 @@ export default async function Home() {
             w(\phi) &= 1 + \left(\frac{\mathcal{L}^2}{a - c} - 1\right) \cos \phi, \\
           \end{align*}
         " />
-
-        <p>Keppler&apos; second law states that in a given time interval, an orbiting body sweeps out equal areas <InlineMath math="dA"/>, where area of the whole ellipse <InlineMath math="A = \pi a b"/>:</p>
-        <div className="w-full flex justify-center">
-          <Image
-            src={`${basePath}/assets/general-relativity/schwarzschild/ellipse2.svg`}
-            width={700}
-            height={700}
-            alt="Ellipse plot"
-          />
-        </div>
-        <p>The area is a triangle with base <InlineMath math="r"/> and height <InlineMath math="r\ d\phi"/>. Thus <InlineMath math="dA"/> is equal to:</p>
-        <BlockMath math="
-          \begin{align*}
-            dA &= \frac{r^2}{2}\ d\phi, \\
-            \frac{dA}{dt} &= \frac{r^2}{2}\ \frac{d\phi}{dt} \\
-            &= \frac{\mathcal{L}}{2}, \\
-            \int_0^T \frac{dA}{dt} dt &= \int_0^T \frac{\mathcal{L}}{2} dt, \\
-            A(T) &= \frac{\mathcal{L}}{2} T, \\
-            \pi a b &= \frac{\mathcal{L}}{2} T, \\
-            \mathcal{L} &= \frac{2 \pi a b}{T}.
-          \end{align*}
-        "/>
         
+        <p>In a <Link href="https://youtu.be/2pPvUx-EUqE?t=1862">video by eigenchris</Link>, the following equation is provided (where <InlineMath math="e" /> is the eccentricity of the ellipse):</p>
         <BlockMath math="
           \begin{align*}
-            w(\phi) &= 1 + e \cos \phi = \frac{\mathcal{L^2}}{r}, \\
-            r(\phi) &= \frac{\mathcal{L}^2}{1 + e \cos \phi},
+            w(\phi) &= 1 + e \cos \phi, \\
           \end{align*}
         " />
-        <p>where <InlineMath math="e"/> is the eccentricity of the ellipse.</p>
+        <p>however, I wasn't able to prove their equivalence. My guess is that with <InlineMath math="e" /> is a more general solution for any ellipse and my solution with <InlineMath math="\left(\frac{\mathcal{L}^2}{a - c} - 1\right)" /> is a solution for a specific ellipse determined by the initial conditions. We will see this term won't matter in the end. I will use <InlineMath math="\mathcal{A}" /> for the constant:</p>
+        <BlockMath math="
+          \begin{gather*}
+            w(\phi) = 1 + \mathcal{A} \cos \phi, \\
+            \mathcal{A} = e \quad \textrm{or} \quad \mathcal{A} = \left(\frac{\mathcal{L}^2}{a - c} - 1\right).
+          \end{gather*}
+        " />
 
-        <p>Thus, we may say that the <InlineMath math="\alpha w^2"/> term is a correction for general relativity.</p>
-        <p>The solution is complex. Assume there is a power series in terms of <InlineMath math="\alpha"/>:</p>
+        <p>The solution to the original equation is complex due to the extra <InlineMath math="\alpha w^2" /> term. We may say this term is a correction for general relativity. Assume there is a power series in terms of <InlineMath math="\alpha"/>:</p>
         <BlockMath math="w = \sum_{i = 0}^{\infty} w_i \alpha^i."/>
 
         <p>then, substituting back into the original equation:</p>
@@ -148,26 +131,27 @@ export default async function Home() {
           \begin{align*}
             \frac{d^2}{d\phi^2} \left(\sum_{i = 0}^{\infty} w_i \alpha^i\right) + \left(\sum_{i = 0}^{\infty} w_i \alpha^i\right) &= 1 + \alpha \left(\sum_{i = 0}^{\infty} w_i \alpha^i\right)^2, \\
             \left[\frac{d^2 w_0}{d\phi^2} + \alpha \frac{d^2}{d\phi^2} \left(\sum_{i = 1}^{\infty} w_i \alpha^{i - 1}\right)\right] + \left(w_0 + \alpha \sum_{i = 1}^{\infty} w_i \alpha^{i - 1}\right) &= 1 + \alpha \left(\sum_{i = 0}^{\infty} w_i \alpha^i\right)^2, \\[5ex]
+            \left(\frac{d^2 w_0}{d\phi^2} + w_0\right) + \alpha \left[\frac{d^2}{d\phi^2} \left(\sum_{i = 1}^{\infty} w_i \alpha^{i - 1}\right) + \sum_{i = 1}^{\infty} w_i \alpha^{i - 1}\right] &= 1 + \alpha \left(\sum_{i = 0}^{\infty} w_i \alpha^i\right)^2, \\[5ex]
             \frac{d^2 w_0}{d\phi^2} + w_0 &= 1, \\
             \frac{d^2}{d\phi^2} \left(\sum_{i = 1}^{\infty} w_i \alpha^{i - 1}\right) + \sum_{i = 1}^{\infty} w_i \alpha^{i - 1} &= \left(\sum_{i = 0}^{\infty} w_i \alpha^i\right)^2,\\[5ex]
-            w_0(\phi) &= 1 + e \cos \phi.
+            w_0(\phi) &= 1 + \mathcal{A} \cos \phi.
           \end{align*}
         " />
         <p>For the second equation, we will assume <InlineMath math="\alpha << 1"/>, so that the higher order terms will vanish:</p>
         <BlockMath math="
           \begin{align*}
-            \frac{d^2 w_1}{d\phi^2} + w_1 &= w_0^2 = (1 + e \cos \phi)^2, \\
-            \frac{d^2 w_1}{d\phi^2} + w_1 &= 1 + 2e \cos \phi + e^2 \cos^2 \phi \\
-            &= 1 + 2e \cos \phi + \frac{e^2}{2} (\cos 2\phi + 1) \\
-            &= 1 + 2e \cos \phi + \frac{e^2}{2} \cos 2\phi + \frac{e^2}{2} \\
-            &= \left(1 + \frac{e^2}{2}\right) + 2e \cos \phi + \frac{e^2}{2} \cos 2\phi.
+            \frac{d^2 w_1}{d\phi^2} + w_1 &= w_0^2 = (1 + \mathcal{A} \cos \phi)^2, \\
+            \frac{d^2 w_1}{d\phi^2} + w_1 &= 1 + 2\mathcal{A} \cos \phi + \mathcal{A}^2 \cos^2 \phi \\
+            &= 1 + 2\mathcal{A} \cos \phi + \frac{\mathcal{A}^2}{2} (\cos 2\phi + 1) \\
+            &= 1 + 2\mathcal{A} \cos \phi + \frac{\mathcal{A}^2}{2} \cos 2\phi + \frac{e^2}{2} \\
+            &= \left(1 + \frac{\mathcal{A}^2}{2}\right) + 2\mathcal{A} \cos \phi + \frac{\mathcal{A}^2}{2} \cos 2\phi.
           \end{align*}
         " />
 
         <p>The general solution is in the form:</p>
         <BlockMath math="
           \begin{align*}
-            w_1(\phi) &= \left(1 + \frac{e^2}{2}\right) + (a \phi + A) \sin \phi + (b \phi + B) \cos 2\phi, \\
+            w_1(\phi) &= \left(1 + \frac{\mathcal{A}^2}{2}\right) + (a \phi + A) \sin \phi + (b \phi + B) \cos 2\phi, \\
             w_1'(\phi) &= a \sin \phi + (a \phi + A) \cos \phi + b \cos 2\phi - 2 (b \phi + B) \sin 2\phi, \\
             w_1''(\phi) &= a \cos \phi + a \cos \phi - (a \phi + A) \sin \phi - 2b \sin 2\phi - 2 b \sin 2\phi - 4 (b \phi + B) \cos 2\phi, \\
             &= 2a \cos \phi - (a \phi + A) \sin \phi - 4 b \sin 2\phi - 4 (b \phi + B) \cos 2\phi, \\
@@ -177,27 +161,27 @@ export default async function Home() {
         <BlockMath math="
           \begin{align*}
             2a \cos \phi - (a \phi + A) \sin \phi - 4 b \sin 2\phi - 4 (b \phi + B) \cos 2\phi \\
-            + \left(1 + \frac{e^2}{2}\right) + (a \phi + A) \sin \phi + (b \phi + B) \cos 2\phi &= \left(1 + \frac{e^2}{2}\right) + 2e \cos \phi + \frac{e^2}{2} \cos 2\phi, \\
-            2a \cos \phi - 4 b \sin 2\phi - 3 (b \phi + B) \cos 2\phi &= 2e \cos \phi + \frac{e^2}{2} \cos 2\phi, \\
-            2a &= 2e, \\
+            + \left(1 + \frac{e^2}{2}\right) + (a \phi + A) \sin \phi + (b \phi + B) \cos 2\phi &= \left(1 + \frac{\mathcal{A}^2}{2}\right) + 2\mathcal{A} \cos \phi + \frac{\mathcal{A}^2}{2} \cos 2\phi, \\
+            2a \cos \phi - 4 b \sin 2\phi - 3 (b \phi + B) \cos 2\phi &= 2\mathcal{A} \cos \phi + \frac{\mathcal{A}^2}{2} \cos 2\phi, \\
+            2a &= 2\mathcal{A}, \\
             a &= e, \\
             b &= 0, \\
-            -3(b\phi + B) &= \frac{e^2}{2}, \\
-            -3 B &= \frac{e^2}{2}, \\
-            B &= -\frac{e^2}{6}, \\
+            -3(b\phi + B) &= \frac{\mathcal{A}^2}{2}, \\
+            -3 B &= \frac{\mathcal{A}^2}{2}, \\
+            B &= -\frac{\mathcal{A}^2}{6}, \\
             A &= 0, \qquad \textrm{doesn't matter}.
           \end{align*}
         " />
 
         <p>The solution is then:</p>
-        <BlockMath math="w_1(\phi) = \left(1 + \frac{e^2}{2}\right) + e \phi \sin \phi - \frac{e^2}{6} \cos 2\phi." />
+        <BlockMath math="w_1(\phi) = \left(1 + \frac{\mathcal{A}^2}{2}\right) + \mathcal{A} \phi \sin \phi - \frac{\mathcal{A}^2}{6} \cos 2\phi." />
 
         <p>Substituting into <InlineMath math="w = w_0 + \alpha w_1" />:</p>
         <BlockMath math="
           \begin{align*}
-            w(\phi) &= (1 + e \cos \phi) + \alpha\left[\left(1 + \frac{e^2}{2}\right) + e \phi \sin \phi - \frac{e^2}{6} \cos 2\phi\right] \\
-            &= 1 + e \cos \phi + \alpha \left(1 + \frac{e^2}{2}\right) + e \alpha \phi \sin \phi - \alpha \frac{e^2}{6} \cos 2\phi \\
-            &= 1 + \alpha \left(1 + \frac{e^2}{2}\right) + e (\cos \phi + \alpha \phi \sin \phi) - \alpha \frac{e^2}{6} \cos 2\phi \\
+            w(\phi) &= (1 + \mathcal{A} \cos \phi) + \alpha\left[\left(1 + \frac{e^2}{2}\right) + \mathcal{A} \phi \sin \phi - \frac{\mathcal{A}^2}{6} \cos 2\phi\right] \\
+            &= 1 + \mathcal{A} \cos \phi + \alpha \left(1 + \frac{\mathcal{A}^2}{2}\right) + \mathcal{A} \alpha \phi \sin \phi - \alpha \frac{\mathcal{A}^2}{6} \cos 2\phi \\
+            &= 1 + \alpha \left(1 + \frac{\mathcal{A}^2}{2}\right) + \mathcal{A} (\cos \phi + \alpha \phi \sin \phi) - \alpha \frac{\mathcal{A}^2}{6} \cos 2\phi \\
           \end{align*}
         " />
         <p>the linear term in <InlineMath math="\cos \phi + \alpha \phi \sin \phi" /> causes the shift of the perihelion. Since <InlineMath math="\alpha << 1" />, then we may approximate:</p>
