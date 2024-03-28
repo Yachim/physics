@@ -160,10 +160,10 @@ export default async function Home() {
         <BlockMath math="
           \begin{align*}
             2a \cos \phi - (a \phi + A) \sin \phi - 4 b \sin 2\phi - 4 (b \phi + B) \cos 2\phi \\
-            + \left(1 + \frac{e^2}{2}\right) + (a \phi + A) \sin \phi + (b \phi + B) \cos 2\phi &= \left(1 + \frac{\mathcal{A}^2}{2}\right) + 2\mathcal{A} \cos \phi + \frac{\mathcal{A}^2}{2} \cos 2\phi, \\
+            + \left(1 + \frac{\mathcal{A}^2}{2}\right) + (a \phi + A) \sin \phi + (b \phi + B) \cos 2\phi &= \left(1 + \frac{\mathcal{A}^2}{2}\right) + 2\mathcal{A} \cos \phi + \frac{\mathcal{A}^2}{2} \cos 2\phi, \\
             2a \cos \phi - 4 b \sin 2\phi - 3 (b \phi + B) \cos 2\phi &= 2\mathcal{A} \cos \phi + \frac{\mathcal{A}^2}{2} \cos 2\phi, \\
             2a &= 2\mathcal{A}, \\
-            a &= e, \\
+            a &= \mathcal{A}, \\
             b &= 0, \\
             -3(b\phi + B) &= \frac{\mathcal{A}^2}{2}, \\
             -3 B &= \frac{\mathcal{A}^2}{2}, \\
@@ -178,7 +178,7 @@ export default async function Home() {
         <p>Substituting into <InlineMath math="w = w_0 + \alpha w_1" />:</p>
         <BlockMath math="
           \begin{align*}
-            w(\phi) &= (1 + \mathcal{A} \cos \phi) + \alpha\left[\left(1 + \frac{e^2}{2}\right) + \mathcal{A} \phi \sin \phi - \frac{\mathcal{A}^2}{6} \cos 2\phi\right] \\
+            w(\phi) &= (1 + \mathcal{A} \cos \phi) + \alpha\left[\left(1 + \frac{\mathcal{A}^2}{2}\right) + \mathcal{A} \phi \sin \phi - \frac{\mathcal{A}^2}{6} \cos 2\phi\right] \\
             &= 1 + \mathcal{A} \cos \phi + \alpha \left(1 + \frac{\mathcal{A}^2}{2}\right) + \mathcal{A} \alpha \phi \sin \phi - \alpha \frac{\mathcal{A}^2}{6} \cos 2\phi \\
             &= 1 + \alpha \left(1 + \frac{\mathcal{A}^2}{2}\right) + \mathcal{A} (\cos \phi + \alpha \phi \sin \phi) - \alpha \frac{\mathcal{A}^2}{6} \cos 2\phi \\
           \end{align*}
