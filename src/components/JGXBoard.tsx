@@ -8,8 +8,8 @@ JXG.Options.text.useMathJax = true
 export type BoardProps = {
   bbox?: [number, number, number, number]
   axis?: boolean
-  offsetX?: number,
-  offsetY?: number,
+  offsetX?: number
+  offsetY?: number
 }
 
 export type FixedInput = JXG.Input & { set(val: any): void }

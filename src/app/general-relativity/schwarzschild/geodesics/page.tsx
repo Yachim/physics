@@ -254,14 +254,16 @@ export default async function Home() {
       <p>where <InlineMath math="\epsilon" /> is:</p>
       <BlockMath math="
         \begin{align*}
-          \epsilon &< 0, & &\textrm{for time-like geodesics (\(\lambda = \tau\))}, \\
-          \epsilon &= 0, & &\textrm{for light-like geodesics}, \\
-          \epsilon &> 0, & &\textrm{for space-like geodesics (\(\lambda = L_0\))},
+          \epsilon &< 0, & &\textrm{for timelike geodesics}, \\
+          \epsilon &= -1, & &\textrm{for timelike geodesics where \(\lambda = \tau\)}, \\
+          \epsilon &= 0, & &\textrm{for lightlike geodesics}, \\
+          \epsilon &> 0, & &\textrm{for spacelike geodesics}, \\
+          \epsilon &= 1, & &\textrm{for spacelike geodesics where \(\lambda = L_0\)},
         \end{align*}
       " />
       <p>but I will not be considering space-like geodesics.</p>
 
-      <p>Substiting the constants of motion equation for <InlineMath math="\epsilon" />:</p>
+      <p>Substiting the constants of motion into the equation for <InlineMath math="\epsilon" />:</p>
       <BlockMath math="
         \begin{align*}
           \epsilon &= -\left(1 - \frac{2}{r}\right) \left(\frac{\mathcal{E}}{1 - \frac{2}{r}}\right)^2 + \left(1 - \frac{2}{r}\right)^{-1} \left(\frac{dr}{d\lambda}\right)^2 + r^2 \left(\frac{\mathcal{L}}{r^2}\right)^2, \\

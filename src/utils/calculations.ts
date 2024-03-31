@@ -102,3 +102,36 @@ export function solveCubic(a: number, b: number, c: number, d: number) {
 
     return roots;
 }
+
+// constant theta = pi/2
+// geometrized units (c = G = M = 1)
+export function getSchwarzschildTimeVelocity(r: number, uR: number, uPhi: number) {
+  return Math.sqrt(r / (r - 2) * (1 + r / (r - 2) * uR ** 2 + (r * uPhi) ** 2))
+}
+
+// constant theta = pi/2
+// geometrized units (c = G = M = 1)
+export function schwarzschildTimelikeEulerStep(
+  coords: [number, number, number],
+  velocities: [number, number, number],
+  timeStep: number
+): [
+  [number, number, number],
+  [number, number, number]
+] {
+  const [t, r, phi] = coords
+  const [uT, uR, uPhi] = velocities
+
+  const newT = t + timeStep * uT
+  const newR = r + timeStep * uR
+  const newPhi = phi + timeStep * uPhi
+
+  const newUT = uT - timeStep * 2 / (r * (r - 2)) * uT * uR
+  const newUR = uR + timeStep * (- (r - 2) / (r ** 3) * uT ** 2 + 1 / (r * (r - 2)) * uR ** 2 + (r - 2) * uPhi ** 2)
+  const newUPhi = uPhi - timeStep * 2 / r * uR * uPhi
+
+  return [
+    [newT, newR, newPhi],
+    [newUT, newUR, newUPhi]
+  ]
+}

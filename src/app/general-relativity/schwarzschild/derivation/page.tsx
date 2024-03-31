@@ -471,7 +471,7 @@ export default async function Home() {
       <SchwarzschildRadiusCalculator/>
 
       <LinkH2 id="simplifying-geodesic-equations">Simplifying the Geodesic Equations</LinkH2>
-      <p>We can simplify the geodesic equation by setting <InlineMath math="\theta = \frac{\pi}{2}"/> to be constant (<InlineMath math="\frac{d\theta}{d\lambda} = \frac{d^2\theta}{d\lambda^2} = d\theta = 0"/> ). The metric and christoffel symbols simplify to:</p>
+      <p>We can simplify the geodesic equations by rotating the coordinate system such that <InlineMath math="\theta"/> is constant at <InlineMath math="\frac{\pi}{2}" /> (<InlineMath math="\frac{d\theta}{d\lambda} = \frac{d^2\theta}{d\lambda^2} = d\theta = 0"/> ). The metric and Christoffel symbols simplify to:</p>
       <BlockMath math="
         \begin{align*}
           ds^2 &= -\left(1 - \frac{r_s}{r}\right) dt^2 + \left(1 - \frac{r_s}{r}\right)^{-1} dr^2 + r^2 d\phi^2, \\

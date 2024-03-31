@@ -17,6 +17,9 @@ export function toScientific(num: number) {
   if (exponent === 1) {
     return String.raw`${coefficient * 10}`
   }
+  else if (exponent === -1) {
+    return String.raw`${Math.floor(coefficient * 10) / 100}`
+  }
 
   if (exponent === 0) {
     exponentPart = ""
@@ -54,4 +57,17 @@ export function matrixToLatex(matrix: math.Matrix): string {
     if (cols === 1) return row
     return (row as math.MathNumericType[]).join(" & ")
   }).join("\\\\ \r \n") + "\\end{bmatrix}"
+}
+
+export function cartesianToSpherical(x: number, y: number): [number, number] {
+  const r = Math.sqrt(x ** 2 + y ** 2)
+
+  let phi = Math.atan2(y, x)
+  if (x === 0 && y === 0) phi = 0
+
+  return [r, phi]
+}
+
+export function sphericalToCartesian(r: number, phi: number): [number, number] {
+  return [r * Math.cos(phi), r * Math.sin(phi)]
 }
