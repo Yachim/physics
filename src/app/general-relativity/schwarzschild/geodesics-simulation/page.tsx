@@ -79,6 +79,47 @@ export default async function Home() {
 
         <p>then the Euler method can be used to solve for the motion.</p>
         <TimelikeGeodesics/>
+
+        <LinkH2 id="lightlike-geodesics">Lightlike Geodesics</LinkH2>
+        <p>For lightlike paths, <InlineMath math="\epsilon = 0" />. I will parametrize the path by the coordinate time <InlineMath math="\lambda = t \left(\frac{dt}{dt} = 1, \frac{d^2 t}{dt^2} = 0\right)" />. The tangent vector length is equal to:</p>
+        <BlockMath math="
+            \begin{align*}
+                0 &= -\left(1 - \frac{2}{r}\right) + \left(1 - \frac{2}{r}\right)^{-1} \left(\frac{dr}{dt}\right)^2 + r^2 \left(\frac{d\phi}{dt}\right)^2, \\
+                1 - \frac{2}{r} &= \left(1 - \frac{2}{r}\right)^{-1} \left(\frac{dr}{dt}\right)^2 + r^2 \left(\frac{d\phi}{dt}\right)^2.
+            \end{align*}
+        " />
+
+        <p>The geodesic equations are in the form:</p>
+        <BlockMath math="
+            \begin{align*}
+                0 &= - \frac{2}{r(r - 2)} \frac{dr}{dt} \implies 0 = \frac{2}{r(r - 2)} \frac{dr}{dt}, \\
+                \frac{d^2 r}{dt^2} &= -\frac{r - 2}{r^3} + \frac{1}{r(r - 2)} \left(\frac{dr}{dt}\right)^2 + (r - 2) \left(\frac{d\phi}{dt}\right)^2, \\
+                \frac{d^2 \phi}{dt^2} &= -\frac{2}{r} \frac{dr}{dt} \frac{d\phi}{dt}.
+            \end{align*}
+        "/>
+
+        <p>The first equation implies that <InlineMath math="r" /> is constant <InlineMath math="\left(\frac{dr}{dt} = 0\right)" />. Substituting into the other two equations:</p>
+        <BlockMath math="
+            \begin{align*}
+                0 &= -\frac{r - 2}{r^3} + (r - 2) \left(\frac{d\phi}{dt}\right)^2, \\
+                \frac{d^2 \phi}{dt^2} &= 0.
+            \end{align*}
+        "/>
+
+        <p>We can derive <InlineMath math="\phi" />:</p>
+        <BlockMath math="
+            \begin{align*}
+                \phi(t) &= \omega_0 t + \phi_0, \\
+                \frac{d\phi}{dt} &= \omega_0,
+            \end{align*}
+        "/>
+        <p>where <InlineMath math="\phi_0" /> is the initial angle and <InlineMath math="\omega_0" /> is the initial angular velocity. After substituting <InlineMath math="\frac{d\phi}{dt}" />, we have:</p>
+        <BlockMath math="
+            \begin{align*}
+                0 &= -\frac{r - 2}{r^3} + (r - 2) w_0^2, \\
+                \frac{1}{r^3} &= w_0^2, \\
+            \end{align*}
+        "/>
     </div>
   )
 }

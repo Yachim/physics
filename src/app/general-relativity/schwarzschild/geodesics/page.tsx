@@ -402,8 +402,8 @@ export default async function Home() {
 
       <p>Consider circular orbits (<InlineMath math="\frac{dr}{d\lambda}" />):</p>
       <BlockMath math="\mathcal{E}^2 = \frac{\mathcal{L}^2}{r^2} - \frac{2\mathcal{L}^2}{r^3}," />
-      <p>the right side is constant. Taking the derivative:</p>
-      <BlockMath math="\frac{d}{d\lambda} \left(\frac{\mathcal{L}^2}{r^2} - \frac{2\mathcal{L}^2}{r^3}\right) = -2\frac{\mathcal{L}^2}{r^3} + 3 \frac{2\mathcal{L}^2}{r^4} = 0," />
+      <p>taking the derivative:</p>
+      <BlockMath math="\frac{d}{dr} \left(\frac{\mathcal{L}^2}{r^2} - \frac{2\mathcal{L}^2}{r^3}\right) = -2\frac{\mathcal{L}^2}{r^3} + 3 \frac{2\mathcal{L}^2}{r^4} = 0," />
       <p>and solving for <InlineMath math="r" />:</p>
       <BlockMath math="
         \begin{align*}

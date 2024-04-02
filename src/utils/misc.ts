@@ -1,5 +1,14 @@
 import * as math from "mathjs"
 
+export function floorToNDigits(num: number, digits: number): number {
+  const mult = 10 ** digits
+  return Math.floor(num * mult) / mult
+}
+
+export function floorTo2Digits(num: number): number {
+  return floorToNDigits(num, 2)
+}
+
 export function toScientific(num: number) {
   if (num === 0) {
     return "0"
@@ -10,22 +19,24 @@ export function toScientific(num: number) {
   }
 
   let exponent = Math.floor(Math.log10(Math.abs(num)))
-  let coefficient = Math.floor(num / Math.pow(10, exponent) * 100) / 100
+  let coefficient = num / Math.pow(10, exponent)
 
   let exponentPart = String.raw` \cdot 10^{${exponent}}`
 
   if (exponent === 1) {
-    return String.raw`${coefficient * 10}`
+    coefficient *= 10
+    return String.raw`${floorTo2Digits(coefficient)}`
   }
   else if (exponent === -1) {
-    return String.raw`${Math.floor(coefficient * 10) / 100}`
+    coefficient /= 10
+    return String.raw`${floorTo2Digits(coefficient)}`
   }
 
   if (exponent === 0) {
     exponentPart = ""
   }
 
-  return String.raw`${coefficient}${exponentPart}`
+  return String.raw`${floorTo2Digits(coefficient)}${exponentPart}`
 }
 
 export function sumArray(arr: number[], initial = 0): number {
@@ -70,4 +81,13 @@ export function cartesianToSpherical(x: number, y: number): [number, number] {
 
 export function sphericalToCartesian(r: number, phi: number): [number, number] {
   return [r * Math.cos(phi), r * Math.sin(phi)]
+}
+
+export function clamp(n: number, min: number, max: number) {
+  return Math.min(Math.max(n, min), max)
+}
+
+export function clampAngle(n: number) {
+  const rotations = Math.floor(n / (2 * Math.PI))
+  return n - 2 * Math.PI * rotations
 }
