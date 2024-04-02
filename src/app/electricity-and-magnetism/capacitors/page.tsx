@@ -245,11 +245,44 @@ export default async function Page() {
           alt="Serial resistors illustration"
         />
       </div>
-      <p>The first is parallel and the second is serial. For parallel, the total capacitance is equal to:</p>
-      <BlockMath math="C = \sum_i C_i," />
+      <p>The first is parallel and the second is serial. For parallel, the voltage across each capacitor is the same - <InlineMath math="|U|"/>, each capacitor has the capacitance <InlineMath math="C_i"/> and charge <InlineMath math="Q_i"/>:</p>
+      <div className="w-full flex justify-center">
+        <Image
+          src={`${basePath}/assets/capacitors/parallel2.svg`}
+          width={700}
+          height={700}
+          alt="Parallel resistors illustration"
+        />
+      </div>
+      <BlockMath math="C_i = \frac{Q_i}{|U|} \iff Q_i = |U|C_i."/>
 
-      <p>and for serial:</p>
-      <BlockMath math="\frac{1}{C} = \sum_i \frac{1}{C_i} \implies C = \left(\sum_i \frac{1}{C_i}\right)^{-1}." />
+      <p>The capacitors can be replaced by a single capacitor with capacitance <InlineMath math="C"/> and charge <InlineMath math="Q"/>:</p>
+      <BlockMath math="
+        \begin{align*}
+          Q &= \sum_i Q_i = \sum_i |U|C_i = |U| \sum_i C_i, \\
+          C &= \frac{Q}{|U|} = \sum_i C_i.
+        \end{align*}
+      "/>
+
+      <p>For serial, capacitors with capacitance <InlineMath math="C_i"/> are connected to a battery with total voltage <InlineMath math="|U|"/> each capacitor has voltage <InlineMath math="|U_i|"/>:</p>
+      <div className="w-full flex justify-center">
+        <Image
+          src={`${basePath}/assets/capacitors/series2.svg`}
+          width={700}
+          height={700}
+          alt="Parallel resistors illustration"
+        />
+      </div>
+      <p>The outer plates have charges <InlineMath math="\pm Q"/>. The inner plates are charged to opposite charge. The voltage of each capacitor <InlineMath math="|U_i| = \frac{Q}{C_i}"/> and the total voltage is given by:</p>
+      <BlockMath math="|U| = \sum_i |U_i| = \sum_i \frac{Q}{C_i}."/>
+
+      <p>Again, the capacitors can be replaced with capacitor with capacitance <InlineMath math="C"/>:</p>
+      <BlockMath math="
+        \begin{align*}
+          |U| = \frac{Q}{C} = \sum_i \frac{Q}{C_i}, \\
+          \frac{1}{C} = \sum_i \frac{1}{C_i}.
+        \end{align*}
+      "/>
 
       <LinkH3 id="capacitance-calculator">Capacitance Calculator</LinkH3>
       <CapacitanceCalculator />
