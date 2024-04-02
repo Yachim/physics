@@ -236,13 +236,13 @@ export default async function Page() {
           src={`${basePath}/assets/capacitors/parallel.svg`}
           width={350}
           height={350}
-          alt="Parallel resistors illustration"
+          alt="Parallel capacitors illustration"
         />
         <Image
           src={`${basePath}/assets/capacitors/series.svg`}
           width={350}
           height={350}
-          alt="Serial resistors illustration"
+          alt="Serial capacitors illustration"
         />
       </div>
       <p>The first is parallel and the second is serial. For parallel, the voltage across each capacitor is the same - <InlineMath math="|U|"/>, each capacitor has the capacitance <InlineMath math="C_i"/> and charge <InlineMath math="Q_i"/>:</p>
@@ -251,7 +251,7 @@ export default async function Page() {
           src={`${basePath}/assets/capacitors/parallel2.svg`}
           width={700}
           height={700}
-          alt="Parallel resistors illustration"
+          alt="Parallel capacitors illustration"
         />
       </div>
       <BlockMath math="C_i = \frac{Q_i}{|U|} \iff Q_i = |U|C_i."/>
@@ -270,7 +270,7 @@ export default async function Page() {
           src={`${basePath}/assets/capacitors/series2.svg`}
           width={700}
           height={700}
-          alt="Parallel resistors illustration"
+          alt="Parallel capacitors illustration"
         />
       </div>
       <p>The outer plates have charges <InlineMath math="\pm Q"/>. The inner plates are charged to opposite charge. The voltage of each capacitor <InlineMath math="|U_i| = \frac{Q}{C_i}"/> and the total voltage is given by:</p>
