@@ -6,25 +6,25 @@ import { BlockMath, InlineMath } from "react-katex"
 
 type ConnectionType = "parallel" | "serial"
 
-export function CapacitanceCalculator() {
+export function ResistanceCalculator() {
   const [type, setType] = useState<ConnectionType>("parallel")
-  const [condensators, setCondensators] = useState<number[]>([0])
+  const [resistors, setResistors] = useState<number[]>([0])
 
   const getOtherType: (current?: ConnectionType) => ConnectionType = useCallback((current = type) =>
     current === "parallel" ? "serial" : "parallel"
     , [type])
 
-  const calculateParallelCapacitance = useCallback(() =>
-    sumArray(condensators)
-    , [condensators])
+  const calculateParallelResistance = useCallback(() =>
+    1 / sumArray(resistors.map(val => 1 / val))
+    , [resistors])
 
-  const calculateSerialCapacitance = useCallback(() =>
-    1 / sumArray(condensators.map(val => 1 / val))
-    , [condensators])
+  const calculateSerialResistance = useCallback(() =>
+    sumArray(resistors)
+    , [resistors])
 
   const calculateCapacitance = useCallback(() =>
-    type === "parallel" ? calculateParallelCapacitance() : calculateSerialCapacitance()
-    , [type, calculateSerialCapacitance, calculateParallelCapacitance])
+    type === "parallel" ? calculateParallelResistance() : calculateSerialResistance()
+    , [type, calculateParallelResistance, calculateSerialResistance])
 
   return (
     <div className="w-full flex justify-center">
@@ -34,23 +34,23 @@ export function CapacitanceCalculator() {
           <button onClick={() => setType(getOtherType)}>Switch to {getOtherType()}</button>
         </p>
 
-        <BlockMath math={String.raw`C = ${toScientific(calculateCapacitance())}\ F`} />
+        <BlockMath math={String.raw`R = ${toScientific(calculateCapacitance())}\ \Omega`} />
 
-        {condensators.map((val, i) =>
+        {resistors.map((val, i) =>
           <label key={i} className="flex gap-2">
-            <InlineMath math={String.raw`C_${i + 1} = `} />
-            <input type="number" value={val} onChange={e => setCondensators(prev => {
+            <InlineMath math={String.raw`R_${i + 1} = `} />
+            <input type="number" value={val} onChange={e => setResistors(prev => {
               prev[i] = +e.target.value
               return [...prev]
             })} />
-            <button onClick={() => setCondensators(prev => {
+            <button onClick={() => setResistors(prev => {
               prev.splice(i, 1)
               return [...prev]
             })}>Remove</button>
           </label>
         )}
 
-        <button onClick={() => setCondensators(prev => [...prev, 0])}>Add condensator</button>
+        <button onClick={() => setResistors(prev => [...prev, 0])}>Add resistor</button>
       </div>
     </div>
   )

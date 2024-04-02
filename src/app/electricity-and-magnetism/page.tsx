@@ -20,6 +20,7 @@ export default async function Page() {
       <Link href="/electricity-and-magnetism/capacitors">Capacitors</Link>
       <Link href="/electricity-and-magnetism/dielectrics-and-polarization">Dielectrics and Polarization</Link>
       <Link href="/electricity-and-magnetism/electric-current-and-ohms-law">Electric Current and Ohm&apos;s Law</Link>
+      <Link href="/electricity-and-magnetism/circuits">Circuits</Link>
     </div>
   );
 }
