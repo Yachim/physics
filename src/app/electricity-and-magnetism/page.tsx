@@ -21,6 +21,7 @@ export default async function Page() {
       <Link href="/electricity-and-magnetism/dielectrics-and-polarization">Dielectrics and Polarization</Link>
       <Link href="/electricity-and-magnetism/electric-current-and-ohms-law">Electric Current and Ohm&apos;s Law</Link>
       <Link href="/electricity-and-magnetism/circuits">Circuits</Link>
+      <Link href="/electricity-and-magnetism/magnetic-field">Magnetic Field</Link>
     </div>
   );
 }
