@@ -22,7 +22,7 @@ export default async function Page() {
       <BlockMath math="\varepsilon = \frac{dW}{dq}." />
       <p>The unit of electromotive force is the volt (<InlineMath math="V" />).</p>
       
-      <p>Assume a circuit with battery and with voltage equal to <InlineMath math="\varepsilon" /> and a resistor with resistance <InlineMath math="R" />. Assume the battery has no internal resistance. To drive the current around the circuit, the battery undergoes a discharging process:</p>
+      <p>Assume a circuit with battery with voltage equal to <InlineMath math="\varepsilon" /> and a resistor with resistance <InlineMath math="R" />. Assume the battery has no internal resistance. To drive the current around the circuit, the battery undergoes a discharging process:</p>
       <div className="w-full flex justify-center">
         <Image
           src={`${basePath}/assets/electricity-and-magnetism/circuits/circuits.svg`}
@@ -112,6 +112,82 @@ export default async function Page() {
 
       <LinkH3 id="total-resistance-calculator">Total Resistance Calculator</LinkH3>
       <ResistanceCalculator/>
+
+      <LinkH2 id="kirchhoffs-rules">Kirchhoff&apos;s Circuit Rules</LinkH2>
+      <LinkH3 id="junction-rule">Junction Rule</LinkH3>
+      <p>At any point where there is a junction between various current carrying branches, by current conservation the sum of the ingoing currents must equal the sum of the outgoing currents:</p>
+      <BlockMath math="\sum I_{\textrm{in}} = \sum I_{\textrm{out}}."/>
+      <p>Consider an example:</p>
+      <div className="w-full flex justify-center">
+        <Image
+          src={`${basePath}/assets/electricity-and-magnetism/circuits/junction-rule.svg`}
+          width={600}
+          height={600}
+          alt="Junction rule"
+        />
+      </div>
+      <p>The currents are related:</p>
+      <BlockMath math="I_1 = I_2 + I_3."/>
+
+      <LinkH3 id="loop-rule">Loop Rule</LinkH3>
+      <p>The sum of voltage drops <InlineMath math="U"/> across any circuit elements that form a closed loop is zero:</p>
+      <BlockMath math="\sum_{\textrm{closed loop}} U = 0."/>
+
+      <p>The rules for determining <InlineMath math="U"/> across a resistor and a battery with a chosen travel direction are as follows:</p>
+      <div className="flex flex-col gap-2 items-center">
+        <Image
+          src={`${basePath}/assets/electricity-and-magnetism/circuits/loop-rule1.svg`}
+          width={700}
+          height={700}
+          alt=""
+        />
+        <Image
+          src={`${basePath}/assets/electricity-and-magnetism/circuits/loop-rule2.svg`}
+          width={700}
+          height={700}
+          alt=""
+        />
+        <Image
+          src={`${basePath}/assets/electricity-and-magnetism/circuits/loop-rule3.svg`}
+          width={700}
+          height={700}
+          alt=""
+        />
+        <Image
+          src={`${basePath}/assets/electricity-and-magnetism/circuits/loop-rule4.svg`}
+          width={700}
+          height={700}
+          alt=""
+        />
+      </div>
+      <p>note: the choice of travel direction is arbitrary.</p>
+
+      <p>As an example, consider a voltage source <InlineMath math="\varphi_{in}"/> connected to two resistors <InlineMath math="R_1"/> and <InlineMath math="R_2"/>:</p>
+      <div className="w-full flex justify-center">
+        <Image
+          src={`${basePath}/assets/electricity-and-magnetism/circuits/loop-rule-example.svg`}
+          width={600}
+          height={600}
+          alt="Loop rule example"
+        />
+      </div>
+      {/*
+        why not U but phi? https://ocw.mit.edu/courses/8-02t-electricity-and-magnetism-spring-2005/01decae81aae80df6e65d8831582764a_chap7dc_circuits.pdf 
+        in the pdf, there is V instead of delta V
+      */}
+      <p>The voltage difference <InlineMath math="\varphi_{\textrm{out}}"/> across resistor <InlineMath math="R_2"/> will be less than <InlineMath math="\varphi_{\textrm{in}}"/>. This circuit is called a voltage divider. From the loop rule:</p>
+      <BlockMath math="\varphi_{\textrm{in}} - I R_1 - I R_2 = 0."/>
+      <p>So the current is given by:</p>
+      <BlockMath math="I = \frac{\varphi_{\textrm{in}}}{R_1 + R_2}."/>
+
+      <p>The voltage difference <InlineMath math="\varphi_{\textrm{out}}"/> across resistor <InlineMath math="R_2"/> is equal to:</p>
+      <BlockMath math="\varphi_{\textrm{out}} = I R_2 = \frac{R_2}{R_1 + R_2} \varphi_{\textrm{in}}."/>
+
+      <p>The ratio of the voltages characterizes the voltage divider and is given by the resistances:</p>
+      <BlockMath math="\frac{\varphi_{\textrm{out}}}{\varphi_{\textrm{in}}} = \frac{R_2}{R_1 + R_2}."/>
+
+      <LinkH2 id="charging-capacitor">Charging a Capacitor</LinkH2>
+      <LinkH2 id="discharging-capacitor">Discharging a Capacitor</LinkH2>
     </div>
   )
 }

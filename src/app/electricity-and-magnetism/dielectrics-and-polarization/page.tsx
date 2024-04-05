@@ -70,7 +70,7 @@ export default async function Page() {
                 src={`${basePath}/assets/dielectrics/polar.svg`}
                 width={350}
                 height={350}
-                alt="Serial resistors illustration"
+                alt=""
               />
             </td>
             <td className="p-0">
@@ -78,7 +78,7 @@ export default async function Page() {
                 src={`${basePath}/assets/dielectrics/polarEField.svg`}
                 width={350}
                 height={350}
-                alt="Serial resistors illustration"
+                alt=""
               />
             </td>
           </tr>
@@ -89,7 +89,7 @@ export default async function Page() {
                 src={`${basePath}/assets/dielectrics/nonpolar.svg`}
                 width={350}
                 height={350}
-                alt="Serial resistors illustration"
+                alt=""
               />
             </td>
             <td className="p-0">
@@ -97,7 +97,7 @@ export default async function Page() {
                 src={`${basePath}/assets/dielectrics/nonpolarEField.svg`}
                 width={350}
                 height={350}
-                alt="Serial resistors illustration"
+                alt=""
               />
             </td>
           </tr>
