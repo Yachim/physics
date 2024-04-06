@@ -343,7 +343,7 @@ export default async function Home() {
           \mathscr{E} &= \frac{1}{2} m v_0^2 + U_{eff}(r_0),
         \end{align*}
       " />
-      <p>where <InlineMath math="U_{eff}(r) = \frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}"/>. Setting <InlineMath math="\frac{dt}{d\tau} = 0"/>, we can solve for extramal distances:</p>
+      <p>where <InlineMath math="U_{eff}(r) = \frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}"/>. Setting <InlineMath math="\frac{dr}{d\tau} = 0"/>, we can solve for extramal distances:</p>
       <BlockMath math="
         \begin{align*}
           \mathscr{E} &= \frac{m \mathcal{L}^2}{2 r^2} - \frac{m}{r} - \frac{m \mathcal{L}^2}{r^3}, \\
@@ -387,6 +387,9 @@ export default async function Home() {
         \end{align*}
       "/>
       <p>this is the inner most stable circular orbit.</p>
+      <p>To predict the nature of orbit, we can use the derivative of the effective potential:</p>
+      <BlockMath math="U'_{eff}(r) = 3\frac{m \mathcal{L}^2}{r^4} - \frac{m \mathcal{L}^2}{r^3} + \frac{m}{r^2}"/>
+
       {/* FIXME: not working */}
       <LinkH5 id="schwarzschild-orbit-predictor">Schwarzschild Orbit Predictor (Work in Progress)</LinkH5>
       <SchwarzschildOrbitPredictor/>
