@@ -111,7 +111,7 @@ export function getSchwarzschildTimeVelocity(r: number, uR: number, uPhi: number
 
 // constant theta = pi/2
 // geometrized units (c = G = M = 1)
-export function schwarzschildTimelikeEulerStep(
+export function schwarzschildEulerStep(
   coords: [number, number, number],
   velocities: [number, number, number],
   timeStep: number

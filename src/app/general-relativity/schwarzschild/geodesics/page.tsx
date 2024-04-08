@@ -258,7 +258,6 @@ export default async function Home() {
           \epsilon &= -1, & &\textrm{for timelike geodesics where \(\lambda = \tau\)}, \\
           \epsilon &= 0, & &\textrm{for lightlike geodesics}, \\
           \epsilon &> 0, & &\textrm{for spacelike geodesics}, \\
-          \epsilon &= 1, & &\textrm{for spacelike geodesics where \(\lambda = L_0\)},
         \end{align*}
       " />
       <p>but I will not be considering space-like geodesics.</p>
