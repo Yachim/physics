@@ -85,20 +85,10 @@ export default async function Home() {
         <TimelikeGeodesics/>
 
         <LinkH2 id="lightlike-geodesics">Lightlike Geodesics</LinkH2>
-        {/*<p>For lightlike paths, I will take equations from the <Link href="/general-relativity/schwarzschild/geodesics#lightlike-geodesics">previous section</Link>:</p>
-        <BlockMath math="\mathcal{E}^2 = \left(\frac{dr}{d\lambda}\right)^2 + \frac{\mathcal{L}^2}{r^2} - \frac{2\mathcal{L}^2}{r^3}," />
-        <p>where <InlineMath math="\mathcal{L}" /> and <InlineMath math="\mathcal{E}" /> are the constants of motion:</p>
-        <BlockMath math="
-            \begin{align*}
-                \mathcal{L} &= r^2 \frac{d\phi}{d\lambda}, \\
-                \mathcal{E} &= \frac{dt}{d\lambda} \left(1 - \frac{2}{r}\right).
-            \end{align*}
-        " />*/}
-
         <p>For lightlike paths, <InlineMath math="\epsilon = 0" />. The tangent vector length is equal to:</p>
         <BlockMath math="0 = -\left(1 - \frac{2}{r}\right) \left(\frac{dt}{d\lambda}\right)^2 + \left(1 - \frac{2}{r}\right)^{-1} \left(\frac{dr}{d\lambda}\right)^2 + r^2 \left(\frac{d\phi}{d\lambda}\right)^2." />
 
-        <p>And the geodesic equations don't change:</p>
+        <p>And the geodesic equations don&apos;t change:</p>
         <BlockMath math="
             \begin{align*}
                 \frac{d^2 t}{d\lambda^2} &= - \frac{2}{r(r - 2)} \frac{dt}{d\lambda} \frac{dr}{d\lambda}, \\
@@ -152,7 +142,7 @@ export default async function Home() {
                 \frac{dt}{d\lambda} &= \sqrt{\left(1 - \frac{2}{r_0}\right)^{-1} \left[\left(1 - \frac{2}{r_0}\right)^{-1} \cos^2 \tilde{\phi} + \sin^2 \tilde{\phi}\right]}.
             \end{align*}
         " />
-        <p>Now, the Euler method can be employed. But since we're working with multiple rays at once, I will use the coordinate time <InlineMath math="t" /> to find <InlineMath math="\lambda" /> for each ray. We can derive this from the tangent vector length equation:</p>
+        <p>Now, the Euler method can be employed. But since we&apos;re working with multiple rays at once, I will use the coordinate time <InlineMath math="t" /> to find <InlineMath math="\lambda" /> for each ray. We can derive this from the tangent vector length equation:</p>
         <BlockMath math="
             \begin{align*}
                 0 &= -\left(1 - \frac{2}{r}\right) \left(\frac{dt}{d\lambda}\right)^2 + \left(1 - \frac{2}{r}\right)^{-1} \left(\frac{dr}{d\lambda}\right)^2 + r^2 \left(\frac{d\phi}{d\lambda}\right)^2, \\
