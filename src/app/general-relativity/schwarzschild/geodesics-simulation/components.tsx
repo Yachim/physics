@@ -5,6 +5,7 @@ import { getSchwarzschildTimeVelocity, schwarzschildEulerStep } from "@/utils/ca
 import { c } from "@/utils/constants";
 import { cartesianToSpherical, clampAngle, sphericalToCartesian, toScientific } from "@/utils/misc";
 import { addExtraConst, frequencyUnitSI, fromSI, lengthUnitSI, timeUnitSI, toSI, velocityUnitSI } from "@/utils/units";
+import { index } from "mathjs";
 
 // 0.1 AU
 const timelikeGeodesicsFactor = 15e9
@@ -249,7 +250,8 @@ export function LightlikeGeodesics(props: BoardProps) {
             timeText.needsUpdate = true
             timeText.update()
 
-            points.forEach(([point, coords, velocities], i) => {
+            const indexToRemove: number[] = []
+            points = points.filter(([point, coords, velocities], i) => {
                 const deltaLambda = getDeltaLambda(coords, velocities, deltaT)
                 const [newCoordinates, newVelocities] = schwarzschildEulerStep(coords, velocities, deltaLambda)
 
@@ -260,7 +262,15 @@ export function LightlikeGeodesics(props: BoardProps) {
                     toSI(newCoordinates[1], lengthUnitSI, "geometrizedMass", addExtraConst(2, +massInput.Value())),
                     newCoordinates[2]
                 ))
+
+                if (newCoordinates[1] < 2) { // schwarzschild radius
+                    board.removeObject(point)
+                    return false
+                }
+                return true
             })
+
+            
         }, timeInterval * 1000)
     }} />
   )
