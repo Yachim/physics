@@ -125,3 +125,17 @@ export function toSI(
 ): number {
     return convert(value, siUnit, system, "b", extraConsts)        
 }
+
+export function toText(unit: UnitType, system: UnitSystem | "si"): string {
+    return unit.map((el, i) => {
+        if (el === 0) return ""
+        let res = siUnits[i]
+        if (system !== "si") {
+            res = units[system].units[i]
+        }
+        if (el !== 1) {
+            res += `^{${el}}`
+        }
+        return res + "\\ "
+    }).join("")
+}
