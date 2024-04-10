@@ -14,6 +14,8 @@ export default async function Home() {
 
       <LinkH2 id="chapters">Chapters</LinkH2>
       <Link href="/general-relativity/math-preliminaries/tensor-calculus-intro">Tensor Calculus Introduction</Link>
+      <Link href="/general-relativity/math-preliminaries/covariance-and-contravariance">Covariance and Contravariance</Link>
+      <Link href="/general-relativity/math-preliminaries/metric-tensor">Arc Length and Metric Tensor</Link>
     </div>
   )
 }

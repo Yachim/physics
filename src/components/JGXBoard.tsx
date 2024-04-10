@@ -10,6 +10,7 @@ export type BoardProps = {
   axis?: boolean
   offsetX?: number
   offsetY?: number
+  className?: string
 }
 
 export type FixedInput = JXG.Input & { set(val: any): void }
@@ -19,6 +20,7 @@ export function CustomJXGBoard({
   bbox,
   axis,
   initFn,
+  className,
 }: BoardProps & {
   id: string
   initFn?: (board: JXG.Board) => void
@@ -42,6 +44,6 @@ export function CustomJXGBoard({
   }, [bbox, initFn, axis, id])
 
   return (
-    <div className="w-full aspect-video" id={id} />
+    <div className={`w-full aspect-video ${className}`} id={id} />
   )
 }

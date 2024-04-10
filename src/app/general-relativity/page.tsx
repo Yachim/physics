@@ -24,11 +24,11 @@ export default async function Home() {
       <BlockMath math="v^i e_i = \sum_i v^i e_i." />
 
       <p>Partial derivative with respect to spacetime component notation:</p>
-      <BlockMath math="\frac{\partial v^{\mu}}{\partial x^{\nu}} = \partial_{\nu} v^{\mu} = v^{\mu}{}_{,\nu}." />
+      <BlockMath math="\frac{\partial v^{\mu}}{\partial x^{\nu}} \equiv \partial_{\nu} v^{\mu} \equiv v^{\mu}{}_{,\nu}." />
       
       <LinkH2 id="chapters">Chapters</LinkH2>
-      <Link href="/general-relativity/schwarzschild">Schwarzschild Metric</Link>
       <Link href="/general-relativity/math-preliminaries">Mathematical Preliminaries</Link>
+      <Link href="/general-relativity/schwarzschild">Schwarzschild Metric</Link>
     </div>
   )
 }
