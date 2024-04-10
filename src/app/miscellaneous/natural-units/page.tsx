@@ -27,7 +27,7 @@ export default async function Home() {
       `}/>
 
       <LinkH2 id="geometrized-units">Geometrized Units with Mass</LinkH2>
-      <p>The columns represent <InlineMath math="c, G, M, A, K, cd, mol"/>. The mass <InlineMath math="M = 1"/>.</p>
+      <p>The columns represent <InlineMath math="c, G, M, A, K, cd, mol"/>.</p>
 
       <LinkH2 id="unit-converter">Unit Converter</LinkH2>
       <p>To convert values, set the calculator to forward transformation (SI &rarr; [system]). To convert from the selected system to SI, multiply by the units and to convert from SI to the selected system divide by the units.</p>

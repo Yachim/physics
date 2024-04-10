@@ -1,12 +1,15 @@
 "use client"
 
 import { BoardProps, CustomJXGBoard } from "@/components/JGXBoard"
-import { getSchwarzschildTimeVelocity, schwarzschildTimelikeEulerStep } from "@/utils/calculations";
+import { getSchwarzschildTimeVelocity, schwarzschildEulerStep } from "@/utils/calculations";
+import { c } from "@/utils/constants";
 import { cartesianToSpherical, clampAngle, sphericalToCartesian, toScientific } from "@/utils/misc";
 import { addExtraConst, frequencyUnitSI, fromSI, lengthUnitSI, timeUnitSI, toSI, velocityUnitSI } from "@/utils/units";
+import { index } from "mathjs";
 
 // 0.1 AU
 const timelikeGeodesicsFactor = 15e9
+const lightlikeGeodesicsFactor = 15e9
 
 const fps = 30
 const timeInterval = 1 / fps
@@ -50,7 +53,7 @@ export function TimelikeGeodesics(props: BoardProps) {
 
         board.create("button", [-15 * timelikeGeodesicsFactor, 4 * timelikeGeodesicsFactor, () => playing ? "Stop" : "Play", () => playing = !playing], {frozen: true})
 
-        const timeScaleInput = board.create("input", [-15 * timelikeGeodesicsFactor, 5 * timelikeGeodesicsFactor, 31_536_000 / 5, "Time Scale: "], {frozen: true})
+        const timeScaleInput = board.create("input", [-15 * timelikeGeodesicsFactor, 5 * timelikeGeodesicsFactor, 31_536_000 / 5, "Time Scale: "], {frozen: true}) // fifth of earth's orbital period
 
         function getInitialCoordinates(): [number, number, number] {
             return [0, ...cartesianToSpherical(orbitingPoint.X(), orbitingPoint.Y())]
@@ -112,11 +115,10 @@ export function TimelikeGeodesics(props: BoardProps) {
                 currentDataText.update()
                 return
             }
-            console.log("?")
 
             const h: number = fromSI(timeInterval * (+timeScaleInput.Value()), timeUnitSI, "geometrizedMass", addExtraConst(2, +massInput.Value()))
 
-            const [newCoordinates, newVelocities] = schwarzschildTimelikeEulerStep(coordinates, velocities, h)
+            const [newCoordinates, newVelocities] = schwarzschildEulerStep(coordinates, velocities, h)
             coordinates = newCoordinates
             velocities = newVelocities
             tau += h
@@ -137,6 +139,139 @@ export function TimelikeGeodesics(props: BoardProps) {
                 ${getInitialVelocitiesGeo().map(toScientific).join("\\\\ \n")}
             \end{bmatrix}
         \end{align*}$`], {frozen: true})
+    }} />
+  )
+}
+
+export function LightlikeGeodesics(props: BoardProps) {
+  return (
+    <CustomJXGBoard id="lightlike-geodesics-plot" {...props} axis={false} bbox={props.bbox ?? [-16 * lightlikeGeodesicsFactor, 9 * lightlikeGeodesicsFactor, 16 * lightlikeGeodesicsFactor, -9 * lightlikeGeodesicsFactor]} initFn={(board: JXG.Board) => {
+        board.create('axis', [[0,0], [1,0]], {
+            ticks: {
+                type: "polar",
+                label: {
+                    offset:[0, -3], 
+                    anchorX: 'middle', 
+                    anchorY: 'top'
+                }
+            }
+        });
+
+        board.create('axis', [[0,0], [0,1]], {
+            ticks: {
+                majorHeight: 0,
+                tickEndings: [1, 0],
+                label: {
+                    offset: [-6, 0], 
+                    anchorY: 'middle', 
+                    anchorX: 'right'
+                }
+            }
+        });
+
+        let playing = false
+
+        const massInput = board.create("input", [-15 * lightlikeGeodesicsFactor, 8 * lightlikeGeodesicsFactor, 2e30, "$M =\\ $"], {frozen: true})
+        board.create("point", [0, 0], {fixed: true, name: "M", color: "orange"})
+        board.create("circle", [[0, 0], () => toSI(2, lengthUnitSI, "geometrizedMass", addExtraConst(2, +massInput.Value()))], {fixed: true, color: "#3d3d3d"})
+        const sourcePoint = board.create("point", [-150e9, 0], {name: "S", color: "yellow"})
+
+        const raysNumberInput = board.create("input", [-15 * lightlikeGeodesicsFactor, 7 * lightlikeGeodesicsFactor, 10, "Number of rays: "], {frozen: true})
+        const phiAInput = board.create("input", [-15 * lightlikeGeodesicsFactor, 6 * lightlikeGeodesicsFactor, 0, "$\\tilde{\\phi}_A$: "], {frozen: true})
+        const phiBInput = board.create("input", [-15 * lightlikeGeodesicsFactor, 5 * lightlikeGeodesicsFactor, 2 * Math.PI, "$\\tilde{\\phi}_B$: "], {frozen: true})
+        const timeScaleInput = board.create("input", [-15 * lightlikeGeodesicsFactor, 4 * lightlikeGeodesicsFactor, 48, "Time Scale: "], {frozen: true}) // 8 minutes
+        board.create("button", [-15 * lightlikeGeodesicsFactor, 3 * lightlikeGeodesicsFactor, () => playing ? "Stop" : "Play", () => playing = !playing], {frozen: true})
+
+        function getInitialCoordinatesGeo(): [number, number, number] {
+            return [0, ...cartesianToSpherical(
+                fromSI(sourcePoint.X(), lengthUnitSI, "geometrizedMass", addExtraConst(2, +massInput.Value())),
+                fromSI(sourcePoint.Y(), lengthUnitSI, "geometrizedMass", addExtraConst(2, +massInput.Value())),
+            )]
+        }
+
+        function getInitialVelocitiesGeo(phiTilde: number): [number, number, number] {
+            const rGeo = fromSI(Math.sqrt(sourcePoint.X() ** 2 + sourcePoint.Y() ** 2), lengthUnitSI, "geometrizedMass", addExtraConst(2, +massInput.Value()))
+            const uRGeo = -Math.cos(phiTilde)
+            const uPhiGeo = Math.sin(phiTilde) / rGeo
+
+            const uTGeo = Math.sqrt(1 / (1 - 2 / rGeo) * (1 / (1 - 2 / rGeo) * Math.cos(phiTilde) ** 2 + Math.sin(phiTilde) ** 2))
+
+            return [uTGeo, uRGeo, uPhiGeo]
+        }
+
+        function getDeltaLambda(
+            coords: [number, number, number],
+            velocities: [number, number, number],
+            deltaT: number
+        ): number {
+            const r = coords[1]
+            const [_, uR, uPhi] = velocities
+            return ((2 - 2 / r) ** (-2) * uR ** 2 + r ** 2 * (1 - 2 / r) ** (-1) * uPhi ** 2) ** (-0.5) * deltaT
+        }
+
+        let tGeo = 0
+        const timeText = board.create("text", [12 * lightlikeGeodesicsFactor, 8 * lightlikeGeodesicsFactor, () => {
+            const tSI = toSI(tGeo, timeUnitSI, "geometrizedMass", addExtraConst(2, +massInput.Value()))
+
+            return String.raw`$t = ${toScientific(tSI)}\ s$`
+        }], {frozen: true})
+
+        let points: [
+            JXG.Point,
+            [number, number, number], // coords
+            [number, number, number] // velocities
+        ][] = []
+
+        setInterval(() => {
+            if (!playing) {
+                tGeo = 0
+                timeText.needsUpdate = true
+                timeText.update()
+                points.forEach(el => board.removeObject(el[0]))
+                points = []
+                return
+            }
+
+            if (points.length === 0) {
+                const coords = getInitialCoordinatesGeo()
+                const angleStep = (+phiBInput.Value() - (+phiAInput.Value())) / (+raysNumberInput.Value())
+                points = Array(+raysNumberInput.Value()).fill(0).map((_, i) => {
+                    return [
+                        board.create("point", [sourcePoint.X(), sourcePoint.Y()], {color: "yellow", fixed: true, name: ""}),
+                        [0, coords[1], coords[2]],
+                        getInitialVelocitiesGeo(+phiAInput.Value() + angleStep * i)
+                    ]
+                })
+            }
+
+            const deltaT: number = fromSI(timeInterval * (+timeScaleInput.Value()), timeUnitSI, "geometrizedMass", addExtraConst(2, +massInput.Value()))
+
+            tGeo += deltaT
+            timeText.needsUpdate = true
+            timeText.update()
+
+            const indexToRemove: number[] = []
+            points = points.filter(([point, coords, velocities], i) => {
+                const deltaLambda = getDeltaLambda(coords, velocities, deltaT)
+                const [newCoordinates, newVelocities] = schwarzschildEulerStep(coords, velocities, deltaLambda)
+
+                points[i][1] = newCoordinates
+                points[i][2] = newVelocities
+
+                point.moveTo(sphericalToCartesian(
+                    toSI(newCoordinates[1], lengthUnitSI, "geometrizedMass", addExtraConst(2, +massInput.Value())),
+                    newCoordinates[2]
+                ))
+
+                if (newCoordinates[1] < 2) { // schwarzschild radius
+                    board.removeObject(point)
+                    return false
+                }
+                return true
+            })
+
+            
+        }, timeInterval * 1000)
     }} />
   )
 }
