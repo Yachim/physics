@@ -62,6 +62,55 @@ export default async function Home() {
       "/>
 
       <p>Two notes: the partial derivatives have one upper and one lower index, so we are employing the Einstein summation convention. The second note: I am using latin and greek letters. I am using latin indices for space components and greek indices for spacetime components in general relativity. Here they are used for simplicity and don&apos;t have any special meaning.</p>
+
+      <p>We can make sense of the above relationship by considering a vector <InlineMath math="\boldsymbol{R}" /> parametrized by <InlineMath math="\lambda" /> and its tangent vector <InlineMath math="\frac{d\boldsymbol{R}}{d\lambda}" />. By chain rule:</p>
+      <BlockMath math="\frac{d \boldsymbol{R}}{d \lambda} = \frac{\partial \boldsymbol{R}}{\partial R^{\mu}} \frac{d R^{\mu}}{d\lambda} = \frac{d R^{\mu}}{d \lambda} \boldsymbol{e_{\mu}}." />
+
+      <p>Now, consider a transformation <InlineMath math="R^{\mu} \to \tilde{R}^{\mu}" />. The tangent vector is equal to:</p>
+      <BlockMath math="\frac{d \boldsymbol{R}}{d \lambda} = \frac{\partial \boldsymbol{R}}{\partial \tilde{R}^{\mu}} \frac{d \tilde{R}^{\mu}}{d\lambda} = \frac{d \tilde{R}^{\mu}}{d \lambda} \boldsymbol{\tilde{e}_{\mu}}." />
+
+      <p>We can apply chain rule on the last part:</p>
+      <BlockMath math="\frac{d \tilde{R}^{\mu}}{d \lambda} \boldsymbol{\tilde{e}_{\mu}} = \frac{\partial \tilde{R}^{\mu}}{\partial R^{\nu}} \frac{d R^{\nu}}{d \lambda} \boldsymbol{\tilde{e}_{\mu}}," />
+      <p>implying the component <InlineMath math="\frac{d \tilde{R}^{\mu}}{d \lambda}" /> in the new basis <InlineMath math="\boldsymbol{\tilde{e}_{\mu}}" /> is equal to:</p>
+      <BlockMath math="\frac{d \tilde{R}^{\mu}}{d \lambda} = \frac{\partial \tilde{R}^{\mu}}{\partial R^{\nu}} \frac{d R^{\nu}}{d \lambda}," />
+
+      <p>Now, consider a covector <InlineMath math="df" />:</p>
+      <BlockMath math="df = \frac{\partial f}{\partial x^{\mu}} dx^{\mu} = \frac{\partial f}{\partial x^{\mu}} \epsilon^{\mu}." />
+
+      <p>Now, consider a transformation <InlineMath math="x^{\mu} \to \tilde{x}^{\mu}" />. The covector is now equal to:</p>
+      <BlockMath math="df = \frac{\partial f}{\partial \tilde{x}^{\mu}} d\tilde{x}^{\mu} = \frac{\partial f}{\partial \tilde{x}^{\mu}} \tilde{\epsilon}^{\mu}." />
+
+      <p>And similarly, we can apply chain rule on the last part:</p>
+      <BlockMath math="\frac{\partial f}{\partial \tilde{x}^{\mu}} \tilde{\epsilon}^{\mu} = \frac{\partial f}{\partial x^{\nu}} \frac{\partial x^{\nu}}{\partial \tilde{x}^{\mu}} \tilde{\epsilon}^{\mu}," />
+      <p>implying:</p>
+      <BlockMath math="\frac{\partial f}{\partial \tilde{x}^{\mu}} = \frac{\partial f}{\partial x^{\nu}} \frac{\partial x^{\nu}}{\partial \tilde{x}^{\mu}}." />
+
+      <p>For the transformation <InlineMath math="x^{\mu} \to \tilde{x}^{\mu}" />, the partial derivatives <InlineMath math="\frac{\partial x^{\mu}}{\partial \tilde{x}^{\mu}}" /> form the Jacobian which is used for covariant transformation:</p>
+      <BlockMath math="J = \frac{\partial x^{\mu}}{\partial \tilde{x}^{\nu}} = \begin{bmatrix}
+        \frac{\partial x^1}{\partial \tilde{x}^1} & \dots  & \frac{\partial x^1}{\partial \tilde{x}^n} \\
+        \vdots                                    & \ddots & \vdots \\
+        \frac{\partial x^n}{\partial \tilde{x}^1} & \dots  & \frac{\partial x^n}{\partial \tilde{x}^n}
+      \end{bmatrix}," />
+      <p>And the partial derivatives <InlineMath math="\frac{\partial \tilde{x}^{\mu}}{\partial x^{\mu}}" /> form the inverse jacobian used for contravariant transformations:</p>
+      <BlockMath math="J^{-1} = \frac{\partial \tilde{x}^{\mu}}{\partial x^{\nu}} = \begin{bmatrix}
+        \frac{\partial \tilde{x}^1}{\partial x^1} & \dots  & \frac{\partial \tilde{x}^1}{\partial x^n} \\
+        \vdots                                    & \ddots & \vdots \\
+        \frac{\partial \tilde{x}^n}{\partial x^1} & \dots  & \frac{\partial \tilde{x}^n}{\partial x^n}
+      \end{bmatrix}." />
+
+      <p>Unlike classic derivatives, <InlineMath math="\frac{dx}{df} = \frac{1}{\frac{df}{dx}}" />, the inverse partial derivative:</p>
+      <BlockMath math="\frac{\partial x^{\mu}}{\partial \tilde{x}^{\nu}} \neq \frac{1}{\frac{\partial \tilde{x}^{\nu}}{\partial x^{\mu}}}," />
+      <p>however, the Jacobian satisfies the following:</p>
+      <BlockMath math="
+        \begin{align*}
+          J^{-1}J &= \frac{\partial \tilde{x}^{\mu}}{\partial x^{\nu}} \frac{\partial x^{\nu}}{\partial \tilde{x}^{\sigma}} \\
+          &= \frac{\partial \tilde{x}^{\mu}}{\partial \tilde{x}^{\sigma}} \\
+          &= \delta^{\mu}_{\sigma} = \begin{cases}
+            1 & \mu &= \sigma, \\
+            0 & \mu &\neq \sigma.
+          \end{cases}
+        \end{align*}
+      " />
     </div>
   )
 }

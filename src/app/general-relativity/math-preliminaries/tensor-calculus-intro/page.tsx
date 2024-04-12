@@ -219,7 +219,7 @@ export default async function Home() {
           alt="Curve"
         />
       </div>
-      <p>where the green vector is the tangent vector in the limiting case when <InlineMath math="h \to 0" />:</p>
+      <p>where the green vector is the tangent vector. In the limiting case when <InlineMath math="h \to 0" />:</p>
       <BlockMath math="\lim_{h \to 0} \frac{\boldsymbol{R}(\lambda + h) - \boldsymbol{R}(\lambda)}{h} = \frac{d\boldsymbol{R}}{d\lambda}." />
       <p>By chain rule, the tangent vector may be written out:</p>
       <BlockMath math="

@@ -40,8 +40,14 @@ export default async function Home() {
         <p>For the Cartesian coordinate system, the metric tensor is equal to the Kronecker delta:</p>
         <BlockMath math="g_{\mu \nu} = \delta_{\mu \nu} = \begin{cases}
             1 & \mu &= \nu, \\
-            0 & \mu &\neq \nu.
+            0 & \mu &\neq \nu,
         \end{cases}" />
+
+        <p>Or represented as matrix for 2D Cartesian coordinate system:</p>
+        <BlockMath math="g_{\mu \nu} = \begin{bmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{bmatrix}" />
 
         <p>This means that the vectors are parallel to each other due to the missing off diagonal components.</p>
 
@@ -217,6 +223,284 @@ export default async function Home() {
         " />
 
         <LinkH2 id="geometry-sphere">Geometry of Sphere</LinkH2>
-    </div>  
+        <p>Consider the spherical coordinates where the coordinates are: <InlineMath math="r" /> - the distance from the origin, <InlineMath math="\theta" /> - the colatitude and <InlineMath math="\phi" /> - the azimuthal angle:</p>
+        <div className="w-full flex justify-center">
+            <Image
+                src={`${basePath}/assets/general-relativity/math-preliminaries/metric-tensor/spherical-coordinates.png`}
+                width={500}
+                height={500}
+                alt="Spherical coordinates"
+                unoptimized
+            />
+        </div>
+
+        <p>We can start by solving for the cartesian coordinate <InlineMath math="z" /> and the projection <InlineMath math="xy" /> onto the <InlineMath math="x\textrm{-}y" /> plane:</p>
+        <div className="w-full flex justify-center">
+            <Image
+                src={`${basePath}/assets/general-relativity/math-preliminaries/metric-tensor/spherical-coordinates2.png`}
+                width={500}
+                height={500}
+                alt="Spherical coordinates 2"
+                unoptimized
+            />
+        </div>
+        <BlockMath math="
+            \begin{align*}
+                z &= r \cos \theta, \\
+                xy &= r \sin \theta.
+            \end{align*}
+        " />
+
+        <p>And now we can solve fot the Cartesian coordinates <InlineMath math="x" /> and <InlineMath math="y" />:</p>
+        <div className="w-full flex justify-center">
+            <Image
+                src={`${basePath}/assets/general-relativity/math-preliminaries/metric-tensor/spherical-coordinates3.png`}
+                width={500}
+                height={500}
+                alt="Spherical coordinates 3"
+                unoptimized
+            />
+        </div>
+        <BlockMath math="
+            \begin{align*}
+                x &= xy \cos \phi = r \cos \phi \sin \theta, \\
+                y &= xy \sin \phi = r \sin \phi \sin \theta. \\
+            \end{align*}
+        " />
+
+        <p>Putting it all together, the Cartesian coordinates with the cartesian metric tensor <InlineMath math="g_{\mu \nu}" /> are equal to:</p>
+        <BlockMath math="
+            \begin{align*}
+                x &= r \sin \theta \cos \phi, \\
+                y &= r \sin \theta \sin \phi, \\
+                z &= r \cos \theta, \\
+                g_{\mu \nu} &= \delta_{\mu \nu} = \begin{bmatrix}
+                    1 & 0 & 0 \\
+                    0 & 1 & 0 \\
+                    0 & 0 & 1
+                \end{bmatrix}.
+            \end{align*}
+        " />
+
+        <p>The metric tensor <InlineMath math="\tilde{g}_{\mu \nu}" /> for spherical coordinates is equal to:</p>
+        <BlockMath math="
+            \begin{align*}
+                \tilde{g}_{\mu \nu} &= \frac{\partial x^{\alpha}}{\partial \tilde{x}^{\mu}} \frac{\partial x^{\beta}}{\partial \tilde{x}^{\nu}} g_{\alpha \beta} \\
+                &= \frac{\partial x^{\alpha}}{\partial \tilde{x}^{\mu}} \frac{\partial x^{\beta}}{\partial \tilde{x}^{\nu}} \delta_{\alpha \beta} \\
+                &= \frac{\partial x^{\alpha}}{\partial \tilde{x}^{\mu}} \frac{\partial x^{\alpha}}{\partial \tilde{x}^{\nu}} \delta_{\alpha \alpha} \\
+                &= \sum_{\alpha} \frac{\partial x^{\alpha}}{\partial \tilde{x}^{\mu}} \frac{\partial x^{\alpha}}{\partial \tilde{x}^{\nu}}.
+            \end{align*}
+        " />
+
+        <p>The partial derivatives in the transformation are equal to:</p>
+        <BlockMath math="
+            \begin{align*}
+                \frac{\partial x}{\partial r} &= \sin \theta \cos \phi,  &  \frac{\partial x}{\partial \theta} &= r \cos \theta \cos \phi,  &  \frac{\partial x}{\partial \phi} &= -r \sin \theta \sin \phi, \\
+                \frac{\partial y}{\partial r} &= \sin \theta \sin \phi,  &  \frac{\partial y}{\partial \theta} &= r \cos \theta \sin \phi,  &  \frac{\partial y}{\partial \phi} &= r \sin \theta \cos \phi, \\
+                \frac{\partial z}{\partial r} &= \cos \theta,            &  \frac{\partial z}{\partial \theta} &= -r \sin \theta,           &  \frac{\partial z}{\partial \phi} &= 0.
+            \end{align*}
+        " />
+
+        <p>Transforming the metric tensor components:</p>
+        <BlockMath math="
+            \begin{align*}
+                \tilde{g}_{r r} &= \sum_{\alpha} \frac{\partial x^{\alpha}}{\partial r} \frac{\partial x^{\alpha}}{\partial r} \\
+                &= (\sin \theta \cos \phi)^2 + (\sin \theta \sin \phi)^2 + (\cos \theta)^2 \\
+                &= \sin^2 \theta \cos^2 \phi + \sin^2 \theta \sin^2 \phi + \cos^2 \theta \\
+                &= \sin^2 \theta + \cos^2 \theta \\
+                &= 1, \\
+                \tilde{g}_{r \theta} = \tilde{g}_{\theta r} &= \sum_{\alpha} \frac{\partial x^{\alpha}}{\partial r} \frac{\partial x^{\alpha}}{\partial \theta} \\
+                &= \sin \theta \cos \phi\ r \cos \theta \cos \phi + \sin \theta \sin \phi\ r \cos \theta \sin \phi - \cos \theta\ r \sin \theta \\
+                &= r \sin \theta \cos \theta (\cos^2 \phi + \sin^2 \phi) - r \sin \theta \cos \theta \\
+                &= r \sin \theta \cos \theta - r \sin \theta \cos \theta \\
+                &= 0, \\
+                \tilde{g}_{r \phi} = \tilde{g}_{\phi r} &= \sum_{\alpha} \frac{\partial x^{\alpha}}{\partial r} \frac{\partial x^{\alpha}}{\partial \phi} \\
+                &= -\sin \theta \cos \phi\ r \sin \theta \sin \phi + \sin \theta \sin \phi\ r \sin \theta \cos \phi + \cos \theta\ 0 \\
+                &= -\sin \theta \cos \phi\ r \sin \theta \sin \phi + \sin \theta \sin \phi\ r \sin \theta \cos \phi + \cos \theta\ 0 \\
+                &= 0, \\
+                \tilde{g}_{\theta \theta} &= \sum_{\alpha} \frac{\partial x^{\alpha}}{\partial \theta} \frac{\partial x^{\alpha}}{\partial \theta} \\
+                &= (r \cos \theta \cos \phi)^2 + (r \cos \theta \sin \phi)^2 + (- r \sin \theta)^2 \\
+                &= r^2 \cos^2 \theta \cos^2 \phi + r^2 \cos^2 \theta \sin^2 \phi + r^2 \sin^2 \theta \\
+                &= r^2 \cos^2 \theta (\cos^2 \phi + \sin^2 \phi) + r^2 \sin^2 \theta \\
+                &= r^2 \cos^2 \theta + r^2 \sin^2 \theta \\
+                &= r^2 \\
+                \tilde{g}_{\theta \phi} = \tilde{g}_{\phi \theta} &= \sum_{\alpha} \frac{\partial x^{\alpha}}{\partial \theta} \frac{\partial x^{\alpha}}{\partial \phi} \\
+                &= -r \cos \theta \cos \phi\ r \sin \theta \sin \phi + r \cos \theta \sin \phi\ r \sin \theta \cos \phi - r \sin \theta\ 0 \\
+                &= 0, \\
+                \tilde{g}_{\phi \phi} &= \sum_{\alpha} \frac{\partial x^{\alpha}}{\partial \phi} \frac{\partial x^{\alpha}}{\partial \phi} \\
+                &= (- r \sin \theta \sin \phi)^2 + (r \sin \theta \cos \phi)^2 + 0^2 \\
+                &= r^2 \sin^2 \theta \sin^2 \phi + r^2 \sin^2 \theta \cos^2 \phi \\
+                &= r^2 \sin^2 \theta (\sin^2 \phi + \cos^2 \phi) \\
+                &= r^2 \sin^2 \theta,
+            \end{align*}
+        " />
+
+        <p>or in matrix notation:</p>
+        <BlockMath math="\tilde{g}_{\mu \nu} = \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & r^2 & 0 \\
+            0 & 0 & r^2 \sin^2 \theta \\
+        \end{bmatrix}." />
+
+        <p>In this section, I will refer to the spherical metric tensor as <InlineMath math="g_{\mu \nu}" />:</p>
+        <BlockMath math="g_{\mu \nu} = \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & r^2 & 0 \\
+            0 & 0 & r^2 \sin^2 \theta \\
+        \end{bmatrix}." />
+
+        <p>By keeping <InlineMath math="r" /> constant, we get a parametric surface of sphere:</p>
+        <div className="w-full flex justify-center">
+            <Image
+                src={`${basePath}/assets/general-relativity/math-preliminaries/metric-tensor/sphere.png`}
+                width={500}
+                height={500}
+                alt="Sphere"
+                unoptimized
+            />
+        </div>
+
+        <p>To represent coordinates, we choose a 2D <InlineMath math="\theta\textrm{-}\phi" /> plane representing the <InlineMath math="\theta" /> and <InlineMath math="\phi" /> coordinates respectively:</p>
+        <div className="w-full flex justify-center">
+            <Image
+                src={`${basePath}/assets/general-relativity/math-preliminaries/metric-tensor/coordinate-plane-sphere.svg`}
+                width={500}
+                height={500}
+                alt="Coordinate plane of sphere"
+            />
+        </div>
+        <p>where <InlineMath math="0 \leq \theta \leq \pi" /> and <InlineMath math="0 \leq \phi \leq 2\pi" />.</p>
+
+        <p>Consider a curve parametrized in the <InlineMath math="\phi\textrm{-}\theta" /> plane as follows:</p>
+        <BlockMath math="
+            \begin{align*}
+                \theta(\lambda) &= \lambda, \\
+                \phi(\lambda) &= \lambda, \\
+                0 \leq \lambda &\leq \pi.
+            \end{align*}
+        " />
+
+        <p>Rendering, on our plane, the curve looks like this:</p>
+        <div className="w-full flex justify-center">
+            <Image
+                src={`${basePath}/assets/general-relativity/math-preliminaries/metric-tensor/coordinate-plane-sphere-curve.svg`}
+                width={500}
+                height={500}
+                alt="Coordinate plane of sphere with curve"
+            />
+        </div>
+
+        <p>However, on the sphere, the curve looks like this:</p>
+        <div className="w-full flex justify-center">
+            <Image
+                src={`${basePath}/assets/general-relativity/math-preliminaries/metric-tensor/sphere-curve.png`}
+                width={500}
+                height={500}
+                alt="Sphere with curve"
+                unoptimized
+            />
+        </div>
+
+        <p>We could naively calculate the length of the curve from the plane using Pythagorean theorem:</p>
+        <BlockMath math="s = \sqrt{\phi^2 + \theta^2} = \sqrt{\pi^2 + \pi^2} = \pi \sqrt{2}." />
+
+        <p>However, we always have to use the metric tensor:</p>
+        <BlockMath math="
+            \begin{align*}
+                s &= \int_0^{\pi} \left|\frac{d \boldsymbol{R}}{d \lambda}\right| d\lambda \\
+                &= \int_0^{\pi} \sqrt{g_{\mu \nu} \frac{d R^{\mu}}{d \lambda} \frac{d R^{\nu}}{d \lambda}} d\lambda \\
+                &= \int_0^{\pi} \sqrt{g_{\mu \mu} \left(\frac{d R^{\mu}}{d \lambda}\right)^2} d\lambda \\
+                &= \int_0^{\pi} \sqrt{\left(\frac{d r}{d \lambda}\right)^2 + r^2 \left(\frac{d \theta}{d \lambda}\right)^2 + r^2 \sin^2 \theta \left(\frac{d \phi}{d \lambda}\right)^2} d\lambda \\
+                &= \int_0^{\pi} \sqrt{r^2 + r^2 \sin^2 \theta} d\lambda \\
+                &= r^2 \int_0^{\pi} \sqrt{1 + \sin^2 \lambda}\ d\lambda \\
+                &\approx 3.8202 r^2 \neq \pi \sqrt{2}.
+            \end{align*}
+        " />
+
+        <p>This is the extrinsic metric tensor - to work with 2D surface, we need three dimensions. To calculate curve lengths on the surface as if we are living on it (similar to Earth), we need to define an intrinsic metric tensor <InlineMath math="\bar{g}_{\mu \nu}" />.</p>
+        <p>To start, consider again a vector <InlineMath math="\boldsymbol{R}" /> and we calculate its tangent vector:</p>
+        <BlockMath math="\frac{d \boldsymbol{R}}{d\lambda} = \frac{d R^{\mu}}{d \lambda} \frac{\partial \boldsymbol{R}}{\partial R^{\mu}} = \frac{d R^{\mu}}{d \lambda} \boldsymbol{\bar{e}_{\mu}}," />
+        <p>where <InlineMath math="\boldsymbol{\bar{e}_{\mu}}" /> are basis vectors in the tangent plane: <InlineMath math="\boldsymbol{\bar{e}_{\theta}}" /> and <InlineMath math="\boldsymbol{\bar{e}_{\phi}}" />. This notation is problematic, since <InlineMath math="\boldsymbol{R}" /> lies outside the plane and we want to define extrinsic relationships. So instead I will be using derivative operators:</p>
+        <BlockMath math="\frac{d}{d\lambda} = \frac{d \bar{x}^{\mu}}{d \lambda} \frac{\partial}{\partial \bar{x}^{\mu}} = \frac{d \bar{x}^{\mu}}{d \lambda} \boldsymbol{\bar{e}_{\mu}}," />
+
+        <p>The squared length of the tangent vector is given by:</p>
+        <BlockMath math="\left|\frac{d}{d\lambda}\right|^2 = \left(\frac{d \bar{x}^{\mu}}{d \lambda} \boldsymbol{\bar{e}_{\mu}}\right) \cdot \left(\frac{d \bar{x}^{\nu}}{d \lambda} \boldsymbol{\bar{e}_{\nu}}\right) = \frac{d \bar{x}^{\mu}}{d \lambda} \frac{d \bar{x}^{\nu}}{d \lambda} \bar{g}_{\mu \nu}." />
+
+        <p>To obtain the metric tensor components <InlineMath math="\bar{g}_{\mu \nu} = \frac{\partial}{\partial \bar{x}^{\mu}} \cdot \frac{\partial}{\partial \bar{x}^{\nu}}" />, we can write the intrinsic bases as linear combination of the extrinsic bases:</p>
+        <BlockMath math="\boldsymbol{\bar{e}_{\mu}} = \frac{\partial}{\partial \bar{x}^{\mu}} = \frac{\partial x^{\nu}}{\partial \bar{x}^{\mu}} \frac{\partial}{\partial x^{\nu}} = \frac{\partial x^{\nu}}{\partial \bar{x}^{\mu}} \boldsymbol{e_{\nu}}," />
+
+        <p>where <InlineMath math="x^{\mu}" /> are the extrinsic coordinates (3D cartesian coordinates) and <InlineMath math="\bar{x}^{\mu}" /> are the intrinsic coordinates (<InlineMath math="\theta" /> and <InlineMath math="\phi" />). We already calculated these derivatives (we will not be using the partial derivatives with respect to <InlineMath math="r" /> since it is not an intrinsic coordinate):</p>
+        <BlockMath math="
+            \begin{align*}
+                \frac{\partial x}{\partial \theta} &= r \cos \theta \cos \phi,  &  \frac{\partial x}{\partial \phi} &= -r \sin \theta \sin \phi, \\
+                \frac{\partial y}{\partial \theta} &= r \cos \theta \sin \phi,  &  \frac{\partial y}{\partial \phi} &= r \sin \theta \cos \phi, \\
+                \frac{\partial z}{\partial \theta} &= -r \sin \theta,           &  \frac{\partial z}{\partial \phi} &= 0.
+            \end{align*}
+        " />
+
+        <p>The intrinsic basis vectors are equal to:</p>
+        <BlockMath math="
+            \begin{align*}
+                \boldsymbol{\bar{e}_{\theta}} &= \frac{\partial x^{\nu}}{\partial \bar{x}^{\theta}} \boldsymbol{e_{\nu}} \\
+                &= r \cos \theta \cos \phi \boldsymbol{e_x} + r \cos \theta \sin \phi \boldsymbol{e_y} - r \sin \theta \boldsymbol{e_z}, \\
+                \boldsymbol{\bar{e}_{\phi}} &= \frac{\partial x^{\nu}}{\partial \bar{x}^{\phi}} \boldsymbol{e_{\nu}} \\
+                &= -r \sin \theta \sin \phi \boldsymbol{e_x} + r \sin \theta \cos \phi \boldsymbol{e_y}.
+            \end{align*}
+        " />
+
+        <p>Now we can calculate the intrinsic metric tensor components (since they are in Cartesian bases, the dot products are zero for <InlineMath math="\boldsymbol{e_{\mu}} \cdot \boldsymbol{e_{\nu}}" /> when <InlineMath math="\mu \neq \nu" />):</p>
+        <BlockMath math="
+            \begin{align*}
+                \bar{g}_{\theta \theta} &= \boldsymbol{\bar{e}_{\theta}} \cdot \boldsymbol{\bar{e}_{\theta}} \\
+                &= (r \cos \theta \cos \phi \boldsymbol{e_x} + r \cos \theta \sin \phi \boldsymbol{e_y} - r \sin \theta \boldsymbol{e_z}) \cdot (r \cos \theta \cos \phi \boldsymbol{e_x} + r \cos \theta \sin \phi \boldsymbol{e_y} - r \sin \theta \boldsymbol{e_z}) \\
+                &= r^2 \cos^2 \theta \cos^2 \phi + r^2 \cos^2 \theta \sin^2 \phi - r^2 \sin^2 \theta \\
+                &= r^2 \cos^2 \theta (\cos^2 \phi + \sin^2 \phi) - r^2 \sin^2 \theta \\
+                &= r^2 \cos^2 \theta - r^2 \sin^2 \theta \\
+                &= r^2, \\
+                \bar{g}_{\theta \phi} = \bar{g}_{\phi \theta} &= \boldsymbol{\bar{e}_{\theta}} \cdot \boldsymbol{\bar{e}_{\phi}} \\
+                &= (r \cos \theta \cos \phi \boldsymbol{e_x} + r \cos \theta \sin \phi \boldsymbol{e_y} - r \sin \theta \boldsymbol{e_z}) \cdot (-r \sin \theta \sin \phi \boldsymbol{e_x} + r \sin \theta \cos \phi \boldsymbol{e_y} + 0 \boldsymbol{e_z}) \\
+                &= -r^2 \cos \theta \sin \theta \cos \phi \sin \phi + r^2 \cos \theta \sin \theta \sin \phi \cos \phi \\
+                &= 0, \\
+                \bar{g}_{\phi \phi} &= \boldsymbol{\bar{e}_{\phi}} \cdot \boldsymbol{\bar{e}_{\phi}} \\
+                &= (-r \sin \theta \sin \phi \boldsymbol{e_x} + r \sin \theta \cos \phi \boldsymbol{e_y}) \cdot (-r \sin \theta \sin \phi \boldsymbol{e_x} + r \sin \theta \cos \phi \boldsymbol{e_y}) \\
+                &= r^2 \sin^2 \theta (\sin^2 \phi + \cos^2 \phi) \\
+                &= r^2 \sin^2 \theta,
+            \end{align*}
+        " />
+        <p>or represented as matrix:</p>
+        <BlockMath math="\bar{g}_{\mu \nu} = \begin{bmatrix}
+            r^2 & 0 \\
+            0   & r^2 \sin^2 \theta
+        \end{bmatrix}." />
+
+        <p>If we now use the previous curve defined as follows:</p>
+        <BlockMath math="
+            \begin{align*}
+                \theta(\lambda) &= \lambda, \\
+                \phi(\lambda) &= \lambda, \\
+                0 \leq \lambda &\leq \pi,
+            \end{align*}
+        " />
+
+        <p>and calculate the length of the curve, we arrive at the same answer:</p>
+        <BlockMath math="
+            \begin{align*}
+                s &= \int_0^{\pi} \left|\frac{d}{d \lambda}\right| d\lambda \\
+                &= \int_0^{\pi} \sqrt{\bar{g}_{\mu \nu} \frac{d \bar{x}^{\mu}}{d \lambda} \frac{d \bar{x}^{\nu}}{d \lambda}} d\lambda \\
+                &= \int_0^{\pi} \sqrt{\bar{g}_{\mu \mu} \left(\frac{d \bar{x}^{\mu}}{d \lambda}\right)^2} d\lambda \\
+                &= \int_0^{\pi} \sqrt{r^2 \left(\frac{d \theta}{d \lambda}\right)^2 + r^2 \sin^2 \theta \left(\frac{d \phi}{d \lambda}\right)^2} d\lambda \\
+                &= \int_0^{\pi} \sqrt{r^2 + r^2 \sin^2 \theta} d\lambda \\
+                &= r^2 \int_0^{\pi} \sqrt{1 + \sin^2 \lambda}\ d\lambda \\
+                &\approx 3.8202 r^2.
+            \end{align*}
+        " />
+
+        <p>To calculate the intrinsic metric tensor, we have to either:</p>
+        <ul>
+            <li>use the extrinsic basis,</li>
+            <li>invent it from our imagination,</li>
+            <li>obtain it from another equation (e.g. Einstein field equations).</li>
+        </ul>
+    </div>
   )
 }
