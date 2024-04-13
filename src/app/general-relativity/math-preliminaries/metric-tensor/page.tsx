@@ -222,6 +222,65 @@ export default async function Home() {
             \end{align*}
         " />
 
+        <LinkH2 id="polar-coordinates">Polar Coordinates</LinkH2>
+        <p>Consider a point parametrized by the distance from the origin <InlineMath math="r" /> and the angle <InlineMath math="\theta" /></p>
+        <div className="w-full flex justify-center">
+            <Image
+                src={`${basePath}/assets/general-relativity/math-preliminaries/metric-tensor/polar-coordinates.svg`}
+                width={500}
+                height={500}
+                alt="Polar coordinates"
+                unoptimized
+            />
+        </div>
+        <p>From the diagram we can see:</p>
+        <BlockMath math="
+            \begin{align*}
+                x &= r \cos \theta, \\
+                y &= r \sin \theta.
+            \end{align*}
+        " />
+
+        <p>The partial derivatives are:</p>
+        <BlockMath math="
+            \begin{align*}
+                \frac{\partial x}{\partial r} &= \cos \theta,
+                & \frac{\partial x}{\partial \theta} &= -r \sin \theta, \\
+                \frac{\partial y}{\partial r} &= \sin \theta,
+                & \frac{\partial y}{\partial \theta} &= r \cos \theta.
+            \end{align*}
+        " />
+
+        <p>The metric tensor in 2D Cartesian coordinates is the Kronecker delta <InlineMath math="\delta_{\mu \nu}" />, the polar metric tensor <InlineMath math="\tilde{g}_{\mu \nu}" /> is equal to:</p>
+        <BlockMath math="
+            \begin{align*}
+                \tilde{g}_{\mu \nu} &= \frac{\partial x^{\alpha}}{\partial x^{\mu}} \frac{\partial x^{\beta}}{\partial x^{\nu}} g_{\alpha \beta} \\
+                &= \frac{\partial x^{\alpha}}{\partial x^{\mu}} \frac{\partial x^{\beta}}{\partial x^{\nu}} \delta_{\alpha \beta} \\
+                &= \sum_{\alpha} \frac{\partial x^{\alpha}}{\partial x^{\mu}} \frac{\partial x^{\alpha}}{\partial x^{\nu}}.
+            \end{align*}
+        " />
+
+        <p>The components of the polar metric tensor are equal to:</p>
+        <BlockMath math="
+            \begin{align*}
+                \tilde{g}_{rr} &= \sum_{\alpha} \frac{\partial x^{\alpha}}{\partial r} \frac{\partial x^{\alpha}}{\partial r} \\
+                &= \cos^2 \theta + \sin^2 \theta \\
+                &= 1, \\
+                \tilde{g}_{r \theta} = \tilde{g}_{\theta r} &= \sum_{\alpha} \frac{\partial x^{\alpha}}{\partial r} \frac{\partial x^{\alpha}}{\partial \theta} \\
+                &= -r \cos \theta \sin \theta + r \sin \theta \cos \theta \\
+                &= 0, \\
+                \tilde{g}_{\theta \theta} &= \sum_{\alpha} \frac{\partial x^{\alpha}}{\partial \theta} \frac{\partial x^{\alpha}}{\partial \theta} \\
+                &= (-r \sin \theta)^2 + (r \cos \theta)^2 \\
+                &= r^2 \sin^2 \theta + r^2 \cos^2 \theta \\
+                &= r^2,
+            \end{align*}
+        " />
+        <p>or in matrix notation:</p>
+        <BlockMath math="\tilde{g}_{\mu \nu} = \begin{bmatrix}
+            1 & 0 \\
+            0 & r^2
+        \end{bmatrix}." />
+
         <LinkH2 id="geometry-sphere">Geometry of Sphere</LinkH2>
         <p>Consider the spherical coordinates where the coordinates are: <InlineMath math="r" /> - the distance from the origin, <InlineMath math="\theta" /> - the colatitude and <InlineMath math="\phi" /> - the azimuthal angle:</p>
         <div className="w-full flex justify-center">
@@ -287,7 +346,6 @@ export default async function Home() {
             \begin{align*}
                 \tilde{g}_{\mu \nu} &= \frac{\partial x^{\alpha}}{\partial \tilde{x}^{\mu}} \frac{\partial x^{\beta}}{\partial \tilde{x}^{\nu}} g_{\alpha \beta} \\
                 &= \frac{\partial x^{\alpha}}{\partial \tilde{x}^{\mu}} \frac{\partial x^{\beta}}{\partial \tilde{x}^{\nu}} \delta_{\alpha \beta} \\
-                &= \frac{\partial x^{\alpha}}{\partial \tilde{x}^{\mu}} \frac{\partial x^{\alpha}}{\partial \tilde{x}^{\nu}} \delta_{\alpha \alpha} \\
                 &= \sum_{\alpha} \frac{\partial x^{\alpha}}{\partial \tilde{x}^{\mu}} \frac{\partial x^{\alpha}}{\partial \tilde{x}^{\nu}}.
             \end{align*}
         " />

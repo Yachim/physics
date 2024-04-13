@@ -91,3 +91,31 @@ export function clampAngle(n: number) {
   const rotations = Math.floor(n / (2 * Math.PI))
   return n - 2 * Math.PI * rotations
 }
+
+export function polynomialToString(coefficients: number[], variable = "x") {
+  let firstReturned = false
+  return coefficients.map((el, i) => {
+    if (el === 0) {
+      return ""
+    }
+
+    let out = ""
+    if (el !== 1 || i === 0) {
+      out = toScientific(el)
+    }
+
+    if (el > 0 && firstReturned) {
+      out = String.raw`+${out}`
+    }
+
+    if (i === 1) {
+      out += String.raw`${variable}`      
+    }
+    else if (i !== 0) {
+      out += String.raw`${variable}^${i}`      
+    }
+
+    firstReturned = true
+    return out
+  }).join("")
+}

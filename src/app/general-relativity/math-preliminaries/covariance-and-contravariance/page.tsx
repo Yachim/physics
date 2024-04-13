@@ -63,16 +63,16 @@ export default async function Home() {
 
       <p>Two notes: the partial derivatives have one upper and one lower index, so we are employing the Einstein summation convention. The second note: I am using latin and greek letters. I am using latin indices for space components and greek indices for spacetime components in general relativity. Here they are used for simplicity and don&apos;t have any special meaning.</p>
 
-      <p>We can make sense of the above relationship by considering a vector <InlineMath math="\boldsymbol{R}" /> parametrized by <InlineMath math="\lambda" /> and its tangent vector <InlineMath math="\frac{d\boldsymbol{R}}{d\lambda}" />. By chain rule:</p>
-      <BlockMath math="\frac{d \boldsymbol{R}}{d \lambda} = \frac{\partial \boldsymbol{R}}{\partial R^{\mu}} \frac{d R^{\mu}}{d\lambda} = \frac{d R^{\mu}}{d \lambda} \boldsymbol{e_{\mu}}." />
+      <p>We can make sense of the above relationship by considering a vector <InlineMath math="\boldsymbol{x}" /> parametrized by <InlineMath math="\lambda" /> and its tangent vector <InlineMath math="\frac{d\boldsymbol{x}}{d\lambda}" />. By chain rule:</p>
+      <BlockMath math="\frac{d \boldsymbol{x}}{d \lambda} = \frac{\partial \boldsymbol{x}}{\partial x^{\mu}} \frac{d x^{\mu}}{d\lambda} = \frac{d x^{\mu}}{d \lambda} \boldsymbol{e_{\mu}}." />
 
-      <p>Now, consider a transformation <InlineMath math="R^{\mu} \to \tilde{R}^{\mu}" />. The tangent vector is equal to:</p>
-      <BlockMath math="\frac{d \boldsymbol{R}}{d \lambda} = \frac{\partial \boldsymbol{R}}{\partial \tilde{R}^{\mu}} \frac{d \tilde{R}^{\mu}}{d\lambda} = \frac{d \tilde{R}^{\mu}}{d \lambda} \boldsymbol{\tilde{e}_{\mu}}." />
+      <p>Now, consider a transformation <InlineMath math="x^{\mu} \to \tilde{x}^{\mu}" />. The tangent vector is equal to:</p>
+      <BlockMath math="\frac{d \boldsymbol{x}}{d \lambda} = \frac{\partial \boldsymbol{x}}{\partial \tilde{x}^{\mu}} \frac{d \tilde{x}^{\mu}}{d\lambda} = \frac{d \tilde{x}^{\mu}}{d \lambda} \boldsymbol{\tilde{e}_{\mu}}." />
 
       <p>We can apply chain rule on the last part:</p>
-      <BlockMath math="\frac{d \tilde{R}^{\mu}}{d \lambda} \boldsymbol{\tilde{e}_{\mu}} = \frac{\partial \tilde{R}^{\mu}}{\partial R^{\nu}} \frac{d R^{\nu}}{d \lambda} \boldsymbol{\tilde{e}_{\mu}}," />
-      <p>implying the component <InlineMath math="\frac{d \tilde{R}^{\mu}}{d \lambda}" /> in the new basis <InlineMath math="\boldsymbol{\tilde{e}_{\mu}}" /> is equal to:</p>
-      <BlockMath math="\frac{d \tilde{R}^{\mu}}{d \lambda} = \frac{\partial \tilde{R}^{\mu}}{\partial R^{\nu}} \frac{d R^{\nu}}{d \lambda}," />
+      <BlockMath math="\frac{d \tilde{x}^{\mu}}{d \lambda} \boldsymbol{\tilde{e}_{\mu}} = \frac{\partial \tilde{x}^{\mu}}{\partial x^{\nu}} \frac{d x^{\nu}}{d \lambda} \boldsymbol{\tilde{e}_{\mu}}," />
+      <p>implying the component <InlineMath math="\frac{d \tilde{x}^{\mu}}{d \lambda}" /> in the new basis <InlineMath math="\boldsymbol{\tilde{e}_{\mu}}" /> is equal to:</p>
+      <BlockMath math="\frac{d \tilde{x}^{\mu}}{d \lambda} = \frac{\partial \tilde{x}^{\mu}}{\partial x^{\nu}} \frac{d x^{\nu}}{d \lambda}," />
 
       <p>Now, consider a covector <InlineMath math="df" />:</p>
       <BlockMath math="df = \frac{\partial f}{\partial x^{\mu}} dx^{\mu} = \frac{\partial f}{\partial x^{\mu}} \epsilon^{\mu}." />

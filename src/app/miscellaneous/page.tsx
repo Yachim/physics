@@ -15,6 +15,7 @@ export default async function Page() {
       <LinkH2 id="chapters">Chapters</LinkH2>
       <Link href="/miscellaneous/flow-curves">Flow Curves</Link>
       <Link href="/miscellaneous/natural-units">Natural Units</Link>
+      <Link href="/miscellaneous/polynomial-curves">Polynomial Curves</Link>
     </div>
   )
 }
