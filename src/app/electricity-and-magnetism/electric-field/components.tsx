@@ -103,7 +103,7 @@ export function TwoChargesElectricField(props: BoardProps) {
 
 export function ElectricDipolePlot(props: BoardProps) {
   return (
-    <CustomJXGBoard id="electric-dipole" {...props} bbox={props.bbox ?? [-0.8, 0.45, 0.8, -0.45]} initFn={(board: JXG.Board) => {
+    <CustomJXGBoard id="electric-dipole-jxg" {...props} bbox={props.bbox ?? [-0.8, 0.45, 0.8, -0.45]} initFn={(board: JXG.Board) => {
       const charge = board.create("point", [-0.2, 0], {
         name: "q",
         color: "green",
@@ -220,7 +220,7 @@ export function ElectricDipolePlot(props: BoardProps) {
 
 export function LineCharge(props: BoardProps) {
   return (
-    <CustomJXGBoard id="line-charge" {...props} bbox={props.bbox ?? [-16, 9, 16, -9]} initFn={(board: JXG.Board) => {
+    <CustomJXGBoard id="line-charge-jxg" {...props} bbox={props.bbox ?? [-16, 9, 16, -9]} initFn={(board: JXG.Board) => {
       const a = board.create("point", [-8, -4], { name: "A" })
       const b = board.create("point", [1, 3], { name: "B" })
       board.create("segment", [a, b])
@@ -319,7 +319,7 @@ export function LineCharge(props: BoardProps) {
 
 export function InfiniteLineCharge(props: BoardProps) {
   return (
-    <CustomJXGBoard id="infinite-line-charge" {...props} bbox={props.bbox ?? [-16, 9, 16, -9]} initFn={(board: JXG.Board) => {
+    <CustomJXGBoard id="infinite-line-charge-jxg" {...props} bbox={props.bbox ?? [-16, 9, 16, -9]} initFn={(board: JXG.Board) => {
       const a = board.create("point", [-8, -4], { name: "A" })
       const b = board.create("point", [1, 3], { name: "B" })
       board.create("line", [a, b])

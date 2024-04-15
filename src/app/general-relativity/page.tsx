@@ -20,6 +20,9 @@ export default async function Home() {
         Latin indices are used for spatial components and greek indices are used for spacetime components.        
       </p>
 
+      {/* FIXME: not consistent before covariant derivative. Also, basis vectors should be del (R/del x^{\mu}) and not (del R/del R^{\mu}) */}
+      <p>For components of vector <InlineMath math="\boldsymbol{v}" />, I am using <InlineMath math="v^{\mu}" />. For coordinates, I am using <InlineMath math="x^{\mu}" />.</p>
+
       <p>Einstein summation convention is employed:</p>
       <BlockMath math="v^i e_i = \sum_i v^i e_i." />
 
