@@ -133,7 +133,7 @@ export default async function Home() {
               alt="Illustration of torsion tensor"
           />
       </div>
-      <p>where <InlineMath math="\boldsymbol{v_p}" /> is parallel transport of <InlineMath math="\boldsymbol{v}" /> and <InlineMath math="\boldsymbol{u_p}" /> is parallel transport of <InlineMath math="\boldsymbol{u}" />. We don&apos;t know the paralell transported vector. But we can still express the torsion tensor as follows:</p>
+      <p>where <InlineMath math="\boldsymbol{v_p}" /> is parallel transport of <InlineMath math="\boldsymbol{v}" /> and <InlineMath math="\boldsymbol{u_p}" /> is parallel transport of <InlineMath math="\boldsymbol{u}" />. The covariant derivative measures how much a vectors changes relative to the parallel transform of the vector. We don&apos;t know the parallel transported vector. But we can still express the torsion tensor as follows:</p>
       <BlockMath math="T(\boldsymbol{u}, \boldsymbol{v}) = \nabla_{\boldsymbol{u}} \boldsymbol{v} - \nabla_{\boldsymbol{v}} \boldsymbol{u} - [\boldsymbol{u}, \boldsymbol{v}]." />
 
       <p>Torsion-free property is a property of a connection, meaning it does not depend on the vector fields we choose. It means that the torsion tensor is zero:</p>
@@ -180,6 +180,9 @@ export default async function Home() {
       " />
 
       <p>A tensor with symmetrized components <InlineMath math="A_{(\mu_1 \mu_2 ... \mu_n) \nu}{}^{\sigma}" /> or antisymmetrized components <InlineMath math="A_{[\mu_1 \mu_2 ... \mu_n] \nu}{}^{\sigma}" /> is not the same tensor as <InlineMath math="A_{\mu_1 \mu_2 ... \mu_n \nu}{}^{\sigma}" />.</p>
+
+      <p>For a torsion free connection, the Christoffel symbols are the same as symmetrized:</p>
+      <BlockMath math="\Gamma^{\sigma}{}_{\mu \nu} = \Gamma^{\sigma}{}_{(\mu \nu)}."/>
     </div>
   )
 }
