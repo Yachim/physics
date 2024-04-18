@@ -69,7 +69,6 @@ export default async function Home() {
           \begin{align*}
             \nabla f &= g^{\nu \mu} \frac{\partial f}{\partial x^{\nu}} \boldsymbol{e_{\mu}} \\
             &= \delta^{\nu \mu} \frac{\partial f}{\partial x^{\nu}} \boldsymbol{e_{\mu}} \\
-            &= \sum_{\mu}  \frac{\partial f}{\partial x^{\mu}} \boldsymbol{e_{\mu}} \\
             &= \frac{\partial f}{\partial x} \boldsymbol{e_x} + \frac{\partial f}{\partial y} \boldsymbol{e_y}.
           \end{align*}
         " />

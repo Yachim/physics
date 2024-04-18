@@ -109,7 +109,7 @@ export default async function Home() {
       <p>The Riemann tensor is linear in all inputs:</p>
       <BlockMath math="R(\boldsymbol{u}, \boldsymbol{v}) \boldsymbol{w} = u^{\mu} v^{\lambda} w^{\rho} R(\boldsymbol{e_{\mu}}, \boldsymbol{e_{\lambda}}) \boldsymbol{e_{\rho}} = u^{\mu} v^{\lambda} w^{\rho} R^{\sigma}{}_{\rho \mu \lambda} \boldsymbol{e_{\sigma}}."/>
 
-      <LinkH2 id="symmetries">Symmetries</LinkH2>
+      <LinkH2 id="symmetries-identities">Symmetries and Identities</LinkH2>
       <p>Consider the following operator where the Riemann tensor is on the basis vector:</p>
       <BlockMath math="R(\boldsymbol{e_{\mu}}, \boldsymbol{e_{\lambda}}) = \nabla_{\boldsymbol{e_{\mu}}} \nabla_{\boldsymbol{e_{\lambda}}} - \nabla_{\boldsymbol{e_{\lambda}}} \nabla_{\boldsymbol{e_{\mu}}} - \nabla_{[\boldsymbol{e_{\mu}}, \boldsymbol{e_{\lambda}}]},"/>
       <p>where the Lie bracket of basis vectors is zero:</p>

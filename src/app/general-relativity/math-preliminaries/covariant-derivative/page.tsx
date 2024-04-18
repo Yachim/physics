@@ -550,7 +550,7 @@ export default async function Home() {
           &= 2\Gamma^{\lambda}{}_{\nu \sigma} g_{\mu \lambda}, \\
           \Gamma^{\lambda}{}_{\nu \sigma} g_{\mu \lambda} &= \frac{1}{2} (g_{\mu \nu, \sigma} + g_{\mu \sigma, \nu} - g_{\sigma \nu, \mu}), \\
           \Gamma^{\lambda}{}_{\nu \sigma} g_{\mu \lambda} g^{\mu \rho} &= \frac{1}{2} (g_{\mu \nu, \sigma} + g_{\mu \sigma, \nu} - g_{\sigma \nu, \mu}), \\
-          \Gamma^{\lambda}{}_{\nu \sigma} g_{\lambda}^{\rho} &= \frac{1}{2} g^{\mu \rho} (g_{\mu \nu, \sigma} + g_{\mu \sigma, \nu} - g_{\sigma \nu, \mu}), \\
+          \Gamma^{\lambda}{}_{\nu \sigma} \delta_{\lambda}^{\rho} &= \frac{1}{2} g^{\mu \rho} (g_{\mu \nu, \sigma} + g_{\mu \sigma, \nu} - g_{\sigma \nu, \mu}), \\
           \Gamma^{\rho}{}_{\nu \sigma} &= \frac{1}{2} g^{\mu \rho} (g_{\mu \nu, \sigma} + g_{\mu \sigma, \nu} - g_{\sigma \nu, \mu}) \\
           &= \frac{1}{2} g^{\mu \rho} \left(\frac{\partial g_{\mu \nu}}{\partial x^{\sigma}} + \frac{\partial g_{\mu \sigma}}{\partial x^{\nu}} - \frac{\partial g_{\sigma \nu}}{\partial x^{\mu}}\right),
         \end{align*}

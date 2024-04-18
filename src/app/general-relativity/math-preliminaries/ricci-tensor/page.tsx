@@ -378,6 +378,93 @@ export default async function Home() {
 
       <p>Generally, if a Ricci scalar is positive, it means that for the same radius, curved space has less area. And for the same circumference, curved space has more area.</p>
       <p>If a Ricci scalar is negative, it means that for the same radius, curved space has more area. And for the same circumference, curved space has less area.</p>
+
+      <LinkH2 id="other-contractions">Other Contractions of the Riemann Tensor</LinkH2>
+      <p>Recall the symmetries and identities of the Riemann tensor:</p>
+      <BlockMath math="
+        \begin{align*}
+          R_{\sigma \rho \mu \lambda} &= -R_{\sigma \rho \lambda \mu}, \\
+          R_{\sigma \gamma \alpha \beta} + R_{\sigma \beta \gamma \alpha} + R_{\sigma \alpha \beta \gamma} &= 0, \tag{Torsion-free} \\
+          R_{\beta \alpha \mu \lambda} &= -R_{\alpha \beta \mu \lambda}, \tag{Metric compatibility} \\
+          R_{\sigma \gamma \alpha \beta} &= R_{\alpha \beta \sigma \gamma}. \tag{Torsion-free \& metric compatibility} \\
+        \end{align*}
+      "/>
+      <p>The Ricci tensor is a contraction of the Riemann tensor:</p>
+      <BlockMath math="R_{\mu \nu} = R^{\sigma}{}_{\mu \sigma \nu} = g^{\sigma \lambda} R_{\lambda \mu \sigma \nu}." />
+
+      <p>Consider the contraction in the contravariant index and the first covariant index:</p>
+      <BlockMath math="R^{\sigma}{}_{\sigma \mu \nu} = g^{\sigma \lambda} R_{\lambda \sigma \mu \nu} = -g^{\sigma \lambda} R_{\sigma \lambda \mu \nu} = 0." />
+
+      <p>We already know that the contraction in the contravariant index and the second covariant index is the Ricci tensor components:</p>
+      <BlockMath math="R^{\sigma}{}_{\mu \sigma \nu} = R_{\mu \nu}." />
+
+      <p>Considering the last possibility - the contraction in the contravariant index and the third covariant index:</p>
+      <BlockMath math="R^{\sigma}{}_{\mu \nu \sigma} = g^{\sigma \lambda} R_{\lambda \mu \nu \sigma} = -g^{\sigma \lambda} R_{\lambda \mu \sigma \nu} = -R_{\mu \nu}," />
+      <p>so the Ricci tensor is the only meaningful contraction.</p>
+
+      <LinkH2 id="symmetries-identities">Symmetries and Identities</LinkH2>
+      <p>The Ricci tensor is symmetric:</p>
+      <BlockMath math="
+        \begin{align*}
+          R_{\mu \nu} &= g^{\sigma \lambda} R_{\lambda \mu \sigma \nu} \\
+          &= g^{\sigma \lambda} R_{\sigma \nu \lambda \mu} \\
+          &= R_{\nu \mu}.
+        \end{align*}
+      " />
+
+      <p>Recall the second Bianchi identity:</p>
+      <BlockMath math="R^{\sigma}{}_{\lambda \alpha \beta; \gamma} + R^{\sigma}{}_{\lambda \gamma \alpha; \beta} + R^{\sigma}{}_{\lambda \beta \gamma; \alpha} = 0," />
+      <p>I will lower the index and do the following contraction:</p>
+      <BlockMath math="
+        \begin{align*}
+          R_{\sigma \lambda \alpha \beta; \gamma} + R_{\sigma \lambda \gamma \alpha; \beta} + R_{\sigma \lambda \beta \gamma; \alpha} &= 0, \\
+          g^{\lambda \beta} g^{\sigma \alpha} (R_{\sigma \lambda \alpha \beta; \gamma} + R_{\sigma \lambda \gamma \alpha; \beta} + R_{\sigma \lambda \beta \gamma; \alpha}) &= 0, \\
+          g^{\lambda \beta} (R^{\alpha}{}_{\lambda \alpha \beta; \gamma} + R^{\alpha}{}_{\lambda \gamma \alpha; \beta} + g^{\sigma \alpha} R_{\sigma \lambda \beta \gamma; \alpha}) &= 0, \\
+          g^{\lambda \beta} (R_{\lambda \beta; \gamma} - R^{\alpha}{}_{\lambda \alpha \gamma; \beta} - g^{\sigma \alpha} R_{\lambda \sigma \beta \gamma; \alpha}) &= 0, \\
+          R^{\beta}{}_{\beta; \gamma} - g^{\lambda \beta} R_{\lambda \gamma; \beta} - g^{\sigma \alpha} R^{\beta}{}_{\sigma \beta \gamma; \alpha} &= 0, \\
+          R_{; \gamma} - R^{\beta}{}_{\gamma; \beta} - g^{\sigma \alpha} R_{\sigma \gamma; \alpha} &= 0, \\
+          R_{; \gamma} - R^{\beta}{}_{\gamma; \beta} - R^{\alpha}{}_{\gamma; \alpha} &= 0, \\
+          R_{; \gamma} - R^{\beta}{}_{\gamma; \beta} - R^{\beta}{}_{\gamma; \beta} &= 0, \\
+          R_{; \gamma} - 2 R^{\beta}{}_{\gamma; \beta} &= 0, \\
+          \frac{1}{2} \delta^{\beta}_{\gamma} R_{; \beta} - R^{\beta}{}_{\gamma; \beta} &= 0, \\
+          \frac{1}{2} g^{\gamma \rho} \delta^{\beta}_{\gamma} R_{; \beta} - g^{\gamma \rho} R^{\beta}{}_{\gamma; \beta} &= 0, \\
+          \frac{1}{2} g^{\beta \rho} R_{; \beta} - R^{\beta \rho}{}_{; \beta} &= 0,
+        \end{align*}
+      " />
+
+      <p>and this is called the contracted Bianchi identity:</p>
+      <BlockMath math="R^{\alpha \beta}{}_{; \beta} - \frac{1}{2} g^{\alpha \beta} R_{; \beta} = 0." />
+
+      <p>This can be rewritten:</p>
+      <BlockMath math="
+        \begin{align*}
+          R^{\alpha \beta}{}_{; \beta} - \frac{1}{2} g^{\alpha \beta} R_{; \beta} &= 0, \\
+          \left(R^{\alpha \beta} - \frac{1}{2} g^{\alpha \beta} R\right)_{; \beta} &= 0, \\
+          G^{\alpha \beta}{}_{; \beta} &= 0.
+        \end{align*}
+      " />
+      <p>where</p>
+      <BlockMath math="G^{\alpha \beta} = R^{\alpha \beta} - \frac{1}{2} g^{\alpha \beta} R" />
+      <p>is the Einstein tensor.</p>
+      <p>The conservation of energy-momentum is as follows:</p>
+      <BlockMath math="T^{\alpha \beta}{}_{; \beta} = 0," />
+      <p>where <InlineMath math="T^{\alpha \beta}" /> is the energy-momentum tensor.</p>
+      <p>This implies:</p>
+      <BlockMath math="G^{\alpha \beta}{}_{; \beta} = T^{\alpha \beta}{}_{;\beta} = 0." />
+
+      <p>We can say that the curvature is proportional to the energy and momentum:</p>
+      <BlockMath math="
+        \begin{align*}
+          G^{\alpha \beta} &= \frac{8 \pi G}{c^4} T^{\alpha \beta}, \\
+          R^{\alpha \beta} - \frac{1}{2} g^{\alpha \beta} R &= \frac{8 \pi G}{c^4} T^{\alpha \beta},
+        \end{align*}
+      " />
+      <p>where all three tensors are symmetric. In four dimensional spacetime, this results in ten independent equations.</p>
+      <p>Since the covariant derivative is zero, we can add the metric tensor multiplied by a constant:</p>
+      <BlockMath math="R^{\alpha \beta} - \frac{1}{2} g^{\alpha \beta} R + \Lambda g^{\alpha \beta} = \frac{8 \pi G}{c^4} T^{\alpha \beta}," />
+      <p>or in the covariant form:</p>
+      <BlockMath math="R_{\alpha \beta} - \frac{1}{2} g_{\alpha \beta} R + \Lambda g_{\alpha \beta} = \frac{8 \pi G}{c^4} T_{\alpha \beta}," />
+      <p>where <InlineMath math="\Lambda" /> is the cosmological constant. It is related to the expansion of the universe and the dark energy.</p>
     </div>
   )
 }
