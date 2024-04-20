@@ -68,7 +68,7 @@ export default async function Home() {
 
       <p>Recall the components of the Riemann tensor:</p>
       <BlockMath math="R^{\sigma}{}_{\rho \mu \lambda} = \Gamma^{\sigma}{}_{\lambda \rho, \mu} - \Gamma^{\sigma}{}_{\mu \rho, \lambda} + \Gamma^{\nu}{}_{\lambda \rho} \Gamma^{\sigma}{}_{\mu \nu} - \Gamma^{\nu}{}_{\mu \rho} \Gamma^{\sigma}{}_{\lambda \nu}."/>
-      <p>Since every term constains <InlineMath math="\sigma" /> component must be spatial and since every term contains <InlineMath math="\rho" />, it must be timelike:</p>
+      <p>Since every term contains the <InlineMath math="\sigma" /> component, it must be spatial and since every term contains <InlineMath math="\rho" />, it must be timelike:</p>
       <BlockMath math="R^i{}_{t \mu \lambda} = \Gamma^i{}_{\lambda t, \mu} - \Gamma^i{}_{\mu t, \lambda} + \Gamma^{\nu}{}_{\lambda t} \Gamma^i{}_{\mu \nu} - \Gamma^{\nu}{}_{\mu t} \Gamma^i{}_{\lambda \nu}."/>
 
       <p><InlineMath math="\nu" /> is a summation index. For it to be nonzero, <InlineMath math="\nu = t" />, since it&apos;s a lower index. It is also an upper index. And since upper indices cannot be <InlineMath math="t" />, the last two terms vanish:</p>
@@ -89,7 +89,7 @@ export default async function Home() {
         \end{align*}
       " />
 
-      <p>so the nonzero component in Cartesian coordinates are:</p>
+      <p>so the nonzero components in Cartesian coordinates are:</p>
       <BlockMath math="
         \begin{align*}
           R^i{}_{t j t} = -R^i{}_{ttj} &= \frac{\partial}{\partial x^i} \left(\frac{\partial}{\partial x^j} \left(- \frac{M}{r}\right)\right) \\
@@ -103,7 +103,7 @@ export default async function Home() {
           &= \frac{M}{r^5} \left(r^2 \delta^j_i - 3 x^i x^j\right),
         \end{align*}
       " />
-      <p>or rewritten:</p>
+      <p>or written out:</p>
       <BlockMath math="
         \begin{align*}
           R^x{}_{t x t} &= \frac{M}{r^5} \left(r^2 - 3 x^2\right), \\
@@ -132,7 +132,7 @@ export default async function Home() {
           R^z{}_{t z t} &= -\frac{2M}{r^3}.
         \end{align*}
       " />
-      <p>We can consider the geodesic deviation when going along the time geodesics and picking the spacelike basis vectors as the separation vector:</p>
+      <p>We can consider the geodesic deviation when going along the time geodesics and picking the spacelike basis vectors as the separation vectors:</p>
       <BlockMath math="
         \begin{align*}
           \nabla_{\boldsymbol{e_t}} \nabla_{\boldsymbol{e_t}} \boldsymbol{e_x} &= R(\boldsymbol{e_x}, \boldsymbol{e_t}) \boldsymbol{e_t} = -R^{\mu}{}_{t x t} \boldsymbol{e_{\mu}} = -\frac{M}{r^3}, \\
@@ -140,7 +140,7 @@ export default async function Home() {
           \nabla_{\boldsymbol{e_t}} \nabla_{\boldsymbol{e_t}} \boldsymbol{e_z} &= R(\boldsymbol{e_z}, \boldsymbol{e_t}) \boldsymbol{e_t} = -R^{\mu}{}_{t z t} \boldsymbol{e_{\mu}} = \frac{2M}{r^3},
         \end{align*}
       " />
-      <p>this means that the geodesics diverge in the <InlineMath math="z" /> direction (in the direction of the fall) and converge in the <InlineMath math="x" /> and <InlineMath math="y" /> directions. If put all inputs as the spacelike basis vectors, we would get geodesic deviation of <InlineMath math="0" /> - space is flat, but spacetime is curved.</p>
+      <p>this means that the geodesics diverge in the <InlineMath math="z" /> direction (in the direction of the fall) and converge in the <InlineMath math="x" /> and <InlineMath math="y" /> directions. If we input only the spacelike basis vectors, we would get geodesic deviation of <InlineMath math="0" /> - space is flat, but spacetime is curved.</p>
 
       <p>If we compute the Ricci tensor:</p>
       <BlockMath math="

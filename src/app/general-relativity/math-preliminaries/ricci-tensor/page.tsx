@@ -263,7 +263,7 @@ export default async function Home() {
       " />
       <p>and if we take the determinant of both sides, we obtain:</p>
       <BlockMath math="\det \tilde{g} = (\det J)^2 (\det g) = (\det J)^2," />
-      <p>where the determinant of the metric tensor is 1 since it&apos;s the Kronecker delta (orthonormal basis). This implies:</p>
+      <p>where the determinant of the old metric tensor is 1 since it&apos;s the Kronecker delta (orthonormal basis). This implies:</p>
       <BlockMath math="\omega(\boldsymbol{e_1}, \boldsymbol{e_2}) = \sqrt{\det \tilde{g}}." />
 
       <p>The volume form of the vectors in general basis is:</p>
@@ -283,16 +283,16 @@ export default async function Home() {
 
       <p>I will prove that the first covariant derivative is zero. We take a geodesic path and parallel transport the vectors along the path. And since the Levi-Civita connection preserves, volume, the covariant derivative of the volume form must be zero:</p>
       <BlockMath math="0 = \nabla_{\boldsymbol{u}} \omega(\boldsymbol{v_1}, \boldsymbol{v_1}, \dots) = \left(\prod_{i} v_i^{\mu_i}\right) \nabla_{\boldsymbol{u}} \sqrt{\det g}\ \epsilon_{\mu_1 \mu_2 \dots} = 0," />
-      <p>where the product can go outside the covariant derivative, since by the definition of parallel transport, its covariant derivative is zero. Note that this does not mean that the volume does not changes. Just that the way we measure volume does not change. Now let&apos;s take the second covariant derivative of a volume spanned by separation vectors between geodesics:</p>
+      <p>where the product can go outside the covariant derivative, since by the definition of parallel transport, its covariant derivative is zero. Note that this does not mean that the volume does not change. Just that the way we measure volume does not change. Now let&apos;s take the second covariant derivative of a volume spanned by separation vectors between geodesics:</p>
       <BlockMath math="
         \begin{align*}
-          V &= \sqrt{\det g}\ \epsilon_{\mu_1 \mu_2 \dots} \left(\prod_{i} v_i^{\mu_i}\right), \\
+          V &= \sqrt{\det g}\ \epsilon_{\mu_1 \mu_2 \dots} \left(\prod_{i} s_i^{\mu_i}\right), \\
           \nabla_{\boldsymbol{v}} \nabla_{\boldsymbol{v}} V = \nabla_{\boldsymbol{v}} \nabla_{\boldsymbol{v}} \left[\sqrt{\det g}\ \epsilon_{\mu_1 \mu_2 \dots} \left(\prod_{i} s_i^{\mu_i}\right)\right] &= \sqrt{\det g}\ \epsilon_{\mu_1 \mu_2 \dots} \nabla_{\boldsymbol{v}} \nabla_{\boldsymbol{v}} \left(\prod_{i} s_i^{\mu_i}\right) \\
           &= \sqrt{\det g}\ \epsilon_{\mu_1 \mu_2 \dots} \nabla_{\boldsymbol{v}} \left(\dot{s}_j^{\mu_j} \prod_{i \neq j} s_i^{\mu_i}\right) \\
           &= \sqrt{\det g}\ \epsilon_{\mu_1 \mu_2 \dots} \left(\ddot{s}_j^{\mu_j} \prod_{i \neq j} s_i^{\mu_i} + \dot{s}_i^{\mu_j} \dot{s}_k^{\mu_k} \prod_{i \neq j, k} s_i^{\mu_i}\right),
         \end{align*}
       " />
-      <p>since <InlineMath math="\boldsymbol{v_i}" /> are separation vectors, their second derivative is just the Riemann tensor:</p>
+      <p>since <InlineMath math="\boldsymbol{s_i}" /> are separation vectors, their second derivative is just the Riemann tensor:</p>
       <BlockMath math="
         \begin{align*}
           \nabla_{\boldsymbol{v}} \nabla_{\boldsymbol{v}} \boldsymbol{s} &= -R(\boldsymbol{s}, \boldsymbol{v}) \boldsymbol{v} \\
@@ -311,7 +311,7 @@ export default async function Home() {
           &= -R_{\lambda \beta} v^{\beta} v^{\lambda} V + \sqrt{\det g}\ \epsilon_{\mu_1 \mu_2 \dots} \dot{s}_i^{\mu_j} \dot{s}_k^{\mu_k} \prod_{i \neq j, k} s_i^{\mu_i},
         \end{align*}
       " />
-      <p>where <InlineMath math="R_{\lambda \beta}" /> is the Ricci tensor components. The volume scales proportional to the Ricci tensor. The first term tells us how the volumes change due to the curvature of the space, while the second term tells us the change in volume that can occur in flat space (remember, geodesics may separate at a constant rate in flat space).</p>
+      <p>where <InlineMath math="R_{\lambda \beta}" /> are the Ricci tensor components. The volume scales proportional to the Ricci tensor. The first term tells us how the volume changes due to the curvature of the space, while the second term tells us the change in volume that can occur in flat space (remember, geodesics may separate at a constant rate in flat space).</p>
 
       <p>Since the Ricci tensor components are all positive on the surface of a sphere, this means that the first component is negative. This means that the volumes shrink.</p>
 

@@ -55,7 +55,7 @@ export default async function Home() {
       </div>
       <p>this is called holonomy and I will use it to define the Riemann tensor.</p>
 
-      <p>Instead of doing parallel transform, we could do a related computation - the commutator of the covariant derivative. So we are measuring the change from parallel transport and comparing it with the change from parallel transport if we take the opposite route:</p>
+      <p>Instead of doing parallel transform, we could do a related computation - the commutator of the covariant derivative. So we are measuring the change from the change from parallel transport and comparing it with the change from the change from parallel transport if we take the opposite route:</p>
       <BlockMath math="[\nabla_{\boldsymbol{u}}, \nabla_{\boldsymbol{v}}] \boldsymbol{w} = \nabla_{\boldsymbol{u}} \nabla_{\boldsymbol{v}} \boldsymbol{w} - \nabla_{\boldsymbol{v}} \nabla_{\boldsymbol{u}} \boldsymbol{w}, "/>
       <p>The covariant derivatives are computed the same way, the second has swapped <InlineMath math="\boldsymbol{u}"/> and <InlineMath math="\boldsymbol{v}"/>:</p>
       <BlockMath math="
@@ -103,7 +103,7 @@ export default async function Home() {
         \end{align*}
       "/>
 
-      <p>And if we apply the take basis vectors as the inputs, we get the components:</p>
+      <p>And if we take the basis vectors as the inputs, we get the components:</p>
       <BlockMath math="R(\boldsymbol{e_{\mu}}, \boldsymbol{e_{\lambda}}) \boldsymbol{e_{\rho}} = R^{\sigma}{}_{\rho \mu \lambda} \boldsymbol{e_{\sigma}}."/>
 
       <p>The Riemann tensor is linear in all inputs:</p>
@@ -183,7 +183,7 @@ export default async function Home() {
         \end{align*}
       "/>
 
-      <p>We can also lower indices on the previous two symmetries. So far we have:</p>
+      <p>We can also lower indices on the previous three symmetries. So far we have:</p>
       <BlockMath math="
         \begin{align*}
           R_{\sigma \rho \mu \lambda} &= -R_{\sigma \rho \lambda \mu}, \\
@@ -233,7 +233,7 @@ export default async function Home() {
         \end{align*}
       "/>
 
-      <p>Now, if we take the same index and apply asymmetry, we get:</p>
+      <p>Now, if we take the same index and apply the asymmetries, we get:</p>
       <BlockMath math="
         \begin{align*}
           R_{\alpha \beta \gamma \delta} &= -R_{\alpha \beta \delta \gamma}, \\
@@ -319,7 +319,7 @@ export default async function Home() {
         \end{align*}
       " />
 
-      <p>We can use the above symmetries and obtain the remaining three components:</p>
+      <p>We can use the above symmetries and obtain the remaining three nonzero components:</p>
       <BlockMath math="
         \begin{align*}
           R_{\theta \theta \theta \theta} &= 0, & R_{\theta \theta \theta \phi} &= 0, & R_{\theta \theta \phi \theta} &= 0, & R_{\theta \theta \phi \phi} &= 0, \\
@@ -341,7 +341,7 @@ export default async function Home() {
         \end{align*}
       " />
 
-      <p>Note: do not confuse this with 3D polar coordinates in flat space. These are the coordinates on the surface of a sphere.</p>
+      <p>Note: do not confuse this with 3D polar coordinates in flat space. These are the coordinates on the surface of a sphere, which is a curved surface.</p>
 
       <LinkH2 id="geodesic-deviation">Geodesic Deviation</LinkH2>
       <p>Another way to understand the Riemann tensor is through the geodesic deviation. Consider a point <InlineMath math="P" /> in flat space from which go the geodesic lines:</p>

@@ -17,13 +17,13 @@ export default async function Home() {
       <Link href="/general-relativity/gr-basics">Back</Link>
       <h1>Einstein Field Equations</h1>
       <p>Recall the contracted Bianchi identity:</p>
-      <BlockMath math="G^{\mu \nu}{}{, \mu} = \left(R^{\mu \nu} - \frac{1}{2} R g^{\mu \nu}\right)_{; \mu} = 0," />
+      <BlockMath math="G^{\mu \nu}{}_{; \mu} = \left(R^{\mu \nu} - \frac{1}{2} R g^{\mu \nu}\right)_{; \mu} = 0," />
       <p>and the conservation of energy-momentum:</p>
       <BlockMath math="T^{\mu \nu}{}_{; \mu} = 0." />
 
       <p>Because of metric compatibility (the covariant derivative of metric tensor is zero), we can add a term:</p>
       <BlockMath math="\left(R^{\mu \nu} - \frac{1}{2} R g^{\mu \nu} + \Lambda g^{\mu \nu}\right)_{; \mu} = 0," />
-      <p>where <InlineMath math="\Lambda" /> is the cosmological constant. It is related to the expansion of the universe. The current form of Einstein field equation is:</p>
+      <p>where <InlineMath math="\Lambda" /> is the cosmological constant. It is related to the expansion of the universe. The current form of the Einstein field equations is:</p>
       <BlockMath math="R^{\mu \nu} - \frac{1}{2} R g^{\mu \nu} + \Lambda g^{\mu \nu} = \kappa T^{\mu \nu}," />
       <p>where <InlineMath math="\kappa" /> is the Einstein gravitational constant. We need to solve for it. By doing the following:</p>
       <ol>
@@ -43,9 +43,10 @@ export default async function Home() {
             0 \\
             0 \\
             0
-          \end{bmatrix}.
+          \end{bmatrix},
         \end{align*}
       " />
+      <p>this means that we can use the Newton-Cartan theory.</p>
 
       <p>In weak gravity limit, the metric approaches the Minkowski metric plus a very small error:</p>
       <BlockMath math="
@@ -113,7 +114,7 @@ export default async function Home() {
           0 &= 0,
         \end{align*}
       " />
-      <p>so the only relevant term is the time-time component of the equation which results in:</p>
+      <p>so the only relevant term is the time-time component of the equations which results in:</p>
       <BlockMath math="R = \kappa \rho." />
 
       <p>Now, remember from the Newton-Cartan theory:</p>

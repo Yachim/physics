@@ -18,7 +18,7 @@ export default async function Home() {
       <h1>Energy-Momentum Tensor</h1>
       <p>Throughout this chapter, I will be using the terms density and flux. For 4D density will be a value per unit volume at constant time. For example the number density (e.g. the number of particles):</p>
       <BlockMath math="N^t = \frac{\#}{\Delta x \Delta y \Delta z}," />
-      <p>while the flux is some value passing through a unit surface in unit time, while the third coordinate is held constant:</p>
+      <p>while the flux is some value passing through a unit surface in unit time while the third coordinate is held constant:</p>
       <BlockMath math="
         \begin{align*}
           N^x &= \frac{\#}{\Delta t \Delta y \Delta z}, \\
@@ -134,17 +134,17 @@ export default async function Home() {
       </div>
       <p>where the purple vectors are the four-momentum vectors. In the image above, the components are:</p>
       <BlockMath math="\boldsymbol{P} = P^t \boldsymbol{e_t} + P^x \boldsymbol{e_x} = 0.2 \boldsymbol{e_t} + 0.1 \boldsymbol{e_x}." />
-      <p>The flux of the <InlineMath math="t" /> and <InlineMath math="x" /> components when <InlineMath math="t" /> is held constant are:</p>
+      <p>The flux of the <InlineMath math="t" /> and <InlineMath math="x" /> components when <InlineMath math="t" /> is held constant is:</p>
       <BlockMath math="
         \begin{align*}
           T^{t t} &= 2 P^t = 0.4, \\
-          T^{t x} &= 2 P^x = 0.2,
+          T^{x t} &= 2 P^x = 0.2,
         \end{align*}
       " />
-      <p>The flux of the <InlineMath math="t" /> and <InlineMath math="x" /> components when <InlineMath math="x" /> is held constant are:</p>
+      <p>The flux of the <InlineMath math="t" /> and <InlineMath math="x" /> components when <InlineMath math="x" /> is held constant is:</p>
       <BlockMath math="
         \begin{align*}
-          T^{x t} &= P^t = 0.2, \\
+          T^{t x} &= P^t = 0.2, \\
           T^{x x} &= P^x = 0.1,
         \end{align*}
       " /> 
