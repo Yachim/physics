@@ -33,6 +33,9 @@ export default async function Home() {
       <Link href="/general-relativity/math-preliminaries">Mathematical Preliminaries</Link>
       <Link href="/general-relativity/gr-basics">General Relativity Basics</Link>
       <Link href="/general-relativity/schwarzschild">Schwarzschild Metric</Link>
+
+      <LinkH2 id="acknowledgements">Acknowledgements</LinkH2>
+      <p>I would like to thank <Link href="https://www.youtube.com/@eigenchris">eigenchris</Link> and his courses on <Link href="https://www.youtube.com/playlist?list=PLJHszsWbB6hrkmmq57lX8BV-o-YIOFsiG">tensors</Link>, <Link href="https://www.youtube.com/playlist?list=PLJHszsWbB6hpk5h8lSfBkVrpjsqvUGTCx">tensor calculus</Link> and <Link href="https://www.youtube.com/playlist?list=PLJHszsWbB6hqlw73QjgZcFh4DrkQLSCQa">relativity</Link>. These notes are from his courses. I would also like to thank Sean Carroll for freely providing his <Link href="https://www.preposterousuniverse.com/grnotes/">Lecture Notes on General Relativity</Link> which I sometimes used for reference.</p>
     </div>
   )
 }
