@@ -50,12 +50,12 @@ export default async function Home() {
       <BlockMath math="
         \begin{align*}
           \Gamma^{i}{}_{jk} = 0, \\
-          \Gamma^{i}{}_{0k} = 0, \\
-          \Gamma^{i}{}_{j0} = 0.
+          \Gamma^{i}{}_{tk} = 0, \\
+          \Gamma^{i}{}_{jt} = 0.
         \end{align*}
       " />
 
-      <p>This implies the only nonzero Christoffel components are with the both lower indices timelike:</p>
+      <p>This implies the only nonzero Christoffel symbols are with the both lower indices timelike:</p>
       <BlockMath math="
         \begin{align*}
           \frac{d^2 x^i}{d t^2} + \Gamma^i{}_{tt} \frac{d t}{d t} \frac{d t}{d t} &= 0, \\
@@ -64,7 +64,7 @@ export default async function Home() {
       " />
       <p>and this implies:</p>
       <BlockMath math="\Gamma^i{}_{tt} = \frac{\partial \phi}{\partial x^i}," />
-      <p>and this is the only non zero Christoffel symbol.</p>
+      <p>and these are the only non zero Christoffel symbol.</p>
 
       <p>Recall the components of the Riemann tensor:</p>
       <BlockMath math="R^{\sigma}{}_{\rho \mu \lambda} = \Gamma^{\sigma}{}_{\lambda \rho, \mu} - \Gamma^{\sigma}{}_{\mu \rho, \lambda} + \Gamma^{\nu}{}_{\lambda \rho} \Gamma^{\sigma}{}_{\mu \nu} - \Gamma^{\nu}{}_{\mu \rho} \Gamma^{\sigma}{}_{\lambda \nu}."/>
