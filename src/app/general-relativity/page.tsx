@@ -31,6 +31,7 @@ export default async function Home() {
       
       <LinkH2 id="chapters">Chapters</LinkH2>
       <Link href="/general-relativity/math-preliminaries">Mathematical Preliminaries</Link>
+      <Link href="/general-relativity/gr-basics">General Relativity Basics</Link>
       <Link href="/general-relativity/schwarzschild">Schwarzschild Metric</Link>
     </div>
   )

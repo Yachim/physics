@@ -1,6 +1,17 @@
 import * as math from "mathjs"
 import { G, c } from "./constants"
 
+export const specialRelativityBackwardMatrix = math.matrix([
+    [-1, 0, 0, 0, 0, 0, 0],
+    [1, 1, 0, 0, 0, 0, 0],
+    [0, 0, 1, 0, 0, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 0, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0, 1, 0],
+    [0, 0, 0, 0, 0, 0, 1],
+])
+export const specialRelativityForwardMatrix = math.inv(specialRelativityBackwardMatrix)
+
 export const geometrizedBackwardMatrix = math.matrix([
     [-1, -2, 0, 0, 0, 0, 0],
     [1, 3, 0, 0, 0, 0, 0],
@@ -13,6 +24,29 @@ export const geometrizedBackwardMatrix = math.matrix([
 export const geometrizedForwardMatrix = math.inv(geometrizedBackwardMatrix)
 
 export const units = {
+    specialRelativity: {
+        name: "Special Relativity",
+        f: specialRelativityForwardMatrix,
+        b: specialRelativityBackwardMatrix,
+        units: [
+            "c",
+            "m", 
+            "kg",
+            "A",
+            "K",
+            "cd",
+            "mol"
+        ],
+        consts: [
+            c,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ]
+    },
     geometrized: {
         name: "Geometrized",
         f: geometrizedForwardMatrix,
