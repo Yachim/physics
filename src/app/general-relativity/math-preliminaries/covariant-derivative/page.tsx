@@ -644,7 +644,6 @@ export default async function Home() {
       <BlockMath math="\nabla_{\boldsymbol{e_{\nu}}} \boldsymbol{e_{\mu}} = \Gamma^{\sigma}{}_{\nu \mu} \boldsymbol{e_{\sigma}}," />
       <p>where the Christoffel symbols are also sometimes called the connection coefficients. Note that the order in the lower indices of the Christoffel symbols <b>does</b> matter. So generally:</p>
       <BlockMath math="\Gamma^{\sigma}{}_{\nu \mu} \neq \Gamma^{\sigma}{}_{\mu \nu}." />
-      <p>Some sources</p>
 
       <p>Turns out that the following conditions are not enough to solve for unique connection coefficients:</p>
       <BlockMath math="
@@ -660,9 +659,17 @@ export default async function Home() {
       <p>To get the unique solution for the connection coefficients, we have to introduce two new properties. The first is the torsion-free property:</p>
       <BlockMath math="\nabla_{\boldsymbol{w}} \boldsymbol{v} - \nabla_{\boldsymbol{v}} \boldsymbol{w} = [\boldsymbol{v}, \boldsymbol{w}]," />
       <p>where <InlineMath math="[\boldsymbol{v}, \boldsymbol{w}]" /> is the Lie bracket:</p>
-      <BlockMath math="[\boldsymbol{v}, \boldsymbol{w}] = \boldsymbol{v} \boldsymbol{w} - \boldsymbol{w} \boldsymbol{v}," />
+      <BlockMath math="[\boldsymbol{v}, \boldsymbol{w}] = \boldsymbol{v} (\boldsymbol{w}) - \boldsymbol{w} (\boldsymbol{v})," />
       <p>and for our specific case, where the vectors are partial derivative operators (and the order of partial differentiation does not matter):</p>
-      <BlockMath math="[\boldsymbol{v}, \boldsymbol{w}] = v^{\mu} \partial_{\mu} w^{\nu} \partial_{\nu} - w^{\mu} \partial_{\mu} v^{\nu} \partial_{\nu} = v^{\mu} w^{\nu} \partial_{\mu} \partial_{\nu} - w^{\mu} v^{\nu} \partial_{\mu} \partial_{\nu} = 0," />
+      <BlockMath math="
+        \begin{align*}
+          [\boldsymbol{v}, \boldsymbol{w}] &= v^{\mu} \partial_{\mu} (w^{\nu} \partial_{\nu}) - w^{\mu} \partial_{\mu} (v^{\nu} \partial_{\nu}) \\
+          &= v^{\mu} \partial_{\mu} w^{\nu} \partial_{\nu} + v^{\mu} w^{\nu} \partial_{\mu} \partial_{\nu} - w^{\mu} \partial_{\mu} v^{\nu} \partial_{\nu} - w^{\mu} v^{\nu} \partial_{\mu} \partial_{\nu} \\
+          &= v^{\mu} \partial_{\mu} w^{\nu} \partial_{\nu} - v^{\mu} \partial_{\mu} w^{\nu} \partial_{\nu} + v^{\mu} w^{\nu} \partial_{\mu} \partial_{\nu} - w^{\mu} v^{\nu} \partial_{\mu} \partial_{\nu} \\
+          &= v^{\mu} w^{\nu} \partial_{\mu} \partial_{\nu} - w^{\mu} v^{\nu} \partial_{\mu} \partial_{\nu} \\
+          &= 0,
+        \end{align*}
+      " />
       <p>so the torsion-free property is simplified:</p>
       <BlockMath math="\nabla_{\boldsymbol{w}} \boldsymbol{v} = \nabla_{\boldsymbol{v}} \boldsymbol{w}." />
 

@@ -83,8 +83,15 @@ export default async function Home() {
         \end{align*}
       "/>
 
-      <p>Recall the lie bracket of two vectors:</p>
-      <BlockMath math="[\boldsymbol{u}, \boldsymbol{v}] = \boldsymbol{u} (\boldsymbol{v}) - \boldsymbol{v} (\boldsymbol{u}) = u^{\mu} \partial_{\mu} v^{\lambda} \partial_{\lambda} - v^{\mu} \partial_{\mu} u^{\lambda} \partial_{\lambda},"/>
+      <p>The term in the covariant derivative is the Lie bracket (remember, the order of partial differentiation does not matter):</p>
+      <BlockMath math="
+        \begin{align*}
+          u^{\mu} \partial_{\mu} v^{\lambda} \partial_{\lambda} - v^{\mu} \partial_{\mu} u^{\lambda} \partial_{\lambda} &= u^{\mu} \partial_{\mu} v^{\lambda} \partial_{\lambda} + u^{\mu} v^{\lambda} \partial_{\mu} \partial_{\lambda} - v^{\mu} \partial_{\mu} u^{\lambda} \partial_{\lambda} - u^{\mu} v^{\lambda} \partial_{\mu} \partial_{\lambda} \\
+          &= u^{\mu} \partial_{\mu} v^{\lambda} \partial_{\lambda} + u^{\mu} v^{\lambda} \partial_{\mu} \partial_{\lambda} - v^{\mu} \partial_{\mu} u^{\lambda} \partial_{\lambda} - v^{\mu} u^{\lambda} \partial_{\mu} \partial_{\lambda} \\
+          &= u^{\mu} \partial_{\mu} (v^{\lambda} \partial_{\lambda}) - v^{\mu} \partial_{\mu} (u^{\lambda} \partial_{\lambda}) \\
+          &= [\boldsymbol{u}, \boldsymbol{v}],
+        \end{align*}
+      " />
       <p>and the last term only depends on the connections. These are the components of the Riemann tensor:</p>
       <BlockMath math="
         \begin{align*}
