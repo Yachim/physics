@@ -186,8 +186,34 @@ export default async function Page() {
       <p>The ratio of the voltages characterizes the voltage divider and is given by the resistances:</p>
       <BlockMath math="\frac{\varphi_{\textrm{out}}}{\varphi_{\textrm{in}}} = \frac{R_2}{R_1 + R_2}."/>
 
+      {/*
       <LinkH2 id="charging-capacitor">Charging a Capacitor</LinkH2>
+      <p>Consider the circuit shown below. The capacitor is connected to a DC voltage source of emf <InlineMath math="\varepsilon" />. At time <InlineMath math="t = 0" />, the switch on the right is closed. At time <InlineMath math="t = 0" />, the capacitor is initially uncharged (<InlineMath math="q = 0" />).</p>
+      <div className="w-full grid gap-x-10 gap-y-2 grid-cols-[auto_auto] justify-center">
+        <Image
+          src={`${basePath}/assets/electricity-and-magnetism/circuits/charging-capacitor1.svg`}
+          width={400}
+          height={400}
+          alt="Circuit when t < 0"
+        />
+        <Image
+          src={`${basePath}/assets/electricity-and-magnetism/circuits/charging-capacitor2.svg`}
+          width={400}
+          height={400}
+          alt="Circuit when t > 0"
+        />
+        <p className="justify-self-center"><InlineMath math="t < 0" /></p>
+        <p className="justify-self-center"><InlineMath math="t > 0" /></p>
+      </div>
+
+      <p>Before the switch closes (<InlineMath math="t < 0" />), there is no voltage across the capacitor, so the capacitor acts like a short circuit. At <InlineMath math="t = 0" />, the switch closes and current begins to flow according to:</p>
+      <BlockMath math="I_0 = \frac{\varepsilon}{R}." />
+
+      <p>At this instant, the potential difference from the battery terminals is the same as that across the resistor. This initiates the charging of the capacitor. As the capacitor starts to charge, the voltage across the capacitor increases in time:</p>
+      <BlockMath math="\phi_C (t) = \frac{q(t)}{C}." />
+
       <LinkH2 id="discharging-capacitor">Discharging a Capacitor</LinkH2>
+      */}
     </div>
   )
 }

@@ -69,6 +69,45 @@ export default async function Page() {
       <p>Note that <InlineMath math="\boldsymbol{F_B}"/> is always perpendicular to the plane formed by <InlineMath math="\boldsymbol{v}"/> and <InlineMath math="\boldsymbol{B}"/> and cannot change the particle&apos;s speed <InlineMath math="v"/>. <InlineMath math="\boldsymbol{F_B}"/> does no work on the particle:</p>
       <BlockMath math="dW = \boldsymbol{F_B} \cdot d\boldsymbol{s} = q(\boldsymbol{v} \times \boldsymbol{v}) \cdot \boldsymbol{B}\ dt = 0."/>
       <p>However, the direction of <InlineMath math="\boldsymbol{v}"/> can be changed by <InlineMath math="\boldsymbol{F_B}"/>.</p>
+
+      <LinkH2 id="magnetic-force-current">Magnetic Force on a Current</LinkH2>
+      <p>A charged particle moving at a speed <InlineMath math="\boldsymbol{v}" /> experiences a magnetic force <InlineMath math="\boldsymbol{F_B}" />. Electric current is a collection of moving charged particles, meaning a wire carrying current also experiences the magnetic force.</p>
+
+      <p>Consider a long straight wire suspended in the region between two magnetic poles. The magnetic field is illustrated by the black dots and flows out of the page. When a downward current is present, the wire is deflected to the left. However, when an upward current is present, the wire is deflected to the right:</p>
+      <div className="flex justify-center">
+        <Image
+          src={`${basePath}/assets/electricity-and-magnetism/magnetic-field/suspended-wire.svg`}
+          width={550}
+          height={550}
+          alt="Suspended wire magnetic field"
+        />
+      </div>
+
+      <p>Consider a segment of wire of length <InlineMath math="\ell" /> and cross-sectional area <InlineMath math="A" />. The magnetic field points into the page:</p>
+      <div className="flex justify-center">
+        <Image
+          src={`${basePath}/assets/electricity-and-magnetism/magnetic-field/magnetic-field-wire.svg`}
+          width={250}
+          height={250}
+          alt="Wire segment"
+        />
+      </div>
+      <p>The charges move at an average drift velocity <InlineMath math="\boldsymbol{v_d}" /> and the total charge in this segment is:</p>
+      <BlockMath math="Q = q n A \ell," />
+      <p>where <InlineMath math="n" /> is the number of charges per unit volume. The total magnetic force on the segment is:</p>
+      <BlockMath math="\boldsymbol{F_B} = Q \boldsymbol{v_d} \times \boldsymbol{B} = q n A l (\boldsymbol{v_d} \times \boldsymbol{B}) = I (\boldsymbol{\ell} \times \boldsymbol{B})," />
+      <p>where <InlineMath math="I = n q v_d A" /> and <InlineMath math="\boldsymbol{\ell}" /> is vector with magnitude <InlineMath math="\ell" /> and with the same direction as the electric current.</p>
+
+      <p>For a wire of arbitrary shape, the magnetic force is obtained by summing over the force acting on the small segments <InlineMath math="d\boldsymbol{s}" />:</p>
+      <BlockMath math="
+      \begin{align*}
+        d \boldsymbol{F_B} &= I d\boldsymbol{s} \times \boldsymbol{B}, \\
+        \boldsymbol{F_B} &= I \boldsymbol{B} \times \int_C d\boldsymbol{s}.
+      \end{align*}
+      " />
+
+      <p>For a closed loop, the sum of the segments is zero, and thus the total force exerted is zero:</p>
+      <BlockMath math="\boldsymbol{F_B} = \boldsymbol{F_B} = I \boldsymbol{B} \times \oint_C d\boldsymbol{s} = 0." />
     </div>
   )
 }
