@@ -185,33 +185,28 @@ export default async function Home() {
         \sum_{\mu} R^{\lambda}{}_{\sigma \mu \nu} g_{\lambda \mu} 
         = R^{\lambda}{}_{\sigma 1 \nu} \delta_{\lambda 1}
           + R^{\lambda}{}_{\sigma 2 \nu} \delta_{\lambda 2}
-          + \dots,
-      " />
-      <p>and since the metric is diagonal:</p>
-      <BlockMath math="
-        R^1{}_{\sigma 1 \nu}
-          + R^2{}_{\sigma 2 \nu}
           + \dots
-        = R^{\mu}{}_{\sigma \mu \nu}.
+        = R^1{}_{\sigma 1 \nu}
+          + R^2{}_{\sigma 2 \nu}
+          + \dots.
+        = R_{\sigma \nu}
       " />
 
-      <LinkH2 id="sphere-curvature">Curvature of Sphere (Incorrect)</LinkH2>
+      <LinkH2 id="sphere-curvature">Curvature of Sphere</LinkH2>
       <p>Recall the components of the Riemann tensor:</p>
       <BlockMath math="
         \begin{align*}
-          R^{\theta}{}_{\theta \theta \theta} &= 0, & R^{\theta}{}_{\theta \theta \phi} &= -1, & R^{\theta}{}_{\theta \phi \theta} &= 1, & R^{\theta}{}_{\theta \phi \phi} &= 0, \\
+          R^{\theta}{}_{\theta \theta \theta} &= 0, & R^{\theta}{}_{\theta \theta \phi} &= 0, & R^{\theta}{}_{\theta \phi \theta} &= 0, & R^{\theta}{}_{\theta \phi \phi} &= 0, \\
           R^{\theta}{}_{\phi \theta \theta} &= 0, & R^{\theta}{}_{\phi \theta \phi} &= \sin^2 \theta, & R^{\theta}{}_{\phi \phi \theta} &= - \sin^2 \theta, & R^{\theta}{}_{\phi \phi \phi} &= 0,\\
           R^{\phi}{}_{\theta \theta \theta} &= 0, & R^{\phi}{}_{\theta \theta \phi} &= -1, & R^{\phi}{}_{\theta \phi \theta} &= 1, & R^{\phi}{}_{\theta \phi \phi} &= 0, \\
-          R^{\phi}{}_{\phi \theta \theta} &= 0, & R^{\phi}{}_{\phi \theta \phi} &= \sin^2 \theta, & R^{\phi}{}_{\phi \phi \theta} &= -\sin^2 \theta, & R^{\phi}{}_{\phi \phi \phi} &= 0,
+          R^{\phi}{}_{\phi \theta \theta} &= 0, & R^{\phi}{}_{\phi \theta \phi} &= 0, & R^{\phi}{}_{\phi \phi \theta} &= 0, & R^{\phi}{}_{\phi \phi \phi} &= 0.
         \end{align*}
       " />
       <p>we can obtain the non zero components:</p>
       <BlockMath math="
         \begin{align*}
           R_{\theta \theta} &= 1, \\
-          R_{\theta \phi} &= -1?, \\
-          R_{\phi \theta} &= -\sin^2 \theta?, \\
-          R_{\phi \phi} &= \sin^2 \theta, \\
+          R_{\phi \phi} &= \sin^2 \theta.
         \end{align*}
       " />
 

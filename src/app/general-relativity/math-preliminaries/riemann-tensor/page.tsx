@@ -17,7 +17,7 @@ export default async function Home() {
       <Link href="/general-relativity/math-preliminaries">Back</Link>
       <h1>Riemann Tensor</h1>
       <p>To naively define flat space, we could say that space is flat when all <InlineMath math="\Gamma^{\sigma}{}_{\mu \nu} = 0" />. However, when dealing with polar coordinates in flat space, there are nonzero connection coefficients.</p>
-      <p>A second attempt would be to define space as flat, when we can make <InlineMath math="\Gamma^{\sigma}{}_{\mu \nu} = 0" /> by a change of coordinates. This attempt however fails when we consider the surface of a sphere with radius equal to one. If we set <InlineMath math="\theta = \frac{\pi}{2}" />, the metric is the kronecker delta and the Christoffel components are zero:</p>
+      <p>A second attempt would be to define space as flat, when we can make <InlineMath math="\Gamma^{\sigma}{}_{\mu \nu} = 0" /> by a change of coordinates. This attempt however fails when we consider the surface of a sphere with radius equal to one. If we set <InlineMath math="\theta = \frac{\pi}{2}" />, the metric is the Kronecker delta and the Christoffel components are zero:</p>
       <BlockMath math="
         \begin{align*}
           g_{\mu \nu} &= \begin{bmatrix}
@@ -266,7 +266,7 @@ export default async function Home() {
       <BlockMath math="\frac{n^4 - 2n^3 + 3n^2 - 2n}{8} - \frac{n^4 - 6n^3 + 11n^2 - 6n}{24} = \frac{n^2(n^2 - 1)}{12}" />
       <p>independent components. For two dimensions, this reduces to one component. For four dimensions, this reduces to 20 independent components.</p>
 
-      <LinkH2 id="sphere-curvature">Curvature of Sphere (Incorrect)</LinkH2>
+      <LinkH2 id="sphere-curvature">Curvature of Sphere</LinkH2>
       <p>Recall the metric, its inverse and the nonzero Christoffel symbols on the surface of a sphere:</p>
       <BlockMath math="
         \begin{align*}
@@ -337,14 +337,20 @@ export default async function Home() {
       " />
 
       <p>Now, raising the index:</p>
-      <BlockMath math="R^{\mu}{}_{\nu \sigma \lambda} = g^{\mu \rho} R_{\rho \nu \sigma \lambda} = \frac{1}{r^2} R_{\theta \nu \sigma \lambda} + \frac{1}{r^2 \sin^2 \theta} R_{\phi \nu \sigma \lambda}," />
+      <BlockMath math="
+        \begin{align*}
+          R^{\mu}{}_{\nu \sigma \lambda} &= g^{\mu \rho} R_{\rho \nu \sigma \lambda} = g^{\mu \mu} R_{\mu \nu \sigma \lambda}, \tag{not summed over \(\mu\)} \\
+          R^{\theta}{}_{\nu \sigma \lambda} &= \frac{1}{r^2} R_{\theta \nu \sigma \lambda}, \\
+          R^{\phi}{}_{\nu \sigma \lambda} &= \frac{1}{r^2 \sin^2 \theta} R_{\phi \nu \sigma \lambda},
+        \end{align*}
+      "/>
       <p>we obtain the components:</p>
       <BlockMath math="
         \begin{align*}
-          R^{\theta}{}_{\theta \theta \theta} &= 0, & R^{\theta}{}_{\theta \theta \phi} &= -1, & R^{\theta}{}_{\theta \phi \theta} &= 1, & R^{\theta}{}_{\theta \phi \phi} &= 0, \\
+          R^{\theta}{}_{\theta \theta \theta} &= 0, & R^{\theta}{}_{\theta \theta \phi} &= 0, & R^{\theta}{}_{\theta \phi \theta} &= 0, & R^{\theta}{}_{\theta \phi \phi} &= 0, \\
           R^{\theta}{}_{\phi \theta \theta} &= 0, & R^{\theta}{}_{\phi \theta \phi} &= \sin^2 \theta, & R^{\theta}{}_{\phi \phi \theta} &= - \sin^2 \theta, & R^{\theta}{}_{\phi \phi \phi} &= 0,\\
           R^{\phi}{}_{\theta \theta \theta} &= 0, & R^{\phi}{}_{\theta \theta \phi} &= -1, & R^{\phi}{}_{\theta \phi \theta} &= 1, & R^{\phi}{}_{\theta \phi \phi} &= 0, \\
-          R^{\phi}{}_{\phi \theta \theta} &= 0, & R^{\phi}{}_{\phi \theta \phi} &= \sin^2 \theta, & R^{\phi}{}_{\phi \phi \theta} &= -\sin^2 \theta, & R^{\phi}{}_{\phi \phi \phi} &= 0.
+          R^{\phi}{}_{\phi \theta \theta} &= 0, & R^{\phi}{}_{\phi \theta \phi} &= 0, & R^{\phi}{}_{\phi \phi \theta} &= 0, & R^{\phi}{}_{\phi \phi \phi} &= 0.
         \end{align*}
       " />
 
