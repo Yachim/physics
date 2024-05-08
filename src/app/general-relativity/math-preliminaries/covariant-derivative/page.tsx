@@ -611,7 +611,7 @@ export default async function Home() {
           \nabla_{\boldsymbol{u}} (a \boldsymbol{v}) &= \nabla_{u^{\mu} \partial_{\mu}} (a \boldsymbol{v}) \\
           &= u^{\mu} \partial_{\mu} (a \boldsymbol{v}) \\
           &= (u^{\mu} \partial_{\mu} a) \boldsymbol{v} + a u^{\mu} \partial_{\mu} \boldsymbol{v} \\
-          &= (\nabla_{\boldsymbol{u}} \boldsymbol{v}) a + a (\nabla_{\boldsymbol{u}} \boldsymbol{v}).
+          &= (\nabla_{\boldsymbol{u}} a) \boldsymbol{v} + a (\nabla_{\boldsymbol{u}} \boldsymbol{v}).
         \end{align*}
       " />
 
@@ -652,7 +652,7 @@ export default async function Home() {
           \nabla_{\boldsymbol{u}} (\boldsymbol{v} + \boldsymbol{w}) &= \nabla_{\boldsymbol{u}} \boldsymbol{v} + \nabla_{\boldsymbol{w}} \boldsymbol{v}, \\
           \nabla_{\boldsymbol{u}} (a \boldsymbol{v}) &= (\nabla_{\boldsymbol{u}} \boldsymbol{v}) a + a (\nabla_{\boldsymbol{u}} \boldsymbol{v}), \\
           \nabla_{\partial_{\mu}} a &= \frac{\partial a}{\partial x^{\mu}}, \\
-          \nabla_{\boldsymbol{e_{\nu}}} \boldsymbol{e_{\mu}} &= \Gamma^{\sigma}{}_{\nu \mu}.
+          \nabla_{\boldsymbol{e_{\nu}}} \boldsymbol{e_{\mu}} &= \Gamma^{\sigma}{}_{\nu \mu} \boldsymbol{e}_{\sigma}.
         \end{align*}
       " />
 

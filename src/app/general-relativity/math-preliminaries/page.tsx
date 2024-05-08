@@ -25,6 +25,8 @@ export default async function Home() {
       <Link href="/general-relativity/math-preliminaries/lie-bracket-torsion-tensor">Lie Bracket and Torsion Tensor</Link>
       <Link href="/general-relativity/math-preliminaries/riemann-tensor">Riemann Tensor</Link>
       <Link href="/general-relativity/math-preliminaries/ricci-tensor">Ricci Tensor</Link>
+      <Link href="/general-relativity/math-preliminaries/lie-derivative">Lie Derivative</Link>
+      <Link href="/general-relativity/math-preliminaries/killing-vectors">Killing Vectors</Link>
     </div>
   )
 }
