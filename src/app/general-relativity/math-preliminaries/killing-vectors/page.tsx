@@ -214,6 +214,36 @@ export default async function Home() {
       <p>This is consistent with a theorem from classical geometry: a tranformation in the Euclidean plane that preserves distances can be represented as either translation (<InlineMath math="\boldsymbol{u_1}, \boldsymbol{u_2}" />) or rotation about some point (<InlineMath math="\boldsymbol{u_3}" />). Rotation about some other point may be represented as translation, then rotation and then translation back.</p>
 
       <p>The coordinate system may also be reflected. This change, however, is not continuous but descrete.</p>
+
+      <LinkH2 id="conserved-quantities">Conserved Quantities Along Geodesics</LinkH2>
+      <p>Consider the Levi-Civita connection, a vector <InlineMath math="U^{\nu}" /> tangent to a geodesic and a Killing field <InlineMath math="K_{\nu}" />. The quantity <InlineMath math="U^{\nu} K_{\nu}" /> is conserved along the geodesic:</p>
+      <BlockMath math="U^{\mu} \nabla_{\mu} (U^{\nu} K_{\nu}) = 0." />
+
+      <p>Recall that the parallel transport of a vector along itself is a geodesic:</p>
+      <BlockMath math="U^{\mu} \nabla_{\mu} U^{\nu} = 0," />
+
+      <p>simplifying the above assumption:</p>
+      <BlockMath math="U^{\mu} U^{\nu} \nabla_{\mu} K_{\nu} = 0," />
+      <p>and since the indices are just dummy indices, we can freely swap them:</p>
+      <BlockMath math="U^{\mu} U^{\nu} \nabla_{\mu} K_{\nu} = U^{\nu} U^{\mu} \nabla_{\nu} K_{\mu}." />
+
+      <p>From the Killing equation, we obtain:</p>
+      <BlockMath math="\nabla_{\mu} K_{\nu} = -\nabla_{\nu} K_{\mu}." />
+
+      <p>Finally, substituting, we prove the conservation:</p>
+      <BlockMath math="
+        \begin{align*}
+          U^{\mu} U^{\nu} \nabla_{\mu} K_{\nu} &= U^{\nu} U^{\mu} \nabla_{\nu} K_{\mu}, \\
+          U^{\mu} U^{\nu} \nabla_{\mu} K_{\nu} &= -U^{\mu} U^{\nu} \nabla_{\mu} K_{\nu}, \\
+          U^{\mu} U^{\nu} \nabla_{\mu} K_{\nu} &= 0, \\
+        \end{align*}
+      " />
+
+      <p>So the following is true:</p>
+      <BlockMath math="U^{\nu} K_{\nu} = \textrm{constant}." />
+
+      <p>For a curve parametrized by <InlineMath math="\lambda" />, the above may also be expressed as follows:</p>
+      <BlockMath math="\frac{d}{d\lambda} (U^{\nu} K_{\nu}) = 0." />
     </div>
   )
 }
