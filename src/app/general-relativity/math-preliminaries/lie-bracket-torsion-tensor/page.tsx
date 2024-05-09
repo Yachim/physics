@@ -165,11 +165,11 @@ export default async function Home() {
       <p>We could also express the torsion tensor as follows:</p>
       <BlockMath math="T^{\sigma}{}_{\mu \nu} = 2 \Gamma^{\sigma}{}_{[\mu \nu]}," />
       <p>where the brackets mean that the components are symmetrized. For any general tensor:</p>
-      <BlockMath math="A_{[\mu_1 \mu_2 ... \mu_n] \nu}{}^{\sigma} = \frac{1}{n!} (A_{\mu_1 \mu_2 ... \mu_n \nu}{}^{\sigma} + \textrm{alternating sum over \(\mu\) indices})," />
+      <BlockMath math="A_{[\mu_1 \mu_2 ... \mu_n] \nu}{}^{\sigma} = \frac{1}{n!} (A_{\mu_1 \mu_2 ... \mu_n \nu}{}^{\sigma} + \textrm{alternating sum over permutations of \(\mu\) indices})," />
       <p>where alternating sum means minus for odd permutations and plus for even permutations.</p>
 
       <p>For a general tensor, components may be symmetrized:</p>
-      <BlockMath math="A_{(\mu_1 \mu_2 ... \mu_n) \nu}{}^{\sigma} = \frac{1}{n!} (A_{\mu_1 \mu_2 ... \mu_n \nu}{}^{\sigma} + \textrm{sum over \(\mu\) indices})." />
+      <BlockMath math="A_{(\mu_1 \mu_2 ... \mu_n) \nu}{}^{\sigma} = \frac{1}{n!} (A_{\mu_1 \mu_2 ... \mu_n \nu}{}^{\sigma} + \textrm{sum over permutations of \(\mu\) indices})." />
 
       <p>A tensor having symmetric or antisymmetric components means:</p>
       <BlockMath math="

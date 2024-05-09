@@ -244,6 +244,23 @@ export default async function Home() {
 
       <p>For a curve parametrized by <InlineMath math="\lambda" />, the above may also be expressed as follows:</p>
       <BlockMath math="\frac{d}{d\lambda} (U^{\nu} K_{\nu}) = 0." />
+
+      <LinkH2 id="killing-tensors">Killing Tensors</LinkH2>
+      <p>Recall the symmetrization of a tensor:</p>
+      <BlockMath math="T_{(\mu_1 \mu_2 \cdots \mu_n)} = \frac{1}{n!} (T_{\mu_1 \mu_2 \cdots \mu_n} + \textrm{sum over permutations of \(\mu\) indices})." />
+
+      <p>The original Killing equation could then be written as:</p>
+      <BlockMath math="\nabla_{(\mu} K_{\nu)} = 0." />
+
+      <p>The equation above may be generalized to a higher order symmetric Killing tensor <InlineMath math="K_{\nu_1 \nu_2 \cdots \nu_n} = K_{(\nu_1 \nu_2 \cdots \nu_n)}" />:</p>
+      <BlockMath math="\nabla_{(\mu} K_{\nu_1 \nu_2 \cdots \nu_n)} = 0." />
+
+      <p>Every Killing vector corresponds to a symmetry in the manifold. However, Killing tensors lack a similar geometric interpretation.</p>
+
+      <p>Similarly to Killing vectors, a Killing tensor corresponds to a conserved quantity along geodesics. For a vector <InlineMath math="U^{\mu}" /> tangent to a geodesic, the following holds true:</p>
+      <BlockMath math="U^{\mu_1} U^{\mu_2} \cdots U^{\mu_n} K_{\mu_1 \mu_2 \cdots \mu_n} = \textrm{constant}," />
+      <p>or:</p>
+      <BlockMath math="\frac{d}{d\lambda} \left(U^{\mu_1} U^{\mu_2} \cdots U^{\mu_n} K_{\mu_1 \mu_2 \cdots \mu_n}\right) = 0." />
     </div>
   )
 }
